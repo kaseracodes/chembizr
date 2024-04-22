@@ -1,0 +1,32 @@
+.container {
+  padding: 10px 100px 50px 100px;
+}
+
+.heading {
+  font-size: 64px;
+  font-weight: 800;
+  font-family: "Open Sans", sans-serif;
+  color: var(--black);
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.subHeading,
+.desc {
+  font-size: 24px;
+  font-weight: 400;
+  font-family: "Open Sans", sans-serif;
+  color: var(--black);
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+/* .desc {
+  margin-bottom: 30px;
+} */
+
+.cardDiv {
+  padding: 10px 100px 10px 200px;
+}

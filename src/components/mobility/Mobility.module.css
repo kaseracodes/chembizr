@@ -1,0 +1,42 @@
+.container {
+  background: url("/images/mobility.png");
+  background-size: cover;
+  padding: 50px 0 0 0;
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.contentDiv {
+  margin-right: 700px;
+  margin-left: 100px;
+  padding: 80px 80px 150px 80px;
+  border-top: 2px solid var(--white);
+  border-left: 2px solid var(--white);
+  border-right: 2px solid var(--white);
+}
+
+.subHeading {
+  font-size: 25px;
+  font-weight: 400;
+  font-family: "Open Sans", sans-serif;
+  color: var(--white);
+}
+
+.heading {
+  margin: 0;
+  font-family: "Istok Web", sans-serif;
+  font-size: 75px;
+  font-weight: 700;
+  line-height: 125%;
+  color: var(--white);
+  text-transform: capitalize;
+}
+
+.desc {
+  font-size: 18px;
+  font-weight: 400;
+  font-family: "Open Sans", sans-serif;
+  color: var(--white);
+}

@@ -1,0 +1,23 @@
+.container {
+  padding: 50px 80px 50px 100px;
+}
+
+.heading {
+  font-family: "Playfair Display", serif;
+  font-size: 60px;
+  font-weight: 800;
+  color: var(--black);
+  margin: 0;
+}
+
+.subHeading {
+  font-size: 40px;
+  font-weight: 700;
+  font-family: "Open Sans", sans-serif;
+  color: var(--black);
+  margin: 30px 0;
+}
+
+.contentDiv {
+  margin-bottom: 50px;
+}

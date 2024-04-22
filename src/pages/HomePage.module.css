@@ -1,0 +1,67 @@
+.container {
+  width: 100%;
+  margin-top: 0;
+}
+
+.focusAreaContainer {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.focusAreaDiv {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.capabilitesContainer {
+  width: 100%;
+  /* padding: 5px 20px; */
+}
+
+.para {
+  padding: 2px 100px;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--dark-gray);
+  text-align: center;
+  text-transform: capitalize;
+  font-family: "Open Sans", sans-serif;
+}
+
+.CapabilitiesCardDiv {
+  padding: 10px 50px 50px 100px;
+}
+
+.uniquePropositionImageDiv {
+  padding: 120px 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.newsCarouselDiv {
+  margin: 10px 50px;
+  height: auto;
+  overflow: hidden;
+}
+
+.slideTrack {
+  display: flex;
+  animation: scroll 40s linear infinite;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

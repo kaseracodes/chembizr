@@ -1,0 +1,64 @@
+.container {
+  width: 520px;
+  border-radius: 25px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  background-color: var(--white);
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.container:hover {
+  transform: scale(1.02);
+}
+
+.topDiv {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Inter", sans-serif;
+  color: var(--black);
+}
+
+.category {
+  font-size: 12px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.date {
+  font-size: 10px;
+  font-weight: 300;
+  margin: 0;
+}
+
+.heading {
+  font-family: "Istok Web", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--black);
+  text-transform: capitalize;
+}
+
+.desc {
+  font-size: 15px;
+  font-weight: 400;
+  font-family: "Open Sans", sans-serif;
+  color: var(--black);
+  margin-bottom: 20px;
+}
+
+.imageDiv {
+  width: 100%;
+  display: flex;
+}
+
+.innerImageDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.image {
+  width: 260px;
+}

@@ -1,0 +1,51 @@
+.container {
+  background-color: var(--gray4);
+  background-image: url("/images/value_chain_bg.png");
+  background-size: cover;
+  width: 100%;
+  height: 950px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0;
+  /* padding: 10px 20px; */
+}
+
+.heading {
+  font-family: "Playfair Display", serif;
+  font-size: 70px;
+  font-weight: 800;
+  color: var(--black);
+  margin: 0;
+}
+
+.descDiv {
+  padding: 0 200px;
+  text-align: center;
+}
+
+.desc {
+  font-family: "Inter", sans-serif;
+  font-size: 30px;
+  font-weight: 300;
+  color: var(--black);
+}
+
+.cardContainer {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* align-items: center; */
+  gap: 30px;
+  background: rgba(255, 255, 255, 0);
+}
+
+.innerCardContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}

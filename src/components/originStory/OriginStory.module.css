@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 100px;
+}
+
+.contentDiv {
+  padding-left: 50px;
+  font-family: "Open Sans", sans-serif;
+  color: var(--black);
+}
+
+.heading {
+  font-size: 48px;
+  font-weight: 600;
+}
+
+.desc {
+  font-size: 20px;
+  font-weight: 300;
+}

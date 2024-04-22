@@ -1,0 +1,160 @@
+.container {
+  height: 100vh;
+  width: 100vw;
+}
+
+.mainContainer {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--gray3);
+}
+
+.leftDiv {
+  padding: 50px 100px;
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.blogsListingDiv {
+  padding: 50px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.topicsCarouselDiv {
+  width: 100%;
+  /* padding: 5px 30px; */
+}
+
+.topicsCarousel {
+  display: flex;
+  justify-content: space-between;
+}
+
+.topicsCarousel p {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--black);
+}
+
+.topicsCarouselDiv hr {
+  border: 1px solid var(--gray3);
+}
+
+.topicHeading {
+  padding: 0 30px;
+}
+
+.rightDiv {
+  padding: 40px;
+  border-left: 1px solid var(--gray3);
+  width: 430px;
+}
+
+.inputContainer {
+  background-color: var(--gray3);
+  border-radius: 40px;
+  position: relative;
+  align-items: center;
+  width: 410px;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--black);
+}
+
+.inputContainer input {
+  height: 100%;
+  width: 100%;
+  display: block;
+  border: none;
+  padding: 10px;
+  /* position: absolute; */
+  margin-left: 40px;
+  background: transparent;
+}
+
+.inputContainer input:focus {
+  outline: none;
+}
+
+.icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50px;
+  border-radius: 40px;
+  border: none;
+  background: transparent;
+}
+
+.spotlightDiv {
+  width: 370px;
+  background-color: var(--gray3);
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+.topicsDiv {
+  margin-top: 40px;
+}
+
+.spotlightHeading,
+.topicsDivHeading {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--black);
+  margin: 0 0 20px 0;
+}
+
+.topicsDivHeading {
+  text-align: center;
+}
+
+.topicsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.topic {
+  border-radius: 100px;
+  padding: 10px 20px;
+  background-color: var(--gray3);
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.newsletterDiv {
+  margin-top: 40px;
+  width: 100%;
+}
+
+.newsletterDiv h5 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 19px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.emailInputContainer {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  gap: 20px;
+}
+
+.emailInputContainer input {
+  width: 250px;
+  border-radius: 5px;
+  padding: 10px;
+}

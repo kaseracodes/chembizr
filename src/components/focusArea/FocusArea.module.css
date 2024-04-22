@@ -1,0 +1,48 @@
+.container {
+  width: 90%;
+  height: 650px;
+  display: flex;
+}
+
+.imageDiv {
+  width: 100%;
+  height: 100%;
+}
+
+.imageDiv img {
+  width: 100%;
+  height: 100%;
+}
+
+.contentDiv {
+  width: 100%;
+  height: 100%;
+  /* padding: 10px 30px; */
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center; */
+  /* align-items: center; */
+}
+
+.innerDiv {
+  padding: 30px 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.heading {
+  font-family: "Istok Web", sans-serif;
+  color: var(--white);
+  font-size: 70px;
+  font-weight: 700;
+  line-height: 120%;
+  margin-bottom: 2px;
+}
+
+.desc {
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--white);
+}

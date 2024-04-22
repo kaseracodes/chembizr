@@ -1,0 +1,24 @@
+.container {
+  padding: 50px;
+}
+
+.heading {
+  font-family: "Open Sans", sans-serif;
+  color: var(--black);
+  font-size: 56px;
+  font-weight: 600;
+  text-align: center;
+  margin: 0;
+}
+
+.container hr {
+  width: 25%;
+  border: 1px solid var(--orange);
+}
+
+.cardContianer {
+  padding: 80px 200px 10px 200px;
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+}

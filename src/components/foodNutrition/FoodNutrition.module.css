@@ -1,0 +1,51 @@
+.foodContainer {
+  padding: 50px;
+}
+
+.headingContainer {
+  background: url("/images/food/image1.png");
+  height: 420px;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.foodHeading {
+  width: 500px;
+  margin: 0 0 20px 50px;
+  font-family: "Istok Web", sans-serif;
+  font-size: 75px;
+  font-weight: 700;
+  line-height: 125%;
+  color: var(--white);
+  text-transform: capitalize;
+}
+
+.contentDiv {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.descContainer {
+  padding-right: 50px;
+}
+
+.desc {
+  font-size: 18px;
+  font-weight: 400;
+  font-family: "Open Sans", sans-serif;
+  color: var(--black);
+}
+
+.foodImageContainer {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.foodImageContainer img {
+  width: 200px;
+  height: 200px;
+}

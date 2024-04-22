@@ -1,0 +1,44 @@
+.container {
+  width: 100%;
+  height: 900px;
+  margin-top: 50px;
+  padding: 20px 20px;
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+}
+
+.heading {
+  font-family: "Istok Web", sans-serif;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 125%;
+  color: #333333;
+  margin-bottom: 0;
+}
+
+.special {
+  color: #1abfbf;
+}
+
+.leftDiv {
+  margin-left: 80px;
+}
+
+.rightDiv {
+  height: 550px;
+  background-image: radial-gradient(
+    circle at top right,
+    #75a1e2,
+    #bbd1f3,
+    #ffffff
+  );
+}
+
+.para {
+  margin-top: 30px;
+  font-size: 18px;
+  font-weight: 400;
+  font-family: "Open Sans", sans-serif;
+  color: #5a656e;
+}

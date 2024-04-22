@@ -1,0 +1,23 @@
+.carouselContainer {
+  padding: 50px;
+}
+
+.subHeading {
+  font-size: 25px;
+  font-weight: 400;
+  font-family: "Open Sans", sans-serif;
+  color: var(--black);
+  text-align: center;
+  margin-top: 10px;
+}
+
+.heading {
+  margin: 0;
+  font-family: "Istok Web", sans-serif;
+  font-size: 70px;
+  font-weight: 700;
+  line-height: 125%;
+  color: var(--black);
+  text-transform: capitalize;
+  text-align: center;
+}

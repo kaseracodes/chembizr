@@ -1,0 +1,19 @@
+.container {
+  position: absolute;
+  z-index: 100;
+  margin-top: 5px;
+  padding: 10px 20px;
+  background: linear-gradient(to bottom, var(--white), var(--light-gray));
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.anchor {
+  color: var(--black);
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+}

@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 20px;
+}
+
+.container img {
+  height: 75px;
+  width: 100px;
+  border-radius: 8px;
+}
+
+.desc {
+  width: auto;
+  padding: 10px 0;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--black);
+}

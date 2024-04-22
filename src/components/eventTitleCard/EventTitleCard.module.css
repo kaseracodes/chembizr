@@ -1,0 +1,25 @@
+.titleCardContainer {
+  width: 200px;
+  height: 65px;
+  background-color: var(--white);
+  border: none;
+  border-radius: 100px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+  font-family: "Open Sans", sans-serif;
+  color: var(--black);
+}
+
+.titleCardHeading {
+  font-size: 13px;
+  margin: 0 0 5px 0;
+}
+
+.titleCardDate {
+  font-size: 10px;
+  margin: 0;
+}

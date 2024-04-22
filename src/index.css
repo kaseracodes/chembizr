@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Abel&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abel&family=Istok+Web:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abel&family=Istok+Web:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
+:root {
+  --orange: #ff9b42;
+  --orange2: #ffcf4078;
+  --orange3: #ffd65dcc;
+  --orange4: #ffd65d;
+  --blue: #0f4061;
+  --white: #ffffff;
+  --black: #000000;
+  --dark-gray: #333333;
+  --light-gray: #a0a0a0;
+  --gray3: #c1c1c166;
+  --gray4: #f2f3f5;
+  --gray5: #c2c2c2;
+  --light-gray2: #f0f0f0;
+  --green: #5fad56;
+  --green2: #1abf7d;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* For webkit browsers (Chrome, Safari, Opera) */
+/* You may need to adjust these styles for other browsers */
+
+/* Hide the scrollbar track */
+::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+  height: 8px; /* Height of the scrollbar */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent; /* Color of the track */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1; /* Color of the handle */
+  border-radius: 4px; /* Rounded corners */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #a0a0a0; /* Color of the handle on hover */
+}
+
+/* Track on hover */
+::-webkit-scrollbar-track:hover {
+  background: #f0f0f0; /* Color of the track on hover */
+}
+
+/* Corner */
+::-webkit-scrollbar-corner {
+  background: transparent; /* Color of the corner */
+}

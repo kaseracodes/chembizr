@@ -1,0 +1,38 @@
+.chemicalsContainer {
+  padding: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.chemicalsImageContainer img {
+  width: 660px;
+  height: 700px;
+}
+
+.chemicalsContentDiv {
+  padding: 20px 150px 0 50px;
+}
+
+.chemicalsHeading {
+  margin: 15px 0;
+  font-family: "Istok Web", sans-serif;
+  font-size: 75px;
+  font-weight: 700;
+  line-height: 125%;
+  color: var(--black);
+  text-transform: capitalize;
+}
+
+.chemicalsSubHeading {
+  font-size: 25px;
+  font-weight: 700;
+  font-family: "Open Sans", sans-serif;
+  color: var(--black);
+}
+
+.desc {
+  font-size: 18px;
+  font-weight: 400;
+  font-family: "Open Sans", sans-serif;
+  color: var(--black);
+}
