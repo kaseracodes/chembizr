@@ -9,25 +9,25 @@ const Footer = () => {
         <div className={styles.leftDiv}>
           <img src="/images/logo.png" alt="logo" />
           <div className={styles.anchorDiv}>
-            <a href="#" className={styles.anchor}>
+            <a href="/about-us" className={styles.anchor}>
               About Us
             </a>
-            <a href="#" className={styles.anchor}>
+            <a href="/careers" className={styles.anchor}>
               Careers
             </a>
-            <a href="#" className={styles.anchor}>
+            <a href="/news" className={styles.anchor}>
               News
             </a>
-            <a href="#" className={styles.anchor}>
+            <a href="/events" className={styles.anchor}>
               Events
             </a>
-            <a href="#" className={styles.anchor}>
+            <a href="/blogs" className={styles.anchor}>
               Blogs
             </a>
-            <a href="#" className={styles.anchor}>
+            <a href="/focus" className={styles.anchor}>
               Focus Verticals
             </a>
-            <a href="#" className={styles.anchor}>
+            <a href="/capabilities" className={styles.anchor}>
               Capabilities
             </a>
           </div>
@@ -35,7 +35,17 @@ const Footer = () => {
 
         <div className={styles.rightDiv}>
           <p className={styles.para}>Follow Our Socials</p>
-          <LinkedinIcon color={COLORS.white} />
+          <div
+            style={{ cursor: "pointer" }}
+            onClick={() =>
+              window.open(
+                "https://www.linkedin.com/company/chembizr/",
+                "_blank"
+              )
+            }
+          >
+            <LinkedinIcon color={COLORS.white} />
+          </div>
         </div>
       </div>
       <hr />

@@ -2,6 +2,7 @@
 import Button from "../button/Button";
 import styles from "./FocusArea.module.css";
 import { COLORS } from "../../assets/constants";
+import { useNavigate } from "react-router-dom";
 
 const FocusArea = ({
   index,
@@ -11,8 +12,14 @@ const FocusArea = ({
   buttonText,
   width,
   bgColor,
+  pageLink,
 }) => {
-  console.log(index, imagePath, heading, description, buttonText);
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(pageLink);
+  };
+  // console.log(index, imagePath, heading, description, buttonText);
   const isOdd = index % 2 !== 0;
 
   return (
@@ -32,7 +39,11 @@ const FocusArea = ({
         <div className={styles.innerDiv}>
           <h1 className={styles.heading}>{heading}</h1>
           <p className={styles.desc}>{description}</p>
-          <Button content={buttonText} bgColor={COLORS.orange} />
+          <Button
+            onClick={handleClick}
+            content={buttonText}
+            bgColor={COLORS.orange}
+          />
         </div>
       </div>
     </div>

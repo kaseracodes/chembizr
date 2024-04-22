@@ -76,6 +76,7 @@ const HomePage = () => {
           buttonText={FocusAreasData[0].buttonText}
           width={"100%"}
           bgColor={COLORS.blue}
+          pageLink={FocusAreasData[0].pageLink}
         />
 
         <div className={styles.focusAreaDiv}>
@@ -89,6 +90,7 @@ const HomePage = () => {
               buttonText={item.buttonText}
               width={"90%"}
               bgColor={item.index % 2 === 0 ? COLORS.green : COLORS.blue}
+              pageLink={item.pageLink}
             />
           ))}
         </div>
@@ -101,6 +103,7 @@ const HomePage = () => {
           buttonText={FocusAreasData[5].buttonText}
           width={"100%"}
           bgColor={COLORS.blue}
+          pageLink={FocusAreasData[5].pageLink}
         />
       </div>
 

@@ -6,9 +6,16 @@ import Button from "../button/Button";
 import DropdownButton from "../dropdownButton/DropdownButton";
 import styles from "./Navbar.module.css";
 import { COLORS } from "../../assets/constants";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = ({ textColor, invertLogo, iconColor }) => {
+  const navigate = useNavigate();
+
   const [isScrolled, setIsScrolled] = useState(false);
+
+  const handleClick = () => {
+    navigate("/login");
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -68,12 +75,20 @@ const Navbar = ({ textColor, invertLogo, iconColor }) => {
         </div>
 
         <div className={styles.buttonContainer}>
-          <Button content="Log in" bgColor="#333333" />
+          <Button content="Log in" bgColor="#333333" onClick={handleClick} />
           <Button content="Subscribe" bgColor="#FF9B42" />
         </div>
 
         <div className={styles.iconContainer}>
-          <div className={styles.icon}>
+          <div
+            className={styles.icon}
+            onClick={() =>
+              window.open(
+                "https://www.linkedin.com/company/chembizr/",
+                "_blank"
+              )
+            }
+          >
             <LinkedinIcon color={iconColor} />
           </div>
           <div className={styles.icon}>

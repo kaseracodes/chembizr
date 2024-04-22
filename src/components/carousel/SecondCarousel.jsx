@@ -1,7 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import Button from "../button/Button";
 import styles from "./SecondCarousel.module.css";
 
 const SecondCarousel = () => {
+  const navigate = useNavigate();
+
   return (
     <div className={styles.container}>
       {/* <div className={styles.logo}>
@@ -23,7 +26,11 @@ const SecondCarousel = () => {
           <br /> business growth and future transitions
         </p>
 
-        <Button content="Speak With Us" bgColor="#FF9B42" />
+        <Button
+          content="Speak With Us"
+          bgColor="#FF9B42"
+          onClick={() => navigate("/about-us")}
+        />
       </div>
     </div>
   );

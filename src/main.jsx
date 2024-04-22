@@ -15,6 +15,11 @@ import SignupPage from "./pages/SignupPage.jsx";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage.jsx";
 import OTPPage from "./pages/OTPPage.jsx";
 import ResetPasswordPage from "./pages/ResetPasswordPage.jsx";
+import ChemicalsPage from "./pages/ChemicalsPage.jsx";
+import PetroChemicalsPage from "./pages/PetroChemicalsPage.jsx";
+import CleanEnergyPage from "./pages/CleanEnergyPage.jsx";
+import MobilityPage from "./pages/MobilityPage.jsx";
+import PersonalCarePage from "./pages/PersonalCarePage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -28,8 +33,33 @@ const router = createBrowserRouter([
   },
 
   {
-    path: "/food",
+    path: "/food-nutrition",
     element: <FoodNutritionPage />,
+  },
+
+  {
+    path: "/chemicals",
+    element: <ChemicalsPage />,
+  },
+
+  {
+    path: "/petro-chemicals",
+    element: <PetroChemicalsPage />,
+  },
+
+  {
+    path: "/clean-energy",
+    element: <CleanEnergyPage />,
+  },
+
+  {
+    path: "/mobility",
+    element: <MobilityPage />,
+  },
+
+  {
+    path: "/personal-care",
+    element: <PersonalCarePage />,
   },
 
   {

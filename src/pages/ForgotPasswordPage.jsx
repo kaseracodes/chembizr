@@ -1,6 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import styles from "./ForgotPasswordPage.module.css";
 
 const ForgotPasswordPage = () => {
+  const navigate = useNavigate();
+
   return (
     <div className={styles.container}>
       <div className={styles.infoDiv}>
@@ -34,7 +37,9 @@ const ForgotPasswordPage = () => {
           <hr /> OR <hr />
         </div>
 
-        <button className={styles.btn2}>Signup Now</button>
+        <button className={styles.btn2} onClick={() => navigate("/signup")}>
+          Signup Now
+        </button>
 
         <div>
           <h3 className={styles.inputHeading}>Or Login With</h3>

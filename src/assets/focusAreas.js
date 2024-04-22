@@ -6,6 +6,7 @@ export const FocusAreasData = [
     description:
       "We can tailor your requirements by providing a comprehensive market understanding, value chain analysis, and more, supported by our proprietary database, taking your business ideas from concept to commercialization.",
     buttonText: "Know More",
+    pageLink: "/food-nutrition",
   },
 
   {
@@ -15,6 +16,7 @@ export const FocusAreasData = [
     description:
       "Customized analysis and solutions for specialty polymers and chemicals",
     buttonText: "Know More",
+    pageLink: "/chemicals",
   },
 
   {
@@ -24,6 +26,7 @@ export const FocusAreasData = [
     description:
       "Determine market opportunities by gaining insights, understanding fundamental changes, and recognizing macroeconomic variables operating throughout the value chain.",
     buttonText: "Know More",
+    pageLink: "/petro-chemicals",
   },
 
   {
@@ -33,6 +36,7 @@ export const FocusAreasData = [
     description:
       "Cutting-edge market research and intelligence services to help you navigate energy storage challenges, turn insights into opportunities, and revolutionize the clean energy industry.",
     buttonText: "Know More",
+    pageLink: "/clean-energy",
   },
 
   {
@@ -42,6 +46,7 @@ export const FocusAreasData = [
     description:
       "From ICE to EV’s and to more advanced technologies, the automotive market is rapidly changing. With automotive consulting, you can accurately assess market opportunities by focusing on cutting-edge technologies and new-age practices.",
     buttonText: "Know More",
+    pageLink: "/mobility",
   },
 
   {
@@ -51,5 +56,6 @@ export const FocusAreasData = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit,  sed do eiusmod tempor  ipsum dolor sit amet, consectetur adipiscing elit,  sed do eiusmod tempor.",
     buttonText: "Know More",
+    pageLink: "/personal-care",
   },
 ];

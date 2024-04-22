@@ -1,7 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import Button from "../button/Button";
 import styles from "./FirstCarousel.module.css";
 
 const FirstCarousel = () => {
+  const navigate = useNavigate();
+
   return (
     <div className={styles.container}>
       <div className={styles.contentDiv}>
@@ -21,7 +24,11 @@ const FirstCarousel = () => {
           <br /> global chemical companies
         </p>
 
-        <Button content="About Us" bgColor="#FF9B42" />
+        <Button
+          content="About Us"
+          bgColor="#FF9B42"
+          onClick={() => navigate("/about-us")}
+        />
       </div>
     </div>
   );
