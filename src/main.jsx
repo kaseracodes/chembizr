@@ -20,6 +20,7 @@ import PetroChemicalsPage from "./pages/PetroChemicalsPage.jsx";
 import CleanEnergyPage from "./pages/CleanEnergyPage.jsx";
 import MobilityPage from "./pages/MobilityPage.jsx";
 import PersonalCarePage from "./pages/PersonalCarePage.jsx";
+import CareersPage from "./pages/CareersPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -105,6 +106,11 @@ const router = createBrowserRouter([
   {
     path: "/reset-password",
     element: <ResetPasswordPage />,
+  },
+
+  {
+    path: "/careers",
+    element: <CareersPage />,
   },
 
   {

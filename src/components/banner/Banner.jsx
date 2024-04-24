@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { useNavigate } from "react-router-dom";
 import { COLORS } from "../../assets/constants";
 import Button from "../button/Button";
 import styles from "./Banner.module.css";
@@ -11,7 +12,10 @@ const Banner = ({
   buttonText,
   textColor,
   contentWidth,
+  buttonLink,
 }) => {
+  const navigate = useNavigate();
+
   return (
     <div
       className={styles.container}
@@ -31,7 +35,11 @@ const Banner = ({
           {para}
         </p>
 
-        <Button content={buttonText} bgColor={COLORS.orange} />
+        <Button
+          content={buttonText}
+          bgColor={COLORS.orange}
+          onClick={() => navigate(buttonLink)}
+        />
       </div>
     </div>
   );

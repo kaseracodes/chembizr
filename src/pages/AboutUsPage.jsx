@@ -9,6 +9,7 @@ import OriginStory from "../components/originStory/OriginStory";
 import Places from "../components/places/Places";
 import Vision from "../components/vision/Vision";
 import styles from "./AboutUsPage.module.css";
+import { CoreValuesData } from "../assets/coreValuesData";
 
 const AboutUsPage = () => {
   return (
@@ -30,7 +31,7 @@ const AboutUsPage = () => {
 
       <OriginStory />
 
-      <CoreValues />
+      <CoreValues heading="Our Teaming Principles" cardData={CoreValuesData} />
 
       <Vision />
 

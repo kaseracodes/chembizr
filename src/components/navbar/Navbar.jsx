@@ -52,7 +52,7 @@ const Navbar = ({ textColor, invertLogo, iconColor }) => {
             content="About"
             modalContents={[
               { desc: "Who are we?", link: "about-us" },
-              { desc: "Career", link: "career" },
+              { desc: "Career", link: "careers" },
             ]}
           />
           <DropdownButton
