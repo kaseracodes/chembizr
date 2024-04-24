@@ -51,25 +51,25 @@ const Navbar = ({ textColor, invertLogo, iconColor }) => {
             textColor={!isScrolled ? textColor : COLORS.white}
             content="About"
             modalContents={[
-              { desc: "Who are we?", link: "about-us" },
-              { desc: "Career", link: "careers" },
+              { desc: "Who are we?", link: "/about-us" },
+              { desc: "Career", link: "/careers" },
             ]}
           />
           <DropdownButton
             textColor={!isScrolled ? textColor : COLORS.white}
             content="Services"
             modalContents={[
-              { desc: "Industries", link: "focus" },
-              { desc: "Capabilities", link: "capabilities" },
+              { desc: "Industries", link: "/focus" },
+              { desc: "Capabilities", link: "/capabilities" },
             ]}
           />
           <DropdownButton
             textColor={!isScrolled ? textColor : COLORS.white}
             content="Insights"
             modalContents={[
-              { desc: "Blogs", link: "blogs" },
-              { desc: "News", link: "news" },
-              { desc: "Events", link: "events" },
+              { desc: "Blogs", link: "/blogs" },
+              { desc: "News", link: "/news" },
+              { desc: "Events", link: "/events" },
             ]}
           />
         </div>

@@ -108,6 +108,7 @@ const BlogListingPage = () => {
             {BlogsData.map((item, index) => (
               <BlogListingCard
                 key={index}
+                blogId={item.id}
                 heading={item.heading}
                 imagePath={item.imagePath}
                 author={item.author}

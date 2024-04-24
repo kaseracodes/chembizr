@@ -21,6 +21,7 @@ import CleanEnergyPage from "./pages/CleanEnergyPage.jsx";
 import MobilityPage from "./pages/MobilityPage.jsx";
 import PersonalCarePage from "./pages/PersonalCarePage.jsx";
 import CareersPage from "./pages/CareersPage.jsx";
+import BlogDetailPage from "./pages/BlogDetailPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -81,6 +82,11 @@ const router = createBrowserRouter([
   {
     path: "/blogs",
     element: <BlogListingPage />,
+  },
+
+  {
+    path: "/blogs/:id",
+    element: <BlogDetailPage />,
   },
 
   {
