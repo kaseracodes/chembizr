@@ -1,8 +1,11 @@
 import styles from "./Mobility.module.css";
 import Button from "../button/Button";
 import { COLORS } from "../../assets/constants";
+import { useNavigate } from "react-router-dom";
 
 const Mobility = () => {
+  const navigate = useNavigate();
+
   return (
     <div className={styles.container}>
       <div className={styles.contentDiv}>
@@ -16,7 +19,11 @@ const Mobility = () => {
           exercitation ullamco laboris nisi ut aliquip ex ea tempor incididunt
           ut labore et dolore
         </p>
-        <Button content="Button" bgColor={COLORS.orange} />
+        <Button
+          content="Know More"
+          bgColor={COLORS.orange}
+          onClick={() => navigate("/mobility")}
+        />
       </div>
     </div>
   );

@@ -1,8 +1,11 @@
 import styles from "./FoodNutrition.module.css";
 import Button from "../button/Button";
 import { COLORS } from "../../assets/constants";
+import { useNavigate } from "react-router-dom";
 
 const FoodNutrition = () => {
+  const navigate = useNavigate();
+
   return (
     <div className={styles.foodContainer}>
       <div className={styles.headingContainer}>
@@ -16,7 +19,11 @@ const FoodNutrition = () => {
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
             aliquip ex ea tempor incididunt ut labore et dolore{" "}
           </p>
-          <Button content="Button" bgColor={COLORS.orange} />
+          <Button
+            content="Know More"
+            bgColor={COLORS.orange}
+            onClick={() => navigate("/food-nutrition")}
+          />
         </div>
         <div className={styles.foodImageContainer}>
           <img src="/images/food/image2.png" alt="image" />

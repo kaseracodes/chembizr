@@ -1,8 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import { COLORS } from "../../assets/constants";
 import Button from "../button/Button";
 import styles from "./EnergyAndStorage.module.css";
 
 const EnergyAndStorage = () => {
+  const navigate = useNavigate();
+
   return (
     <div className={styles.container}>
       <div className={styles.leftDiv}>
@@ -15,7 +18,11 @@ const EnergyAndStorage = () => {
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
               nisi ut aliquip ex ea
             </p>
-            <Button content="Know More" bgColor={COLORS.orange} />
+            <Button
+              content="Know More"
+              bgColor={COLORS.orange}
+              onClick={() => navigate("/clean-energy")}
+            />
           </div>
           <div className={styles.img1}>
             <img src="/images/energy_storage/image2.png" alt="image" />

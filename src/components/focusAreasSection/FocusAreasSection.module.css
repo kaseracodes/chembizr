@@ -1,0 +1,118 @@
+.container {
+  padding: 50px;
+}
+
+.innerContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 110px 110px 110px 110px 110px 110px 110px 110px 110px 110px 110px 110px 110px 110px 110px 110px 110px 110px 110px 110px;
+  gap: 0px 0px;
+  grid-template-areas:
+    "one two"
+    "one two"
+    "one two"
+    "one two"
+    "one two"
+    "three four"
+    "three four"
+    "three four"
+    "three four"
+    "three four"
+    "five four"
+    "five six"
+    "five six"
+    "five six"
+    "five six"
+    "five eight"
+    "seven eight"
+    "seven eight"
+    "seven eight"
+    "seven eight";
+}
+
+.one {
+  grid-area: one;
+}
+
+.two {
+  grid-area: two;
+}
+
+.three {
+  grid-area: three;
+}
+
+.four {
+  grid-area: four;
+}
+
+.five {
+  grid-area: five;
+}
+
+.six {
+  grid-area: six;
+}
+
+.seven {
+  grid-area: seven;
+}
+
+.eight {
+  grid-area: eight;
+}
+
+.one,
+.two,
+.three,
+.four,
+.five,
+.six,
+.seven,
+.eight {
+  /* width: 100%; */
+}
+
+.one,
+.five {
+  background-color: var(--blue);
+}
+
+.four,
+.eight {
+  background-color: var(--green);
+}
+
+.one,
+.four,
+.five,
+.eight {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+  padding: 0px 80px 0px 50px;
+}
+
+.img {
+  /* transform: scale(0.9); */
+  width: 100%;
+  height: 100%;
+}
+
+.heading {
+  font-family: "Istok Web", sans-serif;
+  color: var(--white);
+  font-size: 70px;
+  font-weight: 700;
+  line-height: 120%;
+  margin: 0;
+}
+
+.desc {
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--white);
+  margin: 0;
+}

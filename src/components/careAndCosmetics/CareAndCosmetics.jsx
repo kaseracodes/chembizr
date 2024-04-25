@@ -1,8 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import { COLORS } from "../../assets/constants";
 import Button from "../button/Button";
 import styles from "./CareAndCosmetics.module.css";
 
 const CareAndCosmetics = () => {
+  const navigate = useNavigate();
+
   return (
     <div className={styles.container}>
       <div className={styles.leftDiv}>
@@ -18,7 +21,11 @@ const CareAndCosmetics = () => {
           North America, China, and Europe have significant oil consumption
           across different categories of lipids.
         </p>
-        <Button content="Button" bgColor={COLORS.orange} />
+        <Button
+          content="Know More"
+          bgColor={COLORS.orange}
+          onClick={() => navigate("/personal-care")}
+        />
       </div>
     </div>
   );

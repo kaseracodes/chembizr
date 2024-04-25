@@ -14,6 +14,7 @@ import Footer from "../components/footer/Footer";
 import Navbar from "../components/navbar/Navbar";
 import News from "../components/news/News";
 import BlogsSection from "../components/blogsSection/BlogsSection";
+import FocusAreasSection from "../components/focusAreasSection/FocusAreasSection";
 
 const responsiveHero = {
   superLargeDesktop: {
@@ -80,7 +81,7 @@ const HomePage = () => {
           pageLink={FocusAreasData[0].pageLink}
         />
 
-        <div className={styles.focusAreaDiv}>
+        {/* <div className={styles.focusAreaDiv}>
           {FocusAreasData.slice(1, 5).map((item) => (
             <FocusArea
               key={item.index}
@@ -94,7 +95,8 @@ const HomePage = () => {
               pageLink={item.pageLink}
             />
           ))}
-        </div>
+        </div> */}
+        <FocusAreasSection />
 
         <FocusArea
           index={5}

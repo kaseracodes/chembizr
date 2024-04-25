@@ -37,8 +37,14 @@ const FocusArea = ({
 
       <div className={styles.contentDiv} style={{ backgroundColor: bgColor }}>
         <div className={styles.innerDiv}>
-          <h1 className={styles.heading}>{heading}</h1>
-          <p className={styles.desc}>{description}</p>
+          <h1
+            className={styles.heading}
+            dangerouslySetInnerHTML={{ __html: heading }}
+          />
+          <p
+            className={styles.desc}
+            dangerouslySetInnerHTML={{ __html: description }}
+          />
           <Button
             onClick={handleClick}
             content={buttonText}

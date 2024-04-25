@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import Carousel from "react-multi-carousel";
 import { COLORS } from "../assets/constants";
 import Navbar from "../components/navbar/Navbar";
@@ -9,20 +10,43 @@ import Button from "../components/button/Button";
 import BlogListingCard from "../components/blogListingCard/BlogListingCard";
 import CallToAction from "../components/callToAction/CallToAction";
 import Footer from "../components/footer/Footer";
-// import ArrowIcon from "../svgIcons/ArrowIcon";
 
-// eslint-disable-next-line react/prop-types
-// const ButtonGroup = ({ next, previous }) => {
-//   return (
-//     <div style={{ position: "absolute" }}>
-//       <ArrowIcon
-//         style={{ transform: "rotate(180deg)" }}
-//         onClick={() => previous()}
-//       />
-//       <ArrowIcon onClick={() => next()} />
-//     </div>
-//   );
-// };
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { useState } from "react";
+
+const NextButton = (props) => {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        display: "block",
+        background: COLORS.gray3,
+        borderRadius: "100%",
+      }}
+      onClick={onClick}
+    />
+  );
+};
+
+const PrevButton = (props) => {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        display: "block",
+        background: COLORS.gray3,
+        borderRadius: "100%",
+      }}
+      onClick={onClick}
+    />
+  );
+};
 
 const BlogListingPage = () => {
   const responsive = {
@@ -45,25 +69,34 @@ const BlogListingPage = () => {
     },
   };
 
-  //   const responsive2 = {
-  //     superLargeDesktop: {
-  //       // the naming can be any, depends on you.
-  //       breakpoint: { max: 4000, min: 3000 },
-  //       items: 5,
-  //     },
-  //     desktop: {
-  //       breakpoint: { max: 3000, min: 1024 },
-  //       items: 5,
-  //     },
-  //     tablet: {
-  //       breakpoint: { max: 1024, min: 464 },
-  //       items: 3,
-  //     },
-  //     mobile: {
-  //       breakpoint: { max: 464, min: 0 },
-  //       items: 2,
-  //     },
-  //   };
+  const settings = {
+    infinite: false,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    nextArrow: <NextButton />,
+    prevArrow: <PrevButton />,
+  };
+
+  // const responsive2 = {
+  //   superLargeDesktop: {
+  //     // the naming can be any, depends on you.
+  //     breakpoint: { max: 4000, min: 3000 },
+  //     items: 5,
+  //   },
+  //   desktop: {
+  //     breakpoint: { max: 3000, min: 1024 },
+  //     items: 5,
+  //   },
+  //   tablet: {
+  //     breakpoint: { max: 1024, min: 464 },
+  //     items: 3,
+  //   },
+  //   mobile: {
+  //     breakpoint: { max: 464, min: 0 },
+  //     items: 2,
+  //   },
+  // };
 
   const Topics = [
     "Programming",
@@ -77,6 +110,8 @@ const BlogListingPage = () => {
     "Politics",
   ];
 
+  const [currTopic, setCurrTopic] = useState(0);
+
   return (
     <div className={styles.container}>
       <Navbar
@@ -88,22 +123,25 @@ const BlogListingPage = () => {
       <div className={styles.mainContainer}>
         <div className={styles.leftDiv}>
           <div className={styles.topicsCarouselDiv}>
-            {/* <Carousel
-              responsive={responsive2}
-              arrows={false}
-              // renderButtonGroupOutside={true}
-              customButtonGroup={<ButtonGroup />}
-            > */}
-            <div className={styles.topicsCarousel}>
-              {Topics.slice(0, 5).map((item, index) => (
-                <p className={styles.topicHeading} key={index}>
-                  {item}
-                </p>
+            <Slider {...settings}>
+              {Topics.map((item, index) => (
+                <div key={index} className={styles.carouselItem}>
+                  <p
+                    className={styles.topicHeading}
+                    onClick={() => setCurrTopic(index)}
+                    style={{
+                      color: currTopic === index ? COLORS.green : COLORS.black,
+                      fontWeight: currTopic === index ? "600" : "400",
+                    }}
+                  >
+                    {item}
+                  </p>
+                </div>
               ))}
-            </div>
-            {/* </Carousel> */}
+            </Slider>
             <hr />
           </div>
+
           <div className={styles.blogsListingDiv}>
             {BlogsData.map((item, index) => (
               <BlogListingCard

@@ -20,7 +20,7 @@ const BlogsSection = () => {
         >
           <div className={styles.contentDiv}>
             <p>{blogs[0].date}</p>
-            <h5>{blogs[0].description.slice(0, 100) + "..."}</h5>
+            <h5>{blogs[0].description.slice(0, 90) + "..."}</h5>
           </div>
         </div>
 
@@ -32,7 +32,7 @@ const BlogsSection = () => {
         <div className={styles.three}>
           <div className={styles.contentDiv}>
             <p>{blogs[1].date}</p>
-            <h5>{blogs[1].description.slice(0, 100) + "..."}</h5>
+            <h5>{blogs[1].description.slice(0, 90) + "..."}</h5>
           </div>
         </div>
 
@@ -42,7 +42,7 @@ const BlogsSection = () => {
         >
           <div className={styles.contentDiv}>
             <p>{blogs[2].date}</p>
-            <h5>{blogs[2].description.slice(0, 100) + "..."}</h5>
+            <h5>{blogs[2].description.slice(0, 90) + "..."}</h5>
           </div>
         </div>
 
@@ -52,7 +52,7 @@ const BlogsSection = () => {
         >
           <div className={styles.contentDiv}>
             <p>{blogs[3].date}</p>
-            <h5>{blogs[3].description.slice(0, 100) + "..."}</h5>
+            <h5>{blogs[3].description.slice(0, 90) + "..."}</h5>
           </div>
         </div>
 
@@ -62,14 +62,14 @@ const BlogsSection = () => {
         >
           <div className={styles.contentDiv}>
             <p>{blogs[4].date}</p>
-            <h5>{blogs[4].description.slice(0, 100) + "..."}</h5>
+            <h5>{blogs[4].description.slice(0, 90) + "..."}</h5>
           </div>
         </div>
 
         <div className={styles.seven}>
           <div className={styles.contentDiv}>
             <p>{blogs[5].date}</p>
-            <h5>{blogs[5].description.slice(0, 100) + "..."}</h5>
+            <h5>{blogs[5].description.slice(0, 90) + "..."}</h5>
           </div>
 
           <button className={styles.btn} onClick={() => navigate("/blogs")}>
