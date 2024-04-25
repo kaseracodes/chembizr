@@ -5,7 +5,7 @@
 .innerContainer {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 110px 110px 110px 110px 110px 110px 110px 110px 110px 110px 110px 110px 110px 110px 110px 110px 110px 110px 110px 110px;
+  grid-template-rows: 88px 88px 88px 88px 88px 88px 88px 88px 88px 88px 88px 88px 88px 88px 88px 88px 88px 88px 88px 88px 88px 88px 88px 88px 88px;
   gap: 0px 0px;
   grid-template-areas:
     "one two"
@@ -13,6 +13,8 @@
     "one two"
     "one two"
     "one two"
+    "one two"
+    "three four"
     "three four"
     "three four"
     "three four"
@@ -23,7 +25,10 @@
     "five six"
     "five six"
     "five six"
+    "five six"
+    "five six"
     "five eight"
+    "seven eight"
     "seven eight"
     "seven eight"
     "seven eight"
@@ -114,5 +119,6 @@
   font-size: 18px;
   font-weight: 400;
   color: var(--white);
-  margin: 0;
+  margin: 0 0 20px 0;
+  text-wrap: wrap;
 }
