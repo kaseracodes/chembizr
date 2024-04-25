@@ -3,9 +3,9 @@
 }
 
 .heading {
-  font-size: 64px;
-  font-weight: 800;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Istok Web", sans-serif;
+  font-size: 70px;
+  font-weight: 700;
   color: var(--black);
   text-align: center;
   margin-top: 0;
@@ -28,5 +28,5 @@
 } */
 
 .cardDiv {
-  padding: 10px 100px 10px 200px;
+  padding: 10px 80px 10px 150px;
 }

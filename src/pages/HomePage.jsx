@@ -13,6 +13,7 @@ import CallToAction from "../components/callToAction/CallToAction";
 import Footer from "../components/footer/Footer";
 import Navbar from "../components/navbar/Navbar";
 import News from "../components/news/News";
+import BlogsSection from "../components/blogsSection/BlogsSection";
 
 const responsiveHero = {
   superLargeDesktop: {
@@ -130,6 +131,8 @@ const HomePage = () => {
           </Carousel>
         </div>
       </div>
+
+      <BlogsSection />
 
       <Heading content="UNIQUE VALUE PROPOSITION" />
       <div className={styles.uniquePropositionImageDiv}>

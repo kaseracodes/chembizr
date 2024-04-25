@@ -22,11 +22,11 @@ const FoodNutritionPage = () => {
       {/* Banner / Hero section */}
       <Banner
         imagePath={"/images/food_page_hero.png"}
-        heading="Food and Nutrition"
-        para="In 2022, the number of investment deals in the overall plant-based food segment fell from 38 to 33. In particular, the American and European regions experienced problems like business closures. The market for plant-based foods, however, is expanding in the Asia Pacific region right now. In 2022, investment in the APAC plant-based food industry increased by 30%, reaching a valuation of."
+        heading="Food and<br />Nutrition"
+        para="In 2022, the number of investment deals in the overall plant-<br />based food segment fell from 38 to 33. In particular, the<br />American and European regions experienced problems<br />like business closures. The market for plant-based foods, however, is<br />expanding in the Asia Pacific region right now. In 2022,<br />investment in the APAC plant-based food industry increased by<br />30%, reaching a valuation of."
         buttonText="Know More"
         textColor={COLORS.black}
-        contentWidth="450px"
+        headingMarginTop="80px"
       />
 
       {/* Value chain section */}
@@ -42,7 +42,7 @@ const FoodNutritionPage = () => {
       <Events />
 
       {/* Industry News */}
-      <News bgColor={COLORS.black} textColor={COLORS.white} />
+      <News bgColor={COLORS.white} textColor={COLORS.black} />
 
       <CallToAction />
 

@@ -13,6 +13,10 @@ const Banner = ({
   textColor,
   contentWidth,
   buttonLink,
+  headingFontSize,
+  headingFontWeight,
+  headingMarginTop,
+  headingLineHeight,
 }) => {
   const navigate = useNavigate();
 
@@ -22,18 +26,30 @@ const Banner = ({
       style={{ backgroundImage: `url(${imagePath})` }}
     >
       <div className={styles.contentDiv} style={{ width: contentWidth }}>
-        <h1 className={styles.heading} style={{ color: textColor }}>
-          {heading}
-        </h1>
+        <h1
+          className={styles.heading}
+          style={{
+            color: textColor,
+            fontSize: headingFontSize,
+            fontWeight: headingFontWeight,
+            marginTop: headingMarginTop,
+            lineHeight: headingLineHeight,
+          }}
+          dangerouslySetInnerHTML={{ __html: heading }}
+        />
 
         {boldPara && (
-          <p className={styles.boldPara} style={{ color: textColor }}>
-            {boldPara}
-          </p>
+          <p
+            className={styles.boldPara}
+            style={{ color: textColor }}
+            dangerouslySetInnerHTML={{ __html: boldPara }}
+          />
         )}
-        <p className={styles.para} style={{ color: textColor }}>
-          {para}
-        </p>
+        <p
+          className={styles.para}
+          style={{ color: textColor }}
+          dangerouslySetInnerHTML={{ __html: para }}
+        />
 
         <Button
           content={buttonText}

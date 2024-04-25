@@ -139,4 +139,118 @@ export const BlogsData = [
       },
     ],
   },
+
+  {
+    id: "7",
+    heading: "Lorem ipsum dolor sit amet, consectetur?",
+    author: "Jasleen Kaur, Marc Randolph",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tempor nec feugiat nisl pretium fusce id velit ut tortor.",
+    category: "How To Scale A Business",
+    date: "Feb 7, 2024",
+    imagePath: "/images/blogs/image2.png",
+    comments: [
+      {
+        user: "user",
+        comment:
+          "This man is highly underrated. Good luck brother wish you more heights of success.",
+        profilePic: "/images/profile_pic.png",
+      },
+    ],
+  },
+
+  {
+    id: "8",
+    heading: "Lorem ipsum dolor sit amet, consectetur?",
+    author: "Jasleen Kaur, Marc Randolph",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tempor nec feugiat nisl pretium fusce id velit ut tortor.",
+    category: "How To Scale A Business",
+    date: "Feb 7, 2024",
+    imagePath: "/images/blogs/image3.png",
+    comments: [
+      {
+        user: "user",
+        comment:
+          "This man is highly underrated. Good luck brother wish you more heights of success.",
+        profilePic: "/images/profile_pic.png",
+      },
+    ],
+  },
+
+  {
+    id: "9",
+    heading: "Lorem ipsum dolor sit amet, consectetur?",
+    author: "Jasleen Kaur, Marc Randolph",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tempor nec feugiat nisl pretium fusce id velit ut tortor.",
+    category: "How To Scale A Business",
+    date: "Feb 7, 2024",
+    imagePath: "/images/blogs/image4.png",
+    comments: [
+      {
+        user: "user",
+        comment:
+          "This man is highly underrated. Good luck brother wish you more heights of success.",
+        profilePic: "/images/profile_pic.png",
+      },
+    ],
+  },
+
+  {
+    id: "10",
+    heading: "Lorem ipsum dolor sit amet, consectetur?",
+    author: "Jasleen Kaur, Marc Randolph",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tempor nec feugiat nisl pretium fusce id velit ut tortor.",
+    category: "How To Scale A Business",
+    date: "Feb 7, 2024",
+    imagePath: "",
+    comments: [
+      {
+        user: "user",
+        comment:
+          "This man is highly underrated. Good luck brother wish you more heights of success.",
+        profilePic: "/images/profile_pic.png",
+      },
+    ],
+  },
+
+  {
+    id: "11",
+    heading: "Lorem ipsum dolor sit amet, consectetur?",
+    author: "Jasleen Kaur, Marc Randolph",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tempor nec feugiat nisl pretium fusce id velit ut tortor.",
+    category: "How To Scale A Business",
+    date: "Feb 7, 2024",
+    imagePath: "/images/blogs/image5.png",
+    comments: [
+      {
+        user: "user",
+        comment:
+          "This man is highly underrated. Good luck brother wish you more heights of success.",
+        profilePic: "/images/profile_pic.png",
+      },
+    ],
+  },
+
+  {
+    id: "12",
+    heading: "Lorem ipsum dolor sit amet, consectetur?",
+    author: "Jasleen Kaur, Marc Randolph",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tempor nec feugiat nisl pretium fusce id velit ut tortor.",
+    category: "How To Scale A Business",
+    date: "Feb 7, 2024",
+    imagePath: "/images/blogs/image6.png",
+    comments: [
+      {
+        user: "user",
+        comment:
+          "This man is highly underrated. Good luck brother wish you more heights of success.",
+        profilePic: "/images/profile_pic.png",
+      },
+    ],
+  },
 ];

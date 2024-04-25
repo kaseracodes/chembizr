@@ -8,18 +8,19 @@ const CallToAction = () => {
     <div className={styles.container}>
       <div className={styles.contentDiv}>
         <h3 className={styles.heading}>
-          Curious about our solutions and services?
+          Curious about our
+          <br /> solutions and services?
         </h3>
 
         <div className={styles.anchorDiv}>
-          <a href="#" className={styles.anchor}>
-            About Us <ArrowIcon />
+          <a href="/about-us" className={styles.anchor}>
+            About Us <ArrowIcon color={COLORS.green} />
           </a>
-          <a href="#" className={styles.anchor}>
-            Business Focus <ArrowIcon />
+          <a href="/focus" className={styles.anchor}>
+            Business Focus <ArrowIcon color={COLORS.green} />
           </a>
-          <a href="#" className={styles.anchor}>
-            Careers <ArrowIcon />
+          <a href="/careers" className={styles.anchor}>
+            Careers <ArrowIcon color={COLORS.green} />
           </a>
         </div>
 

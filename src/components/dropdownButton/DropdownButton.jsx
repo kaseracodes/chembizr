@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-unknown-property */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./DropdownButton.module.css";
 import DropDownModal from "../dropDownModal/DropDownModal";
 import { COLORS } from "../../assets/constants";
 
-const DropdownButton = ({ content, modalContents, textColor }) => {
+const DropdownButton = ({ content, modalContents, textColor, index }) => {
   const [showModal, setShowModal] = useState(false);
   const [clicked, setClicked] = useState(false);
 
@@ -18,11 +18,29 @@ const DropdownButton = ({ content, modalContents, textColor }) => {
     setShowModal(!showModal); // Toggle the modal state on click
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      console.log(event.target.closest(`.button${index}`));
+      if (showModal && !event.target.closest(`.button${index}`)) {
+        setShowModal(false);
+        setClicked(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [showModal]);
+
   return (
     <div className={styles.container}>
       <button
         style={{ color: clicked ? COLORS.orange : textColor }}
-        className={`${styles.btn} ${clicked ? styles.clicked : ""}`}
+        className={`${styles.btn} ${
+          clicked ? styles.clicked : ""
+        } button${index}`}
         onClick={handleClick}
       >
         {content}{" "}
@@ -43,7 +61,11 @@ const DropdownButton = ({ content, modalContents, textColor }) => {
         </svg>
       </button>
 
-      {showModal && <DropDownModal modalContents={modalContents} />}
+      {showModal && (
+        <div className="modal">
+          <DropDownModal modalContents={modalContents} />
+        </div>
+      )}
     </div>
   );
 };

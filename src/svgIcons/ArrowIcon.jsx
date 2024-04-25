@@ -1,5 +1,6 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/no-unknown-property */
-const ArrowIcon = () => {
+const ArrowIcon = ({ color }) => {
   return (
     <svg
       width="14"
@@ -11,7 +12,7 @@ const ArrowIcon = () => {
       <g clip-path="url(#clip0_2275_606)">
         <path
           d="M12.7989 4.7636H1.72852V4.00789H12.7989L8.81627 1.41562L9.6398 0.870799L15.04 4.38575L15.013 4.39453H15.0265L9.6803 7.88312L8.84327 7.3383L12.7989 4.7636Z"
-          fill="#2251FF"
+          fill={color}
         />
       </g>
       <defs>

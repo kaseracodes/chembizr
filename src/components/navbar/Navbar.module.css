@@ -8,8 +8,13 @@
   padding: 0px 50px 0px 20px;
 }
 
+.logo {
+  height: 80px;
+}
+
 .active {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(255, 255, 255);
+  border-bottom: 1px solid var(--gray3);
 }
 
 .rightContainer {

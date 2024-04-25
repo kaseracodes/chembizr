@@ -1,13 +1,14 @@
 .container {
   position: absolute;
   z-index: 100;
-  margin-top: 5px;
-  padding: 10px 20px;
-  background: linear-gradient(to bottom, var(--white), var(--light-gray));
+  margin-top: 40px;
+  padding: 20px;
+  /* background: linear-gradient(to bottom, var(--white), var(--light-gray)); */
+  background-color: var(--white);
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
 }
 
 .anchor {

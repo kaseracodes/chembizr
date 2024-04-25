@@ -50,6 +50,10 @@
   font-weight: 400;
   color: var(--black);
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 .special {

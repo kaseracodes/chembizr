@@ -13,9 +13,9 @@
 }
 
 .heading {
-  font-family: "Playfair Display", serif;
+  font-family: "Istok Web", sans-serif;
   font-size: 70px;
-  font-weight: 800;
+  font-weight: 700;
   color: var(--black);
   margin: 0;
 }

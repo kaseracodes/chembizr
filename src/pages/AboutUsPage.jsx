@@ -22,11 +22,14 @@ const AboutUsPage = () => {
 
       <Banner
         imagePath={"/images/about_us_hero.png"}
-        heading="The Consulting that Gets you more"
-        para="We at ChemBizR, partner with global clients to unleash unique solutions across a variety of business verticals."
+        heading="The Consulting<br />that Gets you more"
+        para="We at ChemBizR, partner with global<br />clients to unleash unique solutions across<br />a variety of business verticals."
         buttonText="Insights"
         textColor={COLORS.black}
-        contentWidth="500px"
+        headingFontSize="56px"
+        headingFontWeight="600"
+        headingMarginTop="120px"
+        headingLineHeight="135%"
       />
 
       <OriginStory />

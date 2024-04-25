@@ -1,13 +1,20 @@
+import { useNavigate } from "react-router-dom";
 import { COLORS } from "../../assets/constants";
 import LinkedinIcon from "../../svgIcons/LinkedinIcon";
 import styles from "./Footer.module.css";
 
 const Footer = () => {
+  const navigate = useNavigate();
+
   return (
     <div className={styles.container}>
       <div className={styles.mainContainer}>
         <div className={styles.leftDiv}>
-          <img src="/images/logo.png" alt="logo" />
+          <img
+            src="/images/logo.png"
+            alt="logo"
+            onClick={() => navigate("/")}
+          />
           <div className={styles.anchorDiv}>
             <a href="/about-us" className={styles.anchor}>
               About Us

@@ -13,11 +13,10 @@
   line-height: 125%;
   color: var(--white);
   text-transform: capitalize;
-  margin-bottom: 0;
 }
 
 .contentDiv {
-  margin-left: 144px;
+  margin-left: 100px;
   width: 800px;
   padding-bottom: 0;
 }

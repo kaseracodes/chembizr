@@ -43,9 +43,10 @@ const FocusParentPage = () => {
       {/* Banner */}
       <Banner
         imagePath={"/images/focus_parent_page_hero.png"}
-        heading="Personal Care Magazine: Making sense of the anti-pollution segment"
-        para="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+        heading="Personal Care<br />Magazine: Making<br />sense of the anti-<br />pollution segment"
+        para="Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br />Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
         buttonText="Read More"
+        headingLineHeight="120%"
       />
 
       {/* Food Nutrition & Beverages */}
