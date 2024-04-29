@@ -15,6 +15,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useState } from "react";
+import BlogListingComponent from "../components/BlogListingComponent";
 
 const NextButton = (props) => {
   const { className, style, onClick } = props;
@@ -143,7 +144,7 @@ const BlogListingPage = () => {
           </div>
 
           <div className={styles.blogsListingDiv}>
-            {BlogsData.map((item, index) => (
+            {/* {BlogsData.map((item, index) => (
               <BlogListingCard
                 key={index}
                 blogId={item.id}
@@ -154,7 +155,8 @@ const BlogListingPage = () => {
                 category={item.category}
                 date={item.date}
               />
-            ))}
+            ))} */}
+            <BlogListingComponent/>
           </div>
         </div>
 

@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import LinkedinIcon from "../../svgIcons/LinkedinIcon";
 import SearchIcon from "../../svgIcons/SearchIcon";
 import Button from "../button/Button";
@@ -7,15 +7,26 @@ import DropdownButton from "../dropdownButton/DropdownButton";
 import styles from "./Navbar.module.css";
 import { COLORS } from "../../assets/constants";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../contexts/authContext";
+import { doSignOut } from "../../firebase/auth";
 
 const Navbar = ({ textColor, iconColor }) => {
   const navigate = useNavigate();
+  const { userLoggedIn } = useAuth();
 
   const [isScrolled, setIsScrolled] = useState(false);
 
-  const handleClick = () => {
+  const handleClickLogin = () => {
     navigate("/login");
   };
+
+  const handleClickLogout = async () => {
+    await doSignOut();
+  }
+
+  const handleWriteBlog = () => {
+    navigate("/writeblog");
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -72,7 +83,29 @@ const Navbar = ({ textColor, iconColor }) => {
         </div>
 
         <div className={styles.buttonContainer}>
-          <Button content="Log in" bgColor="#333333" onClick={handleClick} />
+          {userLoggedIn && (
+            <Button
+            content="Write Blog"
+            bgColor="#333333"
+            onClick={handleWriteBlog}
+          />
+          )}
+        {!userLoggedIn && (
+            <Button
+              content="Log in"
+              bgColor="#333333"
+              onClick={handleClickLogin}
+            />
+          )}
+          {userLoggedIn && (
+            <Button
+              content="Log out"
+              bgColor="#333333"
+              onClick={handleClickLogout}
+            />
+          )
+
+          }
           <Button content="Subscribe" bgColor="#FF9B42" />
         </div>
 

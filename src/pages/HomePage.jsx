@@ -15,6 +15,7 @@ import Navbar from "../components/navbar/Navbar";
 import News from "../components/news/News";
 import BlogsSection from "../components/blogsSection/BlogsSection";
 import FocusAreasSection from "../components/focusAreasSection/FocusAreasSection";
+import { AuthProvider } from "../contexts/authContext/index.jsx";
 
 const responsiveHero = {
   superLargeDesktop: {

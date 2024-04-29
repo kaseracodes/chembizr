@@ -13,9 +13,9 @@ const GreaterThanIcon = ({ color }) => {
       <path
         d="M1.7373 2.15454L7.22859 7.64582L1.7373 13.1371"
         stroke={color}
-        stroke-width="2.35341"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2.35341"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

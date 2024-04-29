@@ -13,7 +13,9 @@ const EventFeedCard = ({
   logoPath,
 }) => {
   const [openModal, setOpenModal] = useState(false);
-
+  const milliseconds = date.seconds * 1000 + Math.floor(date.nanoseconds / 1000000);
+  const date1 = new Date(milliseconds);
+  const dateString = date1.toLocaleString(); 
   return (
     <>
       <div className={styles.container} onClick={() => setOpenModal(true)}>
@@ -21,7 +23,7 @@ const EventFeedCard = ({
           <img src={logoPath} alt="logo" />
           <div className={styles.innerDiv}>
             <h5 className={styles.category}>{category}</h5>
-            <p className={styles.date}>{date}</p>
+            <p className={styles.date}>{dateString}</p>
           </div>
         </div>
 

@@ -1,11 +1,14 @@
 /* eslint-disable react/prop-types */
 import { COLORS } from "../../assets/constants";
-import { EventsData } from "../../assets/eventsData";
+// import { EventsData } from "../../assets/eventsData";
 import Button from "../button/Button";
 import EventFeedCard from "../eventFeedCard/EventFeedCard";
 import EventTitleCard from "../eventTitleCard/EventTitleCard";
 import styles from "./EventsFeed.module.css";
 import BussinessVerticals from "../bussinessVerticals/BussinessVerticals";
+import React, { useState, useEffect } from 'react';
+import { firestore } from '../../firebase/firebase';
+import { collection, onSnapshot, query, orderBy } from 'firebase/firestore';
 
 const BussinessVerticalsItems = [
   "Adhesives and Sealants",
@@ -23,14 +26,26 @@ const BussinessVerticalsItems = [
   "Surfactants",
 ];
 
+
 const EventsFeed = () => {
+  const [eventsData, setEventsData] = useState([]);
+
+  useEffect(() => {
+      const unsubscribe = onSnapshot(query(collection(firestore, "events"), orderBy("date", "desc")), (snapshot) => {
+        setEventsData(snapshot.docs);
+          console.log(snapshot.docs[0].data());
+      });
+
+      return unsubscribe;
+  }, []);
+
   return (
     <div className={styles.container}>
       <div className={styles.leftDiv}>
         <h5 className={styles.divHeading}>Recent Events</h5>
         <hr className={styles.hr} />
         <div className={styles.titleCardDiv}>
-          {EventsData.map((item, index) => (
+          {eventsData.map((item, index) => (
             <EventTitleCard
               key={index}
               heading={item.heading}
@@ -45,15 +60,15 @@ const EventsFeed = () => {
       </div>
 
       <div className={styles.middleDiv}>
-        {EventsData.map((item, index) => (
+        {eventsData.map((item, index) => (
           <EventFeedCard
             key={index}
-            category={item.category}
-            date={item.date}
-            heading={item.heading}
-            description={item.description}
-            imagePath={item.imagePath}
-            logoPath={item.logoPath}
+            category={item.data().category}
+            date={item.data().date}
+            heading={item.data().heading}
+            description={item.data().desc}
+            imagePath={item.data().imagePath}
+            logoPath={item.data().logoPath}
           />
         ))}
       </div>

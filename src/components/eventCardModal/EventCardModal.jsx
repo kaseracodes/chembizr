@@ -11,6 +11,9 @@ const EventCardModal = ({
   heading,
   description,
 }) => {
+  const milliseconds = date.seconds * 1000 + Math.floor(date.nanoseconds / 1000000);
+  const date1 = new Date(milliseconds);
+  const dateString = date1.toLocaleString(); 
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -48,7 +51,7 @@ const EventCardModal = ({
           <img src={logoPath} alt="logo" />
           <div className={styles.innerDiv}>
             <h5 className={styles.category}>{category}</h5>
-            <p className={styles.date}>{date}</p>
+            <p className={styles.date}>{dateString}</p>
           </div>
         </div>
 
