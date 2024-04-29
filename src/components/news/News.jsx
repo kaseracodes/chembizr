@@ -26,7 +26,7 @@ useEffect(() => {
       <div className={styles.newsCarouselDiv}>
         <div
           className={styles.slideTrack}
-          style={{ width: `calc(500px * ${NewsData.length}` }}
+          style={{ width: `calc(500px * ${newsData.length}` }}
         >
           {newsData.map((item, index) => (
             <NewsCard

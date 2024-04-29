@@ -25,6 +25,9 @@ import CareersPage from "./pages/CareersPage.jsx";
 import BlogDetailPage from "./pages/BlogDetailPage.jsx";
 import { AuthProvider } from "./contexts/authContext/index.jsx";
 import CommentFormPage from "./pages/CommentFormPage.jsx";
+// import dotenv from 'dotenv';
+
+// dotenv.config();
 
 const router = createBrowserRouter([
   {
