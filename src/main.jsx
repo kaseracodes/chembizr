@@ -4,7 +4,7 @@ import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import HomePage from "./pages/HomePage.jsx";
 import FocusParentPage from "./pages/FocusParentPage.jsx";
-import Banner from "./components/banner/Banner.jsx";
+// import Banner from "./components/banner/Banner.jsx";
 import FoodNutritionPage from "./pages/FoodNutritionPage.jsx";
 import AboutUsPage from "./pages/AboutUsPage.jsx";
 import EventsPage from "./pages/EventsPage.jsx";
@@ -22,6 +22,7 @@ import MobilityPage from "./pages/MobilityPage.jsx";
 import PersonalCarePage from "./pages/PersonalCarePage.jsx";
 import CareersPage from "./pages/CareersPage.jsx";
 import BlogDetailPage from "./pages/BlogDetailPage.jsx";
+import BlogsSection from "./components/blogsSection/BlogsSection.jsx";
 
 const router = createBrowserRouter([
   {
@@ -121,14 +122,7 @@ const router = createBrowserRouter([
 
   {
     path: "/test",
-    element: (
-      <Banner
-        imagePath={"/images/focus_parent_page_hero.png"}
-        heading="Personal Care Magazine: Making sense of the anti-pollution segment"
-        para="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
-        buttonText="Read More"
-      />
-    ),
+    element: <BlogsSection />,
   },
 ]);
 

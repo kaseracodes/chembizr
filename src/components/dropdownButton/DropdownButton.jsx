@@ -20,7 +20,6 @@ const DropdownButton = ({ content, modalContents, textColor, index }) => {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      console.log(event.target.closest(`.button${index}`));
       if (showModal && !event.target.closest(`.button${index}`)) {
         setShowModal(false);
         setClicked(false);

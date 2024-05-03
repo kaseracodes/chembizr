@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { COLORS } from "../../assets/constants";
 import LinkedinIcon from "../../svgIcons/LinkedinIcon";
 import styles from "./Footer.module.css";
@@ -16,27 +16,27 @@ const Footer = () => {
             onClick={() => navigate("/")}
           />
           <div className={styles.anchorDiv}>
-            <a href="/about-us" className={styles.anchor}>
+            <Link to="/about-us" className={styles.anchor}>
               About Us
-            </a>
-            <a href="/careers" className={styles.anchor}>
+            </Link>
+            <Link to="/careers" className={styles.anchor}>
               Careers
-            </a>
-            <a href="/news" className={styles.anchor}>
+            </Link>
+            <Link to="/news" className={styles.anchor}>
               News
-            </a>
-            <a href="/events" className={styles.anchor}>
+            </Link>
+            <Link to="/events" className={styles.anchor}>
               Events
-            </a>
-            <a href="/blogs" className={styles.anchor}>
+            </Link>
+            <Link to="/blogs" className={styles.anchor}>
               Blogs
-            </a>
-            <a href="/focus" className={styles.anchor}>
+            </Link>
+            <Link to="/focus" className={styles.anchor}>
               Focus Verticals
-            </a>
-            <a href="/capabilities" className={styles.anchor}>
+            </Link>
+            <Link to="/capabilities" className={styles.anchor}>
               Capabilities
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -44,6 +44,7 @@ const Footer = () => {
           <p className={styles.para}>Follow Our Socials</p>
           <div
             style={{ cursor: "pointer" }}
+            // className={styles.icon}
             onClick={() =>
               window.open(
                 "https://www.linkedin.com/company/chembizr/",

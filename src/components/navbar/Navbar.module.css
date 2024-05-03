@@ -57,3 +57,57 @@
 .icon:hover {
   background-color: rgba(0, 0, 0, 0.2);
 }
+
+.faIcon {
+  padding: 5px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+  display: none;
+  font-size: 30px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .container {
+    padding: 0 20px 0 10px;
+  }
+  .rightContainer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 500px;
+    width: 300px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background-color: var(--white);
+    transition: 1s;
+    /* transform: translateY(-100vh); */
+  }
+
+  .responsive_nav {
+    transform: none;
+    display: flex;
+    border-bottom: 1px solid var(--gray3);
+    border-left: 1px solid var(--gray3);
+  }
+
+  .closeBtn {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+  }
+
+  .faIcon {
+    display: block;
+  }
+
+  .dropdownContainer,
+  .buttonContainer,
+  .iconContainer {
+    flex-direction: column;
+  }
+}

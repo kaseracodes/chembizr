@@ -67,3 +67,21 @@
 .special {
   color: var(--green2);
 }
+
+@media only screen and (max-width: 800px) {
+  .container {
+    width: 200px;
+    height: 385px;
+  }
+
+  .heading {
+    font-size: 20px;
+    font-weight: 600;
+    margin: -20px 0 5px 0;
+  }
+
+  .desc,
+  .btn {
+    font-size: 13px;
+  }
+}

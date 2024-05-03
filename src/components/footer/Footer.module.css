@@ -54,3 +54,44 @@
   text-align: right;
   margin-top: 20px;
 }
+
+@media only screen and (max-width: 1000px) {
+  .container {
+    padding: 30px 50px;
+  }
+
+  .leftDiv img {
+    height: 50px;
+    margin-left: -10px;
+  }
+
+  /* .icon {
+    height: 10px;
+    width: 8px;
+  } */
+
+  .anchor,
+  .para {
+    font-size: 13px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .mainContainer {
+    /* justify-content: flex-end; */
+    align-items: flex-end;
+  }
+
+  .leftDiv img {
+    margin-bottom: 20px;
+  }
+
+  .anchorDiv {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .rightDiv {
+    margin-bottom: 10px;
+  }
+}

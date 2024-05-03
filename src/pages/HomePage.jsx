@@ -39,19 +39,19 @@ const responsiveHero = {
 const responsiveCapabilities = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
-    breakpoint: { max: 4000, min: 3000 },
+    breakpoint: { max: 4000, min: 1350 },
     items: 4,
   },
   desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 4,
+    breakpoint: { max: 1350, min: 1024 },
+    items: 3,
   },
   tablet: {
-    breakpoint: { max: 1024, min: 464 },
+    breakpoint: { max: 1024, min: 600 },
     items: 2,
   },
   mobile: {
-    breakpoint: { max: 464, min: 0 },
+    breakpoint: { max: 600, min: 0 },
     items: 1,
   },
 };
@@ -71,12 +71,10 @@ const HomePage = () => {
       <Heading content="VERTICALS WE SERVE" />
       <div className={styles.focusAreaContainer}>
         <FocusArea
-          index={0}
           imagePath={FocusAreasData[0].imagePath}
           heading={FocusAreasData[0].heading}
           description={FocusAreasData[0].description}
           buttonText={FocusAreasData[0].buttonText}
-          width={"100%"}
           bgColor={COLORS.blue}
           pageLink={FocusAreasData[0].pageLink}
         />
@@ -99,12 +97,10 @@ const HomePage = () => {
         <FocusAreasSection />
 
         <FocusArea
-          index={5}
           imagePath={FocusAreasData[5].imagePath}
           heading={FocusAreasData[5].heading}
           description={FocusAreasData[5].description}
           buttonText={FocusAreasData[5].buttonText}
-          width={"100%"}
           bgColor={COLORS.blue}
           pageLink={FocusAreasData[5].pageLink}
         />
