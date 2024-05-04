@@ -25,7 +25,7 @@ const BlogDetailPage = () => {
 
       <div className={styles.mainDiv}>
         <div className={styles.path}>
-          <Link to="/">ChemBizR</Link> / <a href="/blogs">Blogs</a> /{" "}
+          <Link to="/">ChemBizR</Link> / <Link to="/blogs">Blogs</Link> /{" "}
           <Link>{blog.category}</Link>
         </div>
 
