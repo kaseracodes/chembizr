@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { BlogsData } from "../assets/blogsData";
 import styles from "./BlogDetailPage.module.css";
 import Navbar from "../components/navbar/Navbar";
@@ -21,15 +21,12 @@ const BlogDetailPage = () => {
         iconColor={COLORS.white}
       />
 
-      <Banner2
-        imagePath={blog.imagePath}
-        heading={blog.heading}
-      />
+      <Banner2 imagePath={blog.imagePath} heading={blog.heading} />
 
       <div className={styles.mainDiv}>
         <div className={styles.path}>
-          <a href="/">ChemBizR</a> / <a href="/blogs">Blogs</a> /{" "}
-          <a>{blog.category}</a>
+          <Link to="/">ChemBizR</Link> / <a href="/blogs">Blogs</a> /{" "}
+          <Link>{blog.category}</Link>
         </div>
 
         <div className={styles.btnDiv}>

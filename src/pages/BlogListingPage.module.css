@@ -69,7 +69,7 @@
 .rightDiv {
   padding: 40px;
   border-left: 1px solid var(--gray3);
-  width: 430px;
+  width: 450px;
 }
 
 .inputContainer {
@@ -77,7 +77,7 @@
   border-radius: 40px;
   position: relative;
   align-items: center;
-  width: 410px;
+  width: 350px;
   font-family: "Inter", sans-serif;
   font-size: 20px;
   font-weight: 500;
@@ -111,7 +111,7 @@
 }
 
 .spotlightDiv {
-  width: 370px;
+  width: 350px;
   background-color: var(--gray3);
   border-radius: 8px;
   padding: 20px;
@@ -174,4 +174,60 @@
   width: 250px;
   border-radius: 5px;
   padding: 10px;
+}
+
+@media only screen and (max-width: 1300px) {
+  .leftDiv {
+    padding: 50px;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .mainContainer {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .leftDiv {
+    max-width: 80vw;
+    justify-content: center;
+  }
+
+  .rightDiv {
+    width: 100%;
+    margin: 50px 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 90vw;
+  }
+
+  .emailInputContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .inputContainer,
+  .spotlightDiv {
+    width: 70vw;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .leftDiv {
+    padding: 50px 20px;
+    width: 100vw;
+  }
+
+  .topicsCarouselDiv {
+    width: 70vw;
+    margin-left: 20px;
+  }
+
+  .emailInputContainer {
+    flex-direction: column;
+  }
 }
