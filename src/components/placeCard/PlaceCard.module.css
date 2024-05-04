@@ -37,3 +37,21 @@
   text-decoration: none;
   color: var(--dark-gray);
 }
+
+@media only screen and (max-width: 1000px) {
+  .container {
+    width: 250px;
+    height: 400px;
+    padding: 20px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .country {
+    font-size: 18px;
+  }
+
+  .address {
+    font-size: 13px;
+  }
+}

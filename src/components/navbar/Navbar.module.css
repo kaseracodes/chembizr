@@ -111,3 +111,9 @@
     flex-direction: column;
   }
 }
+
+@media only screen and (max-width: 550px) {
+  .logo {
+    height: 60px;
+  }
+}

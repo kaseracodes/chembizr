@@ -71,14 +71,13 @@
   } */
 
   .anchor,
-  .para {
+  .para, .copyrightText {
     font-size: 13px;
   }
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 800px) {
   .mainContainer {
-    /* justify-content: flex-end; */
     align-items: flex-end;
   }
 
