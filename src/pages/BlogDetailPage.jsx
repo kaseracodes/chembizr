@@ -24,7 +24,6 @@ const BlogDetailPage = () => {
       <Banner2
         imagePath={blog.imagePath}
         heading={blog.heading}
-        fontSize="80px"
       />
 
       <div className={styles.mainDiv}>
