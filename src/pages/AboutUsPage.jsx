@@ -9,7 +9,7 @@ import Places from "../components/places/Places";
 import Vision from "../components/vision/Vision";
 import styles from "./AboutUsPage.module.css";
 import { CoreValuesData } from "../assets/coreValuesData";
-import Button from "../components/button/Button";
+import Banner3 from "../components/banner3/Banner3";
 
 const AboutUsPage = () => {
   return (
@@ -20,39 +20,12 @@ const AboutUsPage = () => {
         iconColor={COLORS.black}
       />
 
-      {/* <Banner
-        imagePath={"/images/about_us_hero.png"}
+      <Banner3
         heading="The Consulting<br />that Gets you more"
         para="We at ChemBizR, partner with global<br />clients to unleash unique solutions across<br />a variety of business verticals."
         buttonText="Insights"
-        textColor={COLORS.black}
-        headingMarginTop="120px"
-        headingLineHeight="135%"
-      /> */}
-
-      <div className={styles.bannerContainer}>
-        <div className={styles.bannerContent}>
-          <h1
-            className={styles.bannerHeading}
-            dangerouslySetInnerHTML={{
-              __html: "The Consulting<br />that Gets you more",
-            }}
-          />
-          <p
-            className={styles.bannerPara}
-            dangerouslySetInnerHTML={{
-              __html:
-                "We at ChemBizR, partner with global<br />clients to unleash unique solutions across<br />a variety of business verticals.",
-            }}
-          />
-
-          <Button content="Insights" bgColor={COLORS.orange} />
-        </div>
-
-        <div className={styles.bannerImage}>
-          <img src="/images/about_us_hero.png" alt="image" />
-        </div>
-      </div>
+        imagePath="/images/about_us_hero.png"
+      />
 
       <OriginStory />
 
