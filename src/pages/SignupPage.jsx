@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./SignupPage.module.css";
 
 const SignupPage = () => {
@@ -30,7 +31,9 @@ const SignupPage = () => {
           </div>
         </div>
 
-        <button className={styles.btn1}>Signup</button>
+        <div className={styles.btnContainer}>
+          <button className={styles.btn1}>Signup</button>
+        </div>
 
         <div>
           <h3 className={styles.inputHeading}>Or Sign Up With</h3>
@@ -38,15 +41,15 @@ const SignupPage = () => {
         </div>
 
         <div className={styles.socials}>
-          <a href="#">
+          <Link to="#">
             <img src="/images/socials/linkedin.png" alt="linkedin-image" />
-          </a>
-          <a href="#">
+          </Link>
+          <Link to="#">
             <img src="/images/socials/google.png" alt="google-image" />
-          </a>
-          <a href="#">
+          </Link>
+          <Link to="#">
             <img src="/images/socials/facebook.png" alt="facebook-image" />
-          </a>
+          </Link>
         </div>
       </div>
 

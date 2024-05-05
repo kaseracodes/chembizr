@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./LoginPage.module.css";
 
 const LoginPage = () => {
@@ -38,18 +38,20 @@ const LoginPage = () => {
           </div>
         </div>
 
-        <button className={styles.btn1}>Login Now</button>
-        <a className={styles.link} href="/forgot-password">
-          Forgot password
-        </a>
+        <div className={styles.btnContainer}>
+          <button className={styles.btn1}>Login Now</button>
+          <Link className={styles.link} to="/forgot-password">
+            Forgot password
+          </Link>
 
-        <div className={styles.line}>
-          <hr /> OR <hr />
+          <div className={styles.line}>
+            <hr /> OR <hr />
+          </div>
+
+          <button className={styles.btn2} onClick={() => navigate("/signup")}>
+            Signup Now
+          </button>
         </div>
-
-        <button className={styles.btn2} onClick={() => navigate("/signup")}>
-          Signup Now
-        </button>
 
         <div>
           <h3 className={styles.inputHeading}>Or Login With</h3>
@@ -57,15 +59,15 @@ const LoginPage = () => {
         </div>
 
         <div className={styles.socials}>
-          <a href="#">
+          <Link to="#">
             <img src="/images/socials/linkedin.png" alt="linkedin-image" />
-          </a>
-          <a href="#">
+          </Link>
+          <Link to="#">
             <img src="/images/socials/google.png" alt="google-image" />
-          </a>
-          <a href="#">
+          </Link>
+          <Link to="#">
             <img src="/images/socials/facebook.png" alt="facebook-image" />
-          </a>
+          </Link>
         </div>
       </div>
     </div>

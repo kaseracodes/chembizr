@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./OTPPage.module.css";
 
 const OTPPage = () => {
@@ -28,17 +29,19 @@ const OTPPage = () => {
           </div>
         </div>
 
-        <a href="#" className={styles.link}>
+        <Link to="#" className={styles.link}>
           Resend OTP in 0:59
-        </a>
+        </Link>
 
-        <button className={styles.btn1}>Confirm OTP</button>
+        <div className={styles.btnContainer}>
+          <button className={styles.btn1}>Confirm OTP</button>
 
-        <div className={styles.line}>
-          <hr /> OR <hr />
+          <div className={styles.line}>
+            <hr /> OR <hr />
+          </div>
+
+          <button className={styles.btn2}>Signup Now</button>
         </div>
-
-        <button className={styles.btn2}>Signup Now</button>
 
         <div>
           <h3 className={styles.inputHeading}>Or Login With</h3>
@@ -46,15 +49,15 @@ const OTPPage = () => {
         </div>
 
         <div className={styles.socials}>
-          <a href="#">
+          <Link to="#">
             <img src="/images/socials/linkedin.png" alt="linkedin-image" />
-          </a>
-          <a href="#">
+          </Link>
+          <Link to="#">
             <img src="/images/socials/google.png" alt="google-image" />
-          </a>
-          <a href="#">
+          </Link>
+          <Link to="#">
             <img src="/images/socials/facebook.png" alt="facebook-image" />
-          </a>
+          </Link>
         </div>
       </div>
     </div>
