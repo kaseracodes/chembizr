@@ -49,3 +49,60 @@
   width: 200px;
   height: 200px;
 }
+
+@media only screen and (max-width: 1250px) {
+  .headingContainer {
+    height: 350px;
+  }
+
+  .foodHeading {
+    font-size: 60px;
+  }
+
+  .desc {
+    font-size: 15px;
+  }
+
+  .foodImageContainer img {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .headingContainer {
+    height: 280px;
+  }
+
+  .foodHeading {
+    font-size: 42px;
+  }
+
+  .contentDiv {
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .foodImageContainer {
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .foodContainer {
+    padding: 50px 20px;
+  }
+
+  .foodHeading {
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 32px;
+    width: auto;
+  }
+
+  .foodImageContainer img {
+    width: 200px;
+    height: 200px;
+  }
+}

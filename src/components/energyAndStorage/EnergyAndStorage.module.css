@@ -38,3 +38,87 @@
   font-family: "Open Sans", sans-serif;
   color: var(--black);
 }
+
+@media only screen and (max-width: 1300px) {
+  .container {
+    padding: 50px;
+    gap: 50px;
+  }
+
+  .descDiv {
+    padding-right: 50px;
+  }
+}
+
+@media only screen and (max-width: 1150px) {
+  .container {
+    gap: 20px;
+  }
+
+  .descDiv {
+    padding-right: 20px;
+  }
+
+  .img1 img {
+    width: 250px;
+  }
+
+  .img2 img {
+    width: 300px;
+  }
+
+  .heading {
+    font-size: 56px;
+    width: auto;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .container {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .img1 img {
+    width: 30vw;
+  }
+
+  .img2 {
+    display: none;
+  }
+
+  .contentDiv {
+    /* margin-top: -80px; */
+    align-items: center;
+  }
+
+  .heading {
+    font-size: 42px;
+  }
+
+  .desc {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .container {
+    padding: 50px 20px;
+  }
+
+  .heading {
+    font-size: 32px;
+  }
+
+  .desc {
+    font-size: 13px;
+  }
+
+  .contentDiv {
+    gap: 20px;
+  }
+
+  .img1 img {
+    height: 200px;
+  }
+}
