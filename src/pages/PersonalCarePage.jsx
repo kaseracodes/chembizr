@@ -42,7 +42,7 @@ const PersonalCarePage = () => {
       <Events />
 
       {/* Industry News */}
-      <News bgColor={COLORS.black} textColor={COLORS.white} />
+      <News bgColor={COLORS.white} textColor={COLORS.black} />
 
       <CallToAction />
 
