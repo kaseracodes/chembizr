@@ -68,7 +68,7 @@ const FocusParentPage = () => {
       <CareAndCosmetics />
 
       {/* More Focus Areas */}
-      {/* <div className={styles.carouselContainer}>
+      <div className={styles.carouselContainer}>
         <h3 className={styles.heading}>More of Our Focus Verticals</h3>
         <h5 className={styles.subHeading}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -84,7 +84,7 @@ const FocusParentPage = () => {
             />
           ))}
         </Carousel>
-      </div> */}
+      </div>
 
       {/* Call to Action */}
       <CallToAction />
