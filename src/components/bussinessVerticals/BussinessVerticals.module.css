@@ -52,6 +52,12 @@
   border: 1px solid var(--green);
 }
 
+@media only screen and (max-width: 1200px) {
+  .container {
+    padding: 50px 20px;
+  }
+}
+
 @media only screen and (max-width: 950px) {
   .bvDiv {
     width: 100%;
