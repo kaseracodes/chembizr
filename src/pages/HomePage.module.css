@@ -36,7 +36,12 @@
 }
 
 .CapabilitiesCardDiv {
-  padding: 10px 50px 50px 100px;
+  padding: 10px 50px 50px 50px;
+}
+
+.capabilitesInnerCardDiv {
+  display: flex;
+  justify-content: center;
 }
 
 .uniquePropositionImageDiv {
@@ -91,7 +96,7 @@
   }
 
   .CapabilitiesCardDiv {
-    padding: 10px 30px 30px 80px;
+    padding: 10px 30px 30px 30px;
   }
 }
 

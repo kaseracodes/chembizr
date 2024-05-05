@@ -119,12 +119,13 @@ const HomePage = () => {
         <div className={styles.CapabilitiesCardDiv}>
           <Carousel responsive={responsiveCapabilities}>
             {CapabilitiesData.map((item, index) => (
-              <CapabilitiesCard
-                key={index}
-                imagePath={item.imagePath}
-                heading={item.heading}
-                description={item.description}
-              />
+              <div key={index} className={styles.capabilitesInnerCardDiv}>
+                <CapabilitiesCard
+                  imagePath={item.imagePath}
+                  heading={item.heading}
+                  description={item.description}
+                />
+              </div>
             ))}
           </Carousel>
         </div>
