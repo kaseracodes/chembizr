@@ -12,11 +12,11 @@ const Compendium = () => {
       items: 2,
     },
     desktop: {
-      breakpoint: { max: 3000, min: 1024 },
+      breakpoint: { max: 3000, min: 950 },
       items: 2,
     },
     tablet: {
-      breakpoint: { max: 1024, min: 464 },
+      breakpoint: { max: 950, min: 464 },
       items: 1,
     },
     mobile: {
@@ -37,13 +37,14 @@ const Compendium = () => {
       <div className={styles.cardDiv}>
         <Carousel responsive={responsive}>
           {compendiumData.map((item, index) => (
-            <CompendiumCard
-              key={index}
-              imagePath={item.imagePath}
-              subHeading={item.subHeading}
-              heading={item.heading}
-              description={item.description}
-            />
+            <div key={index} className={styles.innerCardDiv}>
+              <CompendiumCard
+                imagePath={item.imagePath}
+                subHeading={item.subHeading}
+                heading={item.heading}
+                description={item.description}
+              />
+            </div>
           ))}
         </Carousel>
       </div>

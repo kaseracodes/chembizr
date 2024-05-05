@@ -22,3 +22,38 @@
 /* .carouselContainer {
   padding: 10px 0;
 } */
+
+.innerCardDiv {
+  display: flex;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 1300px) {
+  .container {
+    padding: 30px 80px 50px 80px;
+  }
+
+  .heading {
+    font-size: 60px;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .container {
+    padding: 30px 50px 50px 50px;
+  }
+
+  .heading {
+    font-size: 42px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .container {
+    padding: 30px 20px 50px 20px;
+  }
+
+  .heading {
+    font-size: 32px;
+  }
+}

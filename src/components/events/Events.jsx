@@ -31,15 +31,16 @@ const Events = () => {
       <div className={styles.carouselContainer}>
         <Carousel responsive={responsive}>
           {EventsData.map((item, index) => (
-            <EventsCard
-              key={index}
-              imagePath={item.imagePath}
-              logoPath={item.logoPath}
-              category={item.category}
-              date={item.date}
-              heading={item.heading}
-              description={item.description}
-            />
+            <div key={index} className={styles.innerCardDiv}>
+              <EventsCard
+                imagePath={item.imagePath}
+                logoPath={item.logoPath}
+                category={item.category}
+                date={item.date}
+                heading={item.heading}
+                description={item.description}
+              />
+            </div>
           ))}
         </Carousel>
       </div>

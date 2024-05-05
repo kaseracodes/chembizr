@@ -3,7 +3,8 @@
   background-image: url("/images/value_chain_bg.png");
   background-size: cover;
   width: 100%;
-  height: 950px;
+  height: auto;
+  padding: 50px 0 80px 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -48,4 +49,51 @@
   justify-content: space-between;
   align-items: center;
   gap: 20px;
+}
+
+@media only screen and (max-width: 1300px) {
+  .cardContainer {
+    justify-content: center;
+    padding: 0 20px;
+  }
+
+  .heading {
+    font-size: 60px;
+  }
+
+  .descDiv {
+    padding: 0 100px;
+  }
+
+  .desc {
+    font-size: 25px;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .container {
+    background-image: none;
+  }
+
+  .heading {
+    font-size: 42px;
+  }
+
+  .desc {
+    font-size: 20px;
+  }
+
+  .descDiv {
+    padding: 0 50px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .heading {
+    font-size: 32px;
+  }
+
+  .desc {
+    font-size: 18px;
+  }
 }
