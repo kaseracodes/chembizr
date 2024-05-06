@@ -10,7 +10,7 @@
 }
 
 .leftDiv {
-  padding: 50px 100px;
+  padding: 0 100px 50px 100px;
   width: 100%;
   height: 100vh;
   overflow-y: scroll;
@@ -23,8 +23,16 @@
   gap: 50px;
 }
 
+.topicsCarouselOuterDiv {
+  background-color: var(--white);
+  position: sticky;
+  top: 0;
+  margin: 0;
+}
+
 .topicsCarouselDiv {
   width: 100%;
+  padding-top: 30px;
   /* padding: 5px 30px; */
 }
 
@@ -178,7 +186,7 @@
 
 @media only screen and (max-width: 1300px) {
   .leftDiv {
-    padding: 50px;
+    padding: 0 50px 50px 50px;
   }
 }
 
@@ -218,13 +226,13 @@
 
 @media only screen and (max-width: 550px) {
   .leftDiv {
-    padding: 50px 20px;
+    padding: 0 20px 50px 20px;
     width: 100vw;
   }
 
   .topicsCarouselDiv {
-    width: 70vw;
-    margin-left: 20px;
+    width: 75vw;
+    margin-left: 10px;
   }
 
   .emailInputContainer {

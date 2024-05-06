@@ -5,8 +5,8 @@ import { COLORS } from "../assets/constants";
 import BussinessVerticals from "../components/bussinessVerticals/BussinessVerticals";
 import { NewsListingData } from "../assets/newsListingData";
 import NewsListingCard from "../components/newsListingCard/NewsListingCard";
-import CallToAction from "../components/callToAction/CallToAction";
-import Footer from "../components/footer/Footer";
+// import CallToAction from "../components/callToAction/CallToAction";
+// import Footer from "../components/footer/Footer";
 
 const NewsPage = () => {
   const BussinessVerticalsItems = [
@@ -49,9 +49,9 @@ const NewsPage = () => {
         />
       </div>
 
-      <CallToAction />
+      {/* <CallToAction />
 
-      <Footer />
+      <Footer /> */}
     </div>
   );
 };

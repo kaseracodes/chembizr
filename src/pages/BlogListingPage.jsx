@@ -8,13 +8,16 @@ import { BlogsData } from "../assets/blogsData";
 import SpotlightBlogCard from "../components/spotlightBlogCard/SpotlightBlogCard";
 import Button from "../components/button/Button";
 import BlogListingCard from "../components/blogListingCard/BlogListingCard";
-import CallToAction from "../components/callToAction/CallToAction";
-import Footer from "../components/footer/Footer";
+// import CallToAction from "../components/callToAction/CallToAction";
+// import Footer from "../components/footer/Footer";
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useState } from "react";
+// import { useParams, useSearchParams } from "react-router-dom";
+import Pagination from "../components/pagination/Pagination";
+import { useSearchParams } from "react-router-dom";
 
 const NextButton = (props) => {
   const { className, style, onClick } = props;
@@ -134,6 +137,15 @@ const BlogListingPage = () => {
   ];
 
   const [currTopic, setCurrTopic] = useState(0);
+  const [searchParams] = useSearchParams();
+  console.log(searchParams);
+  const page = searchParams.get("page") || 1;
+
+  const BLOG_PER_PAGE = 4;
+  const hasPrev = BLOG_PER_PAGE * (page - 1) > 0;
+  const hasNext = BLOG_PER_PAGE * page < BlogsData.length;
+  const startIndex = BLOG_PER_PAGE * (page - 1);
+  const endIndex = Math.min(startIndex + BLOG_PER_PAGE, BlogsData.length);
 
   return (
     <div className={styles.container}>
@@ -146,28 +158,31 @@ const BlogListingPage = () => {
 
       <div className={styles.mainContainer}>
         <div className={styles.leftDiv}>
-          <div className={styles.topicsCarouselDiv}>
-            <Slider {...settings}>
-              {Topics.map((item, index) => (
-                <div key={index} className={styles.carouselItem}>
-                  <p
-                    className={styles.topicHeading}
-                    onClick={() => setCurrTopic(index)}
-                    style={{
-                      color: currTopic === index ? COLORS.green : COLORS.black,
-                      fontWeight: currTopic === index ? "600" : "400",
-                    }}
-                  >
-                    {item}
-                  </p>
-                </div>
-              ))}
-            </Slider>
-            <hr />
+          <div className={styles.topicsCarouselOuterDiv}>
+            <div className={styles.topicsCarouselDiv}>
+              <Slider {...settings}>
+                {Topics.map((item, index) => (
+                  <div key={index} className={styles.carouselItem}>
+                    <p
+                      className={styles.topicHeading}
+                      onClick={() => setCurrTopic(index)}
+                      style={{
+                        color:
+                          currTopic === index ? COLORS.green : COLORS.black,
+                        fontWeight: currTopic === index ? "600" : "400",
+                      }}
+                    >
+                      {item}
+                    </p>
+                  </div>
+                ))}
+              </Slider>
+              <hr />
+            </div>
           </div>
 
           <div className={styles.blogsListingDiv}>
-            {BlogsData.map((item, index) => (
+            {BlogsData.slice(startIndex, endIndex).map((item, index) => (
               <BlogListingCard
                 key={index}
                 blogId={item.id}
@@ -180,6 +195,8 @@ const BlogListingPage = () => {
               />
             ))}
           </div>
+
+          <Pagination page={page} hasPrev={hasPrev} hasNext={hasNext} />
         </div>
 
         <div className={styles.rightDiv}>
@@ -227,9 +244,9 @@ const BlogListingPage = () => {
         </div>
       </div>
 
-      <CallToAction />
+      {/* <CallToAction />
 
-      <Footer />
+      <Footer /> */}
     </div>
   );
 };
