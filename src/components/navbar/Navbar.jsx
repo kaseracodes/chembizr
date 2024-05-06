@@ -9,7 +9,7 @@ import { COLORS } from "../../assets/constants";
 import { useNavigate } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 
-const Navbar = ({ textColor, iconColor }) => {
+const Navbar = ({ textColor, iconColor, bgColor }) => {
   const navigate = useNavigate();
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -41,9 +41,18 @@ const Navbar = ({ textColor, iconColor }) => {
   }, []);
 
   return (
-    <div className={`${styles.container} ${isScrolled ? styles.active : ""}`}>
+    <div
+      className={`${styles.container} ${isScrolled ? styles.active : ""}`}
+      style={{ backgroundColor: bgColor && bgColor }}
+    >
       <div onClick={() => navigate("/")} style={{ cursor: "pointer" }}>
-        <img src="/images/logo.png" alt="logo" className={styles.logo} />
+        <img
+          src={
+            isScrolled || bgColor ? "/images/logo.png" : "/images/logo2.png"
+          }
+          alt="logo"
+          className={styles.logo}
+        />
       </div>
 
       <div

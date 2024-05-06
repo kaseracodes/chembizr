@@ -9,7 +9,11 @@ import styles from "./EventsPage.module.css";
 const EventsPage = () => {
   return (
     <div className={styles.container}>
-      <Navbar textColor={COLORS.white} iconColor={COLORS.white} />
+      <Navbar
+        textColor={COLORS.black}
+        iconColor={COLORS.black}
+        bgColor={COLORS.white}
+      />
 
       <Banner2
         imagePath="/images/event_page_hero.png"

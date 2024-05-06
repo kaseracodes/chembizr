@@ -16,9 +16,10 @@ const BlogDetailPage = () => {
   return (
     <div className={styles.container}>
       <Navbar
-        textColor={COLORS.white}
+        textColor={COLORS.black}
         invertLogo={false}
-        iconColor={COLORS.white}
+        iconColor={COLORS.black}
+        bgColor={COLORS.white}
       />
 
       <Banner2 imagePath={blog.imagePath} heading={blog.heading} />

@@ -1,8 +1,8 @@
 .container {
-  height: 60vh;
+  height: 30vh;
   background-size: cover;
   /* width: 100%; */
-  margin-top: -120px;
+  margin-top: 0px;
   padding: 100px;
   padding-top: 120px;
   display: flex;
@@ -12,46 +12,37 @@
 
 .heading {
   font-family: "Istok Web", sans-serif;
-  font-size: 80px;
-  font-weight: 700;
+  font-size: 56px;
+  font-weight: 500;
   color: var(--white);
   text-align: center;
   text-transform: capitalize;
-  margin: 10px 0 0 0;
+  margin: 0;
 }
 
 @media only screen and (max-width: 1300px) {
-  .heading {
-    margin-top: 30px;
-    font-size: 75px;
-  }
-}
-
-@media only screen and (max-width: 1100px) {
-  .heading {
-    font-size: 60px;
-  }
-}
-
-@media only screen and (max-width: 1100px) {
-  .container {
-    padding: 100px 50px;
-  }
-
   .heading {
     font-size: 50px;
   }
 }
 
+@media only screen and (max-width: 1100px) {
+  .heading {
+    font-size: 40px;
+  }
+
+  .container {
+    padding: 100px 50px;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .container {
-    height: 40vh;
+    height: 20vh;
     padding: 100px 20px;
   }
 
   .heading {
-    font-size: 35px;
-    line-height: 120%;
-    margin-top: 50px;
+    font-size: 30px;
   }
 }

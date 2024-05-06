@@ -5,11 +5,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0px 50px 0px 20px;
+  padding: 20px 50px 15px 50px;
 }
 
 .logo {
-  height: 80px;
+  height: 50px;
 }
 
 .active {
@@ -70,8 +70,9 @@
 
 @media only screen and (max-width: 1000px) {
   .container {
-    padding: 0 20px 0 10px;
+    padding: 15px 20px;
   }
+
   .rightContainer {
     position: fixed;
     top: 0;
@@ -86,6 +87,10 @@
     background-color: var(--white);
     transition: 1s;
     /* transform: translateY(-100vh); */
+  }
+
+  .logo {
+    height: 40px;
   }
 
   .responsive_nav {
@@ -113,7 +118,11 @@
 }
 
 @media only screen and (max-width: 550px) {
+  .container {
+    padding: 10px 20px;
+  }
+
   .logo {
-    height: 60px;
+    height: 35px;
   }
 }

@@ -141,6 +141,7 @@ const BlogListingPage = () => {
         textColor={COLORS.black}
         invertLogo={true}
         iconColor={COLORS.black}
+        bgColor={COLORS.white}
       />
 
       <div className={styles.mainContainer}>
