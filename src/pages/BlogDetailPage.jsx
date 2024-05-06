@@ -68,9 +68,14 @@ const BlogDetailPage = () => {
         <div className={styles.contentDiv}>
           <h5>{userBlog && userBlog.data().author}</h5>
           {/* <h5>{blog.date}</h5> */}
-          {userBlog && userBlog.data().description.split("\n").map((line, index) => (
+          {/* {userBlog && userBlog.data().description.split("\n").map((line, index) => (
             <p key={index}>{line}</p>
-          ))}
+          ))} */}
+          {userBlog && (
+            <div>
+              <div dangerouslySetInnerHTML={{ __html: userBlog.data().description }} />
+            </div>
+          )}
         </div>
         <button onClick={handleClickComment}>Comment</button>
       </div>

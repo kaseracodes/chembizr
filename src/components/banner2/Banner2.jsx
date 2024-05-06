@@ -14,7 +14,9 @@ const Banner2 = ({ imagePath, heading, fontSize }) => {
   // );
   return (
     <div>
-      <img height="700px" width="1300px" src={imagePath} alt="img" />
+      {imagePath && (
+        <img height="700px" width="1300px" src={imagePath} alt="img" />
+      )}
       <h1 className={styles.heading} style={{ fontSize: fontSize }}>
       {heading}
       </h1>

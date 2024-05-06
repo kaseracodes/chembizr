@@ -20,7 +20,11 @@ const BlogsSection = () => {
         >
           <div className={styles.contentDiv}>
             <p>{blogs[0].date}</p>
-            <h5>{blogs[0].description.slice(0, 90) + "..."}</h5>
+            {/* <h5>{blogs[0].description.slice(0, 90) + "..."}</h5> */}
+            <div
+            // className={styles.desc}
+            dangerouslySetInnerHTML={{ __html: desc }}
+          ></div>
           </div>
         </div>
 

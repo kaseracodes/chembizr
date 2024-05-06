@@ -5,6 +5,7 @@ import { getDownloadURL } from "firebase/storage";
 import { ref as ref_storage, uploadBytesResumable } from "firebase/storage";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import uniqid from 'uniqid';
+import JoditEditor from 'jodit-react';
 
 const BlogWritePage = () => {
     // State for form inputs
@@ -17,7 +18,10 @@ const BlogWritePage = () => {
 
     const [imageFile, setImageFile] = useState(null);
     const [imgError, setImgError] = useState(false);
+    const [content, SetContent] = useState('');
     const fileRef = useRef(null);
+    const editor = useRef(null);
+
 
     // Function to handle form input changes
     const handleInputChange = (e) => {
@@ -30,28 +34,64 @@ const BlogWritePage = () => {
 
     // Function to handle image file selection
     const handleImageChange = (e) => {
-        const fileName = e.target.files[0].name;
-        const fileTypeArray = fileName.split(".");
-        const fileMimeType = fileTypeArray[fileTypeArray.length - 1];
-        if (fileMimeType === "JPG" || fileMimeType === "jpg" || fileMimeType === "PNG" || fileMimeType === "png" || fileMimeType === "jfif" || fileMimeType === "JFIF" || fileMimeType === "JPEG" || fileMimeType === "jpeg") {
-            setImgError(false);
-            const reader = new FileReader();
-            if (e.target.files[0]) {
-                reader.readAsDataURL(e.target.files[0]);
+        if (e.target.files && e.target.files[0] && e.target.files[0].name) {
+            const fileName = e.target.files[0].name;
+            const fileTypeArray = fileName.split(".");
+            const fileMimeType = fileTypeArray[fileTypeArray.length - 1];
+            if (fileMimeType === "JPG" || fileMimeType === "jpg" || fileMimeType === "PNG" || fileMimeType === "png" || fileMimeType === "jfif" || fileMimeType === "JFIF" || fileMimeType === "JPEG" || fileMimeType === "jpeg") {
+                setImgError(false);
+                const reader = new FileReader();
+                if (e.target.files[0]) {
+                    reader.readAsDataURL(e.target.files[0]);
+                }
+                reader.onload = (readerEvent) => {
+                    setImageFile(e.target.files[0]);
+                };
+            } else {
+                setImgError(true);
+                return;
             }
-            reader.onload = (readerEvent) => {
-                setImageFile(e.target.files[0]);
-            };
-        }
-        else {
-            setImgError(true);
-            return;
         }
     };
 
     // Function to handle form submission
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+    
+        // Check if imageFile is null (no image selected)
+        if (!imageFile) {
+            try {
+                // Add document to Firestore without image
+                await addDoc(collection(firestore, "blogs"), {
+                    id: uniqid(),
+                    heading: formData.heading,
+                    author: formData.author,
+                    description: content,
+                    category: formData.category,
+                    date: new Date(),
+                    timestamp: serverTimestamp(),
+                    comments: []
+                });
+                // Reset form data
+                setFormData({
+                    heading: '',
+                    author: '',
+                    description: '',
+                    content: '',
+                    category: ''
+                });
+
+                SetContent('');
+                // Reset imageFile and imgError states
+                setImageFile(null);
+                setImgError(false);
+            } catch (error) {
+                console.error("Error adding document to Firestore:", error);
+            }
+            return; // Exit function early since no image is selected
+        }
+    
+        // If image is selected, proceed with image upload
         try {
             const filePath = `assets/${imageFile.name}`;
             const folderRef = ref_storage(storage, filePath);
@@ -59,7 +99,7 @@ const BlogWritePage = () => {
             uploadedFile.on(
                 "state_changed",
                 (snapshot) => {
-
+                    // Progress tracking if needed
                 },
                 (error) => {
                     console.log(error);
@@ -71,32 +111,34 @@ const BlogWritePage = () => {
                             id: uniqid(),
                             heading: formData.heading,
                             author: formData.author,
-                            description: formData.description,
+                            description: content,
                             category: formData.category,
                             date: new Date(),
                             timestamp: serverTimestamp(),
                             image: downloadUrl,
                             comments: []
                         });
+                        // Reset form data
                         setFormData({
                             heading: '',
                             author: '',
                             description: '',
                             category: ''
                         });
+                        // Reset imageFile and imgError states
                         setImageFile(null);
-                        setImgError(false); // Reset imgError state
-                    }
-                    catch (error) {
+                        setImgError(false);
+                    } catch (error) {
                         console.error("Error getting download URL:", error);
                     }
                 }
             );
-        }
-        catch (error) {
+        } catch (error) {
             console.error("Error uploading image:", error);
         }
     };
+    
+    
 
     return (
         <div className="form-container">
@@ -126,13 +168,24 @@ const BlogWritePage = () => {
                 </div>
                 <div className="form-group">
                     <label htmlFor="description">Description:</label>
-                    <textarea
+                    {/* <textarea
                         id="description"
                         name="description"
                         value={formData.description}
                         onChange={handleInputChange}
                         required
-                    ></textarea>
+                    ></textarea> */}
+                    <JoditEditor 
+                    id="description"
+                    name="description"
+                    ref={editor}
+                    value={content}
+                    onChange={newContent => {
+                        SetContent(newContent)
+                        console.log(newContent)
+                    }}
+                    required
+                    />
                 </div>
                 <div className="form-group">
                     <label htmlFor="category">Category:</label>
@@ -155,7 +208,6 @@ const BlogWritePage = () => {
                         accept="image/jpeg, image/png"
                         ref={fileRef}
                         onChange={handleImageChange}
-                        required
                     />
                     <h6 className="imgError"> {imgError && "Sorry, only jpg/jpeg/png/jfif images are allowed"} </h6>
                 </div>

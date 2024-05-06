@@ -26,13 +26,18 @@ const BlogListingCard = ({
         <div className={styles.contentDiv}>
           <h3 className={styles.heading}>{heading}</h3>
           <h5 className={styles.author}>{author}</h5>
-          <p className={styles.desc}>{desc && (desc.length > 200 ? desc.slice(0, 200) + "..." : desc)}</p>
+          {/* <p className={styles.desc}>{desc && (desc.length > 200 ? desc.slice(0, 200) + "..." : desc)}</p> */}
+          {/* parse rich text */}
+          <div
+            className={styles.desc}
+            dangerouslySetInnerHTML={{ __html: desc }}
+          ></div>
           <div className={styles.bottomDiv}>
             <button className={styles.category}>{category}</button>
             <p className={styles.date}>{dateString}</p>
           </div>
         </div>
-        <img src={imagePath} alt="image" />
+        {imagePath && (<img src={imagePath} alt="image" />)}
       </div>
       <hr className={styles.hr} />
     </div>
