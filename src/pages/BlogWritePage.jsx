@@ -22,6 +22,9 @@ const BlogWritePage = () => {
     const [content, SetContent] = useState('');
     const [firebaseImageUrl, SetFirebaseImageUrl] = useState('');
     const [bgimageFile, SetBgImageFile] = useState(null);
+    const [isimguploading, SetIsImageUploading] = useState(false);
+    const [isbgimguploading, SetIsBgImageUploading] = useState(false);
+    const [isformsubmitted, SetIsFormSubmitted] = useState(false);
     const fileRef = useRef(null);
     const bgfileRef = useRef(null);
     const editor = useRef(null);
@@ -96,12 +99,14 @@ const BlogWritePage = () => {
 
         // If image is selected, proceed with image upload
         try {
+            
             const filePath = `assets/${imageFile.name}`;
             const folderRef = ref_storage(storage, filePath);
             const uploadedFile = uploadBytesResumable(folderRef, imageFile);
             uploadedFile.on(
                 "state_changed",
                 (snapshot) => {
+                    SetIsImageUploading(true);
                     // Progress tracking if needed
                     console.log('snapshot: ', snapshot);
                 },
@@ -114,14 +119,17 @@ const BlogWritePage = () => {
                         console.log(downloadUrl);
                         SetFirebaseImageUrl(downloadUrl);
                         setImgError(false);
+                        SetIsImageUploading(false);
                     } catch (error) {
                         console.error("Error getting download URL:", error);
                     }
                 }
+
             );
         } catch (error) {
             console.error("Error uploading image:", error);
         }
+        
     }
 
     // Function to handle form submission
@@ -135,6 +143,7 @@ const BlogWritePage = () => {
                 "state_changed",
                 (snapshot) => {
                     // Progress tracking if needed
+                    SetIsBgImageUploading(true);
                     console.log('snapshot: ', snapshot);
                 },
                 (error) => {
@@ -169,6 +178,9 @@ const BlogWritePage = () => {
                         fileRef.current.value = '';
                         bgfileRef.current.value = '';
                         setImgError(false);
+                        SetIsBgImageUploading(false);
+                        SetIsFormSubmitted(true);
+
                     }
                     catch (error) {
                         console.error("Error getting download URL:", error);
@@ -249,6 +261,12 @@ const BlogWritePage = () => {
                             <button onClick={handleURLFetchSubmit} type="button">Fetch URL</button>
                         </div>
                     )}
+                    {isimguploading && (
+                            <div>
+                                <p style={{ color: 'red', fontSize: '18px' }}>Image is being uploaded...</p>
+                            </div>
+                        )
+                    }
 
                     <h6 className="imgError"> {imgError && "Sorry, only jpg/jpeg/png/jfif images are allowed"} </h6>
 
@@ -265,9 +283,21 @@ const BlogWritePage = () => {
                         onChange={handleBgImageChange}
                         required
                     />
+                    {isbgimguploading && (
+                            <div>
+                                <p style={{ color: 'red', fontSize: '18px' }}>Image is being uploaded...</p>
+                            </div>
+                        )
+                    }
                      <h6 className="imgError"> {bgimgError && "Sorry, only jpg/jpeg/png/jfif images are allowed"} </h6>
                 </div>
                 <button type="submit">Submit</button>
+                {isformsubmitted && (
+                        <div>
+                            <p style={{ color: 'green', fontSize: '18px' }}>The blog is uploaded !!</p>
+                        </div>
+                    )
+                }
             </form>
         </div>
     );
