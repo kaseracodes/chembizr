@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import styles from "./EventsCard.module.css";
 
 const EventsCard = ({
-  imagePath,
   logoPath,
   category,
   date,
@@ -17,9 +16,9 @@ const EventsCard = ({
   return (
     <div className={styles.container}>
       <div className={styles.innerContainer}>
-        <div className={styles.imageDiv}>
+        {/* <div className={styles.imageDiv}>
           <img src={imagePath[0]} alt="image" />
-        </div>
+        </div> */}
         <div className={styles.contentDiv}>
           <div className={styles.topDiv}>
             <img src={logoPath} alt="logo" />
@@ -30,7 +29,7 @@ const EventsCard = ({
           </div>
 
           <h3 className={styles.heading}>{heading}</h3>
-          <p className={styles.desc}>{description}</p>
+          <div className={styles.desc} dangerouslySetInnerHTML={{ __html: description }}></div>
 
           <button className={styles.btn} onClick={() => navigate("/events")}>
             Explore More Events

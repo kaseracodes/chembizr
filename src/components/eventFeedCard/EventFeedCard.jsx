@@ -9,7 +9,6 @@ const EventFeedCard = ({
   date,
   heading,
   description,
-  imagePath,
   logoPath,
 }) => {
   const [openModal, setOpenModal] = useState(false);
@@ -30,17 +29,17 @@ const EventFeedCard = ({
         <h3 className={styles.heading}>{heading}</h3>
         <p className={styles.desc}>{description}</p>
 
-        <div className={styles.imageDiv}>
+        {/* <div className={styles.imageDiv}>
           <img className={styles.image} src={imagePath[0]} alt="image" />
           <div className={styles.innerImageDiv}>
             <img className={styles.image} src={imagePath[1]} alt="image" />
             <img className={styles.image} src={imagePath[2]} alt="image" />
           </div>
-        </div>
+        </div> */}
       </div>
       <Modal open={openModal} onClose={() => setOpenModal(false)}>
         <EventCardModal
-          imagePath={imagePath}
+          // imagePath={imagePath}
           logoPath={logoPath}
           category={category}
           date={date}

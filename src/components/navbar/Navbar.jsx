@@ -9,12 +9,18 @@ import { COLORS } from "../../assets/constants";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/authContext";
 import { doSignOut } from "../../firebase/auth";
+import { auth } from "../../firebase/firebase";
+import { useReducer } from "react";
+
 
 const Navbar = ({ textColor, iconColor }) => {
   const navigate = useNavigate();
   const { userLoggedIn } = useAuth();
-
+  var user = "";
+  if(userLoggedIn)user = auth.currentUser.email;
+  console.log(user);
   const [isScrolled, setIsScrolled] = useState(false);
+  const adminemails = [ "abcde@gmail.com" , "abc@gmail.com" , "ab@gmail.com" ];
 
   const handleClickLogin = () => {
     navigate("/login");
@@ -24,8 +30,8 @@ const Navbar = ({ textColor, iconColor }) => {
     await doSignOut();
   }
 
-  const handleWriteBlog = () => {
-    navigate("/writeblog");
+  const isAdmin = (user) => {
+    return adminemails.includes(user);
   }
 
   useEffect(() => {
@@ -80,17 +86,27 @@ const Navbar = ({ textColor, iconColor }) => {
             ]}
             index="3"
           />
+
+          {userLoggedIn && isAdmin(user) && (
+            <DropdownButton
+              textColor={!isScrolled ? textColor : COLORS.black}
+              content="Add Insights"
+              modalContents={[
+                { desc: "Blogs", link: "/writeblog" },
+                { desc: "News", link: "/writenews" },
+                { desc: "Events", link: "/writeevent" },
+                { desc: "Openings", link: "/writeopening" },
+              ]}
+              index="3"
+            />
+          )}
+
+
         </div>
 
         <div className={styles.buttonContainer}>
-          {userLoggedIn && (
-            <Button
-            content="Write Blog"
-            bgColor="#333333"
-            onClick={handleWriteBlog}
-          />
-          )}
-        {!userLoggedIn && (
+
+          {!userLoggedIn && (
             <Button
               content="Log in"
               bgColor="#333333"

@@ -11,7 +11,6 @@ import EventsPage from "./pages/EventsPage.jsx";
 import NewsPage from "./pages/NewsPage.jsx";
 import BlogListingPage from "./pages/BlogListingPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
-import BlogWritePage from "./pages/BlogWritePage.jsx";
 import SignupPage from "./pages/SignupPage.jsx";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage.jsx";
 import OTPPage from "./pages/OTPPage.jsx";
@@ -25,6 +24,12 @@ import CareersPage from "./pages/CareersPage.jsx";
 import BlogDetailPage from "./pages/BlogDetailPage.jsx";
 import { AuthProvider } from "./contexts/authContext/index.jsx";
 import CommentFormPage from "./pages/CommentFormPage.jsx";
+
+import BlogWritePage from "./pages/BlogWritePage.jsx";
+import NewsWritePage from "./pages/NewsWritePage.jsx";
+import EventWritePage from "./pages/EventWritePage.jsx";
+import OpeningWritePage from "./pages/OpeningWritePage.jsx";
+
 // import dotenv from 'dotenv';
 
 // dotenv.config();
@@ -103,6 +108,21 @@ const router = createBrowserRouter([
   {
     path: "/writeblog",
     element: <BlogWritePage/>,
+  },
+
+  {
+    path: "/writenews",
+    element: <NewsWritePage/>,
+  },
+
+  {
+    path: "/writeevent",
+    element: <EventWritePage/>,
+  },
+
+  {
+    path: "/writeopening",
+    element: <OpeningWritePage/>,
   },
 
   {

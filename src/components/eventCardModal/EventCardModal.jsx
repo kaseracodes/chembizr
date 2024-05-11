@@ -4,7 +4,7 @@ import "react-multi-carousel/lib/styles.css";
 import styles from "./EventCardModal.module.css";
 
 const EventCardModal = ({
-  imagePath,
+  // imagePath,
   logoPath,
   category,
   date,
@@ -37,13 +37,13 @@ const EventCardModal = ({
   return (
     <div className={styles.container}>
       <div className={styles.imageDiv}>
-        <Carousel responsive={responsive} showDots={true} arrows={false}>
+        {/* <Carousel responsive={responsive} showDots={true} arrows={false}>
           {imagePath.map((item, index) => (
             <div key={index} className={styles.image}>
               <img src={item} alt="image" />
             </div>
           ))}
-        </Carousel>
+        </Carousel> */}
         {/* <img src={imagePath[0]} alt="image" /> */}
       </div>
       <div className={styles.contentDiv}>
