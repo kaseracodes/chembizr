@@ -18,6 +18,7 @@ const AboutUsPage = () => {
         textColor={COLORS.black}
         invertLogo={true}
         iconColor={COLORS.black}
+        bgColor={COLORS.white}
       />
 
       <Banner3
