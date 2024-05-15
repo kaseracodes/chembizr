@@ -148,6 +148,10 @@ const BlogListingPage = () => {
   const startIndex = BLOG_PER_PAGE * (page - 1);
   const endIndex = Math.min(startIndex + BLOG_PER_PAGE, BlogsData.length);
 
+  const handleTopicClick = (topic) => {
+    setCurrTopic(topic);
+  };
+
   return (
     <div className={styles.container}>
       <Navbar
@@ -196,7 +200,7 @@ const BlogListingPage = () => {
                 date={item.date}
               />
             ))} */}
-            <BlogListingComponent/>
+            <BlogListingComponent currentTopic={Topics[currTopic]} />
           </div>
 
           <Pagination page={page} hasPrev={hasPrev} hasNext={hasNext} />
@@ -230,10 +234,15 @@ const BlogListingPage = () => {
 
             <div className={styles.topicsContainer}>
               {Topics.map((item, index) => (
-                <div className={styles.topic} key={index}>
+                <div
+                  className={styles.topic}
+                  key={index}
+                  onClick={() => handleTopicClick(index)}
+                >
                   {item}
                 </div>
               ))}
+
             </div>
           </div>
 

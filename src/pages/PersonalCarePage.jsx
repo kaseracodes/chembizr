@@ -36,7 +36,7 @@ const PersonalCarePage = () => {
       <Insights />
 
       {/* Compendium */}
-      <Compendium />
+      <Compendium category="Personal Care & Cosmetics"/>
 
       {/* Events */}
       <Events />

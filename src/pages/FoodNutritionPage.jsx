@@ -36,7 +36,7 @@ const FoodNutritionPage = () => {
       <Insights />
 
       {/* Compendium */}
-      <Compendium />
+      <Compendium category="Food, Nutrition & Beverages"/>
 
       {/* Events */}
       <Events />

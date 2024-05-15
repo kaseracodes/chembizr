@@ -1,10 +1,25 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import styles from "./Compendium.module.css";
-import { compendiumData } from "../../assets/compendiumData";
+// import { compendiumData } from "../../assets/compendiumData";
 import CompendiumCard from "../compendiumCard/CompendiumCard";
+import { firestore, storage } from '../../firebase/firebase';
+import { collection, onSnapshot, query, orderBy, where } from 'firebase/firestore';
+import { useState, useEffect } from "react";
 
-const Compendium = () => {
+const Compendium = ({ category }) => {
+console.log(category);
+  const [compendiumData, setCompendiumData] = useState([]);
+
+  useEffect(() => {
+    const unsubscribe = onSnapshot(query(collection(firestore, "compendiums"), where("category", "==", category), orderBy("timestamp", "desc")), (snapshot) => {
+      setCompendiumData(snapshot.docs);
+      // console.log(snapshot.docs[0].data());
+    });
+
+    return unsubscribe;
+  }, [category]);
+
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -39,10 +54,10 @@ const Compendium = () => {
           {compendiumData.map((item, index) => (
             <div key={index} className={styles.innerCardDiv}>
               <CompendiumCard
-                imagePath={item.imagePath}
-                subHeading={item.subHeading}
-                heading={item.heading}
-                description={item.description}
+                imagePath={item.data().logoPath}
+                subHeading={item.data().subheading}
+                heading={item.data().heading}
+                description={item.data().description}
               />
             </div>
           ))}

@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { firestore, storage } from '../firebase/firebase';
 import BlogListingCard from './blogListingCard/BlogListingCard'; // Assuming you have a component for rendering each blog listing card
-import { collection, onSnapshot, query, orderBy } from 'firebase/firestore';
+import { collection, onSnapshot, query, orderBy, where } from 'firebase/firestore';
 
-const BlogListingComponent = () => {
+const BlogListingComponent = ({ currentTopic }) => {
   const [blogsData, setBlogsData] = useState([]);
 
 useEffect(() => {
-    const unsubscribe = onSnapshot(query(collection(firestore, "blogs"), orderBy("timestamp", "desc")), (snapshot) => {
+    const unsubscribe = onSnapshot(query(collection(firestore, "blogs"),where("category", "==", currentTopic), orderBy("timestamp", "desc")), (snapshot) => {
         setBlogsData(snapshot.docs);
         // console.log(snapshot.docs[0].data());
     });
 
     return unsubscribe;
-}, []);
+}, [currentTopic]);
 
 // useEffect(() => {
 //     console.log(blogsData);

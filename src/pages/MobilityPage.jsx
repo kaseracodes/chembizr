@@ -36,7 +36,7 @@ const MobilityPage = () => {
       <Insights />
 
       {/* Compendium */}
-      <Compendium />
+      <Compendium category="Mobility"/>
 
       {/* Events */}
       <Events />

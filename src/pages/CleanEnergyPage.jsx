@@ -36,7 +36,7 @@ const CleanEnergyPage = () => {
       <Insights />
 
       {/* Compendium */}
-      <Compendium />
+      <Compendium category="Clean Energy & Storage"/>
 
       {/* Events */}
       <Events />

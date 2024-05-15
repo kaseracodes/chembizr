@@ -7,7 +7,8 @@ const CompendiumCard = ({ imagePath, subHeading, heading, description }) => {
       <img src={imagePath} alt="image" />
       <h5 className={styles.subHeading}>{subHeading}</h5>
       <h3 className={styles.heading}>{heading}</h3>
-      <p className={styles.desc}>{description}</p>
+      <div className={styles.desc}
+      dangerouslySetInnerHTML={{ __html: description }}></div>
     </div>
   );
 };

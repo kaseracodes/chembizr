@@ -36,7 +36,7 @@ const ChemicalsPage = () => {
       <Insights />
 
       {/* Compendium */}
-      <Compendium />
+      <Compendium category="Speciality Chemicals and Polymers"/>
 
       {/* Events */}
       <Events />
