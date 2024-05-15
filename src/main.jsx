@@ -104,26 +104,6 @@ const router = createBrowserRouter([
   },
 
   {
-    path: "/writeblog",
-    element: <BlogWritePage/>,
-  },
-
-  {
-    path: "/writenews",
-    element: <NewsWritePage/>,
-  },
-
-  {
-    path: "/writeevent",
-    element: <EventWritePage/>,
-  },
-
-  {
-    path: "/writeopening",
-    element: <OpeningWritePage/>,
-  },
-
-  {
     path: "/comment/:id",
     element: <CommentFormPage/>
   },
