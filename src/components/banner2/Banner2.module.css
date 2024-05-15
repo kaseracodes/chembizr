@@ -1,5 +1,7 @@
 .container {
-  height: 30vh;
+  height: 50vh;
+  width: 50vw;
+
   background-size: cover;
   /* width: 100%; */
   margin-top: 0px;

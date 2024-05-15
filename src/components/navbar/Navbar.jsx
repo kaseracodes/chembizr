@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import LinkedinIcon from "../../svgIcons/LinkedinIcon";
 import SearchIcon from "../../svgIcons/SearchIcon";
 import Button from "../button/Button";
@@ -7,17 +7,26 @@ import DropdownButton from "../dropdownButton/DropdownButton";
 import styles from "./Navbar.module.css";
 import { COLORS } from "../../assets/constants";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../contexts/authContext";
+import { doSignOut } from "../../firebase/auth";
+import { auth } from "../../firebase/firebase";
+import { useReducer } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+
 
 const Navbar = ({ textColor, iconColor, bgColor }) => {
   const navigate = useNavigate();
-
+  const { userLoggedIn } = useAuth();
+  var user = "";
+  if(userLoggedIn)user = auth.currentUser.email;
+  console.log(user);
   const [isScrolled, setIsScrolled] = useState(false);
   const [navbarOpen, setNavbarOpen] = useState(false);
 
-  const handleClick = () => {
+  const handleClickLogin = () => {
     navigate("/login");
   };
+
 
   const showNavbar = () => {
     // navRef.current.classList.toggle("responsive_nav");
@@ -89,10 +98,42 @@ const Navbar = ({ textColor, iconColor, bgColor }) => {
             ]}
             index="3"
           />
+
+          {userLoggedIn && isAdmin(user) && (
+            <DropdownButton
+              textColor={!isScrolled ? textColor : COLORS.black}
+              content="Add Insights"
+              modalContents={[
+                { desc: "Blogs", link: "/writeblog" },
+                { desc: "News", link: "/writenews" },
+                { desc: "Events", link: "/writeevent" },
+                { desc: "Openings", link: "/writeopening" },
+              ]}
+              index="3"
+            />
+          )}
+
+
         </div>
 
         <div className={styles.buttonContainer}>
-          <Button content="Log in" bgColor="#333333" onClick={handleClick} />
+
+          {!userLoggedIn && (
+            <Button
+              content="Log in"
+              bgColor="#333333"
+              onClick={handleClickLogin}
+            />
+          )}
+          {userLoggedIn && (
+            <Button
+              content="Log out"
+              bgColor="#333333"
+              onClick={handleClickLogout}
+            />
+          )
+
+          }
           <Button content="Subscribe" bgColor="#FF9B42" />
         </div>
 

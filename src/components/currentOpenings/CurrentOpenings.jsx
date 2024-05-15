@@ -1,16 +1,36 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./CurrentOpenings.module.css";
 import { CurrentOpeningsData } from "../../assets/currentOpeningsData";
+import { collection, onSnapshot, query } from "firebase/firestore";
+import { firestore } from "../../firebase/firebase";
 
 const CurrentOpenings = () => {
   const [activeButton, setActiveButton] = useState(0);
-  const [detailsContent, setDetailsContent] = useState(
-    CurrentOpeningsData && CurrentOpeningsData[0]
-  );
+  const [currentOpeningsData, setCurrentOpeningsData] = useState([]);
+  const [detailsContent, setDetailsContent] = useState(null);
+
+  useEffect(() => {
+      const unsubscribe = onSnapshot(
+          query(collection(firestore, "job_openings")),
+          (snapshot) => {
+              // const openingsData = snapshot.docs.map(doc => doc.data());
+              setCurrentOpeningsData(snapshot.docs);
+              console.log(snapshot.docs[0].data());
+          }
+      );
+      return unsubscribe;
+  }, []);
+
+  useEffect(() => {
+    // Update detailsContent when currentOpeningsData changes
+    if (currentOpeningsData.length > 0) {
+      setDetailsContent(currentOpeningsData[0].data());
+    }
+  }, [currentOpeningsData]);
 
   const handleClick = (index) => {
     setActiveButton(index);
-    setDetailsContent(CurrentOpeningsData && CurrentOpeningsData[index]);
+    setDetailsContent(currentOpeningsData.length == 0 ? null : currentOpeningsData[index].data());
   };
 
   return (
@@ -21,7 +41,7 @@ const CurrentOpenings = () => {
       <div className={styles.contentDiv}>
         <div className={styles.tagDiv}>
           <div className={styles.innerTagDiv}>
-            {CurrentOpeningsData.map((item, index) => (
+            {currentOpeningsData.length > 0 && currentOpeningsData.map((item, index) => (
               <button
                 className={`${styles.tagBtn} ${
                   index === activeButton ? styles.active : ""
@@ -29,7 +49,7 @@ const CurrentOpenings = () => {
                 key={index}
                 onClick={() => handleClick(index)}
               >
-                {item.name}
+                {item.data().name}
               </button>
             ))}
           </div>
@@ -40,8 +60,8 @@ const CurrentOpenings = () => {
             <h4 className={styles.detailsHeading}>
               {detailsContent && detailsContent.name}
             </h4>
-            <button className={styles.btn}>Apply</button>
-
+            {detailsContent && <button className={styles.btn} onClick={() => window.open(detailsContent.gform, '_blank')}>Apply</button>}
+            
             <div className={styles.content}>
               <h5>Overview</h5>
               <p>{detailsContent && detailsContent.overview}</p>

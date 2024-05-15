@@ -10,6 +10,17 @@ const Banner2 = ({ imagePath, heading }) => {
       <h1 className={styles.heading}>{heading}</h1>
     </div>
   );
+  // return (
+  //   <div>
+  //     {imagePath && (
+  //       <img height="700px" width="1300px" src={imagePath} alt="img" />
+  //     )}
+  //     <h1 className={styles.heading} style={{ fontSize: fontSize }}>
+  //     {heading}
+  //     </h1>
+  //   </div>
+    
+  // );
 };
 
 export default Banner2;

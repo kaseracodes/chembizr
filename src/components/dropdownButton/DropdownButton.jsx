@@ -53,9 +53,9 @@ const DropdownButton = ({ content, modalContents, textColor, index }) => {
           <path
             d="M14.6668 9L10.0002 13.6667L5.3335 9"
             stroke={textColor}
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
         </svg>
       </button>

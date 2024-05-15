@@ -5,8 +5,12 @@ import { COLORS } from "../assets/constants";
 import BussinessVerticals from "../components/bussinessVerticals/BussinessVerticals";
 import { NewsListingData } from "../assets/newsListingData";
 import NewsListingCard from "../components/newsListingCard/NewsListingCard";
-// import CallToAction from "../components/callToAction/CallToAction";
-// import Footer from "../components/footer/Footer";
+import CallToAction from "../components/callToAction/CallToAction";
+import Footer from "../components/footer/Footer";
+import React, { useState, useEffect } from 'react';
+import { firestore } from '../firebase/firebase';
+import { collection, onSnapshot, query, orderBy } from 'firebase/firestore';
+
 
 const NewsPage = () => {
   const BussinessVerticalsItems = [
@@ -25,6 +29,16 @@ const NewsPage = () => {
     "Personal Care",
   ];
 
+  const [newsData, setNewsData] = useState([]);
+
+  useEffect(() => {
+      const unsubscribe = onSnapshot(query(collection(firestore, "news"), orderBy("date", "desc")), (snapshot) => {
+        setNewsData(snapshot.docs);
+          console.log(snapshot.docs[0].data());
+      });
+
+      return unsubscribe;
+  }, []);
   return (
     <div className={styles.container}>
       <Navbar textColor={COLORS.white} iconColor={COLORS.white} />
@@ -33,13 +47,13 @@ const NewsPage = () => {
 
       <div className={styles.newsListingDiv}>
         <div className={styles.newsCardDiv}>
-          {NewsListingData.map((item, index) => (
+          {newsData.map((item, index) => (
             <NewsListingCard
               key={index}
-              date={item.date}
-              heading={item.heading}
-              description={item.description}
-              category={item.category}
+              date={item.data().date}
+              heading={item.data().heading}
+              description={item.data().desc}
+              category={item.data().category}
             />
           ))}
         </div>

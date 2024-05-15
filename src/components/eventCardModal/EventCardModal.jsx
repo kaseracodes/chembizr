@@ -4,13 +4,16 @@ import "react-multi-carousel/lib/styles.css";
 import styles from "./EventCardModal.module.css";
 
 const EventCardModal = ({
-  imagePath,
+  // imagePath,
   logoPath,
   category,
   date,
   heading,
   description,
 }) => {
+  const milliseconds = date.seconds * 1000 + Math.floor(date.nanoseconds / 1000000);
+  const date1 = new Date(milliseconds);
+  const dateString = date1.toLocaleString(); 
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -34,13 +37,13 @@ const EventCardModal = ({
   return (
     <div className={styles.container}>
       <div className={styles.imageDiv}>
-        <Carousel responsive={responsive} showDots={true} arrows={false}>
+        {/* <Carousel responsive={responsive} showDots={true} arrows={false}>
           {imagePath.map((item, index) => (
             <div key={index} className={styles.image}>
               <img src={item} alt="image" />
             </div>
           ))}
-        </Carousel>
+        </Carousel> */}
         {/* <img src={imagePath[0]} alt="image" /> */}
       </div>
       <div className={styles.contentDiv}>
@@ -48,7 +51,7 @@ const EventCardModal = ({
           <img src={logoPath} alt="logo" />
           <div className={styles.innerDiv}>
             <h5 className={styles.category}>{category}</h5>
-            <p className={styles.date}>{date}</p>
+            <p className={styles.date}>{dateString}</p>
           </div>
         </div>
 

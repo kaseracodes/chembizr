@@ -1,39 +1,104 @@
 import { Link } from "react-router-dom";
 import styles from "./SignupPage.module.css";
+import { useState } from "react";
+import { doCreateUserWithEmailAndPassword } from '../firebase/auth';
+import { Navigate } from "react-router-dom";
+import { useAuth } from "../contexts/authContext";
 
 const SignupPage = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [repeatPassword, setRepeatPassword] = useState('');
+  const [isSigningIn, setIsSigningIn] = useState(false);
+  const [isRegistered, setIsRegistered] = useState(false);
+  const [error, setError] = useState('');
+  const { userLoggedIn } = useAuth();
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    const emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+    const isEmailValid = emailRegex.test(email);
+    if (!isEmailValid) {
+      setError("Invalid Email input !!");
+      return;
+    }
+
+    const isPassValid = password.match(/[a-z]/g) && password.match(/[A-Z]/g) && password.match(/[0-9]/g) && password.match(/[^a-zA-Z\d]/g) && password.length >= 6;
+    if (!isPassValid) {
+      setError("Invalid Password !!")
+      return;
+    }
+
+
+    if (!isSigningIn) {
+      if (password !== repeatPassword) {
+        setError('Passwords do not match !!');
+        return;
+      }
+
+
+    await doCreateUserWithEmailAndPassword(email, password).then(
+      () => {
+        setIsRegistered(true);
+      }
+    )
+      .catch(
+        (err) => {
+          console.log(err);
+          setError("Email is already in use !!");
+        }
+      )
+
+    }
+  }
+
   return (
     <div className={styles.container}>
+      {isRegistered && (<Navigate to={'/login'} replace={true} />)}
       <div className={styles.leftDiv}>
-        <div>
-          <h3 className={styles.inputHeading}>Welcome to ChemBizR!</h3>
-          <hr className={styles.hr} />
-        </div>
-
-        <div className={styles.inputDiv}>
-          <label>Enter Your Email ID</label>
+        <form onSubmit={onSubmit}>
           <div>
-            <input type="email" placeholder="alex@email.com" />
+            <h3 className={styles.inputHeading}>Welcome to ChemBizR!</h3>
+            <hr className={styles.hr} />
           </div>
-        </div>
 
-        <div className={styles.inputDiv}>
-          <label>Enter Your Password</label>
-          <div>
-            <input type="text" placeholder="abc#123" />
+          <div className={styles.inputDiv}>
+            <label>Enter Your Email ID</label>
+            <div>
+              <input type="email"
+                placeholder="alex@email.com"
+                required
+                value={email}
+                onChange={(e) => { setEmail(e.target.value) }}
+              />
+            </div>
           </div>
-        </div>
 
-        <div className={styles.inputDiv}>
-          <label>Re Enter Your Password</label>
-          <div>
-            <input type="text" placeholder="abc#123" />
+          <div className={styles.inputDiv}>
+            <label>Enter Your Password</label>
+            <div>
+              <input type="password"
+                placeholder="abc#123"
+                required
+                value={password}
+                onChange={(e) => { setPassword(e.target.value) }} />
+            </div>
           </div>
-        </div>
 
-        <div className={styles.btnContainer}>
+          <div className={styles.inputDiv}>
+            <label>Re-enter Your Password</label>
+            <div>
+              <input type="password" placeholder="abc#123"
+                required
+                value={repeatPassword}
+                onChange={(e) => { setRepeatPassword(e.target.value) }} />
+            </div>
+          </div>
+
+          {error && <div className={styles.error}>{error}</div>}
+
           <button className={styles.btn1}>Signup</button>
-        </div>
+        </form>
 
         <div>
           <h3 className={styles.inputHeading}>Or Sign Up With</h3>

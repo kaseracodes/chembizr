@@ -15,6 +15,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useState } from "react";
+import BlogListingComponent from "../components/BlogListingComponent";
 // import { useParams, useSearchParams } from "react-router-dom";
 import Pagination from "../components/pagination/Pagination";
 import { useSearchParams } from "react-router-dom";
@@ -182,6 +183,7 @@ const BlogListingPage = () => {
           </div>
 
           <div className={styles.blogsListingDiv}>
+            {/* {BlogsData.map((item, index) => (
             {BlogsData.slice(startIndex, endIndex).map((item, index) => (
               <BlogListingCard
                 key={index}
@@ -193,7 +195,8 @@ const BlogListingPage = () => {
                 category={item.category}
                 date={item.date}
               />
-            ))}
+            ))} */}
+            <BlogListingComponent/>
           </div>
 
           <Pagination page={page} hasPrev={hasPrev} hasNext={hasNext} />
