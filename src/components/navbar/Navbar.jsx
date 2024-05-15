@@ -27,7 +27,10 @@ const Navbar = ({ textColor, iconColor, bgColor }) => {
     navigate("/login");
   };
 
-
+  const handleClickLogout = () => {
+    doSignOut();
+  }
+  
   const showNavbar = () => {
     // navRef.current.classList.toggle("responsive_nav");
     setNavbarOpen(!navbarOpen);
