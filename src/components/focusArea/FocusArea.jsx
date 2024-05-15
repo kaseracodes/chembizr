@@ -5,12 +5,10 @@ import { COLORS } from "../../assets/constants";
 import { useNavigate } from "react-router-dom";
 
 const FocusArea = ({
-  index,
   imagePath,
   heading,
   description,
   buttonText,
-  width,
   bgColor,
   pageLink,
 }) => {
@@ -19,18 +17,9 @@ const FocusArea = ({
   const handleClick = () => {
     navigate(pageLink);
   };
-  // console.log(index, imagePath, heading, description, buttonText);
-  const isOdd = index % 2 !== 0;
 
   return (
-    <div
-      className={styles.container}
-      style={{
-        display: "flex",
-        flexDirection: isOdd ? "row-reverse" : "row",
-        width: width,
-      }}
-    >
+    <div className={styles.container}>
       <div className={styles.imageDiv}>
         <img src={imagePath} alt="image" />
       </div>

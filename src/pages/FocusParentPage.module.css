@@ -21,3 +21,33 @@
   text-transform: capitalize;
   text-align: center;
 }
+
+@media only screen and (max-width: 1250px) {
+  .heading {
+    font-size: 60px;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .heading {
+    font-size: 42px;
+  }
+
+  .subHeading {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .carouselContainer {
+    padding: 50px 20px;
+  }
+
+  .heading {
+    font-size: 32px;
+  }
+
+  .subHeading {
+    font-size: 18px;
+  }
+}

@@ -2,6 +2,7 @@
   padding: 50px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .chemicalsImageContainer img {
@@ -14,7 +15,7 @@
 }
 
 .chemicalsHeading {
-  margin: 15px 0;
+  margin: 0 0 15px 0;
   font-family: "Istok Web", sans-serif;
   font-size: 75px;
   font-weight: 700;
@@ -35,4 +36,70 @@
   font-weight: 400;
   font-family: "Open Sans", sans-serif;
   color: var(--black);
+}
+
+@media only screen and (max-width: 1300px) {
+  .chemicalsImageContainer img {
+    width: 45vw;
+    height: auto;
+  }
+
+  .chemicalsContentDiv {
+    padding: 0 0 0 50px;
+  }
+
+  .chemicalsHeading {
+    font-size: 60px;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .chemicalsImageContainer img {
+    max-height: 500px;
+  }
+
+  .chemicalsHeading {
+    font-size: 42px;
+  }
+
+  .chemicalsSubHeading {
+    font-size: 20px;
+  }
+
+  .desc {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .chemicalsImageContainer img {
+    width: 40vw;
+    height: 400px;
+  }
+
+  .chemicalsHeading {
+    font-size: 32px;
+    margin: 0;
+  }
+
+  .chemicalsSubHeading {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .chemicalsContainer {
+    flex-direction: column;
+  }
+
+  .chemicalsImageContainer img {
+    width: 70vw;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .chemicalsContentDiv {
+    padding: 0;
+  }
 }

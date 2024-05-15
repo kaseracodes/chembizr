@@ -59,3 +59,18 @@
   border: 1px solid var(--gray3);
   margin-top: 20px;
 }
+
+@media only screen and (max-width: 550px) {
+  .heading {
+    font-size: 15px;
+  }
+
+  .desc {
+    font-size: 13px;
+  }
+
+  .date,
+  .category {
+    font-size: 10px;
+  }
+}

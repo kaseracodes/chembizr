@@ -8,12 +8,22 @@ const CareAndCosmetics = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.leftDiv}>
-        <img src="/images/care_cosmetics/image1.png" alt="image" />
-        <h3 className={styles.heading}>Personal Care & Cosmetics</h3>
-      </div>
-      <div>
-        <img src="/images/care_cosmetics/image2.png" alt="image" />
+      <div className={styles.imageContainer}>
+        <div className={styles.leftDiv}>
+          <img
+            src="/images/care_cosmetics/image1.png"
+            alt="image"
+            className={styles.img1}
+          />
+          <h3 className={styles.heading}>Personal Care & Cosmetics</h3>
+        </div>
+        <div>
+          <img
+            src="/images/care_cosmetics/image2.png"
+            alt="image"
+            className={styles.img2}
+          />
+        </div>
       </div>
       <div className={styles.rightDiv}>
         <h5 className={styles.subHeading}>Oil Consumption Across</h5>

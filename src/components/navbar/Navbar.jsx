@@ -11,28 +11,27 @@ import { useAuth } from "../../contexts/authContext";
 import { doSignOut } from "../../firebase/auth";
 import { auth } from "../../firebase/firebase";
 import { useReducer } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 
-const Navbar = ({ textColor, iconColor }) => {
+const Navbar = ({ textColor, iconColor, bgColor }) => {
   const navigate = useNavigate();
   const { userLoggedIn } = useAuth();
   var user = "";
   if(userLoggedIn)user = auth.currentUser.email;
   console.log(user);
   const [isScrolled, setIsScrolled] = useState(false);
-  const adminemails = [ "abcde@gmail.com" , "abc@gmail.com" , "ab@gmail.com" ];
+  const [navbarOpen, setNavbarOpen] = useState(false);
 
   const handleClickLogin = () => {
     navigate("/login");
   };
 
-  const handleClickLogout = async () => {
-    await doSignOut();
-  }
 
-  const isAdmin = (user) => {
-    return adminemails.includes(user);
-  }
+  const showNavbar = () => {
+    // navRef.current.classList.toggle("responsive_nav");
+    setNavbarOpen(!navbarOpen);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,15 +50,28 @@ const Navbar = ({ textColor, iconColor }) => {
   }, []);
 
   return (
-    <div className={`${styles.container} ${isScrolled ? styles.active : ""}`}>
+    <div
+      className={`${styles.container} ${isScrolled ? styles.active : ""}`}
+      style={{ backgroundColor: bgColor && bgColor }}
+    >
       <div onClick={() => navigate("/")} style={{ cursor: "pointer" }}>
-        <img src="/images/logo.png" alt="logo" className={styles.logo} />
+        <img
+          src={
+            isScrolled || bgColor ? "/images/logo.png" : "/images/logo2.png"
+          }
+          alt="logo"
+          className={styles.logo}
+        />
       </div>
 
-      <div className={styles.rightContainer}>
+      <div
+        className={`${styles.rightContainer} ${
+          navbarOpen ? styles.responsive_nav : ""
+        }`}
+      >
         <div className={styles.dropdownContainer}>
           <DropdownButton
-            textColor={!isScrolled ? textColor : COLORS.black}
+            textColor={isScrolled || navbarOpen ? COLORS.black : textColor}
             content="About"
             modalContents={[
               { desc: "Who are we?", link: "/about-us" },
@@ -68,7 +80,7 @@ const Navbar = ({ textColor, iconColor }) => {
             index="1"
           />
           <DropdownButton
-            textColor={!isScrolled ? textColor : COLORS.black}
+            textColor={isScrolled || navbarOpen ? COLORS.black : textColor}
             content="Services"
             modalContents={[
               { desc: "Industries", link: "/focus" },
@@ -77,7 +89,7 @@ const Navbar = ({ textColor, iconColor }) => {
             index="2"
           />
           <DropdownButton
-            textColor={!isScrolled ? textColor : COLORS.black}
+            textColor={isScrolled || navbarOpen ? COLORS.black : textColor}
             content="Insights"
             modalContents={[
               { desc: "Blogs", link: "/blogs" },
@@ -135,16 +147,34 @@ const Navbar = ({ textColor, iconColor }) => {
               )
             }
           >
-            <LinkedinIcon color={!isScrolled ? iconColor : COLORS.black} />
+            <LinkedinIcon
+              color={isScrolled || navbarOpen ? COLORS.black : textColor}
+            />
           </div>
           <div className={styles.icon}>
             <SearchIcon
               className={styles.icon}
-              color={!isScrolled ? iconColor : COLORS.black}
+              color={isScrolled || navbarOpen ? COLORS.black : textColor}
             />
           </div>
         </div>
+
+        <button
+          className={`${styles.faIcon} ${styles.closeBtn}`}
+          style={{ color: COLORS.black }}
+          onClick={showNavbar}
+        >
+          <FaTimes />
+        </button>
       </div>
+
+      <button
+        className={styles.faIcon}
+        style={{ color: !isScrolled ? iconColor : COLORS.black }}
+        onClick={showNavbar}
+      >
+        <FaBars />
+      </button>
     </div>
   );
 };

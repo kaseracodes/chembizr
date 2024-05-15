@@ -3,7 +3,9 @@ import styles from "./OriginStory.module.css";
 const OriginStory = () => {
   return (
     <div className={styles.container}>
-      <img src="/images/origin_story.png" alt="image" />
+      <div className={styles.imageContainer}>
+        <img src="/images/origin_story.png" alt="image" />
+      </div>
       <div className={styles.contentDiv}>
         <h3 className={styles.heading}>How ChemBizR Works?</h3>
         <p className={styles.desc}>

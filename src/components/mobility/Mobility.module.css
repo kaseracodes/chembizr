@@ -9,8 +9,10 @@
 }
 
 .contentDiv {
-  margin-right: 700px;
-  margin-left: 100px;
+  position: absolute;
+  /* margin-right: 700px; */
+  max-width: 600px;
+  left: 100px;
   padding: 80px 80px 150px 80px;
   border-top: 2px solid var(--white);
   border-left: 2px solid var(--white);
@@ -39,4 +41,50 @@
   font-weight: 400;
   font-family: "Open Sans", sans-serif;
   color: var(--white);
+}
+
+@media only screen and (max-width: 960px) {
+  .container {
+    height: 450px;
+  }
+
+  .contentDiv {
+    padding: 50px;
+    left: 50px;
+  }
+
+  .heading {
+    font-size: 56px;
+  }
+
+  .subHeading {
+    font-size: 20px;
+    margin: 0;
+  }
+
+  .desc {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .container {
+    padding: 20px 20px 0 20px;
+  }
+
+  .contentDiv {
+    padding: 30px 20px;
+    left: 20px;
+    right: 20px;
+  }
+
+  .heading {
+    font-size: 42px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .heading {
+    font-size: 32px;
+  }
 }

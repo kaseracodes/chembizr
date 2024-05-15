@@ -62,3 +62,32 @@
 .image {
   width: 260px;
 }
+
+@media only screen and (max-width: 1300px) {
+  .container {
+    width: 400px;
+  }
+
+  .image {
+    width: 200px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .container {
+    width: 240px;
+    padding: 20px;
+  }
+
+  .image {
+    width: 120px;
+  }
+
+  .heading {
+    font-size: 18px;
+  }
+
+  .desc {
+    font-size: 13px;
+  }
+}

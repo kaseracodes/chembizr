@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./ResetPasswordPage.module.css";
 
 const ResetPasswordPage = () => {
@@ -35,10 +36,12 @@ const ResetPasswordPage = () => {
           </div>
         </div>
 
-        <button className={styles.btn1}>SAVE</button>
+        <div className={styles.btnContainer}>
+          <button className={styles.btn1}>SAVE</button>
 
-        <div className={styles.line}>
-          <hr /> OR <hr />
+          <div className={styles.line}>
+            <hr /> OR <hr />
+          </div>
         </div>
 
         <div>
@@ -47,15 +50,15 @@ const ResetPasswordPage = () => {
         </div>
 
         <div className={styles.socials}>
-          <a href="#">
+          <Link to="#">
             <img src="/images/socials/linkedin.png" alt="linkedin-image" />
-          </a>
-          <a href="#">
+          </Link>
+          <Link to="#">
             <img src="/images/socials/google.png" alt="google-image" />
-          </a>
-          <a href="#">
+          </Link>
+          <Link to="#">
             <img src="/images/socials/facebook.png" alt="facebook-image" />
-          </a>
+          </Link>
         </div>
       </div>
     </div>

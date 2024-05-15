@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { BlogsData } from "../assets/blogsData";
 import styles from "./BlogDetailPage.module.css";
 import Navbar from "../components/navbar/Navbar";
@@ -39,9 +39,10 @@ const BlogDetailPage = () => {
   return (
     <div className={styles.container}>
       <Navbar
-        textColor={COLORS.white}
+        textColor={COLORS.black}
         invertLogo={false}
-        iconColor={COLORS.white}
+        iconColor={COLORS.black}
+        bgColor={COLORS.white}
       />
 
       <Banner2

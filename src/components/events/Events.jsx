@@ -54,6 +54,7 @@ const Events = () => {
               heading={item.data().heading}
               description={item.data().desc}
             />
+
           ))}
         </Carousel>
       </div>

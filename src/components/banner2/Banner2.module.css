@@ -1,9 +1,10 @@
 .container {
   height: 50vh;
   width: 50vw;
+
   background-size: cover;
   /* width: 100%; */
-  margin-top: -120px;
+  margin-top: 0px;
   padding: 100px;
   padding-top: 120px;
   display: flex;
@@ -13,10 +14,37 @@
 
 .heading {
   font-family: "Istok Web", sans-serif;
-  font-size: 90px;
-  font-weight: 700;
+  font-size: 56px;
+  font-weight: 500;
   color: var(--white);
   text-align: center;
   text-transform: capitalize;
   margin: 0;
+}
+
+@media only screen and (max-width: 1300px) {
+  .heading {
+    font-size: 50px;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .heading {
+    font-size: 40px;
+  }
+
+  .container {
+    padding: 100px 50px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    height: 20vh;
+    padding: 100px 20px;
+  }
+
+  .heading {
+    font-size: 30px;
+  }
 }

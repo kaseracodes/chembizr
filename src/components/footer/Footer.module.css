@@ -14,8 +14,8 @@
 }
 
 .leftDiv img {
-  margin-left: -20px;
-  height: 80px;
+  margin-bottom: 20px;
+  height: 40px;
   cursor: pointer;
   /* margin-bottom: 20px; */
 }
@@ -53,4 +53,41 @@
   color: var(--white);
   text-align: right;
   margin-top: 20px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .container {
+    padding: 30px 50px;
+  }
+
+  /* .icon {
+    height: 10px;
+    width: 8px;
+  } */
+
+  .anchor,
+  .para,
+  .copyrightText {
+    font-size: 13px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .mainContainer {
+    align-items: flex-end;
+  }
+
+  .leftDiv img {
+    height: 30px;
+    margin-bottom: 20px;
+  }
+
+  .anchorDiv {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .rightDiv {
+    margin-bottom: 10px;
+  }
 }

@@ -106,3 +106,41 @@
 .btn:hover {
   background-color: var(--orange4);
 }
+
+@media only screen and (max-width: 900px) {
+  .blogsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .one,
+  .two,
+  .four,
+  .five,
+  .six {
+    height: 100%;
+    width: auto;
+  }
+
+  .eight {
+    display: none;
+  }
+
+  .contentDiv {
+    padding: 20px;
+  }
+
+  .contentDiv p {
+    font-size: 13px;
+  }
+
+  .contentDiv h5 {
+    font-size: 15px;
+  }
+
+  .btn {
+    text-align: center;
+  }
+}

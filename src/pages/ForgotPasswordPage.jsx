@@ -31,15 +31,17 @@ const ForgotPasswordPage = () => {
           </div>
         </div>
 
-        <button className={styles.btn1}>Send OTP</button>
+        <div className={styles.btnContainer}>
+          <button className={styles.btn1}>Send OTP</button>
 
-        <div className={styles.line}>
-          <hr /> OR <hr />
+          <div className={styles.line}>
+            <hr /> OR <hr />
+          </div>
+
+          <button className={styles.btn2} onClick={() => navigate("/signup")}>
+            Signup Now
+          </button>
         </div>
-
-        <button className={styles.btn2} onClick={() => navigate("/signup")}>
-          Signup Now
-        </button>
 
         <div>
           <h3 className={styles.inputHeading}>Or Login With</h3>

@@ -2,7 +2,7 @@
 import { useState } from "react";
 import styles from "./Button.module.css";
 
-const Button = ({ content, bgColor, onClick }) => {
+const Button = ({ content, bgColor, onClick, disabled }) => {
   const [hovered, setHovered] = useState(false);
 
   const handleMouseEnter = () => {
@@ -55,6 +55,7 @@ const Button = ({ content, bgColor, onClick }) => {
       style={getButtonStyle()}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      disabled={disabled}
       onClick={onClick}
     >
       {content}

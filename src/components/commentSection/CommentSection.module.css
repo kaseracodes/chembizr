@@ -1,6 +1,5 @@
 .container {
-  width: 80%;
-  padding: 10px 100px 50px 100px;
+  padding: 10px 380px 50px 300px;
   font-family: "Open Sans", sans-serif;
 }
 
@@ -102,4 +101,53 @@
   justify-content: center;
   align-items: center;
   gap: 20px;
+}
+
+@media only screen and (max-width: 1100px) {
+  .container {
+    padding: 10px 150px 50px 150px;
+  }
+
+  .username,
+  .desc {
+    font-size: 15px;
+  }
+
+  .input textarea {
+    font-size: 15px;
+    padding: 0;
+  }
+
+  .modalContainer {
+    padding: 30px 30px 50px 30px;
+  }
+
+  .modalContainer p {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .container {
+    padding: 10px 80px 50px 80px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .container {
+    padding: 10px 50px 50px 50px;
+  }
+
+  .heading {
+    font-size: 20px;
+  }
+
+  .singleComment {
+    margin-top: 20px;
+  }
+
+  .profileImage {
+    width: 50px;
+    height: auto;
+  }
 }

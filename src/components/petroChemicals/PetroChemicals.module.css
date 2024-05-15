@@ -9,8 +9,10 @@
 }
 
 .petroChemicalsContentDiv {
-  margin-left: 700px;
-  margin-right: 100px;
+  /* margin-left: 700px; */
+  position: absolute;
+  max-width: 600px;
+  right: 100px;
   padding: 80px 80px 150px 80px;
   border-top: 2px solid var(--white);
   border-left: 2px solid var(--white);
@@ -32,4 +34,45 @@
   font-weight: 400;
   font-family: "Open Sans", sans-serif;
   color: var(--white);
+}
+
+@media only screen and (max-width: 960px) {
+  .petroChemicalsContainer {
+    height: 450px;
+  }
+
+  .petroChemicalsContentDiv {
+    padding: 50px;
+    right: 50px;
+  }
+
+  .petroChemicalsHeading {
+    font-size: 56px;
+  }
+
+  .petroChemicalsDesc {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .petroChemicalsContainer {
+    padding: 20px 20px 0 20px;
+  }
+
+  .petroChemicalsContentDiv {
+    padding: 30px 20px;
+    right: 20px;
+    left: 20px;
+  }
+
+  .petroChemicalsHeading {
+    font-size: 42px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .petroChemicalsHeading {
+    font-size: 32px;
+  }
 }

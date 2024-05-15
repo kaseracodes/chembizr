@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./SignupPage.module.css";
 import { useState } from "react";
 import { doCreateUserWithEmailAndPassword } from '../firebase/auth';
@@ -105,15 +106,15 @@ const SignupPage = () => {
         </div>
 
         <div className={styles.socials}>
-          <a href="#">
+          <Link to="#">
             <img src="/images/socials/linkedin.png" alt="linkedin-image" />
-          </a>
-          <a href="#">
+          </Link>
+          <Link to="#">
             <img src="/images/socials/google.png" alt="google-image" />
-          </a>
-          <a href="#">
+          </Link>
+          <Link to="#">
             <img src="/images/socials/facebook.png" alt="facebook-image" />
-          </a>
+          </Link>
         </div>
       </div>
 

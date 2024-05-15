@@ -11,6 +11,7 @@ import React, { useState, useEffect } from 'react';
 import { firestore } from '../firebase/firebase';
 import { collection, onSnapshot, query, orderBy } from 'firebase/firestore';
 
+
 const NewsPage = () => {
   const BussinessVerticalsItems = [
     "Adhesives and Sealants",
@@ -62,9 +63,9 @@ const NewsPage = () => {
         />
       </div>
 
-      <CallToAction />
+      {/* <CallToAction />
 
-      <Footer />
+      <Footer /> */}
     </div>
   );
 };

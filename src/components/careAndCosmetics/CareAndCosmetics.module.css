@@ -11,6 +11,15 @@
   gap: 50px;
 }
 
+.imageContainer {
+  display: flex;
+  gap: 50px;
+}
+
+.img1 {
+  max-width: 400px;
+}
+
 .rightDiv {
   display: flex;
   flex-direction: column;
@@ -40,4 +49,77 @@
   font-weight: 400;
   font-family: "Open Sans", sans-serif;
   color: var(--black);
+}
+
+@media only screen and (max-width: 1250px) {
+  .heading {
+    font-size: 56px;
+  }
+
+  .img2 {
+    height: 500px;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .container {
+    flex-wrap: wrap;
+  }
+
+  .subHeading {
+    margin: 0;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .imageContainer {
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .leftDiv {
+    max-width: 350px;
+  }
+
+  .img1 {
+    width: 300px;
+  }
+
+  .img2 {
+    height: 400px;
+  }
+
+  .heading {
+    font-size: 42px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .leftDiv {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .imageContainer {
+    flex-wrap: wrap;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .container {
+    padding: 50px 20px;
+  }
+
+  .heading {
+    font-size: 32px;
+  }
+
+  .subHeading {
+    font-size: 20px;
+  }
+
+  .desc {
+    font-size: 15px;
+  }
 }

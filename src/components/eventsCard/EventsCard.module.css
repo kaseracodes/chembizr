@@ -70,3 +70,51 @@
 .btn:hover {
   background-color: var(--orange3);
 }
+
+@media only screen and (max-width: 1300px) {
+  .imageDiv img {
+    width: 40vw;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .imageDiv img {
+    width: 35vw;
+  }
+
+  .contentDiv {
+    padding: 50px;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .innerContainer {
+    flex-wrap: wrap;
+    width: 80vw;
+  }
+
+  .imageDiv {
+    border: none;
+    padding: 50px 20px 0 20px;
+  }
+
+  .imageDiv img {
+    width: 60vw;
+  }
+
+  .contentDiv {
+    padding: 50px 30px;
+  }
+
+  /* .heading {
+    font-size: 15px;
+  }
+
+  .desc {
+    font-size: 13px;
+  }
+
+  .btn {
+    font-size: 14px;
+  } */
+}

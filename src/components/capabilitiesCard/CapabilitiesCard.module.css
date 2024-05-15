@@ -7,6 +7,11 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: all 0.2s;
+}
+
+.container:hover {
+  transform: scale(1.05);
 }
 
 .innerContainer {
@@ -66,4 +71,22 @@
 
 .special {
   color: var(--green2);
+}
+
+@media only screen and (max-width: 800px) {
+  .container {
+    width: 240px;
+    height: 380px;
+  }
+
+  .heading {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 5px 0;
+  }
+
+  .desc,
+  .btn {
+    font-size: 13px;
+  }
 }

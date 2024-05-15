@@ -64,3 +64,47 @@
   font-size: 15px;
   font-weight: 400;
 }
+
+@media only screen and (max-width: 950px) {
+  .imageDiv {
+    padding: 40px 40px 20px 20px;
+  }
+
+  .contentDiv {
+    padding: 50px 30px;
+  }
+
+  .heading {
+    font-size: 15px;
+  }
+
+  .desc {
+    font-size: 13px;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .imageDiv {
+    width: 60%;
+    border: none;
+    padding: 50px 40px 0px 20px;
+  }
+
+  .image {
+    margin-bottom: 30px;
+  }
+
+  .heading {
+    margin-top: 20px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .contentDiv {
+    padding: 30px 10px;
+  }
+}

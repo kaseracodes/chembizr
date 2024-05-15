@@ -22,3 +22,42 @@
   font-family: "Open Sans", sans-serif;
   color: var(--black);
 }
+
+@media only screen and (max-width: 1300px) {
+  .container img {
+    width: 60vw;
+  }
+
+  .contentDiv {
+    padding: 0 50px;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .container img {
+    width: 45vw;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .container {
+    flex-direction: column;
+    margin-bottom: 50px;
+  }
+
+  .container img {
+    width: 70vw;
+  }
+
+  .contentDiv {
+    padding: 20px;
+  }
+
+  .heading {
+    font-size: 18px;
+  }
+
+  .desc {
+    font-size: 15px;
+  }
+}

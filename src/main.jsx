@@ -4,7 +4,7 @@ import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import HomePage from "./pages/HomePage.jsx";
 import FocusParentPage from "./pages/FocusParentPage.jsx";
-import Banner from "./components/banner/Banner.jsx";
+// import Banner from "./components/banner/Banner.jsx";
 import FoodNutritionPage from "./pages/FoodNutritionPage.jsx";
 import AboutUsPage from "./pages/AboutUsPage.jsx";
 import EventsPage from "./pages/EventsPage.jsx";
@@ -24,15 +24,8 @@ import CareersPage from "./pages/CareersPage.jsx";
 import BlogDetailPage from "./pages/BlogDetailPage.jsx";
 import { AuthProvider } from "./contexts/authContext/index.jsx";
 import CommentFormPage from "./pages/CommentFormPage.jsx";
+import BlogsSection from "./components/blogsSection/BlogsSection.jsx";
 
-import BlogWritePage from "./pages/BlogWritePage.jsx";
-import NewsWritePage from "./pages/NewsWritePage.jsx";
-import EventWritePage from "./pages/EventWritePage.jsx";
-import OpeningWritePage from "./pages/OpeningWritePage.jsx";
-
-// import dotenv from 'dotenv';
-
-// dotenv.config();
 
 const router = createBrowserRouter([
   {
@@ -94,6 +87,11 @@ const router = createBrowserRouter([
     path: "/blogs",
     element: <BlogListingPage />,
   },
+
+  // {
+  //   path: "/blogs/:page",
+  //   element: <BlogListingPage />,
+  // },
 
   {
     path: "/blogs/:id",
@@ -157,14 +155,7 @@ const router = createBrowserRouter([
 
   {
     path: "/test",
-    element: (
-      <Banner
-        imagePath={"/images/focus_parent_page_hero.png"}
-        heading="Personal Care Magazine: Making sense of the anti-pollution segment"
-        para="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
-        buttonText="Read More"
-      />
-    ),
+    element: <BlogsSection />,
   },
 ]);
 

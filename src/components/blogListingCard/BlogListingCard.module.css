@@ -63,3 +63,14 @@
   border: 1px solid var(--gray3);
   margin-top: 30px;
 }
+
+@media only screen and (max-width: 650px) {
+  .mainContainer {
+    flex-direction: column-reverse;
+  }
+
+  .mainContainer img {
+    width: 70vw;
+    height: 30vh;
+  }
+}

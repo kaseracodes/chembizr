@@ -43,3 +43,14 @@
   background-color: #f1f1f1;
   color: #333;
 }
+
+@media only screen and (max-width: 1100px) {
+  .modal {
+    max-width: 80vw;
+  }
+
+  .btn img {
+    height: 20px;
+    width: auto;
+  }
+}

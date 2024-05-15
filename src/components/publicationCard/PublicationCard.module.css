@@ -32,3 +32,31 @@
   margin-top: 10px;
   margin-bottom: 0;
 }
+
+@media only screen and (max-width: 1300px) {
+  .container {
+    max-width: 300px;
+  }
+
+  .image {
+    max-width: 300px;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .container {
+    max-width: 250px;
+  }
+
+  .image {
+    max-width: 250px;
+  }
+
+  .heading {
+    font-size: 18px;
+  }
+
+  .desc {
+    font-size: 15px;
+  }
+}

@@ -1,15 +1,15 @@
 .container {
   position: absolute;
   z-index: 100;
-  margin-top: 40px;
+  margin-top: 30px;
   padding: 20px;
+  width: 150px;
   /* background: linear-gradient(to bottom, var(--white), var(--light-gray)); */
   background-color: var(--white);
-  border-radius: 5px;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.5);
 }
 
 .anchor {
@@ -18,4 +18,38 @@
   font-size: 15px;
   font-weight: 600;
   text-decoration: none;
+}
+
+.anchor:hover {
+  color: var(--orange);
+}
+
+.anchor div {
+  display: none;
+  padding: 10px 10px 0 10px;
+  /* box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.5); */
+}
+
+.innerAnchor {
+  text-decoration: none;
+  color: var(--dark-gray);
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.innerAnchor:hover {
+  color: var(--orange);
+}
+
+.anchor:hover div {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .container {
+    margin-top: 10px;
+  }
 }
