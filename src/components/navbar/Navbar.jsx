@@ -99,20 +99,6 @@ const Navbar = ({ textColor, iconColor, bgColor }) => {
             index="3"
           />
 
-          {userLoggedIn && isAdmin(user) && (
-            <DropdownButton
-              textColor={!isScrolled ? textColor : COLORS.black}
-              content="Add Insights"
-              modalContents={[
-                { desc: "Blogs", link: "/writeblog" },
-                { desc: "News", link: "/writenews" },
-                { desc: "Events", link: "/writeevent" },
-                { desc: "Openings", link: "/writeopening" },
-              ]}
-              index="3"
-            />
-          )}
-
 
         </div>
 
