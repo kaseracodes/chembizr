@@ -16,6 +16,12 @@
   border-right: 1px solid var(--gray3);
 }
 
+.imageDiv img {
+  width: 50px; /* Set the desired fixed width */
+  height: 50px; /* Set the desired fixed height */
+  object-fit: cover; /* Optional: Ensure the image covers the container without distortion */
+}
+
 .contentDiv {
   padding: 100px 50px;
   font-family: "Inter", sans-serif;

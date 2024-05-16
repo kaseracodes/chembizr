@@ -21,7 +21,7 @@ const EventsCard = ({
         </div> */}
         <div className={styles.contentDiv}>
           <div className={styles.topDiv}>
-            <img src={logoPath} alt="logo" />
+            <img className={styles.imageDiv} src={logoPath} alt="logo" />
             <div className={styles.innerDiv}>
               <h5 className={styles.category}>{category}</h5>
               <p className={styles.date}>{dateString}</p>

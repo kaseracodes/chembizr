@@ -48,8 +48,8 @@ const EventsFeed = () => {
           {eventsData.map((item, index) => (
             <EventTitleCard
               key={index}
-              heading={item.heading}
-              date={item.date}
+              heading={item.data().heading}
+              date={new Date(item.data().date.seconds * 1000 + Math.floor(item.data().date.nanoseconds / 1000000)).toLocaleString()}
             />
           ))}
         </div>

@@ -29,7 +29,7 @@ useEffect(() => {
           heading={item.data().heading}
           imagePath={item.data().image}
           author={item.data().author}
-          desc={item.data().description}
+          desc={item.data().short}
           category={item.data().category}
           date={item.data().date}
         />
