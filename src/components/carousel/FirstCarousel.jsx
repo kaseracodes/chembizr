@@ -19,13 +19,9 @@ const FirstCarousel = () => {
           Remodeling corporate and market strategy for
           <br /> business growth and future transitions
         </p>
-        <p className={styles.secondPara}>
-          Market Research and Data Analytics for
-          <br /> global chemical companies
-        </p>
 
         <Button
-          content="About Us"
+          content="Learn More"
           bgColor="#FF9B42"
           onClick={() => navigate("/about-us")}
         />

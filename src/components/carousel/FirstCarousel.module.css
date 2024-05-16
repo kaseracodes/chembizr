@@ -3,9 +3,9 @@
     url("/images/home_page_hero.png");
   background-size: cover;
   width: 100%;
-  height: 100vh;
+  height: 85vh;
   margin-top: 0;
-  padding-top: 150px;
+  padding-top: 200px;
 }
 
 .heading {

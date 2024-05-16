@@ -15,8 +15,8 @@ const MobilityPage = () => {
     <div className={styles.container}>
       <Navbar
         textColor={COLORS.black}
-        invertLogo={true}
-        iconColor={COLORS.white}
+        iconColor={COLORS.black}
+        bgColor={COLORS.white}
       />
 
       {/* Banner / Hero section */}

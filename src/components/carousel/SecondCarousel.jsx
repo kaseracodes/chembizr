@@ -22,8 +22,8 @@ const SecondCarousel = () => {
         </h1>
 
         <p className={styles.para}>
-          Remodeling corporate and market strategy for
-          <br /> business growth and future transitions
+          Be future-relevant and agile with your growth strategies in
+          <br /> order to fulfill the green demands of the industry
         </p>
 
         <Button

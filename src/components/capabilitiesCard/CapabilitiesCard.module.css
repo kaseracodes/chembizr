@@ -8,10 +8,11 @@
   flex-direction: column;
   justify-content: space-between;
   transition: all 0.2s;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
 .container:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 .innerContainer {
@@ -72,6 +73,8 @@
 
 .btn:hover {
   background: transparent;
+  color: var(--green);
+  font-weight: 600;
 }
 
 .special {

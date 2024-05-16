@@ -35,6 +35,11 @@
   align-items: center;
 }
 
+.topDiv img {
+  height: 20px;
+  width: 20px;
+}
+
 /* .innerDiv {
 } */
 

@@ -16,7 +16,8 @@ const FoodNutritionPage = () => {
       <Navbar
         textColor={COLORS.black}
         invertLogo={true}
-        iconColor={COLORS.white}
+        iconColor={COLORS.black}
+        bgColor={COLORS.white}
       />
 
       {/* Banner / Hero section */}
@@ -33,10 +34,10 @@ const FoodNutritionPage = () => {
       <ValueChain />
 
       {/* Insights */}
-      <Insights pagetype="Food, Nutrition & Beverages"/>
+      <Insights pagetype="Food, Nutrition & Beverages" />
 
       {/* Compendium */}
-      <Compendium category="Food, Nutrition & Beverages"/>
+      <Compendium category="Food, Nutrition & Beverages" />
 
       {/* Events */}
       <Events />

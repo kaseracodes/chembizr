@@ -1,9 +1,16 @@
 /* eslint-disable react/prop-types */
+import { useNavigate } from "react-router-dom";
 import { COLORS } from "../../assets/constants";
 import GreaterThanIcon from "../../svgIcons/GreaterThanIcon";
 import styles from "./CapabilitiesCard.module.css";
 
-const CapabilitiesCard = ({ imagePath, heading, description }) => {
+const CapabilitiesCard = ({ imagePath, heading, description, id }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/capabilities#${id}`);
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.innerContainer}>
@@ -16,7 +23,7 @@ const CapabilitiesCard = ({ imagePath, heading, description }) => {
           <p className={styles.desc}>{description.slice(0, 90) + "..."}</p>
         </div>
       </div>
-      <button className={styles.btn}>
+      <button className={styles.btn} onClick={handleClick}>
         Read More <GreaterThanIcon color={COLORS.green} />
       </button>
     </div>

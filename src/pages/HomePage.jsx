@@ -16,6 +16,7 @@ import News from "../components/news/News";
 import BlogsSection from "../components/blogsSection/BlogsSection";
 import FocusAreasSection from "../components/focusAreasSection/FocusAreasSection";
 import { AuthProvider } from "../contexts/authContext/index.jsx";
+import Events from "../components/events/Events.jsx";
 
 const responsiveHero = {
   superLargeDesktop: {
@@ -60,7 +61,11 @@ const responsiveCapabilities = {
 const HomePage = () => {
   return (
     <div className={styles.container}>
-      <Navbar textColor={COLORS.white} iconColor={COLORS.white} />
+      <Navbar
+        textColor={COLORS.black}
+        iconColor={COLORS.black}
+        bgColor={COLORS.white}
+      />
 
       <div style={{ marginTop: "-120px" }}>
         <Carousel responsive={responsiveHero}>
@@ -69,7 +74,7 @@ const HomePage = () => {
         </Carousel>
       </div>
 
-      <Heading content="VERTICALS WE SERVE" />
+      <Heading content="Verticals We Serve" />
       <div className={styles.focusAreaContainer}>
         <FocusArea
           imagePath={FocusAreasData[0].imagePath}
@@ -107,7 +112,7 @@ const HomePage = () => {
         />
       </div>
 
-      <Heading content="CAPABILITIES" />
+      <Heading content="Capabilities" />
       <div className={styles.capabilitesContainer}>
         <p className={styles.para}>
           Use our extensive suite of market intelligence tools to realize the
@@ -125,6 +130,7 @@ const HomePage = () => {
                   imagePath={item.imagePath}
                   heading={item.heading}
                   description={item.description}
+                  id={index}
                 />
               </div>
             ))}
@@ -134,12 +140,14 @@ const HomePage = () => {
 
       <BlogsSection />
 
-      <Heading content="UNIQUE VALUE PROPOSITION" />
+      <Heading content="Unique Value Proposition" />
       <div className={styles.uniquePropositionImageDiv}>
         <img src="/images/unique_proposition.png" alt="image" />
       </div>
 
       <News bgColor={COLORS.white} textColor={COLORS.black} />
+
+      <Events />
 
       <CallToAction />
 

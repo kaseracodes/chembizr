@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { CapabilitiesData } from "../assets/capabilitiesData";
 import { COLORS } from "../assets/constants";
 import Banner2 from "../components/banner2/Banner2";
@@ -7,6 +8,17 @@ import Navbar from "../components/navbar/Navbar";
 import styles from "./CapabilitiesPage.module.css";
 
 const CapabilitiesPage = () => {
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      const sectionId = hash.substring(1); // Remove the "#" from the hash
+      const section = document.getElementById(sectionId);
+      if (section) {
+        window.scrollTo({ top: section.offsetTop, behavior: "smooth" });
+      }
+    }
+  }, []);
+
   return (
     <div className={styles.container}>
       <Navbar
@@ -25,6 +37,7 @@ const CapabilitiesPage = () => {
         {CapabilitiesData.map((item, index) => (
           <div
             key={index}
+            id={index}
             className={
               index % 2 === 0 ? styles.evenCapability : styles.oddCapability
             }

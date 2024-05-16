@@ -7,10 +7,9 @@ import { NewsListingData } from "../assets/newsListingData";
 import NewsListingCard from "../components/newsListingCard/NewsListingCard";
 import CallToAction from "../components/callToAction/CallToAction";
 import Footer from "../components/footer/Footer";
-import React, { useState, useEffect } from 'react';
-import { firestore } from '../firebase/firebase';
-import { collection, onSnapshot, query, orderBy } from 'firebase/firestore';
-
+import React, { useState, useEffect } from "react";
+import { firestore } from "../firebase/firebase";
+import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
 
 const NewsPage = () => {
   const BussinessVerticalsItems = [
@@ -32,16 +31,23 @@ const NewsPage = () => {
   const [newsData, setNewsData] = useState([]);
 
   useEffect(() => {
-      const unsubscribe = onSnapshot(query(collection(firestore, "news"), orderBy("date", "desc")), (snapshot) => {
+    const unsubscribe = onSnapshot(
+      query(collection(firestore, "news"), orderBy("date", "desc")),
+      (snapshot) => {
         setNewsData(snapshot.docs);
-          console.log(snapshot.docs[0].data());
-      });
+        console.log(snapshot.docs[0].data());
+      }
+    );
 
-      return unsubscribe;
+    return unsubscribe;
   }, []);
   return (
     <div className={styles.container}>
-      <Navbar textColor={COLORS.white} iconColor={COLORS.white} />
+      <Navbar
+        textColor={COLORS.black}
+        iconColor={COLORS.black}
+        bgColor={COLORS.white}
+      />
 
       <Banner2 imagePath="/images/news_page_hero.png" heading="Industry News" />
 
