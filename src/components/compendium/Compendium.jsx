@@ -8,7 +8,7 @@ import { collection, onSnapshot, query, orderBy, where } from 'firebase/firestor
 import { useState, useEffect } from "react";
 
 const Compendium = ({ category }) => {
-console.log(category);
+  console.log(category);
   const [compendiumData, setCompendiumData] = useState([]);
 
   useEffect(() => {
@@ -53,17 +53,19 @@ console.log(category);
         <Carousel responsive={responsive}>
           {compendiumData.map((item, index) => (
             <div key={index} className={styles.innerCardDiv}>
+              <a className={styles.anchorNoUnderline} href={item.data().pdf} target="_blank" rel="noopener noreferrer">
               <CompendiumCard
                 imagePath={item.data().logoPath}
                 subHeading={item.data().subheading}
                 heading={item.data().heading}
                 description={item.data().description}
               />
+            </a>
             </div>
           ))}
-        </Carousel>
-      </div>
-    </div>
+    </Carousel>
+      </div >
+    </div >
   );
 };
 

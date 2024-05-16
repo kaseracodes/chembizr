@@ -66,8 +66,8 @@ const EventsFeed = () => {
             category={item.data().category}
             date={item.data().date}
             heading={item.data().heading}
-            description={item.data().desc}
-            imagePath={item.data().imagePath}
+            description={item.data().description}
+            // imagePath={item.data().imagePath}
             logoPath={item.data().logoPath}
           />
         ))}
