@@ -11,7 +11,7 @@ const Footer = () => {
       <div className={styles.mainContainer}>
         <div className={styles.leftDiv}>
           <img
-            src="/images/logo.png"
+            src="/images/logo2.png"
             alt="logo"
             onClick={() => navigate("/")}
           />

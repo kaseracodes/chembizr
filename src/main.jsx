@@ -25,7 +25,7 @@ import BlogDetailPage from "./pages/BlogDetailPage.jsx";
 import { AuthProvider } from "./contexts/authContext/index.jsx";
 import CommentFormPage from "./pages/CommentFormPage.jsx";
 import BlogsSection from "./components/blogsSection/BlogsSection.jsx";
-
+import CapabilitiesPage from "./pages/CapabilitiesPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -105,7 +105,7 @@ const router = createBrowserRouter([
 
   {
     path: "/comment/:id",
-    element: <CommentFormPage/>
+    element: <CommentFormPage />,
   },
 
   {
@@ -134,6 +134,11 @@ const router = createBrowserRouter([
   },
 
   {
+    path: "/capabilities",
+    element: <CapabilitiesPage />,
+  },
+
+  {
     path: "/test",
     element: <BlogsSection />,
   },
@@ -141,6 +146,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <AuthProvider><RouterProvider router={router}/></AuthProvider>
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );

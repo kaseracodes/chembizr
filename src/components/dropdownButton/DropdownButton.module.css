@@ -10,3 +10,7 @@
 .clicked {
   color: var(--orange);
 }
+
+.btn:hover {
+  background: transparent;
+}

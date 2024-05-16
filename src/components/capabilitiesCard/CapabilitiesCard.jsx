@@ -13,7 +13,7 @@ const CapabilitiesCard = ({ imagePath, heading, description }) => {
 
         <div className={styles.contentDiv}>
           <h3 className={styles.heading}>{heading}</h3>
-          <p className={styles.desc}>{description.slice(0, 100) + "..."}</p>
+          <p className={styles.desc}>{description.slice(0, 90) + "..."}</p>
         </div>
       </div>
       <button className={styles.btn}>

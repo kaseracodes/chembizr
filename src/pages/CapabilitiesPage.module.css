@@ -1,0 +1,86 @@
+.mainContainer {
+  padding: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.evenCapability {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+}
+
+.oddCapability {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+}
+
+.imageDiv img {
+  height: 400px;
+  width: 500px;
+}
+
+.heading {
+  font-family: "Istok Web", sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.desc {
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+@media only screen and (max-width: 1250px) {
+  .mainContainer {
+    padding: 50px;
+  }
+
+  .imageDiv img {
+    width: 460px;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .imageDiv img {
+    height: 380px;
+    width: 400px;
+  }
+
+  .heading {
+    font-size: 28px;
+  }
+
+  .desc {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .evenCapability,
+  .oddCapability {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .imageDiv img {
+    height: 300px;
+    width: 80vw;
+  }
+
+  .heading {
+    font-size: 20px;
+  }
+
+  .desc {
+    font-size: 15px;
+  }
+}
