@@ -239,8 +239,8 @@ const BlogListingPage = () => {
           <div className={styles.spotlightDiv}>
             <h5 className={styles.spotlightHeading}>Spotlight</h5>
             <Carousel responsive={responsive} showDots arrows={false}>
-              {blogsData.map((item, index) => {
-                console.log("Short: ", item.data().short);
+              {blogsData.filter(item => item.data().isspotlight === "true").map((item, index) => {
+                // console.log("Short: ", item.data().short);
                 return (
                   <SpotlightBlogCard
                     key={index}
