@@ -33,7 +33,7 @@ const ChemicalsPage = () => {
       <ValueChain />
 
       {/* Insights */}
-      <Insights />
+      <Insights pagetype="Speciality Chemicals and Polymers"/>
 
       {/* Compendium */}
       <Compendium category="Speciality Chemicals and Polymers"/>

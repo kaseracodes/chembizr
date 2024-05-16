@@ -33,7 +33,7 @@ const PetroChemicalsPage = () => {
       <ValueChain />
 
       {/* Insights */}
-      <Insights />
+      <Insights pagetype="Petrochemicals & Downstream"/>
 
       {/* Compendium */}
       <Compendium category="Petrochemicals & Downstream"/>

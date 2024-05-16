@@ -52,7 +52,7 @@ const Events = () => {
               category={item.data().category}
               date={item.data().date}
               heading={item.data().heading}
-              description={item.data().desc}
+              description={item.data().description}
             />
 
           ))}

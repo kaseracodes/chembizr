@@ -33,7 +33,7 @@ const MobilityPage = () => {
       <ValueChain />
 
       {/* Insights */}
-      <Insights />
+      <Insights pagetype="Mobility"/>
 
       {/* Compendium */}
       <Compendium category="Mobility"/>

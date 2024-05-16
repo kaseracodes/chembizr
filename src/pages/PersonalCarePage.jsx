@@ -33,7 +33,7 @@ const PersonalCarePage = () => {
       <ValueChain />
 
       {/* Insights */}
-      <Insights />
+      <Insights pagetype="Personal Care & Cosmetics"/>
 
       {/* Compendium */}
       <Compendium category="Personal Care & Cosmetics"/>

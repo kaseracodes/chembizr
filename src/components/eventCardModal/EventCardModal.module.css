@@ -7,6 +7,11 @@
   /* box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); */
 }
 
+.topDiv img {
+  height: 20px;
+  width: 20px;
+}
+
 .imageDiv {
   width: 40%;
   padding: 70px 70px 30px 50px;

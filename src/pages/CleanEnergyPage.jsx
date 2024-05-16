@@ -33,7 +33,7 @@ const CleanEnergyPage = () => {
       <ValueChain />
 
       {/* Insights */}
-      <Insights />
+      <Insights pagetype="Clean Energy & Storage"/>
 
       {/* Compendium */}
       <Compendium category="Clean Energy & Storage"/>

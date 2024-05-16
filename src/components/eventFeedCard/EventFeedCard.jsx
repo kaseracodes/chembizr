@@ -27,7 +27,7 @@ const EventFeedCard = ({
         </div>
 
         <h3 className={styles.heading}>{heading}</h3>
-        <p className={styles.desc}>{description}</p>
+        <div className={styles.desc} dangerouslySetInnerHTML={{ __html: description }}></div>
 
         {/* <div className={styles.imageDiv}>
           <img className={styles.image} src={imagePath[0]} alt="image" />

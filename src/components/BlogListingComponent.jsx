@@ -6,18 +6,18 @@ import { collection, onSnapshot, query, orderBy, where } from 'firebase/firestor
 const BlogListingComponent = ({ currentTopic }) => {
   const [blogsData, setBlogsData] = useState([]);
 
-useEffect(() => {
-    const unsubscribe = onSnapshot(query(collection(firestore, "blogs"),where("category", "==", currentTopic), orderBy("timestamp", "desc")), (snapshot) => {
-        setBlogsData(snapshot.docs);
-        // console.log(snapshot.docs[0].data());
+  useEffect(() => {
+    const unsubscribe = onSnapshot(query(collection(firestore, "blogs"), where("category", "==", currentTopic), orderBy("timestamp", "desc")), (snapshot) => {
+      setBlogsData(snapshot.docs);
+      // console.log(snapshot.docs[0].data());
     });
 
     return unsubscribe;
-}, [currentTopic]);
+  }, [currentTopic]);
 
-// useEffect(() => {
-//     console.log(blogsData);
-// }, [blogsData]);
+  // useEffect(() => {
+  //     console.log(blogsData);
+  // }, [blogsData]);
 
 
   return (

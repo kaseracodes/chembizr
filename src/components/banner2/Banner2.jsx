@@ -1,25 +1,22 @@
 /* eslint-disable react/prop-types */
 import styles from "./Banner2.module.css";
+import { useState, useEffect } from "react";
 
 const Banner2 = ({ imagePath, heading }) => {
-  // return (
-  //   <div
-  //     className={styles.container}
-  //     style={{ backgroundImage: `url(${imagePath})` }}
-  //   >
-  //     <h1 className={styles.heading}>{heading}</h1>
-  //   </div>
-  // );
+  const [imageUrl, setImageUrl] = useState(null);
+
+  useEffect(() => {
+    if (imagePath) {
+      setImageUrl(`url(${imagePath})`);
+    }
+  }, [imagePath]);
+
+  console.log(imageUrl);
+
   return (
-    <div>
-      {imagePath && (
-        <img height="700px" width="1300px" src={imagePath} alt="img" />
-      )}
-      <h1 className={styles.heading}>
-      {heading}
-      </h1>
+    <div className={styles.container} style={{ backgroundImage: imageUrl }}>
+      <h1 className={styles.heading}>{heading}</h1>
     </div>
-    
   );
 };
 

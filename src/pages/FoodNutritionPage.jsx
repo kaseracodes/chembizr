@@ -33,7 +33,7 @@ const FoodNutritionPage = () => {
       <ValueChain />
 
       {/* Insights */}
-      <Insights />
+      <Insights pagetype="Food, Nutrition & Beverages"/>
 
       {/* Compendium */}
       <Compendium category="Food, Nutrition & Beverages"/>

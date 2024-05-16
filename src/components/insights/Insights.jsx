@@ -4,8 +4,47 @@ import styles from "./Insights.module.css";
 import { PublicationsData } from "../../assets/publicationsData";
 import PublicationCard from "../publicationCard/PublicationCard";
 import { ArticlesData } from "../../assets/articlesData";
+import { firestore } from '../../firebase/firebase';
+import { collection, onSnapshot, query, orderBy, where } from 'firebase/firestore';
+import { useState, useEffect } from "react";
 
-const Insights = () => {
+const Insights = ({ pagetype }) => {
+  const [publicationsData, setPublicationsData] = useState([]);
+  const [articlesData, setAticlesData] = useState([]);
+  useEffect(() => {
+    const unsubscribe = onSnapshot(
+      query(
+        collection(firestore, "blogs"),
+        where("pagetype", "==", pagetype),
+        where("insighttype", "==", "Publication"), // Add this line
+        orderBy("timestamp", "desc")
+      ),
+      (snapshot) => {
+        setPublicationsData(snapshot.docs);
+        console.log(snapshot.docs[0].data());
+      }
+    );
+
+    return unsubscribe;
+  }, [pagetype]);
+
+  useEffect(() => {
+    const unsubscribe = onSnapshot(
+      query(
+        collection(firestore, "blogs"),
+        where("pagetype", "==", pagetype),
+        where("insighttype", "==", "Article"), // Add this line
+        orderBy("timestamp", "desc")
+      ),
+      (snapshot) => {
+        setAticlesData(snapshot.docs);
+        console.log(snapshot.docs[0].data());
+      }
+    );
+
+    return unsubscribe;
+  }, [pagetype]);
+
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -32,13 +71,13 @@ const Insights = () => {
       <div className={styles.contentDiv}>
         <h3 className={styles.subHeading}>Publications</h3>
         <Carousel responsive={responsive}>
-          {PublicationsData.map((item, index) => (
+          {publicationsData.map((item, index) => (
             <div key={index} className={styles.innerCardDiv}>
               <PublicationCard
-                imagePath={item.imagePath}
-                date={item.date}
-                heading={item.heading}
-                description={item.description}
+                imagePath={item.data().image}
+                date={new Date(item.data().date.seconds * 1000 + Math.floor(item.data().date.nanoseconds / 1000000)).toLocaleString()}
+                heading={item.data().heading}
+                description={item.data().short}
               />
             </div>
           ))}
@@ -48,13 +87,13 @@ const Insights = () => {
       <div className={styles.contentDiv}>
         <h3 className={styles.subHeading}>Articles</h3>
         <Carousel responsive={responsive}>
-          {ArticlesData.map((item, index) => (
+          {articlesData.map((item, index) => (
             <div key={index} className={styles.innerCardDiv}>
               <PublicationCard
-                imagePath={item.imagePath}
-                date={item.date}
-                heading={item.heading}
-                description={item.description}
+                imagePath={item.data().image}
+                date={new Date(item.data().date.seconds * 1000 + Math.floor(item.data().date.nanoseconds / 1000000)).toLocaleString()}
+                heading={item.data().heading}
+                description={item.data().short}
               />
             </div>
           ))}
