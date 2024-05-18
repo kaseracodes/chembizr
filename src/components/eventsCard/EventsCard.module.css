@@ -14,6 +14,7 @@
 .imageDiv {
   padding: 50px;
   border-right: 1px solid var(--gray3);
+  display: inline;
 }
 
 .imageDiv img {

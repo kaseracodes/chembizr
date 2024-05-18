@@ -43,6 +43,13 @@ const EventsCard = ({
       <div className={styles.innerContainer}>
         <div className={styles.imageDiv}>
           <img src={imagePath[0]} alt="image" />
+          {/* <Carousel responsive={responsive} showDots={true} arrows={false}>
+            {imagePath.map((item, index) => (
+              <div key={index} className={styles.image}>
+                <img src={item} alt="image" />
+              </div>
+            ))}
+          </Carousel> */}
         </div>
         <div className={styles.contentDiv}>
           <div className={styles.topDiv}>

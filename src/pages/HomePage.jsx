@@ -4,8 +4,6 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import styles from "./HomePage.module.css";
 import Heading from "../components/heading/Heading";
-import FocusArea from "../components/focusArea/FocusArea";
-import { FocusAreasData } from "../assets/focusAreas";
 import { COLORS } from "../assets/constants";
 import CapabilitiesCard from "../components/capabilitiesCard/CapabilitiesCard";
 import { CapabilitiesData } from "../assets/capabilitiesData";
@@ -14,9 +12,8 @@ import Footer from "../components/footer/Footer";
 import Navbar from "../components/navbar/Navbar";
 import News from "../components/news/News";
 import BlogsSection from "../components/blogsSection/BlogsSection";
-import FocusAreasSection from "../components/focusAreasSection/FocusAreasSection";
-import { AuthProvider } from "../contexts/authContext/index.jsx";
 import Events from "../components/events/Events.jsx";
+import FocusAreaSection from "../components/focusAreaSection/FocusAreaSection.jsx";
 
 const responsiveHero = {
   superLargeDesktop: {
@@ -74,43 +71,7 @@ const HomePage = () => {
         </Carousel>
       </div>
 
-      <Heading content="Verticals We Serve" />
-      <div className={styles.focusAreaContainer}>
-        <FocusArea
-          imagePath={FocusAreasData[0].imagePath}
-          heading={FocusAreasData[0].heading}
-          description={FocusAreasData[0].description}
-          buttonText={FocusAreasData[0].buttonText}
-          bgColor={COLORS.blue}
-          pageLink={FocusAreasData[0].pageLink}
-        />
-
-        {/* <div className={styles.focusAreaDiv}>
-          {FocusAreasData.slice(1, 5).map((item) => (
-            <FocusArea
-              key={item.index}
-              index={item.index}
-              imagePath={item.imagePath}
-              heading={item.heading}
-              description={item.description}
-              buttonText={item.buttonText}
-              width={"90%"}
-              bgColor={item.index % 2 === 0 ? COLORS.green : COLORS.blue}
-              pageLink={item.pageLink}
-            />
-          ))}
-        </div> */}
-        <FocusAreasSection />
-
-        <FocusArea
-          imagePath={FocusAreasData[5].imagePath}
-          heading={FocusAreasData[5].heading}
-          description={FocusAreasData[5].description}
-          buttonText={FocusAreasData[5].buttonText}
-          bgColor={COLORS.blue}
-          pageLink={FocusAreasData[5].pageLink}
-        />
-      </div>
+      <FocusAreaSection />
 
       <Heading content="Capabilities" />
       <div className={styles.capabilitesContainer}>

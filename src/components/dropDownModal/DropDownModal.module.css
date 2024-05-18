@@ -25,7 +25,9 @@
 }
 
 .anchor div {
-  display: none;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
   padding: 10px 10px 0 10px;
   /* box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.5); */
 }
@@ -42,11 +44,11 @@
   color: var(--orange);
 }
 
-.anchor:hover div {
+/* .anchor:hover div {
   display: flex;
   flex-direction: column;
   gap: 15px;
-}
+} */
 
 @media only screen and (max-width: 1000px) {
   .container {

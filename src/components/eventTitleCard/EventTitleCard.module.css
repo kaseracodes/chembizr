@@ -1,8 +1,9 @@
 .titleCardContainer {
   width: 200px;
-  height: 65px;
+  height: auto;
   background-color: var(--white);
   border: none;
+  padding: 20px 0;
   border-radius: 100px;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
   display: flex;
@@ -17,6 +18,9 @@
 .titleCardHeading {
   font-size: 13px;
   margin: 0 0 5px 0;
+  /* width: 200px; */
+  text-align: center;
+  text-wrap: wrap;
 }
 
 .titleCardDate {
