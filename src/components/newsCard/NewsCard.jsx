@@ -9,7 +9,7 @@ const NewsCard = ({ date, heading, description }) => {
   return (
     <div className={styles.container}>
       <h5 className={styles.date}>{dateString}</h5>
-      <h3 className={styles.heading}>{heading}</h3>
+      <h3 className={styles.heading}>{heading.slice(0, 50) + "..."}</h3>
       <p className={styles.desc}>{description.slice(0, 200) + "..."}</p>
     </div>
   );

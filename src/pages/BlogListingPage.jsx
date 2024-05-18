@@ -19,8 +19,14 @@ import BlogListingComponent from "../components/BlogListingComponent";
 // import { useParams, useSearchParams } from "react-router-dom";
 import Pagination from "../components/pagination/Pagination";
 import { useSearchParams } from "react-router-dom";
-import { collection, onSnapshot, query, orderBy, where } from 'firebase/firestore';
-import { firestore } from '../firebase/firebase';
+import {
+  collection,
+  onSnapshot,
+  query,
+  orderBy,
+  where,
+} from "firebase/firestore";
+import { firestore } from "../firebase/firebase";
 
 const NextButton = (props) => {
   const { className, style, onClick } = props;
@@ -77,21 +83,20 @@ const BlogListingPage = () => {
   };
 
   const onClickNext = () => {
-    setCurrTopic((currTopic + 1)%9);
-  } 
+    setCurrTopic((currTopic + 1) % 9);
+  };
 
   const onClickPrev = () => {
-    setCurrTopic((currTopic + 8)%9);
-  } 
-
+    setCurrTopic((currTopic + 8) % 9);
+  };
 
   const settings = {
     infinite: false,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
-    nextArrow: <NextButton/>,
-    prevArrow: <PrevButton/>,
+    nextArrow: <NextButton />,
+    prevArrow: <PrevButton />,
     responsive: [
       {
         breakpoint: 800,
@@ -149,14 +154,20 @@ const BlogListingPage = () => {
     "Politics",
   ];
 
-  
   const [blogsData, setBlogsData] = useState([]);
 
   useEffect(() => {
-    const unsubscribe = onSnapshot(query(collection(firestore, "blogs"), where("category", "==", Topics[currTopic]), orderBy("timestamp", "desc")), (snapshot) => {
-      setBlogsData(snapshot.docs);
-      // console.log(snapshot.docs[0].data());
-    });
+    const unsubscribe = onSnapshot(
+      query(
+        collection(firestore, "blogs"),
+        where("category", "==", Topics[currTopic]),
+        orderBy("timestamp", "desc")
+      ),
+      (snapshot) => {
+        setBlogsData(snapshot.docs);
+        // console.log(snapshot.docs[0].data());
+      }
+    );
 
     return unsubscribe;
   }, [currTopic]);
@@ -245,7 +256,7 @@ const BlogListingPage = () => {
                   <SpotlightBlogCard
                     key={index}
                     imagePath={item.data().image}
-                    desc={item.data().short}
+                    desc={item.data().description}
                   />
                 );
               })}
@@ -267,7 +278,6 @@ const BlogListingPage = () => {
                   {item}
                 </div>
               ))}
-
             </div>
           </div>
 

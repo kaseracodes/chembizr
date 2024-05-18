@@ -8,7 +8,7 @@ export const CapabilitiesData = [
 
   {
     imagePath: "/images/capabilities/capabilities2.png",
-    heading: "Customer Insights",
+    heading: "Customer Insights<br /><br />",
     description:
       "ChemBizR aids in identifying prospective customers in multitude of focused end application segments within targeted regions globally. We meticulously analyze the existing technology and product portfolio from our clients and accordingly propose best sales strategies to focus within both existing and adjacent set of application industries. ChemBizR not only identify potential customers but also conduct customer perception analysis, thus determining key insights on customers’ business, needs, challenges and requirements. Such insights have enormous benefits helping our clients create customized value offerings for individual customer and assess new development requirements, thus leveraging the overall customer engagement process.",
   },

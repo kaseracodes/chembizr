@@ -1,11 +1,11 @@
 import styles from "./Events.module.css";
-// import { EventsData } from "../../assets/eventsData";
+import { EventsData } from "../../assets/eventsData";
 import EventsCard from "../eventsCard/EventsCard";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import React, { useState, useEffect } from 'react';
-import { firestore } from '../../firebase/firebase';
-import { collection, onSnapshot, query, orderBy } from 'firebase/firestore';
+import React, { useState, useEffect } from "react";
+import { firestore } from "../../firebase/firebase";
+import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
 
 const Events = () => {
   const responsive = {
@@ -31,12 +31,15 @@ const Events = () => {
   const [eventsData, setEventsData] = useState([]);
 
   useEffect(() => {
-      const unsubscribe = onSnapshot(query(collection(firestore, "events"), orderBy("date", "desc")), (snapshot) => {
+    const unsubscribe = onSnapshot(
+      query(collection(firestore, "events"), orderBy("date", "desc")),
+      (snapshot) => {
         setEventsData(snapshot.docs);
-          console.log(snapshot.docs[0].data());
-      });
+        console.log(snapshot.docs[0].data());
+      }
+    );
 
-      return unsubscribe;
+    return unsubscribe;
   }, []);
 
   return (
@@ -44,7 +47,7 @@ const Events = () => {
       <h3 className={styles.heading}>Events</h3>
       <div className={styles.carouselContainer}>
         <Carousel responsive={responsive}>
-          {eventsData.map((item, index) => (
+          {/* {eventsData.map((item, index) => (
             <EventsCard
               key={index}
               imagePath={item.data().imagePath}
@@ -55,6 +58,17 @@ const Events = () => {
               description={item.data().description}
             />
 
+          ))} */}
+          {EventsData.map((item, index) => (
+            <EventsCard
+              key={index}
+              imagePath={item.imagePath}
+              logoPath={item.logoPath}
+              category={item.category}
+              date={item.date}
+              heading={item.heading}
+              description={item.description}
+            />
           ))}
         </Carousel>
       </div>

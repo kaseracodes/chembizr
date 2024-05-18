@@ -66,6 +66,21 @@
   justify-content: flex-end;
 }
 
+.one:hover,
+.two:hover,
+.three:hover,
+.four:hover,
+.five:hover,
+.six:hover,
+.seven:hover,
+.eight:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+  transition: all 0.5s;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
 .contentDiv {
   /* width: fit-content; */
   display: flex;

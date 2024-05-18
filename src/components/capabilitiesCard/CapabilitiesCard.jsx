@@ -19,7 +19,10 @@ const CapabilitiesCard = ({ imagePath, heading, description, id }) => {
         </div>
 
         <div className={styles.contentDiv}>
-          <h3 className={styles.heading}>{heading}</h3>
+          <h3
+            className={styles.heading}
+            dangerouslySetInnerHTML={{ __html: heading }}
+          ></h3>
           <p className={styles.desc}>{description.slice(0, 90) + "..."}</p>
         </div>
       </div>

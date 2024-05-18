@@ -4,17 +4,12 @@ import styles from "./EventFeedCard.module.css";
 import Modal from "../modal/Modal";
 import EventCardModal from "../eventCardModal/EventCardModal";
 
-const EventFeedCard = ({
-  category,
-  date,
-  heading,
-  description,
-  logoPath,
-}) => {
+const EventFeedCard = ({ category, date, heading, description, logoPath }) => {
   const [openModal, setOpenModal] = useState(false);
-  const milliseconds = date.seconds * 1000 + Math.floor(date.nanoseconds / 1000000);
+  const milliseconds =
+    date.seconds * 1000 + Math.floor(date.nanoseconds / 1000000);
   const date1 = new Date(milliseconds);
-  const dateString = date1.toLocaleString(); 
+  const dateString = date1.toLocaleString();
   return (
     <>
       <div className={styles.container} onClick={() => setOpenModal(true)}>
@@ -27,7 +22,10 @@ const EventFeedCard = ({
         </div>
 
         <h3 className={styles.heading}>{heading}</h3>
-        <div className={styles.desc} dangerouslySetInnerHTML={{ __html: description }}></div>
+        <div
+          className={styles.desc}
+          dangerouslySetInnerHTML={{ __html: description }}
+        ></div>
 
         {/* <div className={styles.imageDiv}>
           <img className={styles.image} src={imagePath[0]} alt="image" />

@@ -10,7 +10,7 @@ const PlaceCard = ({ imagePath, country, address, email, phone }) => {
       <div>
         <div className={styles.contacts}>
           <img src="/images/mail.png" alt="images" />
-          <a href="mailto:{email}">{email}</a>
+          <a href={`mailto:${email}`}>{email}</a>
         </div>
         <div className={styles.contacts}>
           <img src="/images/phone.png" alt="images" />
