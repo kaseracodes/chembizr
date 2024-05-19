@@ -39,14 +39,14 @@ const CommentSection = ({ userImage, comments }) => {
     <>
       <div className={styles.container}>
         <h5 className={styles.heading}>Comments</h5>
-        {/* <div className={styles.input}>
+        <div className={styles.input}>
            <img
             className={styles.profileImage}
             src={userImage}
             alt="user profile pic"
           /> 
           <textarea value={commentText} onChange={handleCommentChange} />
-        </div> */}
+        </div>
 
         {commentText.trim() !== "" && (
           <div className={styles.btnDiv}>
@@ -62,7 +62,7 @@ const CommentSection = ({ userImage, comments }) => {
         <div className={styles.commentsDiv}>
           {comments.map((item, index) => (
             <div key={index} className={styles.singleComment}>
-              {/* <img className={styles.profileImage} src={item.profilePic} /> */}
+              <img className={styles.profileImage} src={item.profilePic} />
               <div>
                 <p className={styles.username}>{item.user}</p>
                 <p className={styles.desc}>{item.comment}</p>

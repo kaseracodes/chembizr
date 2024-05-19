@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { COLORS } from "../../assets/constants";
-// import { EventsData } from "../../assets/eventsData";
+import { EventsData } from "../../assets/eventsData";
 import Button from "../button/Button";
 import EventFeedCard from "../eventFeedCard/EventFeedCard";
 import EventTitleCard from "../eventTitleCard/EventTitleCard";
@@ -47,13 +47,13 @@ const EventsFeed = () => {
         <h5 className={styles.divHeading}>Recent Events</h5>
         <hr className={styles.hr} />
         <div className={styles.titleCardDiv}>
-          {eventsData.map((item, index) => (
+          {EventsData.map((item, index) => (
             <EventTitleCard
               key={index}
-              heading={item.data().heading}
+              heading={item.heading}
               date={new Date(
-                item.data().date.seconds * 1000 +
-                  Math.floor(item.data().date.nanoseconds / 1000000)
+                item.date.seconds * 1000 +
+                  Math.floor(item.date.nanoseconds / 1000000)
               ).toLocaleString()}
             />
           ))}
@@ -65,15 +65,15 @@ const EventsFeed = () => {
       </div>
 
       <div className={styles.middleDiv}>
-        {eventsData.map((item, index) => (
+        {EventsData.map((item, index) => (
           <EventFeedCard
             key={index}
-            category={item.data().category}
-            date={item.data().date}
-            heading={item.data().heading}
-            description={item.data().description}
-            imagePath={item.data().imagePath}
-            logoPath={item.data().logoPath}
+            category={item.category}
+            date={item.date}
+            heading={item.heading}
+            description={item.description}
+            imagePath={item.imagePath}
+            logoPath={item.logoPath}
           />
         ))}
       </div>

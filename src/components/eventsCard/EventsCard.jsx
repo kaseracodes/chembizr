@@ -4,6 +4,16 @@ import "react-multi-carousel/lib/styles.css";
 import { useNavigate } from "react-router-dom";
 import styles from "./EventsCard.module.css";
 
+const VerticalDots = () => {
+  return (
+    <div className={styles.menuIcon}>
+      <div className={styles.dot}></div>
+      <div className={styles.dot}></div>
+      <div className={styles.dot}></div>
+    </div>
+  );
+};
+
 const EventsCard = ({
   imagePath,
   logoPath,
@@ -38,17 +48,52 @@ const EventsCard = ({
     },
   };
 
+  let images = [];
+  for (let i = 0; i < imagePath.length; i++) {
+    images.push(
+      <div key={i} className={styles.image}>
+        <img src={imagePath[i]} alt="image" />
+        {/* <p>Hello</p> */}
+      </div>
+    );
+  }
+
+  const items = [
+    <div key="1">
+      <p>hii</p>
+    </div>,
+    <div key="2">
+      <p>hii</p>
+    </div>,
+    <div key="3">
+      <p>hii</p>
+    </div>,
+  ];
+
   return (
     <div className={styles.container}>
       <div className={styles.innerContainer}>
+        <div className={styles.mobileTopDiv}>
+          <div className={styles.categoryDiv}>
+            <img src={logoPath} alt="logo" />
+            <div className={styles.innerDiv}>
+              <h5 className={styles.category}>{category}</h5>
+              <p className={styles.date}>{dateString}</p>
+            </div>
+          </div>
+
+          <VerticalDots />
+        </div>
+
         <div className={styles.imageDiv}>
           <img src={imagePath[0]} alt="image" />
-          {/* <Carousel responsive={responsive} showDots={true} arrows={false}>
+          {/* <Carousel responsive={responsive} showDots={true} arrows={false} ssr>
             {imagePath.map((item, index) => (
               <div key={index} className={styles.image}>
                 <img src={item} alt="image" />
               </div>
             ))}
+            {items}
           </Carousel> */}
         </div>
         <div className={styles.contentDiv}>

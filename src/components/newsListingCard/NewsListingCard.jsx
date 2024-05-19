@@ -10,7 +10,7 @@ const NewsListingCard = ({ date, heading, description, category }) => {
   const date1 = new Date(milliseconds);
   const dateString = date1.toLocaleString();
   const [expanded, setExpanded] = useState(false);
-  const [desc, setDesc] = useState(description);
+  const [desc, setDesc] = useState(description.slice(0, 400) + "...");
 
   const handleClick = () => {
     if (expanded) {

@@ -14,6 +14,7 @@ import News from "../components/news/News";
 import BlogsSection from "../components/blogsSection/BlogsSection";
 import Events from "../components/events/Events.jsx";
 import FocusAreaSection from "../components/focusAreaSection/FocusAreaSection.jsx";
+import { useEffect, useState } from "react";
 
 const responsiveHero = {
   superLargeDesktop: {
@@ -56,6 +57,21 @@ const responsiveCapabilities = {
 };
 
 const HomePage = () => {
+  const [showDots, setShowDots] = useState(window.innerWidth < 550);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setShowDots(window.innerWidth < 550);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <div className={styles.container}>
       <Navbar
@@ -84,7 +100,11 @@ const HomePage = () => {
         </p>
 
         <div className={styles.CapabilitiesCardDiv}>
-          <Carousel responsive={responsiveCapabilities}>
+          <Carousel
+            responsive={responsiveCapabilities}
+            showDots={showDots}
+            arrows={!showDots}
+          >
             {CapabilitiesData.map((item, index) => (
               <div key={index} className={styles.capabilitesInnerCardDiv}>
                 <CapabilitiesCard
@@ -101,10 +121,10 @@ const HomePage = () => {
 
       <BlogsSection />
 
-      <Heading content="Unique Value Proposition" />
+      {/* <Heading content="Unique Value Proposition" />
       <div className={styles.uniquePropositionImageDiv}>
         <img src="/images/unique_proposition.png" alt="image" />
-      </div>
+      </div> */}
 
       <News bgColor={COLORS.white} textColor={COLORS.black} />
 

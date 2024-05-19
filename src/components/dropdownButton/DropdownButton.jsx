@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import styles from "./DropdownButton.module.css";
 import DropDownModal from "../dropDownModal/DropDownModal";
-import { COLORS } from "../../assets/constants";
 
 const DropdownButton = ({ content, modalContents, textColor, index }) => {
   const [showModal, setShowModal] = useState(false);
@@ -36,7 +35,6 @@ const DropdownButton = ({ content, modalContents, textColor, index }) => {
   return (
     <div className={styles.container}>
       <button
-        style={{ color: clicked ? COLORS.orange : textColor }}
         className={`${styles.btn} ${
           clicked ? styles.clicked : ""
         } button${index}`}
@@ -62,7 +60,10 @@ const DropdownButton = ({ content, modalContents, textColor, index }) => {
 
       {showModal && (
         <div className="modal">
-          <DropDownModal modalContents={modalContents} />
+          <DropDownModal
+            modalContents={modalContents}
+            width={content === "Services" ? "220px" : "150px"}
+          />
         </div>
       )}
     </div>

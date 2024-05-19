@@ -8,23 +8,29 @@ import Banner2 from "../components/banner2/Banner2";
 import CommentSection from "../components/commentSection/CommentSection";
 import CallToAction from "../components/callToAction/CallToAction";
 import Footer from "../components/footer/Footer";
-import { collection, onSnapshot, orderBy, where, query } from "firebase/firestore";
+import {
+  collection,
+  onSnapshot,
+  orderBy,
+  where,
+  query,
+} from "firebase/firestore";
 import { firestore } from "../firebase/firebase";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const BlogDetailPage = () => {
   const params = useParams();
-  // const blog = BlogsData.find((item) => item.id === params.id);
-  // const [blog,setBlog] = useState();
+  const blog = BlogsData.find((item) => item.id === params.id);
+  // const [blog, setBlog] = useState();
 
   const navigate = useNavigate();
   const handleClickComment = () => {
     navigate(`/comment/${params.id}`);
-  }
+  };
   const [userBlog, setUserBlog] = useState(null);
   useEffect(() => {
-    if(params){
+    if (params) {
       const unsubscribe = onSnapshot(
         query(collection(firestore, "blogs"), where("id", "==", params.id)),
         (snapshot) => {
@@ -68,25 +74,27 @@ const BlogDetailPage = () => {
 
         <div className={styles.contentDiv}>
           <h5>{userBlog && userBlog.data().author}</h5>
-          {/* <h5>{blog.date}</h5> */}
-          {/* {userBlog && userBlog.data().description.split("\n").map((line, index) => (
-            <p key={index}>{line}</p>
-          ))} */}
-          {userBlog && (
+          <h5>{blog.date}</h5>
+          {userBlog &&
+            userBlog
+              .data()
+              .description.split("\n")
+              .map((line, index) => <p key={index}>{line}</p>)}
+          {/* {userBlog && (
             <div>
               <div dangerouslySetInnerHTML={{ __html: userBlog.data().description }} />
             </div>
-          )}
+          )} */}
         </div>
-        <button onClick={handleClickComment}>Comment</button>
       </div>
 
       <CommentSection
-        comments={userBlog && userBlog.data().comments ? userBlog.data().comments : []}
+        comments={
+          userBlog && userBlog.data().comments ? userBlog.data().comments : []
+        }
         // userImage="/images/profile_pic.png"
       />
 
-      
       <CallToAction />
 
       <Footer />
@@ -95,4 +103,3 @@ const BlogDetailPage = () => {
 };
 
 export default BlogDetailPage;
-

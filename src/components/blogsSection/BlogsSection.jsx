@@ -33,13 +33,9 @@ const BlogsSection = () => {
         >
           <div className={styles.contentDiv}>
             <p>{blogsData && blogsData[0].date}</p>
-            {/* <h5>{blogs[0].description.slice(0, 90) + "..."}</h5> */}
-            <div
-              className={styles.desc}
-              dangerouslySetInnerHTML={{
-                __html: blogsData && blogsData[0].description,
-              }}
-            ></div>
+            <h5>
+              {blogsData && blogsData[0].description.slice(0, 90) + "..."}
+            </h5>
           </div>
         </div>
 

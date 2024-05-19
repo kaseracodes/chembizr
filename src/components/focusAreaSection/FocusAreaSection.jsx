@@ -26,7 +26,7 @@ const FocusAreaSection = () => {
     <>
       <div className={styles.container}>
         <div className={styles.leftDiv}>
-          <h3 className={styles.heading}>Verticals We Serve</h3>
+          <h3 className={styles.heading}>Verticals We Serve!</h3>
           <p className={styles.desc}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa
@@ -70,7 +70,7 @@ const FocusAreaSection = () => {
       </div>
 
       <div className={styles.mobileContainer}>
-        <Heading content="Verticals We Serve" />
+        <Heading content="Verticals We Serve!" />
         <div
           className={styles.cardDiv1}
           style={{ backgroundImage: `url(${FocusAreasData[0].imagePath})` }}

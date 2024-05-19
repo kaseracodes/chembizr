@@ -53,13 +53,13 @@ const NewsPage = () => {
 
       <div className={styles.newsListingDiv}>
         <div className={styles.newsCardDiv}>
-          {newsData.map((item, index) => (
+          {NewsListingData.map((item, index) => (
             <NewsListingCard
               key={index}
-              date={item.data().date}
-              heading={item.data().heading}
-              description={item.data().desc}
-              category={item.data().category}
+              date={item.date}
+              heading={item.heading}
+              description={item.description}
+              category={item.category}
             />
           ))}
         </div>

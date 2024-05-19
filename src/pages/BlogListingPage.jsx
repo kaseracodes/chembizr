@@ -4,7 +4,7 @@ import { COLORS } from "../assets/constants";
 import Navbar from "../components/navbar/Navbar";
 import SearchIcon from "../svgIcons/SearchIcon";
 import styles from "./BlogListingPage.module.css";
-// import { BlogsData } from "../assets/blogsData";
+import { BlogsData } from "../assets/blogsData";
 import SpotlightBlogCard from "../components/spotlightBlogCard/SpotlightBlogCard";
 import Button from "../components/button/Button";
 import BlogListingCard from "../components/blogListingCard/BlogListingCard";
@@ -15,18 +15,18 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useState, useEffect } from "react";
-import BlogListingComponent from "../components/BlogListingComponent";
+// import BlogListingComponent from "../components/BlogListingComponent";
 // import { useParams, useSearchParams } from "react-router-dom";
 import Pagination from "../components/pagination/Pagination";
 import { useSearchParams } from "react-router-dom";
-import {
-  collection,
-  onSnapshot,
-  query,
-  orderBy,
-  where,
-} from "firebase/firestore";
-import { firestore } from "../firebase/firebase";
+// import {
+//   collection,
+//   onSnapshot,
+//   query,
+//   orderBy,
+//   where,
+// } from "firebase/firestore";
+// import { firestore } from "../firebase/firebase";
 
 const NextButton = (props) => {
   const { className, style, onClick } = props;
@@ -122,26 +122,6 @@ const BlogListingPage = () => {
     ],
   };
 
-  // const responsive2 = {
-  //   superLargeDesktop: {
-  //     // the naming can be any, depends on you.
-  //     breakpoint: { max: 4000, min: 3000 },
-  //     items: 5,
-  //   },
-  //   desktop: {
-  //     breakpoint: { max: 3000, min: 1024 },
-  //     items: 5,
-  //   },
-  //   tablet: {
-  //     breakpoint: { max: 1024, min: 464 },
-  //     items: 3,
-  //   },
-  //   mobile: {
-  //     breakpoint: { max: 464, min: 0 },
-  //     items: 2,
-  //   },
-  // };
-
   const Topics = [
     "Programming",
     "Data Science",
@@ -154,32 +134,33 @@ const BlogListingPage = () => {
     "Politics",
   ];
 
-  const [blogsData, setBlogsData] = useState([]);
+  // const [blogsData, setBlogsData] = useState([]);
 
-  useEffect(() => {
-    const unsubscribe = onSnapshot(
-      query(
-        collection(firestore, "blogs"),
-        where("category", "==", Topics[currTopic]),
-        orderBy("timestamp", "desc")
-      ),
-      (snapshot) => {
-        setBlogsData(snapshot.docs);
-        // console.log(snapshot.docs[0].data());
-      }
-    );
+  // useEffect(() => {
+  //   const unsubscribe = onSnapshot(
+  //     query(
+  //       collection(firestore, "blogs"),
+  //       where("category", "==", Topics[currTopic]),
+  //       orderBy("timestamp", "desc")
+  //     ),
+  //     (snapshot) => {
+  //       setBlogsData(snapshot.docs);
+  //       // console.log(snapshot.docs[0].data());
+  //     }
+  //   );
 
-    return unsubscribe;
-  }, [currTopic]);
+  //   return unsubscribe;
+  // }, [currTopic]);
+
   const [searchParams] = useSearchParams();
   console.log(searchParams);
   const page = searchParams.get("page") || 1;
 
   const BLOG_PER_PAGE = 4;
   const hasPrev = BLOG_PER_PAGE * (page - 1) > 0;
-  const hasNext = BLOG_PER_PAGE * page < blogsData.length;
+  const hasNext = BLOG_PER_PAGE * page < BlogsData.length;
   const startIndex = BLOG_PER_PAGE * (page - 1);
-  const endIndex = Math.min(startIndex + BLOG_PER_PAGE, blogsData.length);
+  const endIndex = Math.min(startIndex + BLOG_PER_PAGE, BlogsData.length);
 
   const handleTopicClick = (topic) => {
     setCurrTopic(topic);
@@ -220,7 +201,6 @@ const BlogListingPage = () => {
           </div>
 
           <div className={styles.blogsListingDiv}>
-            {/* {BlogsData.map((item, index) => (
             {BlogsData.slice(startIndex, endIndex).map((item, index) => (
               <BlogListingCard
                 key={index}
@@ -232,8 +212,8 @@ const BlogListingPage = () => {
                 category={item.category}
                 date={item.date}
               />
-            ))} */}
-            <BlogListingComponent currentTopic={Topics[currTopic]} />
+            ))}
+            {/* <BlogListingComponent currentTopic={Topics[currTopic]} /> */}
           </div>
 
           <Pagination page={page} hasPrev={hasPrev} hasNext={hasNext} />
@@ -250,13 +230,15 @@ const BlogListingPage = () => {
           <div className={styles.spotlightDiv}>
             <h5 className={styles.spotlightHeading}>Spotlight</h5>
             <Carousel responsive={responsive} showDots arrows={false}>
-              {blogsData.map((item, index) => {
-                console.log("Short: ", item.data().short);
+              {BlogsData.slice(0, 5).map((item, index) => {
+                {
+                  /* console.log("Short: ", item.data().short); */
+                }
                 return (
                   <SpotlightBlogCard
                     key={index}
-                    imagePath={item.data().image}
-                    desc={item.data().description}
+                    imagePath={item.imagePath}
+                    desc={item.description}
                   />
                 );
               })}
@@ -273,7 +255,7 @@ const BlogListingPage = () => {
                 <div
                   className={styles.topic}
                   key={index}
-                  onClick={() => handleTopicClick(index)}
+                  // onClick={() => handleTopicClick(index)}
                 >
                   {item}
                 </div>

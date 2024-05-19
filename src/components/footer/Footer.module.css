@@ -73,6 +73,10 @@
 }
 
 @media only screen and (max-width: 800px) {
+  .container {
+    padding: 30px 20px;
+  }
+
   .mainContainer {
     align-items: flex-end;
   }
@@ -89,5 +93,9 @@
 
   .rightDiv {
     margin-bottom: 10px;
+  }
+
+  .copyrightText {
+    text-align: center;
   }
 }

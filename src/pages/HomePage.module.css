@@ -37,7 +37,7 @@
 }
 
 .CapabilitiesCardDiv {
-  padding: 20px 50px 0px 50px;
+  padding: 0px 50px 0px 50px;
 }
 
 .capabilitesInnerCardDiv {
@@ -91,7 +91,7 @@
 
 @media only screen and (max-width: 1024px) {
   .CapabilitiesCardDiv {
-    padding: 10px 100px 50px 100px;
+    padding: 0px 100px 50px 100px;
   }
 }
 
@@ -105,7 +105,7 @@
   }
 
   .CapabilitiesCardDiv {
-    padding: 10px 30px 30px 30px;
+    padding: 0px 30px 30px 30px;
   }
 }
 
@@ -116,6 +116,11 @@
 
   .para {
     font-size: 15px;
-    padding: 2px 50px;
+    padding: 0px 10px;
+    margin-top: 0px;
+  }
+
+  .capabilitesInnerCardDiv {
+    padding-bottom: 50px;
   }
 }

@@ -38,12 +38,12 @@
   background-size: cover;
   background-position: center;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.3s ease-out;
 }
 
 .cardDiv:hover {
   /* background-size: 150%;
-  transition: background-size 0.5s; */
+  transition: background-size 0.8s ease-out; */
   transform: scale(1.03);
 }
 
@@ -85,7 +85,7 @@
 
 @keyframes popOut {
   0% {
-    transform: scale(0.95);
+    transform: scale(0.75);
     opacity: 0.7;
   }
   100% {
@@ -217,7 +217,7 @@
 
 @media only screen and (max-width: 550px) {
   .mobileContainer {
-    padding: 0px 0 20px 0;
+    padding: 0px 0 10px 0;
   }
 
   .cardDiv1 {
@@ -231,11 +231,23 @@
 
   .cardDiv2 {
     width: 46vw;
-    height: 42vh;
+    height: 35vh;
   }
 
   .itemHeading,
   .desc {
     margin: 0 10px 10px 10px;
+  }
+
+  /* .itemHeading {
+    position: relative;
+    top: 10px;
+  } */
+
+  .cardDiv2 .desc {
+    height: 85px;
+    /* text-align: end; */
+    display: flex;
+    align-items: flex-end;
   }
 }

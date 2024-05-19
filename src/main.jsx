@@ -23,7 +23,6 @@ import PersonalCarePage from "./pages/PersonalCarePage.jsx";
 import CareersPage from "./pages/CareersPage.jsx";
 import BlogDetailPage from "./pages/BlogDetailPage.jsx";
 import { AuthProvider } from "./contexts/authContext/index.jsx";
-import CommentFormPage from "./pages/CommentFormPage.jsx";
 import BlogsSection from "./components/blogsSection/BlogsSection.jsx";
 import CapabilitiesPage from "./pages/CapabilitiesPage.jsx";
 
@@ -103,10 +102,10 @@ const router = createBrowserRouter([
     element: <LoginPage />,
   },
 
-  {
-    path: "/comment/:id",
-    element: <CommentFormPage />,
-  },
+  // {
+  //   path: "/comment/:id",
+  //   element: <CommentFormPage />,
+  // },
 
   {
     path: "/signup",

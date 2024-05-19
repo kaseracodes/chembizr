@@ -38,7 +38,11 @@ const responsive = {
 const FocusParentPage = () => {
   return (
     <div className={styles.container}>
-      <Navbar textColor={COLORS.white} iconColor={COLORS.white} />
+      <Navbar
+        textColor={COLORS.black}
+        iconColor={COLORS.black}
+        bgColor={COLORS.white}
+      />
 
       {/* Banner */}
       <Banner
