@@ -2,6 +2,7 @@ export const FocusAreasData = [
   {
     index: 0,
     imagePath: "/images/focus_area/focus_area1.png",
+    imagePath2: "/images/focus_area/fa1.png",
     heading: "Food, Nutrition & Beverages",
     formattedHeading: "Food,<br />Nutrition<br />& Beverages",
     description:
@@ -13,6 +14,7 @@ export const FocusAreasData = [
   {
     index: 1,
     imagePath: "/images/focus_area/focus_area2.png",
+    imagePath2: "/images/focus_area/fa2.png",
     heading: "Specialty Chemicals & Polymers",
     formattedHeading: "Specialty<br />Chemicals<br />& Polymers",
     description:
@@ -24,6 +26,7 @@ export const FocusAreasData = [
   {
     index: 2,
     imagePath: "/images/focus_area/focus_area3.png",
+    imagePath2: "/images/focus_area/fa3.png",
     heading: "Petro-chemicals & Downstream",
     formattedHeading: "Petro-<br />chemicals &<br />Downstream",
     description:
@@ -35,6 +38,7 @@ export const FocusAreasData = [
   {
     index: 3,
     imagePath: "/images/focus_area/focus_area4.png",
+    imagePath2: "/images/focus_area/fa4.png",
     heading: "Clean Energy & Storage",
     formattedHeading: "Clean<br />Energy<br />& Storage",
     description:
@@ -46,6 +50,7 @@ export const FocusAreasData = [
   {
     index: 4,
     imagePath: "/images/focus_area/focus_area5.png",
+    imagePath2: "/images/focus_area/fa5.png",
     heading: "Mobility",
     formattedHeading: "Mobility",
     description:
@@ -57,6 +62,7 @@ export const FocusAreasData = [
   {
     index: 5,
     imagePath: "/images/focus_area/focus_area6.png",
+    imagePath2: "/images/focus_area/fa6.png",
     heading: "Personal Care & Cosmetics",
     formattedHeading: "Personal<br />Care &<br />Cosmetics",
     description:
