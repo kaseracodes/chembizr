@@ -25,6 +25,7 @@ import BlogDetailPage from "./pages/BlogDetailPage.jsx";
 import { AuthProvider } from "./contexts/authContext/index.jsx";
 import BlogsSection from "./components/blogsSection/BlogsSection.jsx";
 import CapabilitiesPage from "./pages/CapabilitiesPage.jsx";
+import EventDetailPage from "./pages/EventDetailPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -75,6 +76,11 @@ const router = createBrowserRouter([
   {
     path: "/events",
     element: <EventsPage />,
+  },
+
+  {
+    path: "/events/:id",
+    element: <EventDetailPage />,
   },
 
   {
