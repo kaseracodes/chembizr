@@ -35,7 +35,23 @@ const CapabilitiesPage = () => {
       /> */}
 
       <div style={{ marginTop: "-120px" }}>
-        <FirstCarousel bgImage="/images/home_page_hero.png" />
+        <div className={styles.bannerContainer}>
+          <div className={styles.bannerContentDiv}>
+            <h1 className={styles.bannerHeading}>
+              <span className={styles.bannerSpecial}>
+                ChemBizR’s Capabilities:
+                <br />
+              </span>
+              Your ultimate solution-driven partners
+            </h1>
+
+            <p className={styles.bannerPara}>
+              We realize the value of adequate application-specific knowledge
+              and exposure to better evaluate client challenges and accordingly
+              offer the requisite solutions.
+            </p>
+          </div>
+        </div>
       </div>
 
       <div className={styles.mainContainer}>

@@ -6,7 +6,7 @@ export const CapabilitiesData = [
     shortDesc:
       "Our focus is on the value chain, supply-demand analysis, and actionable insights into the target market landscape and dynamics.",
     description:
-      "ChemBizR provides comprehensive & actionable insights on target market landscape and dynamics. We offer pivotal fulcrum to our clients to have advanced understanding on various aspects of the focused markets such as global and regional trends, customer and competitor landscaping, competing technologies, growth prospects, existing and developing new applications, industry regulations along with many others crucial parameters. Such insights depict a clear picture of the current market scenario and business growth potential, thus helping the client to build up growth strategy in the right direction.",
+      "ChemBizR provides comprehensive & actionable insights into the target market landscape and dynamics. We offer pivotal fulcrum to our clients to have an advanced understanding of various aspects of the focused markets, such as global and regional trends, customer and competitor landscaping, supply-demand dynamics, price analysis, competing technologies, growth prospects, existing and developing new applications, industry regulations, and many other crucial parameters. Such insights depict a clear picture of the current market scenario and business growth potential, thus helping the client build up a growth strategy in the right direction.",
   },
 
   {
@@ -16,7 +16,7 @@ export const CapabilitiesData = [
     shortDesc:
       "Facilitating customer profiles, material usage, and deep insights. We analyze the existing technology and product portfolios of our clients.",
     description:
-      "ChemBizR aids in identifying prospective customers in multitude of focused end application segments within targeted regions globally. We meticulously analyze the existing technology and product portfolio from our clients and accordingly propose best sales strategies to focus within both existing and adjacent set of application industries. ChemBizR not only identify potential customers but also conduct customer perception analysis, thus determining key insights on customers’ business, needs, challenges and requirements. Such insights have enormous benefits helping our clients create customized value offerings for individual customer and assess new development requirements, thus leveraging the overall customer engagement process.",
+      "Identify prospective customers in a multitude of focused end application segments within targeted regions globally. We meticulously analyze the existing technology and product portfolio of our clients and, accordingly, propose the best sales strategies to focus on within both existing and adjacent sets of application industries. ChemBizR not only identifies potential customers but also conducts customer perception analysis, thus determining key insights on customers’ businesses, needs, challenges, and requirements. Such insights have enormous benefits, helping our clients create customized value offerings for individual customers and assess new development requirements.",
   },
 
   {
@@ -26,7 +26,7 @@ export const CapabilitiesData = [
     shortDesc:
       "We offer strategic inputs and exhaustive analysis of the target product portfolio and service offerings of a regional or global competitor.",
     description:
-      "In today’s extremely competitive environment, the eventual winner is the one who plays on competitors’ weaknesses along with his own strengths. It is extremely imperative to better know your competition in any business. ChemBizR capabilities include offering comprehensive and indispensable insights on competitors’ business, performance, capabilities, and strategies.",
+      "ChemBizR's capabilities include offering comprehensive and indispensable insights into competitors’ businesses, performance, capabilities, and strategies. We offer strategic inputs and exhaustive analysis of the target product portfolio and service offerings of a regional or global competitor. This can be done by identifying production capabilities, business overview, sales break-up, pricing analysis, distribution network, business strategy, major customers, and innovation focus, among others. We help global leaders gain market dominance with our strategic competitive intelligence.",
   },
 
   {
@@ -36,7 +36,7 @@ export const CapabilitiesData = [
     shortDesc:
       "We offer primal support to our chemical clients in case there is any interest in mergers & acquisitions.",
     description:
-      "ChemBizR offers primal support to its chemical clients in case there is any interest towards Merger & Acquisition (M&A)/ JVs. Big and small chemical companies look to either forward or backward integrate their businesses in order to expand and grow their profit margins. It is an extremely critical process as it ultimately decides the fate of a company, thus making it important to acquire a company which is a strategic fit to the acquirer’s business. ChemBizR specializes in identification and due-diligence of strategic fit targets which ultimately ensures a successful transaction. ",
+      "We offer primal support to our chemical clients in case there is any interest in mergers & acquisitions (M&A)/ JVs. Big and small chemical companies look to either forward or backward integrate their businesses to expand and grow their profit margins. ChemBizR specializes in the identification and due diligence of strategic fit targets, which ultimately ensures a successful transaction. We streamline the process by doing a pre-acquisition review, followed by searching, screening, & investigating targets, and finally going ahead with the acquisition process.",
   },
 
   {
@@ -46,7 +46,7 @@ export const CapabilitiesData = [
     shortDesc:
       "Develop robust price tracking & cost modeling processes for most complex and specialty chemical molecules with ChemBizR.",
     description:
-      "ChemBizR specializes in developing robust price tracking & cost modeling processes for most of complex and specialty chemical molecules, apart from pursuing selective key industrial commodities. Such analysis framework provide substantial boost to sales and growth strategies, encompassing quick & strategical response to evolving market situations. ChemBizR leverages from its wide global network to regularly source and analyze key indicators responsible for price fluctuations and subsequent change in market dynamics.",
+      "Develop robust price tracking & cost modeling processes for most complex and specialty chemical molecules with ChemBizR. Such an analytical framework provides a substantial boost to sales and growth strategies, encompassing quick and strategic responses to evolving market situations. We leverage our wide global network to regularly source and analyze key indicators that are responsible for price fluctuations and subsequent changes in market dynamics. Price tracking at grade level and understanding the crux of price fluctuations helps us go deep into profitability analysis and its impact on futuristic prices.",
   },
 
   {
@@ -56,6 +56,6 @@ export const CapabilitiesData = [
     shortDesc:
       "Using the best cost-effective sourcing practices to procure novel ingredients offers tremendous value in developing strategic strategies.",
     description:
-      "ChemBizR has been offering tremendous value in developing overall sourcing strategies. Our analysis has helped clients to successfully switch to novel raw materials, identify suitable suppliers, manage inventories, cost saving strategies, and many others. We work with global and regional procurement team, evaluate their individual challenges and issues, and accordingly offer them requisite solutions.",
+      "ChemBizR has been offering tremendous value in developing overall sourcing strategies. Our analysis has helped clients successfully switch to novel raw materials, identify suitable suppliers, manage inventories, and use cost-saving strategies, amongst other advantages. We work with global and regional procurement teams, evaluate their challenges and issues, and accordingly offer them the requisite solutions. We understand the sustainability profiles of raw materials, understand price fluctuations, participate in screening, and manage reliable databases, leading to effective and best sourcing strategies.",
   },
 ];
