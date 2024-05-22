@@ -27,7 +27,7 @@ const SecondCarousel = () => {
         </p>
 
         <Button
-          content="Speak With Us"
+          content="Learn More"
           bgColor="#FF9B42"
           onClick={() => navigate("/about-us")}
         />

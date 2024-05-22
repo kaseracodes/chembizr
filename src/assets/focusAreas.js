@@ -18,7 +18,7 @@ export const FocusAreasData = [
     heading: "Specialty Chemicals & Polymers",
     formattedHeading: "Specialty<br />Chemicals<br />& Polymers",
     description:
-      "Customized analysis and solutions for specialty polymers and chemicals",
+      " We provide valuable insights into polymer materials and manufacturing processes, enabling informed decision-making and strategic planning for long-term growth goals. At ChemBizR, we are at the forefront of innovation in the polymer industry.",
     buttonText: "Know More",
     pageLink: "/chemicals",
   },
@@ -30,7 +30,7 @@ export const FocusAreasData = [
     heading: "Petro-chemicals & Downstream",
     formattedHeading: "Petro-<br />chemicals &<br />Downstream",
     description:
-      "Determine market opportunities by gaining insights, understanding fundamental changes, and recognizing macroeconomic variables operating throughout the value chain.",
+      "With our strategic guidance and actionable plans, we empower businesses to navigate the path toward decarbonization, capitalize on emerging trends, determine market opportunities, recognize macroeconomic variables, and stay ahead of the competition.",
     buttonText: "Know More",
     pageLink: "/petro-chemicals",
   },
@@ -66,7 +66,7 @@ export const FocusAreasData = [
     heading: "Personal Care & Cosmetics",
     formattedHeading: "Personal<br />Care &<br />Cosmetics",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor  ipsum dolor sit amet, consectetur adipiscing elit,  sed do eiusmod tempor.",
+      "From color cosmetic ingredients to UV absorbers, our solutions are designed to meet the diverse needs of consumers while optimizing their beauty customer experience. We empower brands to unlock new opportunities and foster growth through tailored innovation.",
     buttonText: "Know More",
     pageLink: "/personal-care",
   },

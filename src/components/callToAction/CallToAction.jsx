@@ -9,8 +9,7 @@ const CallToAction = () => {
     <div className={styles.container}>
       <div className={styles.contentDiv}>
         <h3 className={styles.heading}>
-          Curious about our
-          <br /> solutions and services?
+          Looking for a strategic thought partner?
         </h3>
 
         <div className={styles.anchorDiv}>

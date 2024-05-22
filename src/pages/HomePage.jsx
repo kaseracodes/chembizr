@@ -115,7 +115,7 @@ const HomePage = () => {
                 <CapabilitiesCard
                   imagePath={item.imagePath}
                   heading={item.heading}
-                  description={item.description}
+                  description={item.shortDesc}
                   id={index}
                 />
               </div>
