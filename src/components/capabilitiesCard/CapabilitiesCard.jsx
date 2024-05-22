@@ -23,7 +23,7 @@ const CapabilitiesCard = ({ imagePath, heading, description, id }) => {
             className={styles.heading}
             dangerouslySetInnerHTML={{ __html: heading }}
           ></h3>
-          <p className={styles.desc}>{description.slice(0, 90) + "..."}</p>
+          <p className={styles.desc}>{description.slice(0, 150) + "..."}</p>
         </div>
       </div>
       <button className={styles.btn} onClick={handleClick}>

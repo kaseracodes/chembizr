@@ -8,6 +8,11 @@
   border-radius: 20px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
   border: 1px solid var(--gray3);
+  transition: all 0.3s;
+}
+
+.container:hover {
+  transform: scale(1.05);
 }
 
 .heading {

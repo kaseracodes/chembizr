@@ -82,15 +82,19 @@ const HomePage = () => {
 
       <div style={{ marginTop: "-120px" }}>
         <Carousel responsive={responsiveHero}>
-          <FirstCarousel />
+          <FirstCarousel bgImage="/images/home_page_hero.png" />
+          <FirstCarousel
+            bgImage="/images/home_page_hero_2.png"
+            textColor={COLORS.black}
+          />
           <SecondCarousel />
         </Carousel>
       </div>
 
       <FocusAreaSection />
 
-      <Heading content="Capabilities" />
       <div className={styles.capabilitesContainer}>
+        <Heading content="Capabilities" />
         <p className={styles.para}>
           Use our extensive suite of market intelligence tools to realize the
           full potential of your business ideas. From uncovering untapped

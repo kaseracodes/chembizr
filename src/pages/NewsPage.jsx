@@ -49,7 +49,7 @@ const NewsPage = () => {
         bgColor={COLORS.white}
       />
 
-      <Banner2 imagePath="/images/news_page_hero.png" heading="Industry News" />
+      {/* <Banner2 imagePath="/images/news_page_hero.png" heading="Industry News" /> */}
 
       <div className={styles.newsListingDiv}>
         <div className={styles.newsCardDiv}>

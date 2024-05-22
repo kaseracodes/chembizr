@@ -23,7 +23,7 @@ const NewsListingCard = ({ date, heading, description, category }) => {
   };
   return (
     <div className={styles.container}>
-      <p className={styles.date}>{dateString}</p>
+      <p className={styles.date}>{date}</p>
       <h5 className={styles.heading}>{heading}</h5>
       <p className={styles.desc}>{desc}</p>
       <div className={styles.buttonContainer}>

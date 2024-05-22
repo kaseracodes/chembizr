@@ -25,7 +25,7 @@ const ValueChain = () => {
           <ValueChainCard
             heading={ValueChainData[1].heading}
             listItems={ValueChainData[1].listItems}
-            bgColor={COLORS.orange2}
+            bgColor={COLORS.white}
           />
           <ValueChainCard
             heading={ValueChainData[2].heading}
@@ -42,7 +42,7 @@ const ValueChain = () => {
           <ValueChainCard
             heading={ValueChainData[4].heading}
             listItems={ValueChainData[4].listItems}
-            bgColor={COLORS.orange2}
+            bgColor={COLORS.white}
           />
         </div>
         <div className={styles.innerCardContainer}>

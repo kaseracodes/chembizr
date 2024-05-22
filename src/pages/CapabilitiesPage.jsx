@@ -6,6 +6,7 @@ import CallToAction from "../components/callToAction/CallToAction";
 import Footer from "../components/footer/Footer";
 import Navbar from "../components/navbar/Navbar";
 import styles from "./CapabilitiesPage.module.css";
+import FirstCarousel from "../components/carousel/FirstCarousel";
 
 const CapabilitiesPage = () => {
   useEffect(() => {
@@ -28,10 +29,14 @@ const CapabilitiesPage = () => {
       />
 
       {/* Banner */}
-      <Banner2
+      {/* <Banner2
         imagePath={"/images/focus_parent_page_hero.png"}
         heading="Capabilities"
-      />
+      /> */}
+
+      <div style={{ marginTop: "-120px" }}>
+        <FirstCarousel bgImage="/images/home_page_hero.png" />
+      </div>
 
       <div className={styles.mainContainer}>
         {CapabilitiesData.map((item, index) => (
@@ -46,7 +51,7 @@ const CapabilitiesPage = () => {
               <img src={item.imagePath} alt="image" />
             </div>
             <div>
-              <h5 className={styles.heading}>{item.heading}</h5>
+              <h5 className={styles.heading}>{item.normalHeading}</h5>
               <p className={styles.desc}>{item.description}</p>
             </div>
           </div>

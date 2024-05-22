@@ -95,7 +95,13 @@
 }
 
 .rightDiv {
-  background-color: var(--gray3);
+  /* background-color: var(--gray3); */
+  background: linear-gradient(
+    to bottom right,
+    var(--blue),
+    var(--white),
+    var(--white)
+  );
   border-radius: 20px;
   padding: 20px;
   width: 540px;

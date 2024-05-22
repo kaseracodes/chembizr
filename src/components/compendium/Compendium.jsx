@@ -1,24 +1,31 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import styles from "./Compendium.module.css";
-// import { compendiumData } from "../../assets/compendiumData";
+import { compendiumData } from "../../assets/compendiumData";
 import CompendiumCard from "../compendiumCard/CompendiumCard";
-import { firestore, storage } from '../../firebase/firebase';
-import { collection, onSnapshot, query, orderBy, where } from 'firebase/firestore';
+import { firestore, storage } from "../../firebase/firebase";
+import {
+  collection,
+  onSnapshot,
+  query,
+  orderBy,
+  where,
+} from "firebase/firestore";
 import { useState, useEffect } from "react";
+import Heading from "../heading/Heading";
 
 const Compendium = ({ category }) => {
-console.log(category);
-  const [compendiumData, setCompendiumData] = useState([]);
+  // console.log(category);
+  //   const [compendiumData, setCompendiumData] = useState([]);
 
-  useEffect(() => {
-    const unsubscribe = onSnapshot(query(collection(firestore, "compendiums"), where("category", "==", category), orderBy("timestamp", "desc")), (snapshot) => {
-      setCompendiumData(snapshot.docs);
-      // console.log(snapshot.docs[0].data());
-    });
+  //   useEffect(() => {
+  //     const unsubscribe = onSnapshot(query(collection(firestore, "compendiums"), where("category", "==", category), orderBy("timestamp", "desc")), (snapshot) => {
+  //       setCompendiumData(snapshot.docs);
+  //       // console.log(snapshot.docs[0].data());
+  //     });
 
-    return unsubscribe;
-  }, [category]);
+  //     return unsubscribe;
+  //   }, [category]);
 
   const responsive = {
     superLargeDesktop: {
@@ -42,7 +49,8 @@ console.log(category);
 
   return (
     <div className={styles.container}>
-      <h3 className={styles.heading}>C O M P E N D I U M</h3>
+      {/* <h3 className={styles.heading}>Compendium</h3> */}
+      <Heading content="Compendium" />
       <h5 className={styles.subHeading}>Industry Trends</h5>
       <p className={styles.desc}>
         Delving into your industry, we bring profound insights, implementable
@@ -54,10 +62,10 @@ console.log(category);
           {compendiumData.map((item, index) => (
             <div key={index} className={styles.innerCardDiv}>
               <CompendiumCard
-                imagePath={item.data().logoPath}
-                subHeading={item.data().subheading}
-                heading={item.data().heading}
-                description={item.data().description}
+                imagePath={item.imagePath}
+                subHeading={item.subheading}
+                heading={item.heading}
+                description={item.description}
               />
             </div>
           ))}

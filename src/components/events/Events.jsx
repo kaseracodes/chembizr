@@ -9,6 +9,7 @@ import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import ArrowIcon from "../../svgIcons/ArrowIcon";
 import { COLORS } from "../../assets/constants";
+import Heading from "../heading/Heading";
 
 const InnerCarousel = () => {
   const responsive = {
@@ -108,7 +109,8 @@ const Events = () => {
 
   return (
     <div className={styles.container}>
-      <h3 className={styles.heading}>Events</h3>
+      {/* <h3 className={styles.heading}>Events</h3> */}
+      <Heading content="Events" />
       <div className={styles.carouselContainer}>
         <Carousel responsive={responsive} ssr>
           {/* {eventsData.map((item, index) => (
