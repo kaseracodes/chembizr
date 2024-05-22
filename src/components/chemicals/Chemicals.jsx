@@ -17,12 +17,12 @@ const Chemicals = () => {
         </h3>
         <h5 className={styles.chemicalsSubHeading}>Lorem ipsum dolor</h5>
         <p className={styles.desc}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea tempor incididunt ut labore et dolore , quis nostrud
-          exercitation ullamco laboris nisi ut aliquip ex ea tempor incididunt
-          ut labore et dolore
+          Navigate the market complexities of the polymer industry, optimize
+          margins, and drive sustainable growth with our strategic approach. We
+          provide expert advice on sustainability, material specifications, and
+          valid alternatives. Achieve compliance, and a sustainable portfolio to
+          unlock lucrative growth opportunities with our polymer consulting
+          services.
         </p>
         <Button
           content="Know More"

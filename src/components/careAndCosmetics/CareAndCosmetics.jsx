@@ -28,8 +28,11 @@ const CareAndCosmetics = () => {
       <div className={styles.rightDiv}>
         <h5 className={styles.subHeading}>Oil Consumption Across</h5>
         <p className={styles.desc}>
-          North America, China, and Europe have significant oil consumption
-          across different categories of lipids.
+          Elevate your presence in the cosmetic industry with our agile
+          portfolio management and comprehensive insights in the active
+          ingredient space. We leverage early innovation and tailored innovation
+          to optimize ROI, enabling growth in the global ingredient market, like
+          marine actives.
         </p>
         <Button
           content="Know More"

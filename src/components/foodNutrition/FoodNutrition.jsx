@@ -14,10 +14,11 @@ const FoodNutrition = () => {
       <div className={styles.contentDiv}>
         <div className={styles.descContainer}>
           <p className={styles.desc}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea tempor incididunt ut labore et dolore{" "}
+            We offer strategic insights, market assessments, and innovative
+            solutions for sustainable growth and market leadership. From
+            technology landscape analysis to competitive positioning, we deliver
+            customized solutions, innovative ideas, resilient value chains, and
+            strategic partnerships for commercial success.
           </p>
           <Button
             content="Know More"
