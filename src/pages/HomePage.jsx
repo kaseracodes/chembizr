@@ -15,6 +15,7 @@ import BlogsSection from "../components/blogsSection/BlogsSection";
 import Events from "../components/events/Events.jsx";
 import FocusAreaSection from "../components/focusAreaSection/FocusAreaSection.jsx";
 import { useEffect, useState } from "react";
+import UVP from "../components/uvp/UVP.jsx";
 
 const responsiveHero = {
   superLargeDesktop: {
@@ -129,6 +130,8 @@ const HomePage = () => {
       <div className={styles.uniquePropositionImageDiv}>
         <img src="/images/unique_proposition.png" alt="image" />
       </div> */}
+
+      <UVP />
 
       <News bgColor={COLORS.white} textColor={COLORS.black} />
 
