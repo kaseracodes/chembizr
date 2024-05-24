@@ -1,6 +1,7 @@
 export const CapabilitiesData = [
   {
     imagePath: "/images/capabilities/capabilities1.png",
+    imagePath2: "/images/capabilities_page/image1.png",
     heading: "Business Opportunities Assessment",
     normalHeading: "Business Opportunities Assessment",
     shortDesc:
@@ -11,6 +12,7 @@ export const CapabilitiesData = [
 
   {
     imagePath: "/images/capabilities/capabilities2.png",
+    imagePath2: "/images/capabilities_page/image2.png",
     heading: "Customer Insights<br /><br />",
     normalHeading: "Customer Insights",
     shortDesc:
@@ -21,6 +23,7 @@ export const CapabilitiesData = [
 
   {
     imagePath: "/images/capabilities/capabilities3.png",
+    imagePath2: "/images/capabilities_page/image3.png",
     heading: "Strategic Competitive Intelligence",
     normalHeading: "Strategic Competitive Intelligence",
     shortDesc:
@@ -31,6 +34,7 @@ export const CapabilitiesData = [
 
   {
     imagePath: "/images/capabilities/capabilities4.png",
+    imagePath2: "/images/capabilities_page/image4.png",
     heading: "Mergers, Acquisitions & Alliances",
     normalHeading: "Mergers, Acquisitions & Alliances",
     shortDesc:
@@ -41,6 +45,7 @@ export const CapabilitiesData = [
 
   {
     imagePath: "/images/capabilities/capabilities5.png",
+    imagePath2: "/images/capabilities_page/image5.png",
     heading: "Price Tracking & Profitability Analysis",
     normalHeading: "Price Tracking & Profitability Analysis",
     shortDesc:
@@ -51,6 +56,7 @@ export const CapabilitiesData = [
 
   {
     imagePath: "/images/capabilities/capabilities6.png",
+    imagePath2: "/images/capabilities_page/image6.png",
     heading: "Procurement Intelligence",
     normalHeading: "Procurement Intelligence",
     shortDesc:

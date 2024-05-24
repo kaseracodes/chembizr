@@ -64,7 +64,7 @@ const CapabilitiesPage = () => {
             }
           >
             <div className={styles.imageDiv}>
-              <img src={item.imagePath} alt="image" />
+              <img src={item.imagePath2} alt="image" />
             </div>
             <div>
               <h5 className={styles.heading}>{item.normalHeading}</h5>
