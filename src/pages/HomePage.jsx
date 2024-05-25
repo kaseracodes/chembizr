@@ -109,6 +109,7 @@ const HomePage = () => {
             responsive={responsiveCapabilities}
             showDots={showDots}
             arrows={!showDots}
+            infinite={true}
           >
             {CapabilitiesData.map((item, index) => (
               <div key={index} className={styles.capabilitesInnerCardDiv}>

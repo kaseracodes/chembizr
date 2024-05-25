@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Banner from "../components/banner/Banner";
@@ -14,6 +15,36 @@ import MoreFocusArea from "../components/moreFocusArea/MoreFocusArea";
 import Navbar from "../components/navbar/Navbar";
 import { COLORS } from "../assets/constants";
 import Footer from "../components/footer/Footer";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { FaPlay, FaPause } from "react-icons/fa";
+import { useState } from "react";
+
+const CustomDot = ({ onClick, ...rest }) => {
+  const { active } = rest;
+  return (
+    <li>
+      <button
+        style={{
+          background: active ? "black" : "white",
+        }}
+        onClick={() => onClick()}
+      />
+    </li>
+  );
+};
+
+const CustomButtonGroup = ({ next, previous }) => {
+  return (
+    <div className={styles.buttonGroup}>
+      <button className={styles.customLeftArrow} onClick={() => previous()}>
+        <FaArrowLeft size={15} />
+      </button>
+      <button className={styles.customRightArrow} onClick={() => next()}>
+        <FaArrowRight size={15} />
+      </button>
+    </div>
+  );
+};
 
 const responsive = {
   superLargeDesktop: {
@@ -36,6 +67,12 @@ const responsive = {
 };
 
 const FocusParentPage = () => {
+  const [autoPlay, setAutoPlay] = useState(false);
+
+  const handlePlayPause = () => {
+    setAutoPlay(!autoPlay);
+  };
+
   return (
     <div className={styles.container}>
       <Navbar
@@ -78,7 +115,15 @@ const FocusParentPage = () => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt.
         </h5>
-        <Carousel responsive={responsive}>
+        <Carousel
+          responsive={responsive}
+          arrows={false}
+          infinite={true}
+          autoPlay={autoPlay}
+          autoPlaySpeed={1000}
+          customButtonGroup={<CustomButtonGroup />}
+          showDots={true}
+        >
           {MoreFocusAreasData.map((item, index) => (
             <MoreFocusArea
               key={index}
@@ -88,6 +133,10 @@ const FocusParentPage = () => {
             />
           ))}
         </Carousel>
+
+        <button onClick={handlePlayPause} className={styles.playButton}>
+          {autoPlay ? <FaPause /> : <FaPlay />}
+        </button>
       </div>
 
       {/* Call to Action */}
