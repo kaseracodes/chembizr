@@ -23,7 +23,7 @@ const FoodNutrition = () => {
           <Button
             content="Know More"
             bgColor={COLORS.orange}
-            onClick={() => navigate("/food-nutrition")}
+            onClick={() => navigate("/food-nutrition-and-beverages")}
           />
         </div>
         <div className={styles.foodImageContainer}>

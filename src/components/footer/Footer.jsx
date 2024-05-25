@@ -11,7 +11,7 @@ const Footer = () => {
       <div className={styles.mainContainer}>
         <div className={styles.leftDiv}>
           <img
-            src="/images/logo2.png"
+            src="/images/logo.png"
             alt="logo"
             onClick={() => navigate("/")}
           />
@@ -52,7 +52,7 @@ const Footer = () => {
               )
             }
           >
-            <LinkedinIcon color={COLORS.white} />
+            <LinkedinIcon color={COLORS.darkGray} />
           </div>
         </div>
       </div>

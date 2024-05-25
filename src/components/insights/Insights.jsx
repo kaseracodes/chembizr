@@ -75,7 +75,7 @@ const Insights = ({ pagetype }) => {
     <div className={styles.container}>
       <h1 className={styles.heading}>Our Insights</h1>
       <div className={styles.contentDiv}>
-        <h3 className={styles.subHeading}>Publications</h3>
+        <h3 className={styles.subHeading}>Media Releases</h3>
         <Carousel responsive={responsive}>
           {PublicationsData.map((item, index) => (
             <div key={index} className={styles.innerCardDiv}>

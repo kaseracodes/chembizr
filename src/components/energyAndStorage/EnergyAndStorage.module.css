@@ -21,7 +21,7 @@
   display: flex;
   justify-content: space-between;
   align-items: end;
-  gap: 50px;
+  gap: 30px;
 }
 
 .descDiv {
@@ -52,7 +52,7 @@
 
 @media only screen and (max-width: 1150px) {
   .container {
-    gap: 20px;
+    gap: 40px;
   }
 
   .descDiv {

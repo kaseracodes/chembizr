@@ -21,7 +21,7 @@ const EnergyAndStorage = () => {
             <Button
               content="Know More"
               bgColor={COLORS.orange}
-              onClick={() => navigate("/clean-energy")}
+              onClick={() => navigate("/clean-energy-and-storage")}
             />
           </div>
           <div className={styles.img1}>

@@ -8,7 +8,7 @@ export const FocusAreasData = [
     description:
       "We can tailor your requirements by providing a comprehensive market understanding, value chain analysis, and more, supported by our proprietary database, taking your business ideas from concept to commercialization.",
     buttonText: "Know More",
-    pageLink: "/food-nutrition",
+    pageLink: "/food-nutrition-and-beverages",
   },
 
   {
@@ -20,7 +20,7 @@ export const FocusAreasData = [
     description:
       " We provide valuable insights into polymer materials and manufacturing processes, enabling informed decision-making and strategic planning for long-term growth goals. At ChemBizR, we are at the forefront of innovation in the polymer industry.",
     buttonText: "Know More",
-    pageLink: "/chemicals",
+    pageLink: "/speciality-chemicals-and-polymers",
   },
 
   {
@@ -32,7 +32,7 @@ export const FocusAreasData = [
     description:
       "With our strategic guidance and actionable plans, we empower businesses to navigate the path toward decarbonization, capitalize on emerging trends, determine market opportunities, recognize macroeconomic variables, and stay ahead of the competition.",
     buttonText: "Know More",
-    pageLink: "/petro-chemicals",
+    pageLink: "/petro-chemicals-and-downstream",
   },
 
   {
@@ -44,7 +44,7 @@ export const FocusAreasData = [
     description:
       "Cutting-edge market research and intelligence services to help you navigate energy storage challenges, turn insights into opportunities, and revolutionize the clean energy industry.",
     buttonText: "Know More",
-    pageLink: "/clean-energy",
+    pageLink: "/clean-energy-and-storage",
   },
 
   {
@@ -68,6 +68,6 @@ export const FocusAreasData = [
     description:
       "From color cosmetic ingredients to UV absorbers, our solutions are designed to meet the diverse needs of consumers while optimizing their beauty customer experience. We empower brands to unlock new opportunities and foster growth through tailored innovation.",
     buttonText: "Know More",
-    pageLink: "/personal-care",
+    pageLink: "/personal-care-and-cosmetics",
   },
 ];

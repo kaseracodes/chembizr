@@ -37,7 +37,7 @@ const CareAndCosmetics = () => {
         <Button
           content="Know More"
           bgColor={COLORS.orange}
-          onClick={() => navigate("/personal-care")}
+          onClick={() => navigate("/personal-care-and-cosmetics")}
         />
       </div>
     </div>

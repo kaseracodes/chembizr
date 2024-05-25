@@ -7,6 +7,29 @@ import Footer from "../components/footer/Footer";
 import Navbar from "../components/navbar/Navbar";
 import styles from "./CapabilitiesPage.module.css";
 import FirstCarousel from "../components/carousel/FirstCarousel";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import CapabilitiesBanner from "../components/capabilitiesBanner/CapabilitiesBanner";
+
+const responsiveHero = {
+  superLargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: { max: 4000, min: 3000 },
+    items: 1,
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 1,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 1,
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+  },
+};
 
 const CapabilitiesPage = () => {
   useEffect(() => {
@@ -35,23 +58,12 @@ const CapabilitiesPage = () => {
       /> */}
 
       <div style={{ marginTop: "-120px" }}>
-        <div className={styles.bannerContainer}>
-          <div className={styles.bannerContentDiv}>
-            <h1 className={styles.bannerHeading}>
-              <span className={styles.bannerSpecial}>
-                ChemBizR’s Capabilities:
-                <br />
-              </span>
-              Your ultimate solution-driven partners
-            </h1>
-
-            <p className={styles.bannerPara}>
-              We realize the value of adequate application-specific knowledge
-              and exposure to better evaluate client challenges and accordingly
-              offer the requisite solutions.
-            </p>
-          </div>
-        </div>
+        <Carousel responsive={responsiveHero}>
+          <CapabilitiesBanner imagePath="/images/capabilities_page/banner1.png" />
+          <CapabilitiesBanner imagePath="/images/capabilities_page/banner2.png" />
+          <CapabilitiesBanner imagePath="/images/capabilities_page/banner3.png" />
+          <CapabilitiesBanner imagePath="/images/capabilities_page/banner4.png" />
+        </Carousel>
       </div>
 
       <div className={styles.mainContainer}>

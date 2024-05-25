@@ -10,22 +10,37 @@ const DropDownModal = ({ modalContents, width }) => {
           {item.desc}
           {item.desc === "Industries" && (
             <div className={styles.innerLinks}>
-              <Link to="/food-nutrition" className={styles.innerAnchor}>
+              <Link
+                to="/food-nutrition-and-beverages"
+                className={styles.innerAnchor}
+              >
                 Food Nutrition & Beverages
               </Link>
-              <Link to="/chemicals" className={styles.innerAnchor}>
+              <Link
+                to="/speciality-chemicals-and-polymers"
+                className={styles.innerAnchor}
+              >
                 Speciality Chemicals & Polymers
               </Link>
-              <Link to="/petro-chemicals" className={styles.innerAnchor}>
+              <Link
+                to="/petro-chemicals-and-downstream"
+                className={styles.innerAnchor}
+              >
                 Petrochemicals & Downstream
               </Link>
-              <Link to="/clean-energy" className={styles.innerAnchor}>
+              <Link
+                to="/clean-energy-and-storage"
+                className={styles.innerAnchor}
+              >
                 Clean Energy & Storage
               </Link>
               <Link to="/mobility" className={styles.innerAnchor}>
                 Mobility
               </Link>
-              <Link to="/personal-care" className={styles.innerAnchor}>
+              <Link
+                to="/personal-care-and-cosmetics"
+                className={styles.innerAnchor}
+              >
                 Personal Care & Cosmetics
               </Link>
             </div>
