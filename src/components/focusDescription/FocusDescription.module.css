@@ -1,13 +1,13 @@
 .container {
   padding: 100px;
-  background-color: var(--blue);
+  background-color: var(--white);
 }
 
 .desc {
   font-family: "Inter", sans-serif;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 300;
-  color: var(--white);
+  color: var(--black);
   text-align: center;
 }
 
@@ -21,14 +21,10 @@
   .container {
     padding: 50px;
   }
-
-  .desc {
-    font-size: 20px;
-  }
 }
 
 @media only screen and (max-width: 550px) {
   .desc {
-    font-size: 18px;
+    font-size: 15px;
   }
 }

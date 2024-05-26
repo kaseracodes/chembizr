@@ -1,6 +1,6 @@
 .container {
   background-color: var(--gray4);
-  background-image: url("/images/value_chain_bg.png");
+  /* background-image: url("/images/value_chain_bg.png"); */
   background-size: cover;
   width: 100%;
   height: auto;

@@ -1,4 +1,4 @@
-import styles from "./ValueChain.module.css";
+import styles from "./ValueChain2.module.css";
 import { ValueChainData } from "../../assets/valueChainData";
 import ValueChainCard from "../valueChainCard/ValueChainCard";
 import { COLORS } from "../../assets/constants";
@@ -16,44 +16,44 @@ const ValueChain = () => {
 
       <div className={styles.cardContainer}>
         <ValueChainCard
-          heading={ValueChainData[0].valueChain1[0].heading}
-          listItems={ValueChainData[0].valueChain1[0].listItems}
+          heading={ValueChainData[1].valueChain2[0].heading}
+          listItems={ValueChainData[1].valueChain2[0].listItems}
           bgColor={COLORS.white}
         />
 
         <div className={styles.innerCardContainer}>
           <ValueChainCard
-            heading={ValueChainData[0].valueChain1[1].heading}
-            listItems={ValueChainData[0].valueChain1[1].listItems}
+            heading={ValueChainData[1].valueChain2[1].heading}
+            listItems={ValueChainData[1].valueChain2[1].listItems}
             bgColor={COLORS.white}
           />
           <ValueChainCard
-            heading={ValueChainData[0].valueChain1[2].heading}
-            listItems={ValueChainData[0].valueChain1[2].listItems}
-            bgColor={COLORS.white}
-          />
-        </div>
-        <div className={styles.innerCardContainer}>
-          <ValueChainCard
-            heading={ValueChainData[0].valueChain1[3].heading}
-            listItems={ValueChainData[0].valueChain1[3].listItems}
-            bgColor={COLORS.white}
-          />
-          <ValueChainCard
-            heading={ValueChainData[0].valueChain1[4].heading}
-            listItems={ValueChainData[0].valueChain1[4].listItems}
+            heading={ValueChainData[1].valueChain2[2].heading}
+            listItems={ValueChainData[1].valueChain2[2].listItems}
             bgColor={COLORS.white}
           />
         </div>
         <div className={styles.innerCardContainer}>
           <ValueChainCard
-            heading={ValueChainData[0].valueChain1[5].heading}
-            listItems={ValueChainData[0].valueChain1[5].listItems}
+            heading={ValueChainData[1].valueChain2[3].heading}
+            listItems={ValueChainData[1].valueChain2[3].listItems}
             bgColor={COLORS.white}
           />
           <ValueChainCard
-            heading={ValueChainData[0].valueChain1[6].heading}
-            listItems={ValueChainData[0].valueChain1[6].listItems}
+            heading={ValueChainData[1].valueChain2[4].heading}
+            listItems={ValueChainData[1].valueChain2[4].listItems}
+            bgColor={COLORS.white}
+          />
+        </div>
+        <div className={styles.innerCardContainer}>
+          <ValueChainCard
+            heading={ValueChainData[1].valueChain2[5].heading}
+            listItems={ValueChainData[1].valueChain2[5].listItems}
+            bgColor={COLORS.white}
+          />
+          <ValueChainCard
+            heading={ValueChainData[1].valueChain2[6].heading}
+            listItems={ValueChainData[1].valueChain2[6].listItems}
             bgColor={COLORS.white}
           />
         </div>
