@@ -279,9 +279,8 @@ export const ValueChainData = [
 
   {
     description: [
-      "Fueled by data and driven by a commitment to efficacy, we empower brands to stand out in a crowded market, delivering personalized experiences that resonate with today's conscious consumers.",
-      "Our agile portfolio management approach ensures brands stay ahead of the curve, optimizing ROI and driving accelerated growth. From anti-aging formulations to anti-pollution skincare, our focus on efficacy and performance benefits ensures brands stand out in the competitive cosmetic industry.",
-      "We unearth opportunities and lead the charge toward a more conscious beauty industry. Our expertise in ingredient selection, fueled by comprehensive insights and global market knowledge, enables brands to optimize their ingredient portfolio strategies and enhance brand positioning.",
+      "We partner with brands across the value chain, unearthing opportunities in the active ingredient space. Our focus is always on innovative trends, be it marine actives or skin microbiomes, creating conscious cosmetics as per consumer demand.",
+      "By harnessing the power of specialty actives and optimizing brand ecosystems, we help brands in enhancing customer experience.",
     ],
     valueChain: [
       {
