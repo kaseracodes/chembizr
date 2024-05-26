@@ -9,6 +9,8 @@ import Events from "../components/events/Events";
 import News from "../components/news/News";
 import Footer from "../components/footer/Footer";
 import CallToAction from "../components/callToAction/CallToAction";
+import { FocusAreasData } from "../assets/focusAreas";
+import FocusDescription from "../components/focusDescription/FocusDescription";
 
 const PersonalCarePage = () => {
   return (
@@ -21,22 +23,24 @@ const PersonalCarePage = () => {
 
       {/* Banner / Hero section */}
       <Banner
-        imagePath={"/images/food_page_hero.png"}
-        heading="Food and Nutrition"
-        para="In 2022, the number of investment deals in the overall plant-based food segment fell from 38 to 33. In particular, the American and European regions experienced problems like business closures. The market for plant-based foods, however, is expanding in the Asia Pacific region right now. In 2022, investment in the APAC plant-based food industry increased by 30%, reaching a valuation of."
+        imagePath={"/images/focus_area/focus_area6.png"}
+        heading="Personal Care<br /> & Cosmetics"
+        para={FocusAreasData[5].description}
         buttonText="Know More"
         textColor={COLORS.black}
-        contentWidth="450px"
+        // contentWidth="450px"
       />
+
+      <FocusDescription longDescription={FocusAreasData[5].longDescription} />
 
       {/* Value chain section */}
       <ValueChain />
 
       {/* Insights */}
-      <Insights pagetype="Personal Care & Cosmetics"/>
+      <Insights pagetype="Personal Care & Cosmetics" />
 
       {/* Compendium */}
-      <Compendium category="Personal Care & Cosmetics"/>
+      <Compendium category="Personal Care & Cosmetics" />
 
       {/* Events */}
       <Events />

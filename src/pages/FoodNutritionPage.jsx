@@ -9,6 +9,8 @@ import Events from "../components/events/Events";
 import News from "../components/news/News";
 import Footer from "../components/footer/Footer";
 import CallToAction from "../components/callToAction/CallToAction";
+import FocusDescription from "../components/focusDescription/FocusDescription";
+import { FocusAreasData } from "../assets/focusAreas";
 
 const FoodNutritionPage = () => {
   return (
@@ -23,12 +25,14 @@ const FoodNutritionPage = () => {
       {/* Banner / Hero section */}
       <Banner
         imagePath={"/images/food_page_hero.png"}
-        heading="Food and<br />Nutrition"
-        para="In 2022, the number of investment deals in the overall plant-<br />based food segment fell from 38 to 33. In particular, the<br />American and European regions experienced problems<br />like business closures. The market for plant-based foods, however, is<br />expanding in the Asia Pacific region right now. In 2022,<br />investment in the APAC plant-based food industry increased by<br />30%, reaching a valuation of."
+        heading="Food Nutrition<br /> and Beverages"
+        para={FocusAreasData[0].description}
         buttonText="Know More"
         textColor={COLORS.black}
-        headingMarginTop="80px"
+        headingMarginTop="100px"
       />
+
+      <FocusDescription longDescription={FocusAreasData[0].longDescription} />
 
       {/* Value chain section */}
       <ValueChain />
