@@ -88,6 +88,7 @@ const FocusParentPage = () => {
         para="Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
         buttonText="Read More"
         headingLineHeight="120%"
+        contentWidth={"800px"}
       />
 
       {/* Food Nutrition & Beverages */}

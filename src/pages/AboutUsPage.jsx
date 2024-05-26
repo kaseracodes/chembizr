@@ -22,7 +22,7 @@ const AboutUsPage = () => {
       />
 
       <Banner3
-        heading="The Consulting<br />that Gets you more"
+        heading="Your Thought-<br />Partner For Being<br />Future Relevant"
         para="We at ChemBizR, partner with global<br />clients to unleash unique solutions across<br />a variety of business verticals."
         buttonText="Insights"
         imagePath="/images/about_us_hero.png"

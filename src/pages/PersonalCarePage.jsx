@@ -2,7 +2,6 @@ import styles from "./FoodNutritionPage.module.css";
 import Banner from "../components/banner/Banner";
 import Navbar from "../components/navbar/Navbar";
 import { COLORS } from "../assets/constants";
-import ValueChain from "../components/valueChain/ValueChain";
 import Insights from "../components/insights/Insights";
 import Compendium from "../components/compendium/Compendium";
 import Events from "../components/events/Events";
@@ -11,6 +10,7 @@ import Footer from "../components/footer/Footer";
 import CallToAction from "../components/callToAction/CallToAction";
 import { FocusAreasData } from "../assets/focusAreas";
 import FocusDescription from "../components/focusDescription/FocusDescription";
+import ValueChain5 from "../components/valueChain5/ValueChain5";
 
 const PersonalCarePage = () => {
   return (
@@ -34,7 +34,7 @@ const PersonalCarePage = () => {
       <FocusDescription longDescription={FocusAreasData[5].longDescription} />
 
       {/* Value chain section */}
-      <ValueChain />
+      <ValueChain5 />
 
       {/* Insights */}
       <Insights pagetype="Personal Care & Cosmetics" />

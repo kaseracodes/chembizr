@@ -2,7 +2,6 @@ import styles from "./FoodNutritionPage.module.css";
 import Banner from "../components/banner/Banner";
 import Navbar from "../components/navbar/Navbar";
 import { COLORS } from "../assets/constants";
-import ValueChain from "../components/valueChain/ValueChain";
 import Insights from "../components/insights/Insights";
 import Compendium from "../components/compendium/Compendium";
 import Events from "../components/events/Events";
@@ -11,6 +10,7 @@ import Footer from "../components/footer/Footer";
 import CallToAction from "../components/callToAction/CallToAction";
 import { FocusAreasData } from "../assets/focusAreas";
 import FocusDescription from "../components/focusDescription/FocusDescription";
+import ValueChain4 from "../components/valueChain4/ValueChain4";
 
 const MobilityPage = () => {
   return (
@@ -35,7 +35,7 @@ const MobilityPage = () => {
       <FocusDescription longDescription={FocusAreasData[4].longDescription} />
 
       {/* Value chain section */}
-      <ValueChain />
+      <ValueChain4 />
 
       {/* Insights */}
       <Insights pagetype="Mobility" />

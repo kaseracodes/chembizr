@@ -35,7 +35,7 @@ const PetroChemicalsPage = () => {
       <FocusDescription longDescription={FocusAreasData[2].longDescription} />
 
       {/* Value chain section */}
-      <ValueChain />
+      {/* <ValueChain /> */}
 
       {/* Insights */}
       <Insights pagetype="Petrochemicals & Downstream" />

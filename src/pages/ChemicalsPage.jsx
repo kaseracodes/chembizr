@@ -23,11 +23,11 @@ const ChemicalsPage = () => {
 
       {/* Banner / Hero section */}
       <Banner
-        imagePath={"/images/focus_area/focus_area2.png"}
+        imagePath={"/images/focus_area/chemicals.png"}
         heading="Speciality Chemicals<br /> And Polymers"
         para={FocusAreasData[1].description}
         buttonText="Know More"
-        textColor={COLORS.black}
+        textColor={COLORS.white}
         // contentWidth="450px"
       />
 

@@ -16,11 +16,11 @@ export const PlacesData = [
     phone: "+31616967016",
   },
 
-  {
-    imagePath: "/images/building.png",
-    country: "USA",
-    address: "Spaces Hofplein, Hofplein 20, Rotterdam 3032 AC, The Netherlands",
-    email: "connect@chembizr.com",
-    phone: "+31616967016",
-  },
+  // {
+  //   imagePath: "/images/building.png",
+  //   country: "USA",
+  //   address: "Spaces Hofplein, Hofplein 20, Rotterdam 3032 AC, The Netherlands",
+  //   email: "connect@chembizr.com",
+  //   phone: "+31616967016",
+  // },
 ];

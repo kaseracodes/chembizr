@@ -1,100 +1,91 @@
 .container {
-    background-color: var(--gray4);
-    /* background-image: url("/images/value_chain_bg.png"); */
-    background-size: cover;
-    width: 100%;
-    height: auto;
-    padding: 50px 0 80px 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 0;
-    /* padding: 10px 20px; */
-  }
-  
-  .heading {
-    font-family: "Istok Web", sans-serif;
-    font-size: 70px;
-    font-weight: 700;
-    color: var(--black);
-    margin: 0;
-  }
-  
-  .descDiv {
-    padding: 0 200px;
-    text-align: center;
-  }
-  
-  .desc {
-    font-family: "Inter", sans-serif;
-    font-size: 30px;
-    font-weight: 300;
-    color: var(--black);
-  }
-  
+  background-color: var(--gray4);
+  /* background-image: url("/images/value_chain_bg.png"); */
+  background-size: cover;
+  width: 100%;
+  height: auto;
+  padding: 50px 0 80px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0;
+  /* padding: 10px 20px; */
+}
+
+.heading {
+  font-family: "Istok Web", sans-serif;
+  font-size: 70px;
+  font-weight: 700;
+  color: var(--black);
+  margin: 0;
+}
+
+.descDiv {
+  padding: 10px 200px;
+  text-align: center;
+}
+
+.desc {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--black);
+}
+
+.cardContainer {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* align-items: center; */
+  gap: 30px;
+  background: rgba(255, 255, 255, 0);
+}
+
+.innerCardContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+@media only screen and (max-width: 1300px) {
   .cardContainer {
-    margin-top: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    /* align-items: center; */
-    gap: 30px;
-    background: rgba(255, 255, 255, 0);
+    justify-content: center;
+    padding: 0 20px;
   }
-  
-  .innerCardContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
+
+  .heading {
+    font-size: 60px;
   }
-  
-  @media only screen and (max-width: 1300px) {
-    .cardContainer {
-      justify-content: center;
-      padding: 0 20px;
-    }
-  
-    .heading {
-      font-size: 60px;
-    }
-  
-    .descDiv {
-      padding: 0 100px;
-    }
-  
-    .desc {
-      font-size: 25px;
-    }
+
+  .descDiv {
+    padding: 0 100px;
   }
-  
-  @media only screen and (max-width: 950px) {
-    .container {
-      background-image: none;
-    }
-  
-    .heading {
-      font-size: 42px;
-    }
-  
-    .desc {
-      font-size: 20px;
-    }
-  
-    .descDiv {
-      padding: 0 50px;
-    }
+}
+
+@media only screen and (max-width: 950px) {
+  .container {
+    background-image: none;
   }
-  
-  @media only screen and (max-width: 550px) {
-    .heading {
-      font-size: 32px;
-    }
-  
-    .desc {
-      font-size: 18px;
-    }
+
+  .heading {
+    font-size: 42px;
   }
-  
+
+  .descDiv {
+    padding: 0 50px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .heading {
+    font-size: 32px;
+  }
+
+  .desc {
+    font-size: 15px;
+  }
+}
