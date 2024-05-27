@@ -19,6 +19,8 @@ import { useState, useEffect } from "react";
 // import { useParams, useSearchParams } from "react-router-dom";
 import Pagination from "../components/pagination/Pagination";
 import { useSearchParams } from "react-router-dom";
+import CallToAction from "../components/callToAction/CallToAction";
+import Footer from "../components/footer/Footer";
 // import {
 //   collection,
 //   onSnapshot,
@@ -273,9 +275,9 @@ const BlogListingPage = () => {
         </div>
       </div>
 
-      {/* <CallToAction />
+      <CallToAction />
 
-      <Footer /> */}
+      <Footer />
     </div>
   );
 };

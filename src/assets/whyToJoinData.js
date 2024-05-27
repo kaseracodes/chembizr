@@ -3,7 +3,7 @@ export const WhyToJoinData = [
     imagePath: "/images/join/image1.png",
     heading: "Equal Opportunity",
     description:
-      "For us equal opportunity is more than just a statement; it is a pillar of our culture.",
+      "For us, equal opportunity is way more than just a statement; it is a pillar of our culture.",
   },
 
   {

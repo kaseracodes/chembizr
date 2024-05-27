@@ -11,9 +11,10 @@ const EventCardModal = ({
   heading,
   description,
 }) => {
-  const milliseconds = date.seconds * 1000 + Math.floor(date.nanoseconds / 1000000);
+  const milliseconds =
+    date.seconds * 1000 + Math.floor(date.nanoseconds / 1000000);
   const date1 = new Date(milliseconds);
-  const dateString = date1.toLocaleString(); 
+  const dateString = date1.toLocaleString();
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -37,7 +38,7 @@ const EventCardModal = ({
   return (
     <div className={styles.container}>
       <div className={styles.imageDiv}>
-        <Carousel responsive={responsive} showDots={true} arrows={false}>
+        <Carousel responsive={responsive} showDots={true} arrows={true}>
           {imagePath.map((item, index) => (
             <div key={index} className={styles.image}>
               <img src={item} alt="image" />
@@ -56,7 +57,10 @@ const EventCardModal = ({
         </div>
 
         <h3 className={styles.heading}>{heading}</h3>
-        <div className={styles.desc} dangerouslySetInnerHTML={{ __html: description }}></div>
+        <div
+          className={styles.desc}
+          dangerouslySetInnerHTML={{ __html: description }}
+        ></div>
       </div>
     </div>
   );

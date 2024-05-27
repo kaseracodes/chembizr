@@ -28,7 +28,7 @@ const PersonalCarePage = () => {
         para={FocusAreasData[5].description}
         buttonText="Know More"
         textColor={COLORS.black}
-        // contentWidth="450px"
+        contentWidth="500px"
       />
 
       <FocusDescription

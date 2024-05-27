@@ -22,6 +22,10 @@ const FocusAreaSection = () => {
     setAnimate(true);
   };
 
+  const handleLinkClick = () => {
+    navigate("/focus#more");
+  };
+
   return (
     <>
       <div className={styles.container}>
@@ -29,10 +33,13 @@ const FocusAreaSection = () => {
           <h3 className={styles.heading}>Verticals We Serve!</h3>
           <p className={styles.desc}>
             ChemBizR realizes the value of adequate industry domain knowledge
-            and exposure to better evaluate client challenges and accordingly
-            offer requisite solutions. Unleash customized solutions for specific
-            industries, tailored to meet your business needs.
+            and exposure to better evaluate client challenges.
           </p>
+
+          <div className={styles.linkDiv} onClick={handleLinkClick}>
+            <h5>More of our Focus Verticals</h5>
+            <img src="/images/external.png" alt="external link" />
+          </div>
 
           <div className={styles.cardContainer}>
             {FocusAreasData.map((item, index) => (

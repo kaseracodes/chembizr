@@ -86,7 +86,7 @@ const HomePage = () => {
           <FirstCarousel bgImage="/images/home_page_hero.png" />
           <FirstCarousel
             bgImage="/images/home_page_hero_2.png"
-            textColor={COLORS.black}
+            textColor={COLORS.blue2}
           />
           <SecondCarousel />
         </Carousel>

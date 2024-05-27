@@ -17,21 +17,21 @@ import { COLORS } from "../assets/constants";
 import Footer from "../components/footer/Footer";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { FaPlay, FaPause } from "react-icons/fa";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const CustomDot = ({ onClick, ...rest }) => {
-  const { active } = rest;
-  return (
-    <li>
-      <button
-        style={{
-          background: active ? "black" : "white",
-        }}
-        onClick={() => onClick()}
-      />
-    </li>
-  );
-};
+// const CustomDot = ({ onClick, ...rest }) => {
+//   const { active } = rest;
+//   return (
+//     <li>
+//       <button
+//         style={{
+//           background: active ? "black" : "white",
+//         }}
+//         onClick={() => onClick()}
+//       />
+//     </li>
+//   );
+// };
 
 const CustomButtonGroup = ({ next, previous }) => {
   return (
@@ -73,6 +73,17 @@ const FocusParentPage = () => {
     setAutoPlay(!autoPlay);
   };
 
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      const sectionId = hash.substring(1); // Remove the "#" from the hash
+      const section = document.getElementById(sectionId);
+      if (section) {
+        window.scrollTo({ top: section.offsetTop, behavior: "smooth" });
+      }
+    }
+  }, []);
+
   return (
     <div className={styles.container}>
       <Navbar
@@ -88,7 +99,6 @@ const FocusParentPage = () => {
         para="Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
         buttonText="Read More"
         headingLineHeight="120%"
-        contentWidth={"800px"}
       />
 
       {/* Food Nutrition & Beverages */}
@@ -110,7 +120,7 @@ const FocusParentPage = () => {
       <CareAndCosmetics />
 
       {/* More Focus Areas */}
-      <div className={styles.carouselContainer}>
+      <div className={styles.carouselContainer} id="more">
         <h3 className={styles.heading}>More of Our Focus Verticals</h3>
         <h5 className={styles.subHeading}>
           Get personalized solutions across a few more of our business verticals
@@ -127,6 +137,7 @@ const FocusParentPage = () => {
           {MoreFocusAreasData.map((item, index) => (
             <MoreFocusArea
               key={index}
+              id="more"
               imagePath={item.imagePath}
               heading={item.heading}
               description={item.description}

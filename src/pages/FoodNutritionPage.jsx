@@ -29,7 +29,8 @@ const FoodNutritionPage = () => {
         para={FocusAreasData[0].description}
         buttonText="Know More"
         textColor={COLORS.black}
-        headingMarginTop="100px"
+        headingMarginTop="130px"
+        contentWidth="600px"
       />
 
       <FocusDescription

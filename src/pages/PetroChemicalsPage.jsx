@@ -23,7 +23,7 @@ const PetroChemicalsPage = () => {
 
       {/* Banner / Hero section */}
       <Banner
-        imagePath={"/images/focus_area/focus_area3.png"}
+        imagePath={"/images/focus_area/petro_chemicals.png"}
         heading="Petro-Chemicals<br /> And Downstream"
         para={FocusAreasData[2].description}
         buttonText="Know More"

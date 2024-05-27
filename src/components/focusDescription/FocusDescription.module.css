@@ -38,6 +38,14 @@
     flex-direction: column;
     gap: 50px;
   }
+
+  .container img {
+    display: none;
+  }
+
+  .desc {
+    text-align: center;
+  }
 }
 
 @media only screen and (max-width: 550px) {

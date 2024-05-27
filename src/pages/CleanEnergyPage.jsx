@@ -69,8 +69,8 @@ const CleanEnergyPage = () => {
         heading="Clean Energy<br /> And Storage"
         para={FocusAreasData[3].description}
         buttonText="Know More"
-        textColor={COLORS.black}
-        // contentWidth="450px"
+        textColor={COLORS.white}
+        contentWidth="450px"
         headingMarginTop={"130px"}
       />
 
@@ -115,7 +115,7 @@ const CleanEnergyPage = () => {
       </div>
 
       <div className={styles.esContainer}>
-        <h3 className={styles.esHeading}>Green Energy</h3>
+        <h3 className={styles.esHeading}>Energy Storage</h3>
         <div className={styles.esInnerContainer}>
           <div className={styles.esContentDiv}>
             <h5 className={styles.esSubHeading}>

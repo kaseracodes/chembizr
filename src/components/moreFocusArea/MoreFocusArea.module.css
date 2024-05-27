@@ -15,6 +15,7 @@
   font-weight: 700;
   color: var(--black);
   text-transform: capitalize;
+  margin-top: 0;
 }
 
 .desc {
@@ -24,10 +25,14 @@
   color: var(--black);
 }
 
+.container img {
+  height: 450px;
+}
+
 @media only screen and (max-width: 1300px) {
-  .container img {
+  /* .container img {
     width: 60vw;
-  }
+  } */
 
   .contentDiv {
     padding: 0 50px;

@@ -69,9 +69,9 @@ const NewsPage = () => {
         />
       </div>
 
-      {/* <CallToAction />
+      <CallToAction />
 
-      <Footer /> */}
+      <Footer />
     </div>
   );
 };

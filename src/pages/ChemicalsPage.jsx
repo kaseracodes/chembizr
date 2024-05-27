@@ -28,7 +28,7 @@ const ChemicalsPage = () => {
         para={FocusAreasData[1].description}
         buttonText="Know More"
         textColor={COLORS.white}
-        // contentWidth="450px"
+        contentWidth="500px"
       />
 
       <FocusDescription
