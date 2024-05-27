@@ -7,7 +7,7 @@ const CapabilitiesBanner = ({ imagePath }) => {
       className={styles.bannerContainer}
       style={{ backgroundImage: `url(${imagePath})` }}
     >
-      <div className={styles.overlay}></div>
+      {/* <div className={styles.overlay}></div> */}
       <div className={styles.bannerContentDiv}>
         <h1 className={styles.bannerHeading}>
           <span className={styles.bannerSpecial}>
