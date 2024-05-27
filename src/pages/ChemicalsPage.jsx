@@ -31,7 +31,10 @@ const ChemicalsPage = () => {
         // contentWidth="450px"
       />
 
-      <FocusDescription longDescription={FocusAreasData[1].longDescription} />
+      <FocusDescription
+        longDescription={FocusAreasData[1].longDescription}
+        imagePath="/images/focus_area/polymers.png"
+      />
 
       {/* Value chain section */}
       <ValueChain2 />

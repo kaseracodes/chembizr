@@ -14,7 +14,7 @@ const FirstCarousel = ({ bgImage, textColor }) => {
     >
       <div className={styles.contentDiv}>
         <h1 className={styles.heading} style={{ color: textColor }}>
-          Your offbeat
+          Your Offbeat
           <br /> <span className={styles.special}>Research</span> &<br />
           Management
           <br /> Consulting Partner

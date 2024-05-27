@@ -31,7 +31,10 @@ const PersonalCarePage = () => {
         // contentWidth="450px"
       />
 
-      <FocusDescription longDescription={FocusAreasData[5].longDescription} />
+      <FocusDescription
+        longDescription={FocusAreasData[5].longDescription}
+        imagePath="/images/focus_area/personal_care.png"
+      />
 
       {/* Value chain section */}
       <ValueChain5 />

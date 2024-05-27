@@ -14,7 +14,7 @@ const PlaceCard = ({ imagePath, country, address, email, phone }) => {
         </div>
         <div className={styles.contacts}>
           <img src="/images/phone.png" alt="images" />
-          <a className={styles.phone} href="tel:{phone}">
+          <a className={styles.phone} href={`tel:${phone}`}>
             {phone}
           </a>
         </div>

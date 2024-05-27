@@ -21,7 +21,7 @@ const PetroChemicals = () => {
           volatile markets.
         </p>
         <Button
-          content="Read More"
+          content="Know More"
           bgColor={COLORS.orange}
           onClick={() => navigate("/petro-chemicals-and-downstream")}
         />

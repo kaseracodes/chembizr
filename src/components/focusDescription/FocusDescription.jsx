@@ -1,14 +1,17 @@
 /* eslint-disable react/prop-types */
 import styles from "./FocusDescription.module.css";
 
-const FocusDescription = ({ longDescription }) => {
+const FocusDescription = ({ longDescription, imagePath }) => {
   return (
     <div className={styles.container}>
-      {longDescription.map((item, index) => (
-        <p key={index} className={styles.desc}>
-          {item}
-        </p>
-      ))}
+      <div>
+        {longDescription.map((item, index) => (
+          <p key={index} className={styles.desc}>
+            {item}
+          </p>
+        ))}
+      </div>
+      <img src={imagePath} alt="image" />
     </div>
   );
 };

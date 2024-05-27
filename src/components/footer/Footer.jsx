@@ -41,7 +41,7 @@ const Footer = () => {
         </div>
 
         <div className={styles.rightDiv}>
-          <p className={styles.para}>Follow Our Socials</p>
+          <p className={styles.para}>Follow Us On</p>
           <div
             style={{ cursor: "pointer" }}
             // className={styles.icon}

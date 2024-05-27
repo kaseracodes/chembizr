@@ -49,6 +49,7 @@
   font-weight: 400;
   font-family: "Open Sans", sans-serif;
   color: var(--black);
+  margin-bottom: 40px;
 }
 
 @media only screen and (max-width: 1250px) {

@@ -26,7 +26,7 @@ const CareAndCosmetics = () => {
         </div>
       </div>
       <div className={styles.rightDiv}>
-        <h5 className={styles.subHeading}>Oil Consumption Across</h5>
+        {/* <h5 className={styles.subHeading}>Oil Consumption Across</h5> */}
         <p className={styles.desc}>
           Elevate your presence in the cosmetic industry with our agile
           portfolio management and comprehensive insights in the active

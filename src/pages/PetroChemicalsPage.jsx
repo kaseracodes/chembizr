@@ -32,7 +32,10 @@ const PetroChemicalsPage = () => {
         headingMarginTop={"130px"}
       />
 
-      <FocusDescription longDescription={FocusAreasData[2].longDescription} />
+      <FocusDescription
+        longDescription={FocusAreasData[2].longDescription}
+        imagePath="/images/focus_area/petchem.png"
+      />
 
       {/* Value chain section */}
       <ValueChain6 />

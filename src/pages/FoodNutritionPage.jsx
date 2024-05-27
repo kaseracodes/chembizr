@@ -32,7 +32,10 @@ const FoodNutritionPage = () => {
         headingMarginTop="100px"
       />
 
-      <FocusDescription longDescription={FocusAreasData[0].longDescription} />
+      <FocusDescription
+        longDescription={FocusAreasData[0].longDescription}
+        imagePath="/images/focus_area/food.png"
+      />
 
       {/* Value chain section */}
       <ValueChain />

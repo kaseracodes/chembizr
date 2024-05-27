@@ -32,7 +32,10 @@ const MobilityPage = () => {
         headingMarginTop={"130px"}
       />
 
-      <FocusDescription longDescription={FocusAreasData[4].longDescription} />
+      <FocusDescription
+        longDescription={FocusAreasData[4].longDescription}
+        imagePath="/images/focus_area/mobility.png"
+      />
 
       {/* Value chain section */}
       <ValueChain4 />

@@ -74,7 +74,7 @@ const Navbar = ({ textColor, iconColor, bgColor }) => {
             textColor={isScrolled || navbarOpen ? COLORS.black : textColor}
             content="About"
             modalContents={[
-              { desc: "Who are we?", link: "/about-us" },
+              { desc: "Who Are We?", link: "/about-us" },
               { desc: "Career", link: "/careers" },
             ]}
             index="1"

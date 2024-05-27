@@ -32,7 +32,10 @@ const CleanEnergyPage = () => {
         headingMarginTop={"130px"}
       />
 
-      <FocusDescription longDescription={FocusAreasData[3].longDescription} />
+      <FocusDescription
+        longDescription={FocusAreasData[3].longDescription}
+        imagePath="/images/focus_area/clean_energy2.png"
+      />
 
       {/* Value chain section */}
       <ValueChain3 />

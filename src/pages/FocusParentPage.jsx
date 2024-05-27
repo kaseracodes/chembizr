@@ -113,8 +113,7 @@ const FocusParentPage = () => {
       <div className={styles.carouselContainer}>
         <h3 className={styles.heading}>More of Our Focus Verticals</h3>
         <h5 className={styles.subHeading}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt.
+          Get personalized solutions across a few more of our business verticals
         </h5>
         <Carousel
           responsive={responsive}

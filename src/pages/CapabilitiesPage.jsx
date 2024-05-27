@@ -1,12 +1,10 @@
 import { useEffect } from "react";
 import { CapabilitiesData } from "../assets/capabilitiesData";
 import { COLORS } from "../assets/constants";
-import Banner2 from "../components/banner2/Banner2";
 import CallToAction from "../components/callToAction/CallToAction";
 import Footer from "../components/footer/Footer";
 import Navbar from "../components/navbar/Navbar";
 import styles from "./CapabilitiesPage.module.css";
-import FirstCarousel from "../components/carousel/FirstCarousel";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import CapabilitiesBanner from "../components/capabilitiesBanner/CapabilitiesBanner";
