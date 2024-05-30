@@ -31,7 +31,10 @@
 
 .geImageDiv {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
 .geImageDiv img {
@@ -40,10 +43,18 @@
   border-radius: 20px;
 }
 
+.geImageHeading {
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--white);
+  margin: 0;
+}
+
 .esContainer {
   background: url("/images/focus_area/energy_storage_bg.png");
   background-size: cover;
-  padding: 50px 100px;
+  padding: 100px;
 }
 
 .esHeading {
@@ -59,9 +70,9 @@
   display: flex;
   /* flex-wrap: wrap; */
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   gap: 100px;
-  margin: 80px 0 50px 0;
+  /* margin: 80px 0 50px 0; */
 }
 
 .esContentDiv {
@@ -70,9 +81,10 @@
 
 .esSubHeading {
   font-family: "Inter", sans-serif;
-  font-size: 24px;
+  font-size: 42px;
   font-weight: 600;
   color: var(--black);
+  margin: 0;
 }
 
 .esDesc {

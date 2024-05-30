@@ -80,7 +80,7 @@ const CleanEnergyPage = () => {
       />
 
       <div className={styles.geContainer}>
-        <h3 className={styles.geHeading}>Green Ennergy</h3>
+        <h3 className={styles.geHeading}>Green Energy</h3>
         <p className={styles.geDesc}>
           Meet the net-zero emissions target by implementing dependable and
           long-term solutions to transform the material portfolio to a more
@@ -97,25 +97,30 @@ const CleanEnergyPage = () => {
           >
             <div className={styles.geImageDiv}>
               <img src="/images/focus_area/ge1.webp" alt="image" />
+              <p className={styles.geImageHeading}>Solar</p>
             </div>
             <div className={styles.geImageDiv}>
               <img src="/images/focus_area/ge2.webp" alt="image" />
+              <p className={styles.geImageHeading}>Wind</p>
             </div>
             <div className={styles.geImageDiv}>
               <img src="/images/focus_area/ge3.webp" alt="image" />
+              <p className={styles.geImageHeading}>Hydro</p>
             </div>
             <div className={styles.geImageDiv}>
               <img src="/images/focus_area/ge4.webp" alt="image" />
+              <p className={styles.geImageHeading}>Hydrogen</p>
             </div>
             <div className={styles.geImageDiv}>
               <img src="/images/focus_area/ge5.webp" alt="image" />
+              <p className={styles.geImageHeading}>Geo Thermal</p>
             </div>
           </Carousel>
         </div>
       </div>
 
       <div className={styles.esContainer}>
-        <h3 className={styles.esHeading}>Energy Storage</h3>
+        {/* <h3 className={styles.esHeading}>Energy Storage</h3> */}
         <div className={styles.esInnerContainer}>
           <div className={styles.esContentDiv}>
             <h5 className={styles.esSubHeading}>

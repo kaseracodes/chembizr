@@ -24,7 +24,7 @@ const ChemicalsPage = () => {
       {/* Banner / Hero section */}
       <Banner
         imagePath={"/images/focus_area/chemicals.png"}
-        heading="Speciality Chemicals<br /> And Polymers"
+        heading={FocusAreasData[1].heading}
         para={FocusAreasData[1].description}
         buttonText="Know More"
         textColor={COLORS.white}

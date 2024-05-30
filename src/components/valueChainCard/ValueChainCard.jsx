@@ -1,9 +1,16 @@
 /* eslint-disable react/prop-types */
 import styles from "./ValueChainCard.module.css";
 
-const ValueChainCard = ({ heading, listItems, bgColor }) => {
+const ValueChainCard = ({ heading, listItems, bgColor, padding }) => {
   return (
-    <div className={styles.container} style={{ backgroundColor: bgColor }}>
+    <div
+      className={styles.container}
+      style={{
+        backgroundColor: bgColor,
+        paddingTop: padding,
+        paddingBottom: padding,
+      }}
+    >
       <h5 className={styles.heading}>{heading}</h5>
       <ul className={styles.list}>
         {listItems.map((item, index) => (

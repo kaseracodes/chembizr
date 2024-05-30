@@ -27,11 +27,13 @@ const ValueChain5 = () => {
             heading={ValueChainData[4].valueChain[1].heading}
             listItems={ValueChainData[4].valueChain[1].listItems}
             bgColor={COLORS.white}
+            padding="41px"
           />
           <ValueChainCard
             heading={ValueChainData[4].valueChain[2].heading}
             listItems={ValueChainData[4].valueChain[2].listItems}
             bgColor={COLORS.white}
+            padding="41px"
           />
         </div>
         <div className={styles.innerCardContainer}>

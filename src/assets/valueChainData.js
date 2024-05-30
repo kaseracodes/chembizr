@@ -125,7 +125,7 @@ export const ValueChainData = [
         ],
       },
       {
-        heading: "Oems, Contract Manufacturers",
+        heading: "OEMs, Contract Manufacturers",
         listItems: [
           "Devise a customized action plan for market expansion",
           "Develop relationships to optimize the cost of production",
@@ -260,7 +260,7 @@ export const ValueChainData = [
         ],
       },
       {
-        heading: "Oems, Contract Manufacturers",
+        heading: "OEMs, Contract Manufacturers",
         listItems: [
           "Devise a customized action plan for market expansion",
           "Develop relationships to optimize the cost of production",

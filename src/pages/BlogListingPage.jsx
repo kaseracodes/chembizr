@@ -252,7 +252,7 @@ const BlogListingPage = () => {
               Looking for a Specific Topic?
             </h5>
 
-            <div className={styles.topicsContainer}>
+            {/* <div className={styles.topicsContainer}>
               {Topics.map((item, index) => (
                 <div
                   className={styles.topic}
@@ -262,7 +262,7 @@ const BlogListingPage = () => {
                   {item}
                 </div>
               ))}
-            </div>
+            </div> */}
           </div>
 
           <div className={styles.newsletterDiv}>

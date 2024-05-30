@@ -67,7 +67,7 @@ const responsive = {
 };
 
 const FocusParentPage = () => {
-  const [autoPlay, setAutoPlay] = useState(false);
+  const [autoPlay, setAutoPlay] = useState(true);
 
   const handlePlayPause = () => {
     setAutoPlay(!autoPlay);
@@ -130,7 +130,7 @@ const FocusParentPage = () => {
           arrows={false}
           infinite={true}
           autoPlay={autoPlay}
-          autoPlaySpeed={1000}
+          autoPlaySpeed={3000}
           customButtonGroup={<CustomButtonGroup />}
           showDots={true}
         >

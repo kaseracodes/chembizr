@@ -27,11 +27,13 @@ const ValueChain3 = () => {
             heading={ValueChainData[2].valueChain[1].heading}
             listItems={ValueChainData[2].valueChain[1].listItems}
             bgColor={COLORS.white}
+            padding="33px"
           />
           <ValueChainCard
             heading={ValueChainData[2].valueChain[2].heading}
             listItems={ValueChainData[2].valueChain[2].listItems}
             bgColor={COLORS.white}
+            padding="33px"
           />
         </div>
         <div className={styles.innerCardContainer}>
@@ -39,11 +41,13 @@ const ValueChain3 = () => {
             heading={ValueChainData[2].valueChain[3].heading}
             listItems={ValueChainData[2].valueChain[3].listItems}
             bgColor={COLORS.white}
+            padding="38px"
           />
           <ValueChainCard
             heading={ValueChainData[2].valueChain[4].heading}
             listItems={ValueChainData[2].valueChain[4].listItems}
             bgColor={COLORS.white}
+            padding="38px"
           />
         </div>
         <div className={styles.innerCardContainer}>

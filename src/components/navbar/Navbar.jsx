@@ -132,12 +132,12 @@ const Navbar = ({ textColor, iconColor, bgColor }) => {
               color={isScrolled || navbarOpen ? COLORS.black : textColor}
             />
           </div>
-          <div className={styles.icon}>
+          {/* <div className={styles.icon}>
             <SearchIcon
               className={styles.icon}
               color={isScrolled || navbarOpen ? COLORS.black : textColor}
             />
-          </div>
+          </div> */}
         </div>
 
         <button

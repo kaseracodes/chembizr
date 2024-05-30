@@ -20,8 +20,8 @@ export const FocusAreasData = [
     index: 1,
     imagePath: "/images/focus_area/focus_area2.png",
     imagePath2: "/images/focus_area/fa2.png",
-    heading: "Specialty Chemicals & Polymers",
-    formattedHeading: "Specialty<br />Chemicals<br />& Polymers",
+    heading: "Specialty Polymers",
+    formattedHeading: "Specialty<br />Polymers",
     description:
       " We provide valuable insights into polymer materials and manufacturing processes, enabling informed decision-making and strategic planning for long-term growth goals. At ChemBizR, we are at the forefront of innovation in the polymer industry.",
     longDescription: [
@@ -30,7 +30,7 @@ export const FocusAreasData = [
       "Navigating the complexities of the polymer industry requires agility, market intelligence, and a deep understanding of supply chain dynamics. Our strategic priorities revolve around optimizing margins, minimizing risk, and identifying lucrative growth opportunities, ensuring that our clients stay ahead of the curve.",
     ],
     buttonText: "Know More",
-    pageLink: "/speciality-chemicals-and-polymers",
+    pageLink: "/speciality-polymers",
   },
 
   {

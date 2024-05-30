@@ -27,7 +27,7 @@ const Chemicals = () => {
         <Button
           content="Know More"
           bgColor={COLORS.orange}
-          onClick={() => navigate("/speciality-chemicals-and-polymers")}
+          onClick={() => navigate("/speciality-polymers")}
         />
       </div>
     </div>
