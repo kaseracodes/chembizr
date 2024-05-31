@@ -60,3 +60,13 @@
     font-size: 15px;
   }
 }
+
+@media only screen and (max-width: 550px) {
+  .container {
+    max-width: 85vw;
+  }
+
+  .image {
+    max-width: 85vw;
+  }
+}

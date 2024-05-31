@@ -17,6 +17,8 @@ import { useState, useEffect } from "react";
 const Insights = ({ pagetype }) => {
   const [publicationsData, setPublicationsData] = useState([]);
   const [articlesData, setAticlesData] = useState([]);
+  const [showDots, setShowDots] = useState(window.innerWidth < 550);
+
   useEffect(() => {
     const unsubscribe = onSnapshot(
       query(
@@ -51,6 +53,19 @@ const Insights = ({ pagetype }) => {
     return unsubscribe;
   }, [pagetype]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setShowDots(window.innerWidth <= 950);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -76,9 +91,13 @@ const Insights = ({ pagetype }) => {
       <h1 className={styles.heading}>Our Insights</h1>
       <div className={styles.contentDiv}>
         <h3 className={styles.subHeading}>Media Releases</h3>
-        <Carousel responsive={responsive}>
+        <Carousel
+          responsive={responsive}
+          showDots={showDots}
+          arrows={!showDots}
+        >
           {PublicationsData.map((item, index) => (
-            <div key={index} className={styles.innerCardDiv}>
+            <div key={index} className={styles.innerCardDiv1}>
               <PublicationCard
                 imagePath={item.imagePath}
                 // date={new Date(
@@ -96,9 +115,13 @@ const Insights = ({ pagetype }) => {
 
       <div className={styles.contentDiv}>
         <h3 className={styles.subHeading}>Articles</h3>
-        <Carousel responsive={responsive}>
+        <Carousel
+          responsive={responsive}
+          showDots={showDots}
+          arrows={!showDots}
+        >
           {ArticlesData.map((item, index) => (
-            <div key={index} className={styles.innerCardDiv}>
+            <div key={index} className={styles.innerCardDiv2}>
               <PublicationCard
                 imagePath={item.imagePath}
                 // date={new Date(

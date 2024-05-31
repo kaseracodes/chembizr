@@ -27,6 +27,21 @@ const Compendium = ({ category }) => {
   //     return unsubscribe;
   //   }, [category]);
 
+  const [showDots, setShowDots] = useState(window.innerWidth < 550);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setShowDots(window.innerWidth <= 950);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -58,7 +73,11 @@ const Compendium = ({ category }) => {
       </p>
 
       <div className={styles.cardDiv}>
-        <Carousel responsive={responsive}>
+        <Carousel
+          responsive={responsive}
+          showDots={showDots}
+          arrows={!showDots}
+        >
           {compendiumData.map((item, index) => (
             <div key={index} className={styles.innerCardDiv}>
               <CompendiumCard

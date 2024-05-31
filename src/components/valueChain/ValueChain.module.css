@@ -85,6 +85,10 @@
     font-size: 32px;
   }
 
+  .descDiv {
+    padding: 0 20px;
+  }
+
   .desc {
     font-size: 15px;
   }

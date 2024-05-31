@@ -55,13 +55,20 @@
     font-size: 42px;
   }
 
-  .subHeading,
+  .subHeading {
+    display: none;
+  }
+
   .desc {
     font-size: 18px;
   }
 
   .cardDiv {
     /* width: fit-content; */
+  }
+
+  .innerCardDiv {
+    padding-bottom: 20px;
   }
 }
 

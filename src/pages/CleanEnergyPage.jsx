@@ -36,7 +36,7 @@ const CleanEnergyPage = () => {
     },
     smallMobile: {
       breakpoint: { max: 550, min: 0 },
-      items: 1,
+      items: 2,
     },
   };
 
