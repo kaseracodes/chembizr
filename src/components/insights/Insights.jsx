@@ -97,7 +97,7 @@ const Insights = ({ pagetype }) => {
           arrows={!showDots}
         >
           {PublicationsData.map((item, index) => (
-            <div key={index} className={styles.innerCardDiv1}>
+            <div key={index} className={styles.innerCardDiv}>
               <PublicationCard
                 imagePath={item.imagePath}
                 // date={new Date(
@@ -121,7 +121,7 @@ const Insights = ({ pagetype }) => {
           arrows={!showDots}
         >
           {ArticlesData.map((item, index) => (
-            <div key={index} className={styles.innerCardDiv2}>
+            <div key={index} className={styles.innerCardDiv}>
               <PublicationCard
                 imagePath={item.imagePath}
                 // date={new Date(
