@@ -86,4 +86,8 @@
   .bannerHeading {
     font-size: 32px;
   }
+
+  .bannerContainer {
+    padding: 20px;
+  }
 }

@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { useState, useEffect } from "react";
 import Heading from "../heading/Heading";
 import styles from "./UVP.module.css";
 import { UVPData } from "../../assets/uvpData.js";
@@ -39,6 +40,21 @@ const UVP = () => {
     },
   };
 
+  const [showDots, setShowDots] = useState(window.innerWidth <= 1250);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setShowDots(window.innerWidth < 550);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <div className={styles.container}>
       <Heading content="Unique Value Proposition" />
@@ -46,8 +62,8 @@ const UVP = () => {
       <div className={styles.cardContainer}>
         <Carousel
           responsive={responsive}
-          showDots={true}
-          autoPlay={true}
+          showDots={showDots}
+          autoPlay={showDots}
           autoPlaySpeed={3000}
           infinite={true}
           arrows={false}
