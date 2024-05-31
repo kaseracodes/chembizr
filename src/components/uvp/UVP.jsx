@@ -2,6 +2,8 @@
 import Heading from "../heading/Heading";
 import styles from "./UVP.module.css";
 import { UVPData } from "../../assets/uvpData.js";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 const Card = ({ imagePath, heading, desc }) => {
   return (
@@ -14,19 +16,52 @@ const Card = ({ imagePath, heading, desc }) => {
 };
 
 const UVP = () => {
+  const responsive = {
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 3000 },
+      items: 4,
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1250 },
+      items: 4,
+    },
+    tablet: {
+      breakpoint: { max: 1250, min: 950 },
+      items: 3,
+    },
+    mobile: {
+      breakpoint: { max: 950, min: 600 },
+      items: 2,
+    },
+    smallMobile: {
+      breakpoint: { max: 600, min: 0 },
+      items: 1,
+    },
+  };
+
   return (
     <div className={styles.container}>
       <Heading content="Unique Value Proposition" />
 
       <div className={styles.cardContainer}>
-        {UVPData.map((item, index) => (
-          <Card
-            key={index}
-            imagePath={item.imagePath}
-            heading={item.heading}
-            desc={item.description}
-          />
-        ))}
+        <Carousel
+          responsive={responsive}
+          showDots={true}
+          autoPlay={true}
+          autoPlaySpeed={3000}
+          infinite={true}
+          arrows={false}
+        >
+          {UVPData.map((item, index) => (
+            <div key={index} className={styles.innerCardContainer}>
+              <Card
+                imagePath={item.imagePath}
+                heading={item.heading}
+                desc={item.description}
+              />
+            </div>
+          ))}
+        </Carousel>
       </div>
     </div>
   );

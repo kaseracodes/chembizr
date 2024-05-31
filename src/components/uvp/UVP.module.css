@@ -10,10 +10,17 @@
 .cardContainer {
   margin-top: 80px;
   margin-bottom: 30px;
-  display: flex;
+  width: 100%;
+  /* display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 50px;
+  gap: 50px; */
+}
+
+.innerCardContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
 }
 
 .cardDiv {

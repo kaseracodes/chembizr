@@ -32,7 +32,9 @@ const CallToAction = () => {
               placeholder="Feel free to share..."
               className={styles.input}
             />
-            <Button content="Submit" bgColor={COLORS.orange} />
+            <div className={styles.btn}>
+              <Button content="Submit" bgColor={COLORS.orange} />
+            </div>
           </div>
         </div>
       </div>

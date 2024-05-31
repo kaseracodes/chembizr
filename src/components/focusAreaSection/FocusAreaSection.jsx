@@ -85,9 +85,9 @@ const FocusAreaSection = () => {
         >
           <div className={styles.mobileInnerCardDiv}>
             <h5 className={styles.itemHeading}>{FocusAreasData[0].heading}</h5>
-            <p className={styles.desc}>
+            {/* <p className={styles.desc}>
               {FocusAreasData[0].description.slice(0, 100) + "..."}
-            </p>
+            </p> */}
           </div>
         </div>
 
@@ -104,9 +104,9 @@ const FocusAreaSection = () => {
                   __html: FocusAreasData[1].formattedHeading,
                 }}
               ></h5>
-              <p className={styles.desc}>
+              {/* <p className={styles.desc}>
                 {FocusAreasData[1].description.slice(0, 100) + "..."}
-              </p>
+              </p> */}
             </div>
           </div>
 
@@ -122,9 +122,9 @@ const FocusAreaSection = () => {
                   __html: FocusAreasData[2].formattedHeading,
                 }}
               ></h5>
-              <p className={styles.desc}>
+              {/* <p className={styles.desc}>
                 {FocusAreasData[2].description.slice(0, 100) + "..."}
-              </p>
+              </p> */}
             </div>
           </div>
         </div>
@@ -142,9 +142,9 @@ const FocusAreaSection = () => {
                   __html: FocusAreasData[3].formattedHeading,
                 }}
               ></h5>
-              <p className={styles.desc}>
+              {/* <p className={styles.desc}>
                 {FocusAreasData[3].description.slice(0, 100) + "..."}
-              </p>
+              </p> */}
             </div>
           </div>
 
@@ -160,9 +160,9 @@ const FocusAreaSection = () => {
                   __html: FocusAreasData[4].formattedHeading,
                 }}
               ></h5>
-              <p className={styles.desc}>
+              {/* <p className={styles.desc}>
                 {FocusAreasData[4].description.slice(0, 100) + "..."}
-              </p>
+              </p> */}
             </div>
           </div>
         </div>
@@ -174,9 +174,9 @@ const FocusAreaSection = () => {
         >
           <div className={styles.mobileInnerCardDiv}>
             <h5 className={styles.itemHeading}>{FocusAreasData[5].heading}</h5>
-            <p className={styles.desc}>
+            {/* <p className={styles.desc}>
               {FocusAreasData[5].description.slice(0, 100) + "..."}
-            </p>
+            </p> */}
           </div>
         </div>
       </div>

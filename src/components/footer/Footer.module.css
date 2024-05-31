@@ -87,8 +87,11 @@
   }
 
   .anchorDiv {
-    flex-direction: column;
+    /* flex-direction: column; */
+    width: 200px;
+    flex-wrap: wrap;
     align-items: flex-start;
+    justify-content: flex-start;
   }
 
   .rightDiv {

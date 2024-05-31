@@ -265,9 +265,8 @@
     height: 35vh;
   }
 
-  .itemHeading,
-  .desc {
-    margin: 0 10px 10px 10px;
+  .itemHeading {
+    margin: 0 10px 30px 10px;
   }
 
   /* .itemHeading {
