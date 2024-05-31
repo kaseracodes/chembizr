@@ -135,13 +135,14 @@ const FocusParentPage = () => {
           showDots={true}
         >
           {MoreFocusAreasData.map((item, index) => (
-            <MoreFocusArea
-              key={index}
-              id="more"
-              imagePath={item.imagePath}
-              heading={item.heading}
-              description={item.description}
-            />
+            <div key={index} className={styles.innerCardContainer}>
+              <MoreFocusArea
+                id="more"
+                imagePath={item.imagePath}
+                heading={item.heading}
+                description={item.description}
+              />
+            </div>
           ))}
         </Carousel>
 

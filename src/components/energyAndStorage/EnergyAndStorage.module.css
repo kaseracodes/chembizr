@@ -103,11 +103,16 @@
 
 @media only screen and (max-width: 550px) {
   .container {
-    padding: 50px 20px;
+    padding: 30px 20px;
   }
 
   .heading {
     font-size: 32px;
+  }
+
+  .descDiv {
+    padding-right: 10px;
+    gap: 20px;
   }
 
   .desc {
@@ -119,6 +124,8 @@
   }
 
   .img1 img {
+    width: 36vw;
     height: 200px;
+    margin-top: -70px;
   }
 }

@@ -17,7 +17,7 @@ const CareAndCosmetics = () => {
           />
           <h3 className={styles.heading}>Personal Care & Cosmetics</h3>
         </div>
-        <div>
+        <div className={styles.img2Div}>
           <img
             src="/images/care_cosmetics/image2.png"
             alt="image"

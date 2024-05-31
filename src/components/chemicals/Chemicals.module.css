@@ -104,3 +104,17 @@
     padding: 0;
   }
 }
+
+@media only screen and (max-width: 550px) {
+  .chemicalsContainer {
+    padding: 50px 20px;
+  }
+
+  .chemicalsImageContainer img {
+    width: 84vw;
+  }
+
+  .desc {
+    margin: 10px 0 20px 0;
+  }
+}
