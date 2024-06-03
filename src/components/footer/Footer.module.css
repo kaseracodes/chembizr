@@ -55,6 +55,10 @@
   margin-top: 20px;
 }
 
+.mobileAnchorDiv {
+  display: none;
+}
+
 @media only screen and (max-width: 1000px) {
   .container {
     padding: 30px 50px;
@@ -73,6 +77,23 @@
 }
 
 @media only screen and (max-width: 800px) {
+  .anchorDiv {
+    display: none;
+  }
+
+  .mobileAnchorDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .innerAnchorDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
   .container {
     padding: 30px 20px;
   }
@@ -86,13 +107,16 @@
     margin-bottom: 20px;
   }
 
-  .anchorDiv {
-    /* flex-direction: column; */
+  .para {
+    display: none;
+  }
+
+  /* .anchorDiv {
     width: 200px;
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: flex-start;
-  }
+  } */
 
   .rightDiv {
     margin-bottom: 10px;

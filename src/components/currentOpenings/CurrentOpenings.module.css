@@ -164,6 +164,12 @@
     padding: 50px 20px;
   }
 
+  .tagDiv {
+    height: auto;
+    width: 100vw;
+    border-radius: 0;
+  }
+
   .innerTagDiv {
     padding: 20px;
   }

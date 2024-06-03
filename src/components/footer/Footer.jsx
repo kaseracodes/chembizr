@@ -32,11 +32,43 @@ const Footer = () => {
               Blogs
             </Link>
             <Link to="/focus" className={styles.anchor}>
-              Focus Verticals
+              Industries
             </Link>
             <Link to="/capabilities" className={styles.anchor}>
               Capabilities
             </Link>
+          </div>
+
+          <div className={styles.mobileAnchorDiv}>
+            <div className={styles.innerAnchorDiv}>
+              <Link to="/about-us" className={styles.anchor}>
+                About Us
+              </Link>
+              <Link to="/news" className={styles.anchor}>
+                News
+              </Link>
+              <Link to="/focus" className={styles.anchor}>
+                Industries
+              </Link>
+            </div>
+
+            <div className={styles.innerAnchorDiv}>
+              <Link to="/careers" className={styles.anchor}>
+                Careers
+              </Link>
+              <Link to="/events" className={styles.anchor}>
+                Events
+              </Link>
+              <Link to="/capabilities" className={styles.anchor}>
+                Capabilities
+              </Link>
+            </div>
+
+            <div className={styles.innerAnchorDiv}>
+              <Link to="/blogs" className={styles.anchor}>
+                Blogs
+              </Link>
+            </div>
           </div>
         </div>
 

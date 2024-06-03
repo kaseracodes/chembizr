@@ -29,6 +29,7 @@ const ChemicalsPage = () => {
         buttonText="Know More"
         textColor={COLORS.white}
         contentWidth="500px"
+        // headingMarginTop="100px"
       />
 
       <FocusDescription
