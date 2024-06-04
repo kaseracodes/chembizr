@@ -26,6 +26,9 @@ const BlogListingCard = ({
       >
         <div className={styles.contentDiv}>
           <h3 className={styles.heading}>{heading}</h3>
+          <h3 className={styles.mobileHeading}>
+            {heading.slice(0, 50) + "..."}
+          </h3>
           <h5 className={styles.author}>{author}</h5>
           <p className={styles.desc}>
             {desc && (desc.length > 200 ? desc.slice(0, 200) + "..." : desc)}

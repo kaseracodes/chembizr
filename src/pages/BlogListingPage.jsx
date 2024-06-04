@@ -84,6 +84,21 @@ const BlogListingPage = () => {
     },
   };
 
+  const [showArrows, setShowArrows] = useState(window.innerWidth > 950);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setShowArrows(window.innerWidth > 950);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const onClickNext = () => {
     setCurrTopic((currTopic + 1) % 9);
   };
@@ -97,8 +112,8 @@ const BlogListingPage = () => {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
-    nextArrow: <NextButton />,
-    prevArrow: <PrevButton />,
+    nextArrow: showArrows && <NextButton />,
+    prevArrow: showArrows && <PrevButton />,
     responsive: [
       {
         breakpoint: 800,
@@ -178,6 +193,15 @@ const BlogListingPage = () => {
       />
 
       <div className={styles.mainContainer}>
+        <div className={styles.outerInputDiv}>
+          <div className={styles.mobileInputContainer}>
+            <input type="text" placeholder="Search Blogs" />
+            <button className={styles.icon}>
+              <SearchIcon color={COLORS.black} height="20" width="20" />
+            </button>
+          </div>
+        </div>
+
         <div className={styles.leftDiv}>
           <div className={styles.topicsCarouselOuterDiv}>
             <div className={styles.topicsCarouselDiv}>
