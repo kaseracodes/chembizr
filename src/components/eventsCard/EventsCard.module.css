@@ -122,6 +122,10 @@
   margin: 2px 0;
 }
 
+.mobileImageDiv {
+  display: none;
+}
+
 @media only screen and (max-width: 1300px) {
   .imageDiv img {
     width: 40vw;
@@ -172,7 +176,15 @@
     padding: 0;
   }
 
-  .imageDiv img {
+  .image {
+    padding-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  .image img {
     width: 100vw;
     max-height: 370px;
   }
@@ -182,11 +194,12 @@
   }
 
   .mobileTopDiv {
-    width: 100%;
-    padding-left: 10px;
+    /* width: 100%; */
+    padding: 20px 10px 0 10px;
     display: flex;
     justify-content: space-between;
-    margin: 20px 5px;
+    align-items: center;
+    margin: 20px 5px 0 5px;
   }
 
   .categoryDiv img {
@@ -205,4 +218,32 @@
   .btn {
     display: none;
   }
+
+  .imageDiv {
+    display: none;
+  }
+
+  .mobileImageDiv {
+    display: block;
+  }
+
+  .innerContainer {
+    display: block;
+  }
+
+  /*
+  .imageDiv {
+    width: fit-content;
+    padding-bottom: 50px;
+  }
+
+  .image {
+    display: flex;
+    justify-content: center;
+  }
+
+  .image img {
+    width: 90vw;
+    max-height: 370px;
+  } */
 }

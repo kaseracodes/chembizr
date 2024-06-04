@@ -3,6 +3,7 @@ import { useState } from "react";
 import styles from "./EventFeedCard.module.css";
 import Modal from "../modal/Modal";
 import EventCardModal from "../eventCardModal/EventCardModal";
+import EventsCard from "../eventsCard/EventsCard";
 
 const EventFeedCard = ({
   category,
@@ -42,6 +43,7 @@ const EventFeedCard = ({
           </div>
         </div>
       </div>
+
       <Modal open={openModal} onClose={() => setOpenModal(false)}>
         <EventCardModal
           imagePath={imagePath}
@@ -52,6 +54,17 @@ const EventFeedCard = ({
           description={description}
         />
       </Modal>
+
+      <div className={styles.mobileCardDiv}>
+        <EventsCard
+          imagePath={imagePath}
+          logoPath={logoPath}
+          category={category}
+          date={date}
+          heading={heading}
+          description={description}
+        />
+      </div>
     </>
   );
 };

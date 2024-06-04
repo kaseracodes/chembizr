@@ -28,6 +28,8 @@ const EventsCard = ({
   const date1 = new Date(milliseconds);
   const dateString = date1.toLocaleString();
 
+  console.log(imagePath);
+
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -48,28 +50,6 @@ const EventsCard = ({
     },
   };
 
-  let images = [];
-  for (let i = 0; i < imagePath.length; i++) {
-    images.push(
-      <div key={i} className={styles.image}>
-        <img src={imagePath[i]} alt="image" />
-        {/* <p>Hello</p> */}
-      </div>
-    );
-  }
-
-  const items = [
-    <div key="1">
-      <p>hii</p>
-    </div>,
-    <div key="2">
-      <p>hii</p>
-    </div>,
-    <div key="3">
-      <p>hii</p>
-    </div>,
-  ];
-
   return (
     <div className={styles.container}>
       <div className={styles.innerContainer}>
@@ -87,15 +67,18 @@ const EventsCard = ({
 
         <div className={styles.imageDiv}>
           <img src={imagePath[0]} alt="image" />
-          {/* <Carousel responsive={responsive} showDots={true} arrows={false} ssr>
+        </div>
+
+        <div className={styles.mobileImageDiv}>
+          <Carousel responsive={responsive} showDots={true} arrows={false}>
             {imagePath.map((item, index) => (
               <div key={index} className={styles.image}>
                 <img src={item} alt="image" />
               </div>
             ))}
-            {items}
-          </Carousel> */}
+          </Carousel>
         </div>
+
         <div className={styles.contentDiv}>
           <div className={styles.topDiv}>
             <img src={logoPath} alt="logo" />
