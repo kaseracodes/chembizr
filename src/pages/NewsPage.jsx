@@ -10,6 +10,8 @@ import Footer from "../components/footer/Footer";
 import React, { useState, useEffect } from "react";
 import { firestore } from "../firebase/firebase";
 import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
+import Pagination from "../components/pagination/Pagination";
+import { useSearchParams } from "react-router-dom";
 
 const NewsPage = () => {
   const BussinessVerticalsItems = [
@@ -41,6 +43,16 @@ const NewsPage = () => {
 
     return unsubscribe;
   }, []);
+
+  const [searchParams] = useSearchParams();
+  const page = searchParams.get("page") || 1;
+
+  const NEWS_PER_PAGE = 3;
+  const hasPrev = NEWS_PER_PAGE * (page - 1) > 0;
+  const hasNext = NEWS_PER_PAGE * page < NewsListingData.length;
+  const startIndex = NEWS_PER_PAGE * (page - 1);
+  const endIndex = Math.min(startIndex + NEWS_PER_PAGE, NewsListingData.length);
+
   return (
     <div className={styles.container}>
       <Navbar
@@ -53,7 +65,7 @@ const NewsPage = () => {
 
       <div className={styles.newsListingDiv}>
         <div className={styles.newsCardDiv}>
-          {NewsListingData.map((item, index) => (
+          {NewsListingData.slice(startIndex, endIndex).map((item, index) => (
             <NewsListingCard
               key={index}
               date={item.date}
@@ -62,7 +74,14 @@ const NewsPage = () => {
               category={item.category}
             />
           ))}
+          <Pagination
+            page={page}
+            hasPrev={hasPrev}
+            hasNext={hasNext}
+            parentPage="news"
+          />
         </div>
+
         <BussinessVerticals
           BussinessVerticals={BussinessVerticalsItems}
           buttonColor={COLORS.gray3}

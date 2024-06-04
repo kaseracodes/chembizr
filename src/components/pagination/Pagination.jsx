@@ -4,7 +4,7 @@ import styles from "./Pagination.module.css";
 import Button from "../button/Button";
 import { COLORS } from "../../assets/constants";
 
-const Pagination = ({ page, hasPrev, hasNext }) => {
+const Pagination = ({ page, hasPrev, hasNext, parentPage }) => {
   const navigate = useNavigate();
 
   return (
@@ -13,14 +13,14 @@ const Pagination = ({ page, hasPrev, hasNext }) => {
         content="Prev"
         bgColor={COLORS.orange}
         disabled={!hasPrev}
-        onClick={() => navigate(`/blogs/?page=${parseInt(page) - 1}`)}
+        onClick={() => navigate(`/${parentPage}/?page=${parseInt(page) - 1}`)}
       />
 
       <Button
         content="Next"
         bgColor={COLORS.orange}
         disabled={!hasNext}
-        onClick={() => navigate(`/blogs/?page=${parseInt(page) + 1}`)}
+        onClick={() => navigate(`/${parentPage}/?page=${parseInt(page) + 1}`)}
       />
     </div>
   );

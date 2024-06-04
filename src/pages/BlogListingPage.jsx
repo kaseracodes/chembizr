@@ -218,7 +218,12 @@ const BlogListingPage = () => {
             {/* <BlogListingComponent currentTopic={Topics[currTopic]} /> */}
           </div>
 
-          <Pagination page={page} hasPrev={hasPrev} hasNext={hasNext} />
+          <Pagination
+            page={page}
+            hasPrev={hasPrev}
+            hasNext={hasNext}
+            parentPage="blogs"
+          />
         </div>
 
         <div className={styles.rightDiv}>
