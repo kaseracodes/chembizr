@@ -84,7 +84,7 @@ const EventDetailPage = () => {
                 heading={item.heading}
                 date={new Date(
                   item.date.seconds * 1000 +
-                    Math.floor(item.date.nanoseconds / 1000000)
+                  Math.floor(item.date.nanoseconds / 1000000)
                 ).toLocaleString()}
               />
             ))}
@@ -125,10 +125,28 @@ const EventDetailPage = () => {
           </div>
         </div>
 
-        <BussinessVerticals
+        {/* <BussinessVerticals
           BussinessVerticals={BussinessVerticalsItems}
           buttonColor={COLORS.white}
-        />
+        /> */}
+
+        <div className={styles.bvContainer}>
+          <h5 className={styles.divHeading}>Business Verticals</h5>
+          <hr className={styles.hr} />
+          <div className={styles.bvDiv}>
+            {BussinessVerticalsItems.map((item, index) => (
+              <button
+                style={{ backgroundColor: buttonColors[index] }}
+                className={`${styles.bvItem} ${index === activeButton ? styles.active : ""
+                  }`}
+                key={index}
+                onClick={() => handleClick(index)}
+              >
+                {item}
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
