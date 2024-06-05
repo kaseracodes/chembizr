@@ -9,29 +9,45 @@ import CallToAction from "../components/callToAction/CallToAction";
 import Footer from "../components/footer/Footer";
 import React, { useState, useEffect } from "react";
 import { firestore } from "../firebase/firebase";
-import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
+import { collection, onSnapshot, query, orderBy, where } from "firebase/firestore";
 import Pagination from "../components/pagination/Pagination";
 import { useSearchParams } from "react-router-dom";
 
 const NewsPage = () => {
   const BussinessVerticalsItems = [
+    // "Adhesives and Sealants",
+    // "Animal Feed and Nutrition",
+    // "Base Oils and Waxes",
+    // "Bio Polymers",
+    // "Composites",
+    // "Construction",
+    // "Energy and Resources",
+    // "Food and Nutrition",
+    // "Industrial Fluids",
+    // "Mobility",
+    // "Oil and Gas",
+    // "Paints and Coatings",
+    // "Personal Care",
+
     "Adhesives and Sealants",
     "Animal Feed and Nutrition",
-    "Base Oils and Waxes",
-    "Bio Polymers",
     "Composites",
     "Construction",
-    "Energy and Resources",
+    "Clean Energy And Resources",
     "Food and Nutrition",
-    "Industrial Fluids",
+    "Microbials",
     "Mobility",
-    "Oil and Gas",
-    "Paints and Coatings",
-    "Personal Care",
+    "Paints & Coating",
+    "Personal Care & Cosmetics",
+    "Petrochemicals & Downstream",
+    "Speciality Polymers",
+    "Surfactants",
+    "Plastic Additives and Plasticizers"
+
   ];
 
   const [newsData, setNewsData] = useState([]);
-  const [activeButton, setActiveButton] = useState(null);
+  const [activeButton, setActiveButton] = useState(0);
   const [buttonColors, setButtonColors] = useState(
     Array(BussinessVerticalsItems.length).fill(COLORS.gray3)
   );
@@ -48,15 +64,17 @@ const NewsPage = () => {
 
   useEffect(() => {
     const unsubscribe = onSnapshot(
-      query(collection(firestore, "news"), orderBy("date", "desc")),
+      query(collection(firestore, "news"),
+      where("category","==",BussinessVerticalsItems[activeButton]),
+      orderBy("date", "desc")),
       (snapshot) => {
         setNewsData(snapshot.docs);
-        console.log(snapshot.docs[0].data());
+        console.log(snapshot.docs);
       }
     );
 
     return unsubscribe;
-  }, []);
+  }, [activeButton]);
 
   const [searchParams] = useSearchParams();
   const page = searchParams.get("page") || 1;

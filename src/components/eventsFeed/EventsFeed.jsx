@@ -8,7 +8,7 @@ import styles from "./EventsFeed.module.css";
 // import BussinessVerticals from "../bussinessVerticals/BussinessVerticals";
 import React, { useState, useEffect } from "react";
 import { firestore } from "../../firebase/firebase";
-import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
+import { collection, onSnapshot, query, orderBy, where, limit } from "firebase/firestore";
 import { useSearchParams } from "react-router-dom";
 import Pagination from "../pagination/Pagination";
 
@@ -17,20 +17,21 @@ const BussinessVerticalsItems = [
   "Animal Feed and Nutrition",
   "Composites",
   "Construction",
-  "Energy And Resources",
-  "Food and Nutrition",
+  "Clean Energy And Resources",
+  "Food, Nutrition & Beverages",
   "Microbials",
-  "Oil and Gas",
+  "Mobility",
   "Paints & Coating",
-  "Personal Care",
+  "Personal Care & Cosmetics",
   "Petrochemicals & Downstream",
-  "Polymers",
+  "Speciality Polymers",
   "Surfactants",
 ];
 
 const EventsFeed = () => {
   const [eventsData, setEventsData] = useState([]);
-  const [activeButton, setActiveButton] = useState(null);
+  const [alleventsData, setAllEventsData] = useState([]);
+  const [activeButton, setActiveButton] = useState(0);
   const [buttonColors, setButtonColors] = useState(
     Array(BussinessVerticalsItems.length).fill(COLORS.white)
   );
@@ -56,14 +57,30 @@ const EventsFeed = () => {
 
   useEffect(() => {
     const unsubscribe = onSnapshot(
-      query(collection(firestore, "events"), orderBy("date", "desc")),
+      query(collection(firestore, "events"),
+        where("category", "==", BussinessVerticalsItems[activeButton]),
+        orderBy("date", "desc")),
       (snapshot) => {
         setEventsData(snapshot.docs);
-        console.log(snapshot.docs[0].data());
+        // console.log(snapshot.docs[0].data());
       }
     );
 
     return unsubscribe;
+  }, [activeButton]);
+
+  useEffect(() => {
+    const q = query(
+      collection(firestore, "events"),
+      orderBy("date", "desc"),
+      limit(3)
+    );
+
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      setAllEventsData(snapshot.docs);
+    });
+
+    return () => unsubscribe();
   }, []);
 
   return (
@@ -72,7 +89,7 @@ const EventsFeed = () => {
         <h5 className={styles.divHeading}>Recent Events</h5>
         <hr className={styles.hr} />
         <div className={styles.titleCardDiv}>
-          {eventsData.map((item, index) => (
+          {alleventsData.map((item, index) => (
             <EventTitleCard
               key={index}
               heading={item.data().heading}
@@ -101,12 +118,12 @@ const EventsFeed = () => {
             imagePath={item.data().images}
             logoPath={item.data().images}
 
-            // category={item.category}
-            // date={item.date}
-            // heading={item.heading}
-            // description={item.description}
-            // imagePath={item.imagePath}
-            // logoPath={item.logoPath}
+          // category={item.category}
+          // date={item.date}
+          // heading={item.heading}
+          // description={item.description}
+          // imagePath={item.imagePath}
+          // logoPath={item.logoPath}
           />
         ))}
 
@@ -130,9 +147,8 @@ const EventsFeed = () => {
           {BussinessVerticalsItems.map((item, index) => (
             <button
               style={{ backgroundColor: buttonColors[index] }}
-              className={`${styles.bvItem} ${
-                index === activeButton ? styles.active : ""
-              }`}
+              className={`${styles.bvItem} ${index === activeButton ? styles.active : ""
+                }`}
               key={index}
               onClick={() => handleClick(index)}
             >

@@ -1,9 +1,9 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import styles from "./Insights.module.css";
-import { PublicationsData } from "../../assets/publicationsData";
+// import { PublicationsData } from "../../assets/publicationsData";
 import PublicationCard from "../publicationCard/PublicationCard";
-import { ArticlesData } from "../../assets/articlesData";
+// import { ArticlesData } from "../../assets/articlesData";
 import { firestore } from "../../firebase/firebase";
 import {
   collection,
@@ -96,17 +96,17 @@ const Insights = ({ pagetype }) => {
           showDots={showDots}
           arrows={!showDots}
         >
-          {PublicationsData.map((item, index) => (
+          {publicationsData.map((item, index) => (
             <div key={index} className={styles.innerCardDiv}>
               <PublicationCard
-                imagePath={item.imagePath}
+                imagePath={item.data().image}
                 // date={new Date(
                 //   item.date.seconds * 1000 +
                 //     Math.floor(item.date.nanoseconds / 1000000)
                 // ).toLocaleString()}
-                date={item.date}
-                heading={item.heading}
-                description={item.description}
+                date={item.data().date}
+                heading={item.data().heading}
+                description={item.data().description}
               />
             </div>
           ))}
@@ -120,17 +120,18 @@ const Insights = ({ pagetype }) => {
           showDots={showDots}
           arrows={!showDots}
         >
-          {ArticlesData.map((item, index) => (
+          {articlesData.map((item, index) => (
             <div key={index} className={styles.innerCardDiv}>
               <PublicationCard
-                imagePath={item.imagePath}
+                imagePath={item.data().image}
                 // date={new Date(
                 //   item.date.seconds * 1000 +
                 //     Math.floor(item.date.nanoseconds / 1000000)
                 // ).toLocaleString()}
-                date={item.date}
-                heading={item.heading}
-                description={item.description}
+                date={item.data().date}
+                heading={item.data().heading}
+                description={item.data().description}
+                short={item.data().short}
               />
             </div>
           ))}
