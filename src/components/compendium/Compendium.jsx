@@ -15,6 +15,10 @@ import { useState, useEffect } from "react";
 import Heading from "../heading/Heading";
 
 const Compendium = ({ category }) => {
+
+  console.log(category);
+  const [compendiumData, setCompendiumData] = useState([]);
+
   // console.log(category);
   //   const [compendiumData, setCompendiumData] = useState([]);
 
@@ -28,6 +32,7 @@ const Compendium = ({ category }) => {
   //   }, [category]);
 
   const [showDots, setShowDots] = useState(window.innerWidth < 550);
+
 
   useEffect(() => {
     const handleResize = () => {
@@ -80,17 +85,19 @@ const Compendium = ({ category }) => {
         >
           {compendiumData.map((item, index) => (
             <div key={index} className={styles.innerCardDiv}>
+              <a className={styles.anchorNoUnderline} href={item.data().pdf} target="_blank" rel="noopener noreferrer">
               <CompendiumCard
                 imagePath={item.imagePath}
                 subHeading={item.subheading}
                 heading={item.heading}
                 description={item.description}
               />
+            </a>
             </div>
           ))}
-        </Carousel>
-      </div>
-    </div>
+    </Carousel>
+      </div >
+    </div >
   );
 };
 

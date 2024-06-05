@@ -68,12 +68,21 @@ const EventsFeed = () => {
         {EventsData.map((item, index) => (
           <EventFeedCard
             key={index}
+// <<<<<<< db
+//             category={item.data().category}
+//             date={item.data().date}
+//             heading={item.data().heading}
+//             description={item.data().description}
+//             // imagePath={item.data().imagePath}
+//             logoPath={item.data().logoPath}
+// =======
             category={item.category}
             date={item.date}
             heading={item.heading}
             description={item.description}
             imagePath={item.imagePath}
             logoPath={item.logoPath}
+// >>>>>>> main
           />
         ))}
       </div>

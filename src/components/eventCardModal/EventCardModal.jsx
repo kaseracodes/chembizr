@@ -37,8 +37,6 @@ const EventCardModal = ({
 
   return (
     <div className={styles.container}>
-      <div className={styles.imageDiv}>
-        <Carousel responsive={responsive} showDots={true} arrows={true}>
           {imagePath.map((item, index) => (
             <div key={index} className={styles.image}>
               <img src={item} alt="image" />
@@ -46,7 +44,7 @@ const EventCardModal = ({
           ))}
         </Carousel>
         {/* <img src={imagePath[0]} alt="image" /> */}
-      </div>
+      {/* </div> */}
       <div className={styles.contentDiv}>
         <div className={styles.topDiv}>
           <img src={logoPath} alt="logo" />
