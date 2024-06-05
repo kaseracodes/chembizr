@@ -4,7 +4,7 @@ import { COLORS } from "../assets/constants";
 import Navbar from "../components/navbar/Navbar";
 import SearchIcon from "../svgIcons/SearchIcon";
 import styles from "./BlogListingPage.module.css";
-import { BlogsData } from "../assets/blogsData";
+// import { BlogsData } from "../assets/blogsData";
 import SpotlightBlogCard from "../components/spotlightBlogCard/SpotlightBlogCard";
 import Button from "../components/button/Button";
 import BlogListingCard from "../components/blogListingCard/BlogListingCard";
@@ -21,14 +21,14 @@ import Pagination from "../components/pagination/Pagination";
 import { useSearchParams } from "react-router-dom";
 import CallToAction from "../components/callToAction/CallToAction";
 import Footer from "../components/footer/Footer";
-// import {
-//   collection,
-//   onSnapshot,
-//   query,
-//   orderBy,
-//   where,
-// } from "firebase/firestore";
-// import { firestore } from "../firebase/firebase";
+import {
+  collection,
+  onSnapshot,
+  query,
+  orderBy,
+  where,
+} from "firebase/firestore";
+import { firestore } from "../firebase/firebase";
 
 const NextButton = (props) => {
   const { className, style, onClick } = props;
@@ -151,23 +151,23 @@ const BlogListingPage = () => {
     "Politics",
   ];
 
-  // const [blogsData, setBlogsData] = useState([]);
+  const [blogsData, setBlogsData] = useState([]);
 
-  // useEffect(() => {
-  //   const unsubscribe = onSnapshot(
-  //     query(
-  //       collection(firestore, "blogs"),
-  //       where("category", "==", Topics[currTopic]),
-  //       orderBy("timestamp", "desc")
-  //     ),
-  //     (snapshot) => {
-  //       setBlogsData(snapshot.docs);
-  //       // console.log(snapshot.docs[0].data());
-  //     }
-  //   );
+  useEffect(() => {
+    const unsubscribe = onSnapshot(
+      query(
+        collection(firestore, "blogs"),
+        where("category", "==", Topics[currTopic]),
+        orderBy("timestamp", "desc")
+      ),
+      (snapshot) => {
+        setBlogsData(snapshot.docs);
+        // console.log(snapshot.docs[0].data());
+      }
+    );
 
-  //   return unsubscribe;
-  // }, [currTopic]);
+    return unsubscribe;
+  }, [currTopic]);
 
   const [searchParams] = useSearchParams();
   console.log(searchParams);
@@ -175,9 +175,9 @@ const BlogListingPage = () => {
 
   const BLOG_PER_PAGE = 4;
   const hasPrev = BLOG_PER_PAGE * (page - 1) > 0;
-  const hasNext = BLOG_PER_PAGE * page < BlogsData.length;
+  const hasNext = BLOG_PER_PAGE * page < blogsData.length;
   const startIndex = BLOG_PER_PAGE * (page - 1);
-  const endIndex = Math.min(startIndex + BLOG_PER_PAGE, BlogsData.length);
+  const endIndex = Math.min(startIndex + BLOG_PER_PAGE, blogsData.length);
 
   const handleTopicClick = (topic) => {
     setCurrTopic(topic);
@@ -227,16 +227,16 @@ const BlogListingPage = () => {
           </div>
 
           <div className={styles.blogsListingDiv}>
-            {BlogsData.slice(startIndex, endIndex).map((item, index) => (
+            {blogsData.slice(startIndex, endIndex).map((item, index) => (
               <BlogListingCard
                 key={index}
-                blogId={item.id}
-                heading={item.heading}
-                imagePath={item.imagePath}
-                author={item.author}
-                desc={item.description}
-                category={item.category}
-                date={item.date}
+                blogId={item.data().id}
+                heading={item.data().heading}
+                imagePath={item.data().imagePath}
+                author={item.data().author}
+                desc={item.data().short}
+                category={item.data().category}
+                date={item.data().date}
               />
             ))}
             {/* <BlogListingComponent currentTopic={Topics[currTopic]} /> */}
@@ -267,8 +267,8 @@ const BlogListingPage = () => {
                 return (
                   <SpotlightBlogCard
                     key={index}
-                    imagePath={item.imagePath}
-                    desc={item.description}
+                    imagePath={item.data().imagePath}
+                    desc={item.data().short}
                   />
                 );
               })}

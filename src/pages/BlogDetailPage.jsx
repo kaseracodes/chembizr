@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Link, useParams } from "react-router-dom";
-import { BlogsData } from "../assets/blogsData";
+// import { BlogsData } from "../assets/blogsData";
 import styles from "./BlogDetailPage.module.css";
 import Navbar from "../components/navbar/Navbar";
 import { COLORS } from "../assets/constants";
@@ -21,7 +21,8 @@ import { useNavigate } from "react-router-dom";
 
 const BlogDetailPage = () => {
   const params = useParams();
-  const blog = BlogsData.find((item) => item.id === params.id);
+
+  // const blog = userBlog.find((item) => item.id === params.id);
   // const [blog, setBlog] = useState();
 
   const navigate = useNavigate();
@@ -74,17 +75,17 @@ const BlogDetailPage = () => {
 
         <div className={styles.contentDiv}>
           <h5>{userBlog && userBlog.data().author}</h5>
-          <h5>{blog.date}</h5>
-          {userBlog &&
+          <h5>{userBlog && userBlog.data().date}</h5>
+          {/* {userBlog &&
             userBlog
               .data()
               .description.split("\n")
-              .map((line, index) => <p key={index}>{line}</p>)}
-          {/* {userBlog && (
+              .map((line, index) => <p key={index}>{line}</p>)} */}
+          {userBlog && (
             <div>
               <div dangerouslySetInnerHTML={{ __html: userBlog.data().description }} />
             </div>
-          )} */}
+          )}
         </div>
       </div>
 
@@ -92,7 +93,7 @@ const BlogDetailPage = () => {
         comments={
           userBlog && userBlog.data().comments ? userBlog.data().comments : []
         }
-        // userImage="/images/profile_pic.png"
+        userImage="/images/profile_pic.png"
       />
 
       <CallToAction />

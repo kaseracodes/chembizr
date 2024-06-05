@@ -31,9 +31,11 @@ const BlogListingCard = ({
             {heading.slice(0, 50) + "..."}
           </h3>
           <h5 className={styles.author}>{author}</h5>
-          <p className={styles.desc}>
+          {/* <p className={styles.desc}>
             {desc && (desc.length > 200 ? desc.slice(0, 200) + "..." : desc)}
-          </p>
+          </p> */}
+          <div dangerouslySetInnerHTML={{ __html: desc }} />
+            
           {/* parse rich text */}
           <div className={styles.bottomDiv}>
             <button className={styles.category}>{category}</button>

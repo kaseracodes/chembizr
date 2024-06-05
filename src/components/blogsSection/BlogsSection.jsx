@@ -5,20 +5,37 @@ import ArrowIcon from "../../svgIcons/ArrowIcon";
 import Heading from "../heading/Heading";
 import styles from "./BlogsSection.module.css";
 import { useEffect, useState } from "react";
-// import {
-//   collection,
-//   getDocs,
-//   limit,
-//   onSnapshot,
-//   orderBy,
-//   query,
-// } from "firebase/firestore";
-// import { firestore } from "../../firebase/firebase";
+import {
+  collection,
+  getDocs,
+  limit,
+  onSnapshot,
+  orderBy,
+  query,
+} from "firebase/firestore";
+import { firestore } from "../../firebase/firebase";
 
 const BlogsSection = () => {
   const navigate = useNavigate();
 
-  const blogsData = BlogsData.slice(6, 12);
+  const [blogsData, setBlogsData] =useState();
+  useEffect(() => {
+    const unsubscribe = onSnapshot(
+      query(
+        collection(firestore, "blogs"),
+        // where("category", "==", Topics[currTopic]),
+        orderBy("timestamp", "desc")
+      ),
+      (snapshot) => {
+        setBlogsData(snapshot.docs.data());
+        // console.log(snapshot.docs[0].data());
+      }
+    );
+
+    return unsubscribe;
+  }, []);
+
+  // const blogsData = BlogsData.slice(6, 12);
 
   return (
     <div className={styles.container}>
@@ -34,7 +51,7 @@ const BlogsSection = () => {
           <div className={styles.contentDiv}>
             <p>{blogsData && blogsData[0].date}</p>
             <h5>
-              {blogsData && blogsData[0].description.slice(0, 90) + "..."}
+              {blogsData && blogsData[0].short.slice(0, 90) + "..."}
             </h5>
           </div>
         </div>
@@ -54,7 +71,7 @@ const BlogsSection = () => {
           <div className={styles.contentDiv}>
             <p>{blogsData && blogsData[1].date}</p>
             <h5>
-              {blogsData && blogsData[1].description.slice(0, 90) + "..."}
+              {blogsData && blogsData[1].short.slice(0, 90) + "..."}
             </h5>
           </div>
         </div>
@@ -69,7 +86,7 @@ const BlogsSection = () => {
           <div className={styles.contentDiv}>
             <p>{blogsData && blogsData[2].date}</p>
             <h5>
-              {blogsData && blogsData[2].description.slice(0, 90) + "..."}
+              {blogsData && blogsData[2].short.slice(0, 90) + "..."}
             </h5>
           </div>
         </div>
@@ -84,7 +101,7 @@ const BlogsSection = () => {
           <div className={styles.contentDiv}>
             <p>{blogsData && blogsData[3].date}</p>
             <h5>
-              {blogsData && blogsData[3].description.slice(0, 90) + "..."}
+              {blogsData && blogsData[3].short.slice(0, 90) + "..."}
             </h5>
           </div>
         </div>
@@ -99,7 +116,7 @@ const BlogsSection = () => {
           <div className={styles.contentDiv}>
             <p>{blogsData && blogsData[4].date}</p>
             <h5>
-              {blogsData && blogsData[4].description.slice(0, 90) + "..."}
+              {blogsData && blogsData[4].short.slice(0, 90) + "..."}
             </h5>
           </div>
         </div>
@@ -111,7 +128,7 @@ const BlogsSection = () => {
           >
             <p>{blogsData && blogsData[5].date}</p>
             <h5>
-              {blogsData && blogsData[5].description.slice(0, 90) + "..."}
+              {blogsData && blogsData[5].short.slice(0, 90) + "..."}
             </h5>
           </div>
 
