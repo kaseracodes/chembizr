@@ -24,9 +24,9 @@ const EnergyAndStorage = () => {
               onClick={() => navigate("/clean-energy-and-storage")}
             />
           </div>
-          <div className={styles.img1}>
+          {/* <div className={styles.img1}>
             <img src="/images/energy_storage/image2.png" alt="image" />
-          </div>
+          </div> */}
         </div>
       </div>
       <div className={styles.img2}>
