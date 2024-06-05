@@ -91,6 +91,12 @@ const Events = () => {
     return unsubscribe;
   }, []);
 
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const options = { day: "2-digit", month: "short", year: "numeric" };
+    return date.toLocaleDateString("en-GB", options);
+  };
+
   let eventItems = [];
   for (let i = 0; i < eventsData.length; i++) {
     eventItems.push(
@@ -122,7 +128,7 @@ const Events = () => {
                   imagePath={item.data().images}
                   logoPath={EventsData[0].logoPath}
                   category={item.data().category}
-                  date={item.data().date}
+                  date={formatDate(item.data().date)}
                   heading={item.data().heading}
                   description={item.data().description}
                 />
@@ -149,7 +155,7 @@ const Events = () => {
             imagePath={eventsData[0].data().images}
             logoPath={EventsData[0].logoPath}
             category={eventsData[0].data().category}
-            date={eventsData[0].data().date}
+            date={formatDate(eventsData[0].data().date)}
             heading={eventsData[0].data().heading}
             description={eventsData[0].data().description}
           />

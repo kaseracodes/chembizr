@@ -43,6 +43,12 @@ const BlogDetailPage = () => {
     }
   }, []);
 
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const options = { day: "2-digit", month: "short", year: "numeric" };
+    return date.toLocaleDateString("en-GB", options);
+  };
+
   return (
     <div className={styles.container}>
       <Navbar
@@ -75,7 +81,7 @@ const BlogDetailPage = () => {
 
         <div className={styles.contentDiv}>
           <h5>{userBlog && userBlog.data().author}</h5>
-          <h5>{userBlog && userBlog.data().date}</h5>
+          <h5>{userBlog && formatDate(userBlog.data().date)}</h5>
           {/* {userBlog &&
             userBlog
               .data()
@@ -83,7 +89,11 @@ const BlogDetailPage = () => {
               .map((line, index) => <p key={index}>{line}</p>)} */}
           {userBlog && (
             <div>
-              <div dangerouslySetInnerHTML={{ __html: userBlog.data().description }} />
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: userBlog.data().description,
+                }}
+              />
             </div>
           )}
         </div>

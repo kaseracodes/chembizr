@@ -8,7 +8,14 @@ import styles from "./EventsFeed.module.css";
 // import BussinessVerticals from "../bussinessVerticals/BussinessVerticals";
 import React, { useState, useEffect } from "react";
 import { firestore } from "../../firebase/firebase";
-import { collection, onSnapshot, query, orderBy, where, limit } from "firebase/firestore";
+import {
+  collection,
+  onSnapshot,
+  query,
+  orderBy,
+  where,
+  limit,
+} from "firebase/firestore";
 import { useSearchParams } from "react-router-dom";
 import Pagination from "../pagination/Pagination";
 
@@ -56,10 +63,14 @@ const EventsFeed = () => {
   const endIndex = Math.min(startIndex + NEWS_PER_PAGE, eventsData.length);
 
   useEffect(() => {
+    buttonColors[0] = COLORS.green;
+
     const unsubscribe = onSnapshot(
-      query(collection(firestore, "events"),
+      query(
+        collection(firestore, "events"),
         where("category", "==", BussinessVerticalsItems[activeButton]),
-        orderBy("date", "desc")),
+        orderBy("date", "desc")
+      ),
       (snapshot) => {
         setEventsData(snapshot.docs);
         // console.log(snapshot.docs[0].data());
@@ -83,6 +94,12 @@ const EventsFeed = () => {
     return () => unsubscribe();
   }, []);
 
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const options = { day: "2-digit", month: "short", year: "numeric" };
+    return date.toLocaleDateString("en-GB", options);
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.leftDiv}>
@@ -97,7 +114,7 @@ const EventsFeed = () => {
               //   item.date.seconds * 1000 +
               //     Math.floor(item.date.nanoseconds / 1000000)
               // ).toLocaleString()}
-              date={item.data().date}
+              date={formatDate(item.data().date)}
             />
           ))}
         </div>
@@ -112,18 +129,18 @@ const EventsFeed = () => {
           <EventFeedCard
             key={index}
             category={item.data().category}
-            date={item.data().date}
+            date={formatDate(item.data().date)}
             heading={item.data().heading}
             description={item.data().description}
             imagePath={item.data().images}
             logoPath={item.data().images}
 
-          // category={item.category}
-          // date={item.date}
-          // heading={item.heading}
-          // description={item.description}
-          // imagePath={item.imagePath}
-          // logoPath={item.logoPath}
+            // category={item.category}
+            // date={item.date}
+            // heading={item.heading}
+            // description={item.description}
+            // imagePath={item.imagePath}
+            // logoPath={item.logoPath}
           />
         ))}
 
@@ -147,8 +164,9 @@ const EventsFeed = () => {
           {BussinessVerticalsItems.map((item, index) => (
             <button
               style={{ backgroundColor: buttonColors[index] }}
-              className={`${styles.bvItem} ${index === activeButton ? styles.active : ""
-                }`}
+              className={`${styles.bvItem} ${
+                index === activeButton ? styles.active : ""
+              }`}
               key={index}
               onClick={() => handleClick(index)}
             >

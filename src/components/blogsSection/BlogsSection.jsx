@@ -18,7 +18,7 @@ import { firestore } from "../../firebase/firebase";
 const BlogsSection = () => {
   const navigate = useNavigate();
 
-  const [blogsData, setBlogsData] =useState();
+  const [blogsData, setBlogsData] = useState();
   useEffect(() => {
     const unsubscribe = onSnapshot(
       query(
@@ -35,6 +35,12 @@ const BlogsSection = () => {
     return unsubscribe;
   }, []);
 
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const options = { day: "2-digit", month: "short", year: "numeric" };
+    return date.toLocaleDateString("en-GB", options);
+  };
+
   // const blogsData = BlogsData.slice(6, 12);
 
   return (
@@ -49,7 +55,7 @@ const BlogsSection = () => {
           onClick={() => navigate(`/blogs/${blogsData[0].data().id}`)}
         >
           <div className={styles.contentDiv}>
-            <p>{blogsData && blogsData[0].data().date}</p>
+            <p>{blogsData && formatDate(blogsData[0].data().date)}</p>
             <h5>
               {blogsData && blogsData[0].data().short.slice(0, 90) + "..."}
             </h5>
@@ -69,7 +75,7 @@ const BlogsSection = () => {
           onClick={() => navigate(`/blogs/${blogsData[1].data().id}`)}
         >
           <div className={styles.contentDiv}>
-            <p>{blogsData && blogsData[1].date}</p>
+            <p>{blogsData && formatDate(blogsData[1].data().date)}</p>
             <h5>
               {blogsData && blogsData[1].data().short.slice(0, 90) + "..."}
             </h5>
@@ -84,7 +90,7 @@ const BlogsSection = () => {
           onClick={() => navigate(`/blogs/${blogsData[2].data().id}`)}
         >
           <div className={styles.contentDiv}>
-            <p>{blogsData && blogsData[2].data().date}</p>
+            <p>{blogsData && formatDate(blogsData[2].data().date)}</p>
             <h5>
               {blogsData && blogsData[2].data().short.slice(0, 90) + "..."}
             </h5>
@@ -99,7 +105,7 @@ const BlogsSection = () => {
           onClick={() => navigate(`/blogs/${blogsData[3].data().id}`)}
         >
           <div className={styles.contentDiv}>
-            <p>{blogsData && blogsData[3].data().date}</p>
+            <p>{blogsData && formatDate(blogsData[3].data().date)}</p>
             <h5>
               {blogsData && blogsData[3].data().short.slice(0, 90) + "..."}
             </h5>
@@ -114,7 +120,7 @@ const BlogsSection = () => {
           onClick={() => navigate(`/blogs/${blogsData[4].data().id}`)}
         >
           <div className={styles.contentDiv}>
-            <p>{blogsData && blogsData[4].data().date}</p>
+            <p>{blogsData && formatDate(blogsData[4].data().date)}</p>
             <h5>
               {blogsData && blogsData[4].data().short.slice(0, 90) + "..."}
             </h5>
@@ -126,7 +132,7 @@ const BlogsSection = () => {
             className={styles.contentDiv}
             onClick={() => navigate(`/blogs/${blogsData[5].data().id}`)}
           >
-            <p>{blogsData && blogsData[5].data().date}</p>
+            <p>{blogsData && formatDate(blogsData[5].data().date)}</p>
             <h5>
               {blogsData && blogsData[5].data().short.slice(0, 90) + "..."}
             </h5>

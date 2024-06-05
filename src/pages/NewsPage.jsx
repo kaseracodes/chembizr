@@ -9,7 +9,13 @@ import CallToAction from "../components/callToAction/CallToAction";
 import Footer from "../components/footer/Footer";
 import React, { useState, useEffect } from "react";
 import { firestore } from "../firebase/firebase";
-import { collection, onSnapshot, query, orderBy, where } from "firebase/firestore";
+import {
+  collection,
+  onSnapshot,
+  query,
+  orderBy,
+  where,
+} from "firebase/firestore";
 import Pagination from "../components/pagination/Pagination";
 import { useSearchParams } from "react-router-dom";
 
@@ -42,8 +48,7 @@ const NewsPage = () => {
     "Petrochemicals & Downstream",
     "Speciality Polymers",
     "Surfactants",
-    "Plastic Additives and Plasticizers"
-
+    "Plastic Additives and Plasticizers",
   ];
 
   const [newsData, setNewsData] = useState([]);
@@ -63,10 +68,14 @@ const NewsPage = () => {
   };
 
   useEffect(() => {
+    buttonColors[0] = COLORS.green;
+
     const unsubscribe = onSnapshot(
-      query(collection(firestore, "news"),
-      where("category","==",BussinessVerticalsItems[activeButton]),
-      orderBy("date", "desc")),
+      query(
+        collection(firestore, "news"),
+        where("category", "==", BussinessVerticalsItems[activeButton]),
+        orderBy("date", "desc")
+      ),
       (snapshot) => {
         setNewsData(snapshot.docs);
         console.log(snapshot.docs);
