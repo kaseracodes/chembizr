@@ -39,9 +39,11 @@ const EventsFeed = () => {
   const [eventsData, setEventsData] = useState([]);
   const [alleventsData, setAllEventsData] = useState([]);
   const [activeButton, setActiveButton] = useState(0);
-  const [buttonColors, setButtonColors] = useState(
-    Array(BussinessVerticalsItems.length).fill(COLORS.white)
+  const initialColors = BussinessVerticalsItems.map((item, index) =>
+    index === 0 ? COLORS.green : COLORS.gray3
   );
+
+  const [buttonColors, setButtonColors] = useState(initialColors);
 
   const handleClick = (index) => {
     setActiveButton(index);
@@ -63,8 +65,6 @@ const EventsFeed = () => {
   const endIndex = Math.min(startIndex + NEWS_PER_PAGE, eventsData.length);
 
   useEffect(() => {
-    buttonColors[activeButton] = COLORS.green;
-
     const unsubscribe = onSnapshot(
       query(
         collection(firestore, "events"),

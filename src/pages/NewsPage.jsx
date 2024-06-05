@@ -53,9 +53,11 @@ const NewsPage = () => {
 
   const [newsData, setNewsData] = useState([]);
   const [activeButton, setActiveButton] = useState(0);
-  const [buttonColors, setButtonColors] = useState(
-    Array(BussinessVerticalsItems.length).fill(COLORS.gray3)
+  const initialColors = BussinessVerticalsItems.map((item, index) =>
+    index === 0 ? COLORS.green : COLORS.gray3
   );
+
+  const [buttonColors, setButtonColors] = useState(initialColors);
 
   const handleClick = (index) => {
     setActiveButton(index);
@@ -68,8 +70,6 @@ const NewsPage = () => {
   };
 
   useEffect(() => {
-    buttonColors[activeButton] = COLORS.green;
-
     const unsubscribe = onSnapshot(
       query(
         collection(firestore, "news"),

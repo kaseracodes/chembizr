@@ -50,13 +50,13 @@
 }
 
 .carouselItem {
-  padding: 0;
+  padding: 0 20px;
   /* background-color: var(--gray3);
   border-radius: 100px; */
   display: flex;
   justify-content: center;
   align-items: center;
-  width: fit-content;
+  max-width: fit-content;
   /* margin: 0 5px; */
 }
 
@@ -72,6 +72,7 @@
   margin: 0;
   text-align: center;
   cursor: pointer;
+  /* width: 200px; */
 }
 
 .rightDiv {

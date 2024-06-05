@@ -114,6 +114,7 @@ const BlogListingPage = () => {
     slidesToScroll: 1,
     nextArrow: showArrows && <NextButton />,
     prevArrow: showArrows && <PrevButton />,
+    variableWidth: true,
     responsive: [
       {
         breakpoint: 800,
@@ -166,7 +167,7 @@ const BlogListingPage = () => {
     "Paints & Coatings",
     "Personal Care & Cosmetics",
     "Speciality Polymers",
-    "Surfactants"
+    "Surfactants",
   ];
 
   const [blogsData, setBlogsData] = useState([]);
@@ -175,10 +176,7 @@ const BlogListingPage = () => {
     let q;
 
     if (currTopic === 0) {
-      q = query(
-        collection(firestore, "blogs"),
-        orderBy("timestamp", "desc")
-      );
+      q = query(collection(firestore, "blogs"), orderBy("timestamp", "desc"));
     } else {
       q = query(
         collection(firestore, "blogs"),
