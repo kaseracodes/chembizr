@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { COLORS } from "../../assets/constants";
-// import { EventsData } from "../../assets/eventsData";
+import { EventsData } from "../../assets/eventsData";
 import Button from "../button/Button";
 import EventFeedCard from "../eventFeedCard/EventFeedCard";
 import EventTitleCard from "../eventTitleCard/EventTitleCard";
@@ -9,6 +9,8 @@ import styles from "./EventsFeed.module.css";
 import React, { useState, useEffect } from "react";
 import { firestore } from "../../firebase/firebase";
 import { collection, onSnapshot, query, orderBy, where, limit } from "firebase/firestore";
+import { useSearchParams } from "react-router-dom";
+import Pagination from "../pagination/Pagination";
 
 const BussinessVerticalsItems = [
   "Adhesives and Sealants",
@@ -43,6 +45,15 @@ const EventsFeed = () => {
     newButtonColors[index] = COLORS.green;
     setButtonColors(newButtonColors);
   };
+
+  const [searchParams] = useSearchParams();
+  const page = searchParams.get("page") || 1;
+
+  const NEWS_PER_PAGE = 3;
+  const hasPrev = NEWS_PER_PAGE * (page - 1) > 0;
+  const hasNext = NEWS_PER_PAGE * page < eventsData.length;
+  const startIndex = NEWS_PER_PAGE * (page - 1);
+  const endIndex = Math.min(startIndex + NEWS_PER_PAGE, eventsData.length);
 
   useEffect(() => {
     const unsubscribe = onSnapshot(
@@ -97,7 +108,7 @@ const EventsFeed = () => {
       </div>
 
       <div className={styles.middleDiv}>
-        {eventsData.map((item, index) => (
+        {eventsData.slice(startIndex, endIndex).map((item, index) => (
           <EventFeedCard
             key={index}
             category={item.data().category}
@@ -115,6 +126,13 @@ const EventsFeed = () => {
           // logoPath={item.logoPath}
           />
         ))}
+
+        <Pagination
+          page={page}
+          hasPrev={hasPrev}
+          hasNext={hasNext}
+          parentPage="events"
+        />
       </div>
 
       {/* <BussinessVerticals
