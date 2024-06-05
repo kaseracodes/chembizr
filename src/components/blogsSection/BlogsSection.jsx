@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { BlogsData } from "../../assets/blogsData";
+// import { BlogsData } from "../../assets/blogsData";
 import { COLORS } from "../../assets/constants";
 import ArrowIcon from "../../svgIcons/ArrowIcon";
 import Heading from "../heading/Heading";
@@ -27,7 +27,7 @@ const BlogsSection = () => {
         orderBy("timestamp", "desc")
       ),
       (snapshot) => {
-        setBlogsData(snapshot.docs.data());
+        setBlogsData(snapshot.docs);
         // console.log(snapshot.docs[0].data());
       }
     );
@@ -44,14 +44,14 @@ const BlogsSection = () => {
         <div
           className={styles.one}
           style={{
-            backgroundImage: `url(${blogsData && blogsData[0].imagePath})`,
+            backgroundImage: `url(${blogsData && blogsData[0].data().image})`,
           }}
-          onClick={() => navigate(`/blogs/${blogsData[0].id}`)}
+          onClick={() => navigate(`/blogs/${blogsData[0].data().id}`)}
         >
           <div className={styles.contentDiv}>
-            <p>{blogsData && blogsData[0].date}</p>
+            <p>{blogsData && blogsData[0].data().date}</p>
             <h5>
-              {blogsData && blogsData[0].short.slice(0, 90) + "..."}
+              {blogsData && blogsData[0].data().short.slice(0, 90) + "..."}
             </h5>
           </div>
         </div>
@@ -59,19 +59,19 @@ const BlogsSection = () => {
         <div
           className={styles.two}
           style={{
-            backgroundImage: `url(${blogsData && blogsData[1].imagePath})`,
+            backgroundImage: `url(${blogsData && blogsData[1].data().image})`,
           }}
-          onClick={() => navigate(`/blogs/${blogsData[1].id}`)}
+          onClick={() => navigate(`/blogs/${blogsData[1].data().id}`)}
         ></div>
 
         <div
           className={styles.three}
-          onClick={() => navigate(`/blogs/${blogsData[1].id}`)}
+          onClick={() => navigate(`/blogs/${blogsData[1].data().id}`)}
         >
           <div className={styles.contentDiv}>
             <p>{blogsData && blogsData[1].date}</p>
             <h5>
-              {blogsData && blogsData[1].short.slice(0, 90) + "..."}
+              {blogsData && blogsData[1].data().short.slice(0, 90) + "..."}
             </h5>
           </div>
         </div>
@@ -79,14 +79,14 @@ const BlogsSection = () => {
         <div
           className={styles.four}
           style={{
-            backgroundImage: `url(${blogsData && blogsData[2].imagePath})`,
+            backgroundImage: `url(${blogsData && blogsData[2].data().image})`,
           }}
-          onClick={() => navigate(`/blogs/${blogsData[2].id}`)}
+          onClick={() => navigate(`/blogs/${blogsData[2].data().id}`)}
         >
           <div className={styles.contentDiv}>
-            <p>{blogsData && blogsData[2].date}</p>
+            <p>{blogsData && blogsData[2].data().date}</p>
             <h5>
-              {blogsData && blogsData[2].short.slice(0, 90) + "..."}
+              {blogsData && blogsData[2].data().short.slice(0, 90) + "..."}
             </h5>
           </div>
         </div>
@@ -94,14 +94,14 @@ const BlogsSection = () => {
         <div
           className={styles.five}
           style={{
-            backgroundImage: `url(${blogsData && blogsData[3].imagePath})`,
+            backgroundImage: `url(${blogsData && blogsData[3].data().image})`,
           }}
-          onClick={() => navigate(`/blogs/${blogsData[3].id}`)}
+          onClick={() => navigate(`/blogs/${blogsData[3].data().id}`)}
         >
           <div className={styles.contentDiv}>
-            <p>{blogsData && blogsData[3].date}</p>
+            <p>{blogsData && blogsData[3].data().date}</p>
             <h5>
-              {blogsData && blogsData[3].short.slice(0, 90) + "..."}
+              {blogsData && blogsData[3].data().short.slice(0, 90) + "..."}
             </h5>
           </div>
         </div>
@@ -109,14 +109,14 @@ const BlogsSection = () => {
         <div
           className={styles.six}
           style={{
-            backgroundImage: `url(${blogsData && blogsData[4].imagePath})`,
+            backgroundImage: `url(${blogsData && blogsData[4].data().image})`,
           }}
-          onClick={() => navigate(`/blogs/${blogsData[4].id}`)}
+          onClick={() => navigate(`/blogs/${blogsData[4].data().id}`)}
         >
           <div className={styles.contentDiv}>
-            <p>{blogsData && blogsData[4].date}</p>
+            <p>{blogsData && blogsData[4].data().date}</p>
             <h5>
-              {blogsData && blogsData[4].short.slice(0, 90) + "..."}
+              {blogsData && blogsData[4].data().short.slice(0, 90) + "..."}
             </h5>
           </div>
         </div>
@@ -124,11 +124,11 @@ const BlogsSection = () => {
         <div className={styles.seven}>
           <div
             className={styles.contentDiv}
-            onClick={() => navigate(`/blogs/${blogsData[5].id}`)}
+            onClick={() => navigate(`/blogs/${blogsData[5].data().id}`)}
           >
-            <p>{blogsData && blogsData[5].date}</p>
+            <p>{blogsData && blogsData[5].data().date}</p>
             <h5>
-              {blogsData && blogsData[5].short.slice(0, 90) + "..."}
+              {blogsData && blogsData[5].data().short.slice(0, 90) + "..."}
             </h5>
           </div>
 
@@ -141,9 +141,9 @@ const BlogsSection = () => {
         <div
           className={styles.eight}
           style={{
-            backgroundImage: `url(${blogsData && blogsData[5].imagePath})`,
+            backgroundImage: `url(${blogsData && blogsData[5].data().image})`,
           }}
-          onClick={() => navigate(`/blogs/${blogsData[5].id}`)}
+          onClick={() => navigate(`/blogs/${blogsData[5].data().id}`)}
         ></div>
       </div>
     </div>
