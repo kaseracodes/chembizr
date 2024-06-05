@@ -139,50 +139,59 @@ const BlogListingPage = () => {
     ],
   };
 
-  const Topics = [
-    "Programming",
-    "Data Science",
-    "Technology",
-    "Self Improvement",
-    "Writing",
-    "Relationships",
-    "Machine Learning",
-    "Productivity",
-    "Politics",
-  ];
-
   // const Topics = [
-  //   "Adhesives and Sealants",
-  //   "Animal Feed and Nutrition",
-  //   "Base Oils and Waxes",
-  //   "Bio Polymers",
-  //   "Composites",
-  //   "Construction",
-  //   "Energy and Resources",
-  //   "Food and Nutrition",
-  //   "Industrial Fluids",
-  //   "Mobility",
-  //   "Oil and Gas",
-  //   "Paints and Coatings",
-  //   "Personal Care",
+  //   "Programming",
+  //   "Data Science",
+  //   "Technology",
+  //   "Self Improvement",
+  //   "Writing",
+  //   "Relationships",
+  //   "Machine Learning",
+  //   "Productivity",
+  //   "Politics",
   // ];
+
+  const Topics = [
+    "All",
+    "Adhesives & Sealants",
+    "Animal Feed & Nutrition",
+    "Composites",
+    "Construction",
+    "Clean Energy & Resources",
+    "Food, Nutrition & Beverages",
+    "Alternative Food",
+    "Microbials",
+    "Mobility",
+    "Petrochemicals & Downstream",
+    "Paints & Coatings",
+    "Personal Care & Cosmetics",
+    "Speciality Polymers",
+    "Surfactants"
+  ];
 
   const [blogsData, setBlogsData] = useState([]);
 
   useEffect(() => {
-    const unsubscribe = onSnapshot(
-      query(
+    let q;
+
+    if (currTopic === 0) {
+      q = query(
+        collection(firestore, "blogs"),
+        orderBy("timestamp", "desc")
+      );
+    } else {
+      q = query(
         collection(firestore, "blogs"),
         where("category", "==", Topics[currTopic]),
         orderBy("timestamp", "desc")
-      ),
-      (snapshot) => {
-        setBlogsData(snapshot.docs);
-        // console.log(snapshot.docs[0].data());
-      }
-    );
+      );
+    }
 
-    return unsubscribe;
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      setBlogsData(snapshot.docs);
+    });
+
+    return () => unsubscribe();
   }, [currTopic]);
 
   const [searchParams] = useSearchParams();
