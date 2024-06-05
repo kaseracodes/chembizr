@@ -36,6 +36,7 @@
   font-weight: 400;
   font-family: "Open Sans", sans-serif;
   color: var(--black);
+  margin-bottom: 40px;
 }
 
 @media only screen and (max-width: 1300px) {
@@ -101,5 +102,19 @@
 
   .chemicalsContentDiv {
     padding: 0;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .chemicalsContainer {
+    padding: 50px 20px;
+  }
+
+  .chemicalsImageContainer img {
+    width: 84vw;
+  }
+
+  .desc {
+    margin: 10px 0 20px 0;
   }
 }

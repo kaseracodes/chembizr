@@ -13,12 +13,11 @@ import { auth } from "../../firebase/firebase";
 import { useReducer } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 
-
 const Navbar = ({ textColor, iconColor, bgColor }) => {
   const navigate = useNavigate();
   const { userLoggedIn } = useAuth();
   var user = "";
-  if(userLoggedIn)user = auth.currentUser.email;
+  if (userLoggedIn) user = auth.currentUser.email;
   console.log(user);
   const [isScrolled, setIsScrolled] = useState(false);
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -29,8 +28,8 @@ const Navbar = ({ textColor, iconColor, bgColor }) => {
 
   const handleClickLogout = () => {
     doSignOut();
-  }
-  
+  };
+
   const showNavbar = () => {
     // navRef.current.classList.toggle("responsive_nav");
     setNavbarOpen(!navbarOpen);
@@ -54,14 +53,12 @@ const Navbar = ({ textColor, iconColor, bgColor }) => {
 
   return (
     <div
-      className={`${styles.container} ${isScrolled ? styles.active : ""}`}
+      className={`${styles.container} ${styles.active}`}
       style={{ backgroundColor: bgColor && bgColor }}
     >
       <div onClick={() => navigate("/")} style={{ cursor: "pointer" }}>
         <img
-          src={
-            isScrolled || bgColor ? "/images/logo.png" : "/images/logo2.png"
-          }
+          src={isScrolled || bgColor ? "/images/logo.png" : "/images/logo2.png"}
           alt="logo"
           className={styles.logo}
         />
@@ -77,7 +74,7 @@ const Navbar = ({ textColor, iconColor, bgColor }) => {
             textColor={isScrolled || navbarOpen ? COLORS.black : textColor}
             content="About"
             modalContents={[
-              { desc: "Who are we?", link: "/about-us" },
+              { desc: "Who Are We?", link: "/about-us" },
               { desc: "Career", link: "/careers" },
             ]}
             index="1"
@@ -101,12 +98,9 @@ const Navbar = ({ textColor, iconColor, bgColor }) => {
             ]}
             index="3"
           />
-
-
         </div>
 
         <div className={styles.buttonContainer}>
-
           {!userLoggedIn && (
             <Button
               content="Log in"
@@ -120,9 +114,7 @@ const Navbar = ({ textColor, iconColor, bgColor }) => {
               bgColor="#333333"
               onClick={handleClickLogout}
             />
-          )
-
-          }
+          )}
           <Button content="Subscribe" bgColor="#FF9B42" />
         </div>
 
@@ -140,12 +132,12 @@ const Navbar = ({ textColor, iconColor, bgColor }) => {
               color={isScrolled || navbarOpen ? COLORS.black : textColor}
             />
           </div>
-          <div className={styles.icon}>
+          {/* <div className={styles.icon}>
             <SearchIcon
               className={styles.icon}
               color={isScrolled || navbarOpen ? COLORS.black : textColor}
             />
-          </div>
+          </div> */}
         </div>
 
         <button

@@ -1,6 +1,6 @@
 .container {
   background-color: var(--gray4);
-  background-image: url("/images/value_chain_bg.png");
+  /* background-image: url("/images/value_chain_bg.png"); */
   background-size: cover;
   width: 100%;
   height: auto;
@@ -22,13 +22,13 @@
 }
 
 .descDiv {
-  padding: 0 200px;
+  padding: 10px 200px;
   text-align: center;
 }
 
 .desc {
   font-family: "Inter", sans-serif;
-  font-size: 30px;
+  font-size: 18px;
   font-weight: 300;
   color: var(--black);
 }
@@ -64,10 +64,6 @@
   .descDiv {
     padding: 0 100px;
   }
-
-  .desc {
-    font-size: 25px;
-  }
 }
 
 @media only screen and (max-width: 950px) {
@@ -77,10 +73,6 @@
 
   .heading {
     font-size: 42px;
-  }
-
-  .desc {
-    font-size: 20px;
   }
 
   .descDiv {
@@ -93,7 +85,11 @@
     font-size: 32px;
   }
 
+  .descDiv {
+    padding: 0 20px;
+  }
+
   .desc {
-    font-size: 18px;
+    font-size: 15px;
   }
 }

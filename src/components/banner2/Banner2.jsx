@@ -7,7 +7,7 @@ const Banner2 = ({ imagePath, heading }) => {
 
   useEffect(() => {
     if (imagePath) {
-      setImageUrl(`url(${imagePath})`);
+      setImageUrl(`url("${imagePath}")`);
     }
   }, [imagePath]);
 

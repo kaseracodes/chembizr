@@ -3,7 +3,7 @@ export const CoreValuesData = [
     imagePath: "/images/core_values/image1.png",
     heading: "Adaptability",
     description:
-      "Our ability to pivot with agility ensures we meet every obstacle head-on and emerge stronger, together.",
+      "Our ability to pivot with agility ensures we meet every obstacle head-on, adapt to the change, and emerge stronger together.",
   },
 
   {
@@ -17,6 +17,6 @@ export const CoreValuesData = [
     imagePath: "/images/core_values/image3.png",
     heading: "Curiosity",
     description:
-      "With boundless curiosity fueling our endeavors, we innovate, discover, and continuously push the boundaries of what's possible.",
+      "With curiosity-fueling our endeavors, we innovate, discover, and continuously push the boundaries of what's possible.",
   },
 ];

@@ -80,10 +80,18 @@
   .content {
     width: 100%;
   }
-}
 
-@media only screen and (max-width: 900px) {
   .heading {
     font-size: 32px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .mainContainer img {
+    width: 85vw;
+  }
+
+  .container {
+    padding: 20px 10px 0 10px;
   }
 }

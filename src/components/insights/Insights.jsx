@@ -4,13 +4,21 @@ import styles from "./Insights.module.css";
 import { PublicationsData } from "../../assets/publicationsData";
 import PublicationCard from "../publicationCard/PublicationCard";
 import { ArticlesData } from "../../assets/articlesData";
-import { firestore } from '../../firebase/firebase';
-import { collection, onSnapshot, query, orderBy, where } from 'firebase/firestore';
+import { firestore } from "../../firebase/firebase";
+import {
+  collection,
+  onSnapshot,
+  query,
+  orderBy,
+  where,
+} from "firebase/firestore";
 import { useState, useEffect } from "react";
 
 const Insights = ({ pagetype }) => {
   const [publicationsData, setPublicationsData] = useState([]);
   const [articlesData, setAticlesData] = useState([]);
+  const [showDots, setShowDots] = useState(window.innerWidth < 550);
+
   useEffect(() => {
     const unsubscribe = onSnapshot(
       query(
@@ -45,6 +53,19 @@ const Insights = ({ pagetype }) => {
     return unsubscribe;
   }, [pagetype]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setShowDots(window.innerWidth <= 950);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -69,15 +90,23 @@ const Insights = ({ pagetype }) => {
     <div className={styles.container}>
       <h1 className={styles.heading}>Our Insights</h1>
       <div className={styles.contentDiv}>
-        <h3 className={styles.subHeading}>Publications</h3>
-        <Carousel responsive={responsive}>
-          {publicationsData.map((item, index) => (
+        <h3 className={styles.subHeading}>Media Releases</h3>
+        <Carousel
+          responsive={responsive}
+          showDots={showDots}
+          arrows={!showDots}
+        >
+          {PublicationsData.map((item, index) => (
             <div key={index} className={styles.innerCardDiv}>
               <PublicationCard
-                imagePath={item.data().image}
-                date={new Date(item.data().date.seconds * 1000 + Math.floor(item.data().date.nanoseconds / 1000000)).toLocaleString()}
-                heading={item.data().heading}
-                description={item.data().short}
+                imagePath={item.imagePath}
+                // date={new Date(
+                //   item.date.seconds * 1000 +
+                //     Math.floor(item.date.nanoseconds / 1000000)
+                // ).toLocaleString()}
+                date={item.date}
+                heading={item.heading}
+                description={item.description}
               />
             </div>
           ))}
@@ -86,14 +115,22 @@ const Insights = ({ pagetype }) => {
 
       <div className={styles.contentDiv}>
         <h3 className={styles.subHeading}>Articles</h3>
-        <Carousel responsive={responsive}>
-          {articlesData.map((item, index) => (
+        <Carousel
+          responsive={responsive}
+          showDots={showDots}
+          arrows={!showDots}
+        >
+          {ArticlesData.map((item, index) => (
             <div key={index} className={styles.innerCardDiv}>
               <PublicationCard
-                imagePath={item.data().image}
-                date={new Date(item.data().date.seconds * 1000 + Math.floor(item.data().date.nanoseconds / 1000000)).toLocaleString()}
-                heading={item.data().heading}
-                description={item.data().short}
+                imagePath={item.imagePath}
+                // date={new Date(
+                //   item.date.seconds * 1000 +
+                //     Math.floor(item.date.nanoseconds / 1000000)
+                // ).toLocaleString()}
+                date={item.date}
+                heading={item.heading}
+                description={item.description}
               />
             </div>
           ))}

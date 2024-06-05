@@ -4,7 +4,7 @@ export const PlacesData = [
     country: "The Netherlands",
     address: "Spaces Hofplein, Hofplein 20, Rotterdam 3032 AC, The Netherlands",
     email: "connect@chembizr.com",
-    phone: "+31616967016",
+    phone: "+31 616 967 016",
   },
 
   {
@@ -13,14 +13,14 @@ export const PlacesData = [
     address:
       "#313 Welldone Tech Park, Sector 48, Gurugram, Haryana 122001 India",
     email: "connect@chembizr.com",
-    phone: "+31616967016",
+    phone: "+91 124 460 3022",
   },
 
   {
     imagePath: "/images/building.png",
     country: "USA",
-    address: "Spaces Hofplein, Hofplein 20, Rotterdam 3032 AC, The Netherlands",
+    address: "Cupertino, CA 95014, USA",
     email: "connect@chembizr.com",
-    phone: "+31616967016",
+    phone: "+1 209 651 0667",
   },
 ];

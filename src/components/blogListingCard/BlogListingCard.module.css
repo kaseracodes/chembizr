@@ -4,7 +4,7 @@
 
 .mainContainer {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: 80px;
   font-family: "Inter", sans-serif;
@@ -16,11 +16,16 @@
   width: 200px;
 }
 
-.heading {
+.heading,
+.mobileHeading {
   font-size: 18px;
   font-weight: 700;
   color: var(--black);
   margin: 0 0 5px 0;
+}
+
+.mobileHeading {
+  display: none;
 }
 
 .author {
@@ -66,11 +71,31 @@
 
 @media only screen and (max-width: 650px) {
   .mainContainer {
-    flex-direction: column-reverse;
+    /* flex-direction: column-reverse; */
+    padding: 0 20px;
+    gap: 20px;
   }
 
   .mainContainer img {
-    width: 70vw;
-    height: 30vh;
+    width: 25vw;
+    height: 8vh;
+  }
+
+  .desc,
+  .category {
+    display: none;
+  }
+
+  .hr {
+    margin-top: 20px;
+  }
+
+  .heading {
+    display: none;
+  }
+
+  .mobileHeading {
+    display: block;
+    font-size: 16px;
   }
 }

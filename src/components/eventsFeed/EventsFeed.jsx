@@ -1,14 +1,14 @@
 /* eslint-disable react/prop-types */
 import { COLORS } from "../../assets/constants";
-// import { EventsData } from "../../assets/eventsData";
+import { EventsData } from "../../assets/eventsData";
 import Button from "../button/Button";
 import EventFeedCard from "../eventFeedCard/EventFeedCard";
 import EventTitleCard from "../eventTitleCard/EventTitleCard";
 import styles from "./EventsFeed.module.css";
 import BussinessVerticals from "../bussinessVerticals/BussinessVerticals";
-import React, { useState, useEffect } from 'react';
-import { firestore } from '../../firebase/firebase';
-import { collection, onSnapshot, query, orderBy } from 'firebase/firestore';
+import React, { useState, useEffect } from "react";
+import { firestore } from "../../firebase/firebase";
+import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
 
 const BussinessVerticalsItems = [
   "Adhesives and Sealants",
@@ -26,17 +26,19 @@ const BussinessVerticalsItems = [
   "Surfactants",
 ];
 
-
 const EventsFeed = () => {
   const [eventsData, setEventsData] = useState([]);
 
   useEffect(() => {
-      const unsubscribe = onSnapshot(query(collection(firestore, "events"), orderBy("date", "desc")), (snapshot) => {
+    const unsubscribe = onSnapshot(
+      query(collection(firestore, "events"), orderBy("date", "desc")),
+      (snapshot) => {
         setEventsData(snapshot.docs);
-          console.log(snapshot.docs[0].data());
-      });
+        console.log(snapshot.docs[0].data());
+      }
+    );
 
-      return unsubscribe;
+    return unsubscribe;
   }, []);
 
   return (
@@ -45,11 +47,14 @@ const EventsFeed = () => {
         <h5 className={styles.divHeading}>Recent Events</h5>
         <hr className={styles.hr} />
         <div className={styles.titleCardDiv}>
-          {eventsData.map((item, index) => (
+          {EventsData.map((item, index) => (
             <EventTitleCard
               key={index}
-              heading={item.data().heading}
-              date={new Date(item.data().date.seconds * 1000 + Math.floor(item.data().date.nanoseconds / 1000000)).toLocaleString()}
+              heading={item.heading}
+              date={new Date(
+                item.date.seconds * 1000 +
+                  Math.floor(item.date.nanoseconds / 1000000)
+              ).toLocaleString()}
             />
           ))}
         </div>
@@ -60,20 +65,32 @@ const EventsFeed = () => {
       </div>
 
       <div className={styles.middleDiv}>
-        {eventsData.map((item, index) => (
+        {EventsData.map((item, index) => (
           <EventFeedCard
             key={index}
-            category={item.data().category}
-            date={item.data().date}
-            heading={item.data().heading}
-            description={item.data().description}
-            // imagePath={item.data().imagePath}
-            logoPath={item.data().logoPath}
+// <<<<<<< db
+//             category={item.data().category}
+//             date={item.data().date}
+//             heading={item.data().heading}
+//             description={item.data().description}
+//             // imagePath={item.data().imagePath}
+//             logoPath={item.data().logoPath}
+// =======
+            category={item.category}
+            date={item.date}
+            heading={item.heading}
+            description={item.description}
+            imagePath={item.imagePath}
+            logoPath={item.logoPath}
+// >>>>>>> main
           />
         ))}
       </div>
 
-      <BussinessVerticals BussinessVerticals={BussinessVerticalsItems} buttonColor={COLORS.white}/>
+      <BussinessVerticals
+        BussinessVerticals={BussinessVerticalsItems}
+        buttonColor={COLORS.white}
+      />
     </div>
   );
 };

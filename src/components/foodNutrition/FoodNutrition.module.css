@@ -84,6 +84,7 @@
   }
 
   .foodImageContainer {
+    display: none;
     flex-wrap: wrap;
     gap: 30px;
   }
@@ -91,7 +92,11 @@
 
 @media only screen and (max-width: 550px) {
   .foodContainer {
-    padding: 50px 20px;
+    padding: 50px 0 0 0;
+  }
+
+  .headingContainer {
+    width: 100vw;
   }
 
   .foodHeading {
@@ -104,5 +109,15 @@
   .foodImageContainer img {
     width: 200px;
     height: 200px;
+  }
+
+  .contentDiv {
+    padding: 0 20px;
+    margin: 0;
+    /* width: 100%; */
+  }
+
+  .descContainer {
+    padding: 0;
   }
 }

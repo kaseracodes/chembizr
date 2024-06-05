@@ -52,7 +52,7 @@
 
   .imageContainer img {
     width: 100%;
-    margin-top: 50px;
+    margin-top: 20px;
   }
 
   .contentDiv {
@@ -63,5 +63,9 @@
 @media only screen and (max-width: 550px) {
   .heading {
     font-size: 32px;
+  }
+
+  .container {
+    padding: 20px;
   }
 }

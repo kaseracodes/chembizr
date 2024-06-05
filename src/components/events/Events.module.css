@@ -1,6 +1,6 @@
 .container {
-  background-color: var(--gray3);
-  padding: 30px 200px 70px 200px;
+  background-color: var(--gray4);
+  padding: 0px 200px 70px 200px;
 
   /* The below styles will not display the carousel */
   /* display: flex;
@@ -28,9 +28,13 @@
   justify-content: center;
 }
 
+.mobileCardDiv {
+  display: none;
+}
+
 @media only screen and (max-width: 1300px) {
   .container {
-    padding: 30px 80px 50px 80px;
+    padding: 0px 80px 50px 80px;
   }
 
   .heading {
@@ -40,7 +44,7 @@
 
 @media only screen and (max-width: 950px) {
   .container {
-    padding: 30px 50px 50px 50px;
+    padding: 0px 50px 50px 50px;
   }
 
   .heading {
@@ -50,10 +54,41 @@
 
 @media only screen and (max-width: 550px) {
   .container {
-    padding: 30px 20px 50px 20px;
+    padding: 0px 0 50px 0;
   }
 
   .heading {
     font-size: 32px;
+  }
+
+  .carouselContainer {
+    display: none;
+  }
+
+  .mobileCardDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    padding: 0;
+    margin: 0;
+  }
+
+  .btn {
+    width: 100vw;
+    padding: 20px;
+    text-align: center;
+    background-color: var(--orange);
+    color: var(--white);
+    border: none;
+    font-family: "Open Sans", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .btn:hover {
+    background-color: var(--orange4);
   }
 }

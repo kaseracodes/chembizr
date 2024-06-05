@@ -1,5 +1,6 @@
 .container {
-  margin-bottom: 50px;
+  margin-bottom: 30px;
+  margin-top: 80px;
 }
 
 .blogsContainer {
@@ -52,6 +53,12 @@
   grid-area: eight;
 }
 
+.three,
+.five,
+.seven {
+  background-color: var(--white);
+}
+
 .one,
 .two,
 .three,
@@ -64,6 +71,43 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+}
+
+.one:hover,
+.two:hover,
+.three:hover,
+.four:hover,
+.five:hover,
+.six:hover,
+.seven:hover,
+.eight:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+  transition: all 0.5s;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.seven:hover .btn {
+  border-radius: 10px;
+}
+
+.two:hover + .three,
+.seven:hover + .eight {
+  transform: scale(1.05);
+  cursor: pointer;
+  transition: all 0.5s;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.three:hover + .two,
+.eight:hover + .seven {
+  transform: scale(1.05);
+  cursor: pointer;
+  transition: all 0.5s;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
 .contentDiv {
@@ -108,11 +152,16 @@
 }
 
 @media only screen and (max-width: 900px) {
+  .container {
+    margin-top: -20px;
+  }
+
   .blogsContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 500px;
   }
 
   .one,
@@ -124,12 +173,21 @@
     width: auto;
   }
 
+  .two,
+  .three,
+  .five,
+  .six {
+    display: none;
+  }
+
   .eight {
     display: none;
   }
 
   .contentDiv {
     padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
   }
 
   .contentDiv p {

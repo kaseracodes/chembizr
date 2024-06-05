@@ -21,7 +21,7 @@
   display: flex;
   justify-content: space-between;
   align-items: end;
-  gap: 50px;
+  gap: 30px;
 }
 
 .descDiv {
@@ -52,7 +52,7 @@
 
 @media only screen and (max-width: 1150px) {
   .container {
-    gap: 20px;
+    gap: 40px;
   }
 
   .descDiv {
@@ -103,11 +103,16 @@
 
 @media only screen and (max-width: 550px) {
   .container {
-    padding: 50px 20px;
+    padding: 30px 20px;
   }
 
   .heading {
     font-size: 32px;
+  }
+
+  .descDiv {
+    padding-right: 10px;
+    gap: 20px;
   }
 
   .desc {
@@ -119,6 +124,8 @@
   }
 
   .img1 img {
+    width: 36vw;
     height: 200px;
+    margin-top: -30px;
   }
 }

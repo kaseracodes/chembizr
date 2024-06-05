@@ -49,6 +49,7 @@
   font-weight: 400;
   font-family: "Open Sans", sans-serif;
   color: var(--black);
+  margin-bottom: 40px;
 }
 
 @media only screen and (max-width: 1250px) {
@@ -96,19 +97,38 @@
 }
 
 @media only screen and (max-width: 700px) {
+  .container {
+    gap: 0px;
+    justify-content: center;
+  }
+
   .leftDiv {
+    max-width: 90vw;
     justify-content: center;
     align-items: center;
+    gap: 20px;
   }
 
   .imageContainer {
     flex-wrap: wrap;
   }
+
+  .img1 {
+    width: 88vw;
+  }
+
+  .img2Div {
+    display: none;
+  }
+
+  .desc {
+    margin-bottom: 30px;
+  }
 }
 
 @media only screen and (max-width: 550px) {
   .container {
-    padding: 50px 20px;
+    padding: 50px 20px 10px 20px;
   }
 
   .heading {

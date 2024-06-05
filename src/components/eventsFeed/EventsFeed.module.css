@@ -116,11 +116,6 @@
     padding: 30px 0;
   }
 }
-@media only screen and (max-width: 750px) {
-  .leftDiv {
-    border-right: none;
-  }
-}
 
 @media only screen and (max-width: 950px) {
   .container {
@@ -133,5 +128,29 @@
   .middleDiv {
     max-height: 550px;
     padding: 30px 20px;
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .container {
+    flex-direction: column-reverse;
+    justify-content: center;
+    height: auto;
+    /* width: 100vw; */
+  }
+
+  .middleDiv {
+    max-height: fit-content;
+    height: 100%;
+    padding: 10px 0px 50px 0px;
+    /* width: 100vw; */
+    justify-content: center;
+    margin-top: -20px;
+  }
+
+  .leftDiv {
+    border-right: none;
+    display: none;
   }
 }

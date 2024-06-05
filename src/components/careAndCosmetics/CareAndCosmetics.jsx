@@ -17,7 +17,7 @@ const CareAndCosmetics = () => {
           />
           <h3 className={styles.heading}>Personal Care & Cosmetics</h3>
         </div>
-        <div>
+        <div className={styles.img2Div}>
           <img
             src="/images/care_cosmetics/image2.png"
             alt="image"
@@ -26,15 +26,19 @@ const CareAndCosmetics = () => {
         </div>
       </div>
       <div className={styles.rightDiv}>
-        <h5 className={styles.subHeading}>Oil Consumption Across</h5>
+        {/* <h5 className={styles.subHeading}>Oil Consumption Across</h5> */}
         <p className={styles.desc}>
-          North America, China, and Europe have significant oil consumption
-          across different categories of lipids.
+        We leverage our expertise in chemicals and ingredients to identify 
+        novel solutions in bio-based, marine, and plant-based categories, 
+        among others. Our consultants offer comprehensive insights into 
+        the ingredient formulation market, assisting chemical companies 
+        and ingredient formulators as well as manufacturers in the personal 
+        care and cosmetics space to achieve market dominance.
         </p>
         <Button
           content="Know More"
           bgColor={COLORS.orange}
-          onClick={() => navigate("/personal-care")}
+          onClick={() => navigate("/personal-care-and-cosmetics")}
         />
       </div>
     </div>

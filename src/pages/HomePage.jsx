@@ -4,8 +4,6 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import styles from "./HomePage.module.css";
 import Heading from "../components/heading/Heading";
-import FocusArea from "../components/focusArea/FocusArea";
-import { FocusAreasData } from "../assets/focusAreas";
 import { COLORS } from "../assets/constants";
 import CapabilitiesCard from "../components/capabilitiesCard/CapabilitiesCard";
 import { CapabilitiesData } from "../assets/capabilitiesData";
@@ -14,8 +12,10 @@ import Footer from "../components/footer/Footer";
 import Navbar from "../components/navbar/Navbar";
 import News from "../components/news/News";
 import BlogsSection from "../components/blogsSection/BlogsSection";
-import FocusAreasSection from "../components/focusAreasSection/FocusAreasSection";
-import { AuthProvider } from "../contexts/authContext/index.jsx";
+import Events from "../components/events/Events.jsx";
+import FocusAreaSection from "../components/focusAreaSection/FocusAreaSection.jsx";
+import { useEffect, useState } from "react";
+import UVP from "../components/uvp/UVP.jsx";
 
 const responsiveHero = {
   superLargeDesktop: {
@@ -58,57 +58,44 @@ const responsiveCapabilities = {
 };
 
 const HomePage = () => {
+  const [showDots, setShowDots] = useState(window.innerWidth < 550);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setShowDots(window.innerWidth < 550);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <div className={styles.container}>
-      <Navbar textColor={COLORS.white} iconColor={COLORS.white} />
+      <Navbar
+        textColor={COLORS.black}
+        iconColor={COLORS.black}
+        bgColor={COLORS.white}
+      />
 
       <div style={{ marginTop: "-120px" }}>
         <Carousel responsive={responsiveHero}>
-          <FirstCarousel />
+          <FirstCarousel bgImage="/images/home_page_hero.png" />
+          <FirstCarousel
+            bgImage="/images/home_page_hero_2.png"
+            textColor={COLORS.blue2}
+          />
           <SecondCarousel />
         </Carousel>
       </div>
 
-      <Heading content="VERTICALS WE SERVE" />
-      <div className={styles.focusAreaContainer}>
-        <FocusArea
-          imagePath={FocusAreasData[0].imagePath}
-          heading={FocusAreasData[0].heading}
-          description={FocusAreasData[0].description}
-          buttonText={FocusAreasData[0].buttonText}
-          bgColor={COLORS.blue}
-          pageLink={FocusAreasData[0].pageLink}
-        />
+      <FocusAreaSection />
 
-        {/* <div className={styles.focusAreaDiv}>
-          {FocusAreasData.slice(1, 5).map((item) => (
-            <FocusArea
-              key={item.index}
-              index={item.index}
-              imagePath={item.imagePath}
-              heading={item.heading}
-              description={item.description}
-              buttonText={item.buttonText}
-              width={"90%"}
-              bgColor={item.index % 2 === 0 ? COLORS.green : COLORS.blue}
-              pageLink={item.pageLink}
-            />
-          ))}
-        </div> */}
-        <FocusAreasSection />
-
-        <FocusArea
-          imagePath={FocusAreasData[5].imagePath}
-          heading={FocusAreasData[5].heading}
-          description={FocusAreasData[5].description}
-          buttonText={FocusAreasData[5].buttonText}
-          bgColor={COLORS.blue}
-          pageLink={FocusAreasData[5].pageLink}
-        />
-      </div>
-
-      <Heading content="CAPABILITIES" />
       <div className={styles.capabilitesContainer}>
+        <Heading content="Capabilities" />
         <p className={styles.para}>
           Use our extensive suite of market intelligence tools to realize the
           full potential of your business ideas. From uncovering untapped
@@ -118,13 +105,19 @@ const HomePage = () => {
         </p>
 
         <div className={styles.CapabilitiesCardDiv}>
-          <Carousel responsive={responsiveCapabilities}>
+          <Carousel
+            responsive={responsiveCapabilities}
+            showDots={showDots}
+            arrows={!showDots}
+            infinite={true}
+          >
             {CapabilitiesData.map((item, index) => (
               <div key={index} className={styles.capabilitesInnerCardDiv}>
                 <CapabilitiesCard
                   imagePath={item.imagePath}
                   heading={item.heading}
-                  description={item.description}
+                  description={item.shortDesc}
+                  id={index}
                 />
               </div>
             ))}
@@ -134,12 +127,16 @@ const HomePage = () => {
 
       <BlogsSection />
 
-      <Heading content="UNIQUE VALUE PROPOSITION" />
+      {/* <Heading content="Unique Value Proposition" />
       <div className={styles.uniquePropositionImageDiv}>
         <img src="/images/unique_proposition.png" alt="image" />
-      </div>
+      </div> */}
+
+      <UVP />
 
       <News bgColor={COLORS.white} textColor={COLORS.black} />
+
+      <Events />
 
       <CallToAction />
 

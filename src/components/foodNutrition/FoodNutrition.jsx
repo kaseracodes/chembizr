@@ -14,19 +14,22 @@ const FoodNutrition = () => {
       <div className={styles.contentDiv}>
         <div className={styles.descContainer}>
           <p className={styles.desc}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea tempor incididunt ut labore et dolore{" "}
+          We offer the right strategic fit for finding alternative 
+          ingredients and products to beat the inflation effect in 
+          the food industry via new innovations. Our strategies can help 
+          ingredient manufacturers become market leaders and challenge 
+          competitive threats. From technology landscape analysis to 
+          competitive positioning, we create resilient value chains to 
+          enhance market penetration for ingredients.
           </p>
           <Button
             content="Know More"
             bgColor={COLORS.orange}
-            onClick={() => navigate("/food-nutrition")}
+            onClick={() => navigate("/food-nutrition-and-beverages")}
           />
         </div>
         <div className={styles.foodImageContainer}>
-          <img src="/images/food/image2.png" alt="image" />
+          {/* <img src="/images/food/image2.png" alt="image" /> */}
           <img src="/images/food/image3.png" alt="image" />
           <img src="/images/food/image4.png" alt="image" />
         </div>

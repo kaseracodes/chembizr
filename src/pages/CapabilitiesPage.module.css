@@ -1,0 +1,168 @@
+.mainContainer {
+  padding: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.bannerContainer {
+  background-image: url("/images/home_page_hero.png");
+  background-size: cover;
+  width: 100%;
+  height: 80vh;
+  margin-top: 0;
+  padding-top: 200px;
+}
+
+.bannerHeading {
+  font-family: "Istok Web", sans-serif;
+  font-size: 70px;
+  font-weight: 700;
+  line-height: 125%;
+  color: var(--white);
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+
+.bannerSpecial {
+  color: #ff9b42;
+}
+
+.bannerContentDiv {
+  width: 800px;
+  margin-left: 144px;
+}
+
+.bannerPara {
+  font-size: 18px;
+  font-weight: 800;
+  font-family: "Open Sans", sans-serif;
+  color: var(--white);
+}
+
+.evenCapability {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 100px;
+}
+
+.oddCapability {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  gap: 100px;
+}
+
+.imageDiv img {
+  height: 400px;
+  width: 500px;
+}
+
+.heading {
+  font-family: "Istok Web", sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.desc {
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+@media only screen and (max-width: 1250px) {
+  .mainContainer {
+    padding: 50px;
+  }
+
+  .imageDiv img {
+    width: 460px;
+  }
+
+  .bannerContainer {
+    width: 100%;
+    height: 500px;
+  }
+
+  .bannerHeading {
+    font-size: 50px;
+    line-height: 110%;
+  }
+
+  .bannerContentDiv {
+    margin-left: 100px;
+    width: 600px;
+  }
+
+  .bannerPara {
+    font-size: 15px;
+  }
+
+  .evenCapability,
+  .oddCapability {
+    gap: 50px;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .imageDiv img {
+    height: 380px;
+    width: 400px;
+  }
+
+  .heading {
+    font-size: 28px;
+  }
+
+  .desc {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .evenCapability,
+  .oddCapability {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .imageDiv img {
+    height: 300px;
+    width: 80vw;
+  }
+
+  .heading {
+    font-size: 20px;
+  }
+
+  .desc {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .bannerContainer {
+    height: 400px;
+  }
+
+  .bannerHeading {
+    font-size: 32px;
+    font-weight: 600;
+    /* line-height: 110%; */
+  }
+
+  .bannerContentDiv {
+    width: auto;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .bannerPara {
+    font-size: 12px;
+    font-weight: 400;
+  }
+}

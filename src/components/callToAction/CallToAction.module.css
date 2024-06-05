@@ -138,25 +138,57 @@
   }
 }
 
-@media only screen and (max-width: 550px) {
+@media only screen and (max-width: 800px) {
+  .container {
+    margin-bottom: 0;
+  }
+
   .imageDiv {
-    width: 350px;
+    width: 100vw;
     height: auto;
   }
 
   .imageDiv img {
-    width: 350px;
+    width: 100vw;
     height: auto;
   }
 
   .contentDiv {
     height: auto;
-    width: 310px;
-    padding: 20px;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .heading {
+    text-align: center;
+  }
+
+  .anchorDiv,
+  .bottomDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .label {
+    text-align: center;
   }
 
   .inputDiv {
-    flex-direction: column;
     gap: 10px;
+  }
+
+  .input {
+    width: 85vw;
+    padding: 10px;
+    border-radius: 20px;
+  }
+
+  .btn {
+    display: none;
   }
 }

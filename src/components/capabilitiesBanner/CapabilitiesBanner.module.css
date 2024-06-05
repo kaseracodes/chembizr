@@ -1,0 +1,89 @@
+.bannerContainer {
+  /* background-image: url("/images/home_page_hero.png"); */
+  background-size: cover;
+  width: 100%;
+  height: 80vh;
+  margin-top: 0;
+  padding-top: 250px;
+}
+
+/* .overlay {
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+} */
+
+.bannerHeading {
+  font-family: "Istok Web", sans-serif;
+  font-size: 70px;
+  font-weight: 700;
+  line-height: 125%;
+  color: var(--white);
+  margin-top: 15px;
+  margin-bottom: 0;
+  text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.bannerSpecial {
+  color: #ff9b42;
+}
+
+.bannerContentDiv {
+  width: 800px;
+  margin-left: 144px;
+}
+
+.bannerPara {
+  font-size: 18px;
+  font-weight: 800;
+  font-family: "Open Sans", sans-serif;
+  color: var(--white);
+  text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+@media only screen and (max-width: 1250px) {
+  .bannerContainer {
+    width: 100%;
+    height: 500px;
+  }
+
+  .bannerHeading {
+    font-size: 50px;
+    line-height: 110%;
+  }
+
+  .bannerContentDiv {
+    margin-left: 100px;
+    width: 600px;
+  }
+
+  .bannerPara {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .bannerContainer {
+    height: 400px;
+  }
+
+  .bannerHeading {
+    font-size: 32px;
+    font-weight: 600;
+    /* line-height: 110%; */
+  }
+
+  .bannerContentDiv {
+    width: auto;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .bannerPara {
+    font-size: 12px;
+    font-weight: 400;
+  }
+}

@@ -25,7 +25,7 @@ const Banner = ({
       className={styles.container}
       style={{ backgroundImage: `url(${imagePath})` }}
     >
-      <div className={styles.contentDiv} style={{ width: contentWidth }}>
+      <div className={styles.contentDiv} style={{ maxWidth: contentWidth }}>
         <h1
           className={styles.heading}
           style={{

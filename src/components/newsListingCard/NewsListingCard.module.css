@@ -42,6 +42,11 @@
   font-size: 12px;
   font-weight: 400;
   color: var(--black);
+  background-color: var(--gray3);
+}
+
+.category:hover {
+  background-color: var(--gray4);
 }
 
 .icon {
@@ -49,6 +54,10 @@
   background-color: var(--white);
   transform: rotate(90deg);
   cursor: pointer;
+}
+
+.icon:hover {
+  background: none;
 }
 
 .active {

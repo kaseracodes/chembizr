@@ -9,15 +9,15 @@ const Mobility = () => {
   return (
     <div className={styles.container}>
       <div className={styles.contentDiv}>
-        <h5 className={styles.subHeading}>Transitioning the acceleration</h5>
+        {/* <h5 className={styles.subHeading}>Transitioning the acceleration</h5> */}
         <h3 className={styles.heading}>Mobility</h3>
         <p className={styles.desc}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea tempor incididunt ut labore et dolore , quis nostrud
-          exercitation ullamco laboris nisi ut aliquip ex ea tempor incididunt
-          ut labore et dolore
+        Explore the future of mobility with our automotive consulting 
+        service. With deep expertise and a globally integrated approach, 
+        our mobility experts can redesign your business model. 
+        From smart materials to electric vehicles, we inspire 
+        innovation and reshape the competitive landscape, fueling growth 
+        opportunities in the modern mobility era.
         </p>
         <Button
           content="Know More"

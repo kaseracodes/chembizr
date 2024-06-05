@@ -32,16 +32,48 @@ const Footer = () => {
               Blogs
             </Link>
             <Link to="/focus" className={styles.anchor}>
-              Focus Verticals
+              Industries
             </Link>
             <Link to="/capabilities" className={styles.anchor}>
               Capabilities
             </Link>
           </div>
+
+          <div className={styles.mobileAnchorDiv}>
+            <div className={styles.innerAnchorDiv}>
+              <Link to="/about-us" className={styles.anchor}>
+                About Us
+              </Link>
+              <Link to="/news" className={styles.anchor}>
+                News
+              </Link>
+              <Link to="/focus" className={styles.anchor}>
+                Industries
+              </Link>
+            </div>
+
+            <div className={styles.innerAnchorDiv}>
+              <Link to="/careers" className={styles.anchor}>
+                Careers
+              </Link>
+              <Link to="/events" className={styles.anchor}>
+                Events
+              </Link>
+              <Link to="/capabilities" className={styles.anchor}>
+                Capabilities
+              </Link>
+            </div>
+
+            <div className={styles.innerAnchorDiv}>
+              <Link to="/blogs" className={styles.anchor}>
+                Blogs
+              </Link>
+            </div>
+          </div>
         </div>
 
         <div className={styles.rightDiv}>
-          <p className={styles.para}>Follow Our Socials</p>
+          <p className={styles.para}>Follow Us On</p>
           <div
             style={{ cursor: "pointer" }}
             // className={styles.icon}
@@ -52,7 +84,7 @@ const Footer = () => {
               )
             }
           >
-            <LinkedinIcon color={COLORS.white} />
+            <LinkedinIcon color={COLORS.darkGray} />
           </div>
         </div>
       </div>

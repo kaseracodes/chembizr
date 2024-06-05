@@ -65,12 +65,17 @@
   gap: 30px;
 }
 
-.detailsDiv {
+.detailsDiv,
+.mobileDetailsDiv {
   width: 100%;
   height: 650px;
   border-radius: 20px;
   background-color: var(--white);
   overflow-y: scroll;
+}
+
+.mobileDetailsDiv {
+  display: none;
 }
 
 .innerDetailsDiv {
@@ -159,8 +164,22 @@
     padding: 50px 20px;
   }
 
+  .tagDiv {
+    height: auto;
+    width: 100vw;
+    border-radius: 0;
+  }
+
   .innerTagDiv {
     padding: 20px;
+  }
+
+  .detailsDiv {
+    display: none;
+  }
+
+  .mobileDetailsDiv {
+    display: block;
   }
 
   .heading {

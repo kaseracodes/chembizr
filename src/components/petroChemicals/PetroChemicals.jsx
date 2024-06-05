@@ -13,17 +13,17 @@ const PetroChemicals = () => {
           Petrochemicals & Downstream
         </h3>
         <p className={styles.petroChemicalsDesc}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea tempor incididunt ut labore et dolore , quis nostrud
-          exercitation ullamco laboris nisi ut aliquip ex ea tempor incididunt
-          ut labore et dolore
+          Partner for excellence in the oil and gas industry with our downstream
+          and refining consulting. From refining fuels to downstream analysis
+          solutions, we provide unique insights, protect revenue, create
+          decarbonization strategies, optimize processes, and drive
+          transformational plans, as well as an outlook to ensure resilience in
+          volatile markets.
         </p>
         <Button
-          content="Read More"
+          content="Know More"
           bgColor={COLORS.orange}
-          onClick={() => navigate("/petro-chemicals")}
+          onClick={() => navigate("/petro-chemicals-and-downstream")}
         />
       </div>
     </div>

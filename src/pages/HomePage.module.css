@@ -23,6 +23,7 @@
 .capabilitesContainer {
   width: 100%;
   /* padding: 5px 20px; */
+  padding-top: 80px;
 }
 
 .para {
@@ -32,21 +33,22 @@
   font-weight: 400;
   color: var(--dark-gray);
   text-align: center;
-  text-transform: capitalize;
   font-family: "Open Sans", sans-serif;
 }
 
 .CapabilitiesCardDiv {
-  padding: 20px 50px 50px 50px;
+  padding: 0px 50px 0px 50px;
 }
 
 .capabilitesInnerCardDiv {
   display: flex;
   justify-content: center;
+  padding: 10px 0;
+  /* height: auto; */
 }
 
 .uniquePropositionImageDiv {
-  padding: 120px 100px;
+  padding: 50px 100px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -89,7 +91,7 @@
 
 @media only screen and (max-width: 1024px) {
   .CapabilitiesCardDiv {
-    padding: 10px 100px 50px 100px;
+    padding: 0px 100px 50px 100px;
   }
 }
 
@@ -103,7 +105,11 @@
   }
 
   .CapabilitiesCardDiv {
-    padding: 10px 30px 30px 30px;
+    padding: 0px 30px 30px 30px;
+  }
+
+  .capabilitesContainer {
+    padding-top: 0px;
   }
 }
 
@@ -114,6 +120,11 @@
 
   .para {
     font-size: 15px;
-    padding: 2px 50px;
+    padding: 0px 10px;
+    margin-top: 0px;
+  }
+
+  .capabilitesInnerCardDiv {
+    padding-bottom: 50px;
   }
 }

@@ -3,6 +3,7 @@ import { useState } from "react";
 import styles from "./EventFeedCard.module.css";
 import Modal from "../modal/Modal";
 import EventCardModal from "../eventCardModal/EventCardModal";
+import EventsCard from "../eventsCard/EventsCard";
 
 const EventFeedCard = ({
   category,
@@ -10,11 +11,13 @@ const EventFeedCard = ({
   heading,
   description,
   logoPath,
+  imagePath,
 }) => {
   const [openModal, setOpenModal] = useState(false);
-  const milliseconds = date.seconds * 1000 + Math.floor(date.nanoseconds / 1000000);
+  const milliseconds =
+    date.seconds * 1000 + Math.floor(date.nanoseconds / 1000000);
   const date1 = new Date(milliseconds);
-  const dateString = date1.toLocaleString(); 
+  const dateString = date1.toLocaleString();
   return (
     <>
       <div className={styles.container} onClick={() => setOpenModal(true)}>
@@ -27,19 +30,23 @@ const EventFeedCard = ({
         </div>
 
         <h3 className={styles.heading}>{heading}</h3>
-        <div className={styles.desc} dangerouslySetInnerHTML={{ __html: description }}></div>
+        <div
+          className={styles.desc}
+          dangerouslySetInnerHTML={{ __html: description }}
+        ></div>
 
-        {/* <div className={styles.imageDiv}>
+        <div className={styles.imageDiv}>
           <img className={styles.image} src={imagePath[0]} alt="image" />
           <div className={styles.innerImageDiv}>
             <img className={styles.image} src={imagePath[1]} alt="image" />
             <img className={styles.image} src={imagePath[2]} alt="image" />
           </div>
-        </div> */}
+        </div>
       </div>
+
       <Modal open={openModal} onClose={() => setOpenModal(false)}>
         <EventCardModal
-          // imagePath={imagePath}
+          imagePath={imagePath}
           logoPath={logoPath}
           category={category}
           date={date}
@@ -47,6 +54,17 @@ const EventFeedCard = ({
           description={description}
         />
       </Modal>
+
+      <div className={styles.mobileCardDiv}>
+        <EventsCard
+          imagePath={imagePath}
+          logoPath={logoPath}
+          category={category}
+          date={date}
+          heading={heading}
+          description={description}
+        />
+      </div>
     </>
   );
 };

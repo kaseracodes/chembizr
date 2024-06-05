@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { COLORS } from "../../assets/constants";
 import ArrowIcon from "../../svgIcons/ArrowIcon";
 import Button from "../button/Button";
@@ -8,31 +9,32 @@ const CallToAction = () => {
     <div className={styles.container}>
       <div className={styles.contentDiv}>
         <h3 className={styles.heading}>
-          Curious about our
-          <br /> solutions and services?
+          Looking for a strategic thought partner?
         </h3>
 
         <div className={styles.anchorDiv}>
-          <a href="/about-us" className={styles.anchor}>
+          <Link to="/about-us" className={styles.anchor}>
             About Us <ArrowIcon color={COLORS.green} />
-          </a>
-          <a href="/focus" className={styles.anchor}>
-            Business Focus <ArrowIcon color={COLORS.green} />
-          </a>
-          <a href="/careers" className={styles.anchor}>
+          </Link>
+          <Link to="/careers" className={styles.anchor}>
             Careers <ArrowIcon color={COLORS.green} />
+          </Link>
+          <a href={`mailto:connect@chembizr.com`} className={styles.anchor}>
+            Contact Us <ArrowIcon color={COLORS.green} />
           </a>
         </div>
 
         <div className={styles.bottomDiv}>
-          <label className={styles.label}>Subscribe to our newsletter!</label>
+          <label className={styles.label}>Have Any Further Queries?</label>
           <div className={styles.inputDiv}>
             <input
               type="email"
-              placeholder="Email Address"
+              placeholder="Feel free to share..."
               className={styles.input}
             />
-            <Button content="Submit" bgColor={COLORS.orange} />
+            <div className={styles.btn}>
+              <Button content="Submit" bgColor={COLORS.orange} />
+            </div>
           </div>
         </div>
       </div>

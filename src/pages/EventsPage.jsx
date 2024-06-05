@@ -15,10 +15,10 @@ const EventsPage = () => {
         bgColor={COLORS.white}
       />
 
-      <Banner2
+      {/* <Banner2
         imagePath="/images/event_page_hero.png"
         heading="Events You can Find Us At"
-      />
+      /> */}
 
       <EventsFeed />
 

@@ -50,6 +50,7 @@
 
   .innerCardDiv {
     justify-content: center;
+    padding-bottom: 30px;
   }
 
   .container {
@@ -67,9 +68,13 @@
   }
 
   .container {
-    padding: 30px 50px;
+    padding: 30px 20px 10px 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+  }
+
+  .contentDiv {
+    margin-bottom: 10px;
   }
 }

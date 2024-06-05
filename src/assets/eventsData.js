@@ -1,5 +1,6 @@
 export const EventsData = [
   {
+    id: "1",
     imagePath: [
       "/images/events/image1.png",
       "/images/events/image2.png",
@@ -14,6 +15,7 @@ export const EventsData = [
   },
 
   {
+    id: "2",
     imagePath: [
       "/images/events/image1.png",
       "/images/events/image2.png",
@@ -28,6 +30,7 @@ export const EventsData = [
   },
 
   {
+    id: "3",
     imagePath: [
       "/images/events/image1.png",
       "/images/events/image2.png",

@@ -1,0 +1,88 @@
+.container {
+  width: 100%;
+  height: auto;
+  display: flex;
+}
+
+.imageDiv {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.imageDiv img {
+  width: 100%;
+  height: auto;
+}
+
+.contentDiv {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.innerDiv {
+  padding: 20px 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.heading {
+  font-family: "Istok Web", sans-serif;
+  color: var(--white);
+  font-size: 70px;
+  font-weight: 700;
+  line-height: 110%;
+  margin: 0;
+}
+
+.desc {
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--white);
+  margin: 0 0 20px 0;
+}
+
+@media only screen and (max-width: 1100px) {
+  .heading {
+    font-size: 45px;
+    line-height: 110%;
+  }
+
+  .desc {
+    font-size: 12px;
+  }
+
+  .innerDiv {
+    padding: 50px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .container {
+    flex-direction: column;
+    justify-content: center;
+    gap: 0;
+    width: 500px;
+  }
+
+  .heading {
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 110%;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .container {
+    width: 100%;
+  }
+
+  .innerDiv {
+    padding: 50px;
+  }
+}

@@ -1,4 +1,4 @@
-.container {
+.newsCardcontainer {
   width: 500px;
   padding: 15px;
 }
@@ -24,7 +24,7 @@
 }
 
 @media only screen and (max-width: 800px) {
-  .container {
+  .newsCardcontainer {
     width: 350px;
   }
 

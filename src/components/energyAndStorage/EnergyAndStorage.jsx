@@ -13,15 +13,15 @@ const EnergyAndStorage = () => {
         <div className={styles.contentDiv}>
           <div className={styles.descDiv}>
             <p className={styles.desc}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea
+              Unlock the potential of clean energy sources with our consulting
+              services. From net-zero operations to hydrogen market strategy, we
+              guide businesses through the global energy transition, leveraging
+              innovative solutions for sustainability goals and growth.
             </p>
             <Button
               content="Know More"
               bgColor={COLORS.orange}
-              onClick={() => navigate("/clean-energy")}
+              onClick={() => navigate("/clean-energy-and-storage")}
             />
           </div>
           <div className={styles.img1}>

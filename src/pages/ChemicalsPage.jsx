@@ -2,41 +2,49 @@ import styles from "./FoodNutritionPage.module.css";
 import Banner from "../components/banner/Banner";
 import Navbar from "../components/navbar/Navbar";
 import { COLORS } from "../assets/constants";
-import ValueChain from "../components/valueChain/ValueChain";
+import ValueChain2 from "../components/valueChain2/ValueChain2";
 import Insights from "../components/insights/Insights";
 import Compendium from "../components/compendium/Compendium";
 import Events from "../components/events/Events";
 import News from "../components/news/News";
 import Footer from "../components/footer/Footer";
 import CallToAction from "../components/callToAction/CallToAction";
+import { FocusAreasData } from "../assets/focusAreas";
+import FocusDescription from "../components/focusDescription/FocusDescription";
 
 const ChemicalsPage = () => {
   return (
     <div className={styles.container}>
       <Navbar
         textColor={COLORS.black}
-        invertLogo={true}
-        iconColor={COLORS.white}
+        iconColor={COLORS.black}
+        bgColor={COLORS.white}
       />
 
       {/* Banner / Hero section */}
       <Banner
-        imagePath={"/images/food_page_hero.png"}
-        heading="Food and Nutrition"
-        para="In 2022, the number of investment deals in the overall plant-based food segment fell from 38 to 33. In particular, the American and European regions experienced problems like business closures. The market for plant-based foods, however, is expanding in the Asia Pacific region right now. In 2022, investment in the APAC plant-based food industry increased by 30%, reaching a valuation of."
+        imagePath={"/images/focus_area/chemicals.png"}
+        heading={FocusAreasData[1].heading}
+        para={FocusAreasData[1].description}
         buttonText="Know More"
-        textColor={COLORS.black}
-        contentWidth="450px"
+        textColor={COLORS.white}
+        contentWidth="500px"
+        // headingMarginTop="100px"
+      />
+
+      <FocusDescription
+        longDescription={FocusAreasData[1].longDescription}
+        imagePath="/images/focus_area/polymers.png"
       />
 
       {/* Value chain section */}
-      <ValueChain />
+      <ValueChain2 />
 
       {/* Insights */}
-      <Insights pagetype="Speciality Chemicals and Polymers"/>
+      <Insights pagetype="Speciality Chemicals and Polymers" />
 
       {/* Compendium */}
-      <Compendium category="Speciality Chemicals and Polymers"/>
+      <Compendium category="Speciality Chemicals and Polymers" />
 
       {/* Events */}
       <Events />

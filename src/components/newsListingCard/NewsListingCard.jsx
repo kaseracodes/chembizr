@@ -5,11 +5,12 @@ import GreaterThanIcon from "../../svgIcons/GreaterThanIcon";
 import styles from "./NewsListingCard.module.css";
 
 const NewsListingCard = ({ date, heading, description, category }) => {
-  const milliseconds = date.seconds * 1000 + Math.floor(date.nanoseconds / 1000000);
+  const milliseconds =
+    date.seconds * 1000 + Math.floor(date.nanoseconds / 1000000);
   const date1 = new Date(milliseconds);
-  const dateString = date1.toLocaleString(); 
+  const dateString = date1.toLocaleString();
   const [expanded, setExpanded] = useState(false);
-  const [desc, setDesc] = useState(description);
+  const [desc, setDesc] = useState(description.slice(0, 400) + "...");
 
   const handleClick = () => {
     if (expanded) {
@@ -22,9 +23,9 @@ const NewsListingCard = ({ date, heading, description, category }) => {
   };
   return (
     <div className={styles.container}>
-      <p className={styles.date}>{dateString}</p>
+      <p className={styles.date}>{date}</p>
       <h5 className={styles.heading}>{heading}</h5>
-      <p className={styles.desc}>{desc && (desc.length > 400 ?desc.slice(0, 400) + "..." : desc)}</p>
+      <p className={styles.desc}>{desc}</p>
       <div className={styles.buttonContainer}>
         <button className={styles.category}>{category}</button>
         <button

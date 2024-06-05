@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Banner from "../components/banner/Banner";
@@ -14,6 +15,36 @@ import MoreFocusArea from "../components/moreFocusArea/MoreFocusArea";
 import Navbar from "../components/navbar/Navbar";
 import { COLORS } from "../assets/constants";
 import Footer from "../components/footer/Footer";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { FaPlay, FaPause } from "react-icons/fa";
+import { useEffect, useState } from "react";
+
+// const CustomDot = ({ onClick, ...rest }) => {
+//   const { active } = rest;
+//   return (
+//     <li>
+//       <button
+//         style={{
+//           background: active ? "black" : "white",
+//         }}
+//         onClick={() => onClick()}
+//       />
+//     </li>
+//   );
+// };
+
+const CustomButtonGroup = ({ next, previous }) => {
+  return (
+    <div className={styles.buttonGroup}>
+      <button className={styles.customLeftArrow} onClick={() => previous()}>
+        <FaArrowLeft size={15} />
+      </button>
+      <button className={styles.customRightArrow} onClick={() => next()}>
+        <FaArrowRight size={15} />
+      </button>
+    </div>
+  );
+};
 
 const responsive = {
   superLargeDesktop: {
@@ -36,9 +67,30 @@ const responsive = {
 };
 
 const FocusParentPage = () => {
+  const [autoPlay, setAutoPlay] = useState(true);
+
+  const handlePlayPause = () => {
+    setAutoPlay(!autoPlay);
+  };
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      const sectionId = hash.substring(1); // Remove the "#" from the hash
+      const section = document.getElementById(sectionId);
+      if (section) {
+        window.scrollTo({ top: section.offsetTop, behavior: "smooth" });
+      }
+    }
+  }, []);
+
   return (
     <div className={styles.container}>
-      <Navbar textColor={COLORS.white} iconColor={COLORS.white} />
+      <Navbar
+        textColor={COLORS.black}
+        iconColor={COLORS.black}
+        bgColor={COLORS.white}
+      />
 
       {/* Banner */}
       <Banner
@@ -68,22 +120,35 @@ const FocusParentPage = () => {
       <CareAndCosmetics />
 
       {/* More Focus Areas */}
-      <div className={styles.carouselContainer}>
+      <div className={styles.carouselContainer} id="more">
         <h3 className={styles.heading}>More of Our Focus Verticals</h3>
         <h5 className={styles.subHeading}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt.
+          Get personalized solutions across a few more of our business verticals
         </h5>
-        <Carousel responsive={responsive}>
+        <Carousel
+          responsive={responsive}
+          arrows={false}
+          infinite={true}
+          autoPlay={autoPlay}
+          autoPlaySpeed={3000}
+          customButtonGroup={<CustomButtonGroup />}
+          showDots={true}
+        >
           {MoreFocusAreasData.map((item, index) => (
-            <MoreFocusArea
-              key={index}
-              imagePath={item.imagePath}
-              heading={item.heading}
-              description={item.description}
-            />
+            <div key={index} className={styles.innerCardContainer}>
+              <MoreFocusArea
+                id="more"
+                imagePath={item.imagePath}
+                heading={item.heading}
+                description={item.description}
+              />
+            </div>
           ))}
         </Carousel>
+
+        <button onClick={handlePlayPause} className={styles.playButton}>
+          {autoPlay ? <FaPause /> : <FaPlay />}
+        </button>
       </div>
 
       {/* Call to Action */}
