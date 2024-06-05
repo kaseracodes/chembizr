@@ -14,6 +14,7 @@ const News = ({ bgColor, textColor }) => {
       query(collection(firestore, "news"), orderBy("date", "desc")),
       (snapshot) => {
         setNewsData(snapshot.docs);
+        // console.log(newsData.length);
         // console.log(snapshot.docs[0].data());
       }
     );
@@ -28,11 +29,8 @@ const News = ({ bgColor, textColor }) => {
     >
       <h3 className={styles.heading}>Industry News</h3>
       <div className={styles.newsCarouselDiv}>
-        <div
-          className={styles.slideTrack}
-          style={{ width: `calc(500px * ${newsData.length}` }}
-        >
-          {newsData.map((item, index) => (
+        <div className={styles.slideTrack} style={{ width: `calc(500px * 5)` }}>
+          {newsData.slice(0, 5).map((item, index) => (
             <NewsCard
               key={index}
               date={item.data().date}

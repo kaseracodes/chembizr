@@ -151,6 +151,22 @@ const BlogListingPage = () => {
     "Politics",
   ];
 
+  // const Topics = [
+  //   "Adhesives and Sealants",
+  //   "Animal Feed and Nutrition",
+  //   "Base Oils and Waxes",
+  //   "Bio Polymers",
+  //   "Composites",
+  //   "Construction",
+  //   "Energy and Resources",
+  //   "Food and Nutrition",
+  //   "Industrial Fluids",
+  //   "Mobility",
+  //   "Oil and Gas",
+  //   "Paints and Coatings",
+  //   "Personal Care",
+  // ];
+
   const [blogsData, setBlogsData] = useState([]);
 
   useEffect(() => {
@@ -232,7 +248,7 @@ const BlogListingPage = () => {
                 key={index}
                 blogId={item.data().id}
                 heading={item.data().heading}
-                imagePath={item.data().imagePath}
+                imagePath={item.data().image}
                 author={item.data().author}
                 desc={item.data().short}
                 category={item.data().category}
@@ -261,17 +277,18 @@ const BlogListingPage = () => {
           <div className={styles.spotlightDiv}>
             <h5 className={styles.spotlightHeading}>Spotlight</h5>
             <Carousel responsive={responsive} showDots arrows={false}>
-
-              {blogsData.filter(item => item.data().isspotlight === "true").map((item, index) => {
-                // console.log("Short: ", item.data().short);
-                return (
-                  <SpotlightBlogCard
-                    key={index}
-                    imagePath={item.data().imagePath}
-                    desc={item.data().short}
-                  />
-                );
-              })}
+              {blogsData
+                .filter((item) => item.data().isspotlight === "true")
+                .map((item, index) => {
+                  // console.log("Short: ", item.data().short);
+                  return (
+                    <SpotlightBlogCard
+                      key={index}
+                      imagePath={item.data().image}
+                      desc={item.data().short}
+                    />
+                  );
+                })}
             </Carousel>
           </div>
 

@@ -83,7 +83,8 @@ const Events = () => {
       query(collection(firestore, "events"), orderBy("date", "desc")),
       (snapshot) => {
         setEventsData(snapshot.docs);
-        console.log(snapshot.docs[0].data());
+        // console.log(snapshot.docs[0].data());
+        // console.log(eventsData.length);
       }
     );
 
@@ -112,19 +113,21 @@ const Events = () => {
       {/* <h3 className={styles.heading}>Events</h3> */}
       <Heading content="Events" />
       <div className={styles.carouselContainer}>
-        <Carousel responsive={responsive} ssr>
-          {/* {eventsData.map((item, index) => (
-            <EventsCard
-              key={index}
-              imagePath={item.data().imagePath}
-              logoPath={item.data().logoPath}
-              category={item.data().category}
-              date={item.data().date}
-              heading={item.data().heading}
-              description={item.data().description}
-            />
-
-          ))} */}
+        <Carousel responsive={responsive} arrows={true}>
+          {eventsData
+            .slice(0, Math.min(3, eventsData.length))
+            .map((item, index) => (
+              <div key={index} className={styles.innerCardDiv}>
+                <EventsCard
+                  imagePath={item.data().images}
+                  logoPath={EventsData[0].logoPath}
+                  category={item.data().category}
+                  date={item.data().date}
+                  heading={item.data().heading}
+                  description={item.data().description}
+                />
+              </div>
+            ))}
           {/* {EventsData.map((item, index) => (
             <div key={index} className={styles.innerCardDiv}>
               <EventsCard
@@ -137,26 +140,20 @@ const Events = () => {
               />
             </div>
           ))} */}
-
-          {eventItems}
-
-          {/* <InnerCarousel />
-          <InnerCarousel />
-          <InnerCarousel /> */}
         </Carousel>
       </div>
 
       <div className={styles.mobileCardDiv}>
-        {eventsData && eventsData.length > 0 &&
+        {eventsData && eventsData.length > 0 && (
           <EventsCard
-          imagePath={eventsData[0].data().images}
-          logoPath={EventsData[0].logoPath}
-          category={eventsData[0].data().category}
-          date={eventsData[0].data().date}
-          heading={eventsData[0].data().heading}
-          description={eventsData[0].data().description}
-        />
-        }
+            imagePath={eventsData[0].data().images}
+            logoPath={EventsData[0].logoPath}
+            category={eventsData[0].data().category}
+            date={eventsData[0].data().date}
+            heading={eventsData[0].data().heading}
+            description={eventsData[0].data().description}
+          />
+        )}
         <button className={styles.btn} onClick={() => navigate("/events")}>
           Explore More Events{" "}
           <ArrowIcon color={COLORS.white} height="12" width="18" />
