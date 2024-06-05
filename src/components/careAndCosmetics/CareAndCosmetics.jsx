@@ -28,11 +28,12 @@ const CareAndCosmetics = () => {
       <div className={styles.rightDiv}>
         {/* <h5 className={styles.subHeading}>Oil Consumption Across</h5> */}
         <p className={styles.desc}>
-          Elevate your presence in the cosmetic industry with our agile
-          portfolio management and comprehensive insights in the active
-          ingredient space. We leverage early innovation and tailored innovation
-          to optimize ROI, enabling growth in the global ingredient market, like
-          marine actives.
+        We leverage our expertise in chemicals and ingredients to identify 
+        novel solutions in bio-based, marine, and plant-based categories, 
+        among others. Our consultants offer comprehensive insights into 
+        the ingredient formulation market, assisting chemical companies 
+        and ingredient formulators as well as manufacturers in the personal 
+        care and cosmetics space to achieve market dominance.
         </p>
         <Button
           content="Know More"

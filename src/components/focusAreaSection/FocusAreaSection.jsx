@@ -32,8 +32,8 @@ const FocusAreaSection = () => {
         <div className={styles.leftDiv}>
           <h3 className={styles.heading}>Verticals We Serve!</h3>
           <p className={styles.desc}>
-            ChemBizR realizes the value of adequate industry domain knowledge
-            and exposure to better evaluate client challenges.
+          Our expertise and knowledge range across a multitude of industries, 
+          as we create customized solutions to meet business needs across the value chain.
           </p>
 
           <div className={styles.linkDiv} onClick={handleLinkClick}>

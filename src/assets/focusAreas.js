@@ -8,9 +8,9 @@ export const FocusAreasData = [
     description:
       "We can tailor your requirements by providing a comprehensive market understanding, value chain analysis, and more, supported by our proprietary database, taking your business ideas from concept to commercialization.",
     longDescription: [
-      "At ChemBizR, we understand the interplay of market dynamics and emerging trends in the food industry. Specializing in identifying emerging trends and leveraging exponential technologies, we drive product innovation and market differentiation. Our consultancy goes beyond traditional solutions, providing targeted strategies for growth and market expansion.",
-      "We identify untapped opportunities by conducting thorough market assessments and regulatory analyses and develop customized growth plans for each client's unique objectives. Whether it's solution scouting, innovation pipeline development, or competitive benchmarking, we're your trusted partner for driving commercial success and market leadership.",
-      "Drawing on our deep industry knowledge and extensive experience, ChemBizr is your trusted partner in navigating the complexities of today’s market. At the heart of our approach lies a commitment to sustainability, resilience, and strategic partnership-building. We empower businesses to thrive in an ever-evolving global marketplace.",
+      "At ChemBizR, we understand the interplay of market dynamics and emerging trends in the food industry. We specialize in identifying clean-label blends and the impact of bans and regulations in the food space. Our consultancy goes beyond traditional solutions, providing different levels of customization based on the requirement.",
+      "We identify untapped opportunities by understanding client success stories and finding the gaps that can be leveraged for creating growth plans based on the unique selling points that beat the competition. Be it sugar reduction, eggflation, or a surge in cocoa prices, we are inclined towards identifying the directional wave of trends, doing solution scouting, and creating innovative pipeline development. We are your trusted partners for driving commercial success in this sustainability-focused market that requires high-end transparency.",
+      "Drawing on our deep industry knowledge and extensive experience, ChemBizR is your trusted partner in navigating the complexities of today’s food market. At the heart of our approach lies a commitment to sustainability in processes and ingredients, sustainability, and waste management, via strategic partnership-building.",
     ],
     buttonText: "Know More",
     pageLink: "/food-nutrition-and-beverages",
@@ -92,9 +92,9 @@ export const FocusAreasData = [
     description:
       "From color cosmetic ingredients to UV absorbers, our solutions are designed to meet the diverse needs of consumers while optimizing their beauty customer experience. We empower brands to unlock new opportunities and foster growth through tailored innovation.",
     longDescription: [
-      "Fueled by data and driven by a commitment to efficacy, we empower brands to stand out in a crowded market, delivering personalized experiences that resonate with today's conscious consumers.",
-      "Our agile portfolio management approach ensures brands stay ahead of the curve, optimizing ROI and driving accelerated growth. From anti-aging formulations to anti-pollution skincare, our focus on efficacy and performance benefits ensures brands stand out in the competitive cosmetic industry.",
-      "We unearth opportunities and lead the charge toward a more conscious beauty industry. Our expertise in ingredient selection, fueled by comprehensive insights and global market knowledge, enables brands to optimize their ingredient portfolio strategies and enhance brand positioning.",
+      "Fueled by data and driven by a commitment to efficacy, we empower formulators to stand out in a crowded market, making informed decisions on ingredients and technologies that resonate with the current market demands.",
+      "Our expertise ranges from finding novel anti-oxidants, moisturizing agents, and other ingredients that provide peak product performance. From sustainable packaging solutions and using biodegradable materials to understanding biotechnology and diving into algae-based sources, we help make the crossover of the personal care industry with sustainability possible.",
+      "We unearth opportunities and lead the charge toward a more conscious and inclusive beauty industry by understanding regional dynamics, regulatory changes, and pre-dominant challenges. Our expertise in identifying the right ingredients and chemicals for the product portfolio, fueled by comprehensive insights and global market knowledge, enables us to suggest the best solutions for efficient products.",
     ],
     buttonText: "Know More",
     pageLink: "/personal-care-and-cosmetics",

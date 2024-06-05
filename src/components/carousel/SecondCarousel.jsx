@@ -23,7 +23,7 @@ const SecondCarousel = () => {
 
         <p className={styles.para}>
           Be future-relevant and agile with your growth strategies in
-          <br /> order to fulfill the green demands of the industry
+          <br /> order to fulfill the green demands of the industry.
         </p>
 
         <Button

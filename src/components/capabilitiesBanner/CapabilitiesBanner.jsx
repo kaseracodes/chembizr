@@ -18,9 +18,8 @@ const CapabilitiesBanner = ({ imagePath }) => {
         </h1>
 
         <p className={styles.bannerPara}>
-          We realize the value of adequate application-specific knowledge and
-          exposure to better evaluate client challenges and accordingly offer
-          the requisite solutions.
+        We offer value-driven application-specific knowledge to better evaluate client 
+        challenges and accordingly offer the requisite solutions.
         </p>
       </div>
     </div>

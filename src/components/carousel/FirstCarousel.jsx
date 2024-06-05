@@ -21,8 +21,7 @@ const FirstCarousel = ({ bgImage, textColor }) => {
         </h1>
 
         <p className={styles.firstPara} style={{ color: textColor }}>
-          Remodeling corporate and market strategy for
-          <br /> business growth and future transitions
+          Remodeling corporate and market strategy for business growth and future transitions via business intelligence solutions for the chemical industry.
         </p>
 
         <Button
