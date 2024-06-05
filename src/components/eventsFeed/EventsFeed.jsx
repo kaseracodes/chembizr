@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { COLORS } from "../../assets/constants";
-import { EventsData } from "../../assets/eventsData";
+// import { EventsData } from "../../assets/eventsData";
 import Button from "../button/Button";
 import EventFeedCard from "../eventFeedCard/EventFeedCard";
 import EventTitleCard from "../eventTitleCard/EventTitleCard";
@@ -47,14 +47,15 @@ const EventsFeed = () => {
         <h5 className={styles.divHeading}>Recent Events</h5>
         <hr className={styles.hr} />
         <div className={styles.titleCardDiv}>
-          {EventsData.map((item, index) => (
+          {eventsData.map((item, index) => (
             <EventTitleCard
               key={index}
-              heading={item.heading}
-              date={new Date(
-                item.date.seconds * 1000 +
-                  Math.floor(item.date.nanoseconds / 1000000)
-              ).toLocaleString()}
+              heading={item.data().heading}
+              // date={new Date(
+              //   item.date.seconds * 1000 +
+              //     Math.floor(item.date.nanoseconds / 1000000)
+              // ).toLocaleString()}
+              date={item.data().date}
             />
           ))}
         </div>
@@ -65,24 +66,24 @@ const EventsFeed = () => {
       </div>
 
       <div className={styles.middleDiv}>
-        {EventsData.map((item, index) => (
+        {eventsData.map((item, index) => (
           <EventFeedCard
             key={index}
-// <<<<<<< db
-//             category={item.data().category}
-//             date={item.data().date}
-//             heading={item.data().heading}
-//             description={item.data().description}
-//             // imagePath={item.data().imagePath}
-//             logoPath={item.data().logoPath}
-// =======
-            category={item.category}
-            date={item.date}
-            heading={item.heading}
-            description={item.description}
-            imagePath={item.imagePath}
-            logoPath={item.logoPath}
-// >>>>>>> main
+
+            category={item.data().category}
+            date={item.data().date}
+            heading={item.data().heading}
+            description={item.data().description}
+            imagePath={item.data().images}
+            logoPath={item.data().images}
+
+            // category={item.category}
+            // date={item.date}
+            // heading={item.heading}
+            // description={item.description}
+            // imagePath={item.imagePath}
+            // logoPath={item.logoPath}
+
           />
         ))}
       </div>

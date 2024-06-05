@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { NewsData } from "../../assets/newsData";
+// import { NewsData } from "../../assets/newsData";
 import NewsCard from "../newsCard/NewsCard";
 import styles from "./News.module.css";
 import React, { useState, useEffect } from "react";
@@ -30,14 +30,14 @@ const News = ({ bgColor, textColor }) => {
       <div className={styles.newsCarouselDiv}>
         <div
           className={styles.slideTrack}
-          style={{ width: `calc(500px * ${NewsData.length}` }}
+          style={{ width: `calc(500px * ${newsData.length}` }}
         >
-          {NewsData.map((item, index) => (
+          {newsData.map((item, index) => (
             <NewsCard
               key={index}
-              date={item.date}
-              heading={item.heading}
-              description={item.description}
+              date={item.data().date}
+              heading={item.data().heading}
+              description={item.data().desc}
             />
           ))}
         </div>

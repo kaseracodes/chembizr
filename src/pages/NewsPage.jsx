@@ -3,7 +3,7 @@ import Banner2 from "../components/banner2/Banner2";
 import Navbar from "../components/navbar/Navbar";
 import { COLORS } from "../assets/constants";
 import BussinessVerticals from "../components/bussinessVerticals/BussinessVerticals";
-import { NewsListingData } from "../assets/newsListingData";
+// import { NewsListingData } from "../assets/newsListingData";
 import NewsListingCard from "../components/newsListingCard/NewsListingCard";
 import CallToAction from "../components/callToAction/CallToAction";
 import Footer from "../components/footer/Footer";
@@ -49,9 +49,9 @@ const NewsPage = () => {
 
   const NEWS_PER_PAGE = 3;
   const hasPrev = NEWS_PER_PAGE * (page - 1) > 0;
-  const hasNext = NEWS_PER_PAGE * page < NewsListingData.length;
+  const hasNext = NEWS_PER_PAGE * page < newsData.length;
   const startIndex = NEWS_PER_PAGE * (page - 1);
-  const endIndex = Math.min(startIndex + NEWS_PER_PAGE, NewsListingData.length);
+  const endIndex = Math.min(startIndex + NEWS_PER_PAGE, newsData.length);
 
   return (
     <div className={styles.container}>
@@ -65,13 +65,13 @@ const NewsPage = () => {
 
       <div className={styles.newsListingDiv}>
         <div className={styles.newsCardDiv}>
-          {NewsListingData.slice(startIndex, endIndex).map((item, index) => (
+          {newsData.slice(startIndex, endIndex).map((item, index) => (
             <NewsListingCard
               key={index}
-              date={item.date}
-              heading={item.heading}
-              description={item.description}
-              category={item.category}
+              date={item.data().date}
+              heading={item.data().heading}
+              description={item.data().desc}
+              category={item.data().category}
             />
           ))}
           <Pagination

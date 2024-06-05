@@ -13,10 +13,11 @@ const BlogListingCard = ({
 }) => {
   const navigate = useNavigate();
   // console.log(date);
-  const milliseconds =
-    date.seconds * 1000 + Math.floor(date.nanoseconds / 1000000);
-  const date1 = new Date(milliseconds);
-  const dateString = date1.toLocaleString();
+  // const milliseconds =
+  //   date.seconds * 1000 + Math.floor(date.nanoseconds / 1000000);
+  // const date1 = new Date(milliseconds);
+  // const dateString = date1.toLocaleString();
+  const dateString = date.toLocaleString();
   // console.log(dateString);
   return (
     <div className={styles.container}>

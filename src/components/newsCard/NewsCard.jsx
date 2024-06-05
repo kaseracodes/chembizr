@@ -2,11 +2,11 @@
 import styles from "./NewsCard.module.css";
 
 const NewsCard = ({ date, heading, description }) => {
-  const milliseconds =
-    date.seconds * 1000 + Math.floor(date.nanoseconds / 1000000);
-  const date1 = new Date(milliseconds);
-  const dateString = date1.toLocaleString();
-
+  // const milliseconds =
+  //   date.seconds * 1000 + Math.floor(date.nanoseconds / 1000000);
+  // const date1 = new Date(milliseconds);
+  // const dateString = date1.toLocaleString();
+  const dateString = date.toLocaleString();
   return (
     <div className={styles.newsCardcontainer}>
       <h5 className={styles.date}>{date}</h5>

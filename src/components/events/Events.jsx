@@ -91,16 +91,16 @@ const Events = () => {
   }, []);
 
   let eventItems = [];
-  for (let i = 0; i < EventsData.length; i++) {
+  for (let i = 0; i < eventsData.length; i++) {
     eventItems.push(
       <div key={i} className={styles.innerCardDiv}>
         <EventsCard
-          imagePath={EventsData[i].imagePath}
-          logoPath={EventsData[i].logoPath}
-          category={EventsData[i].category}
-          date={EventsData[i].date}
-          heading={EventsData[i].heading}
-          description={EventsData[i].description}
+          imagePath={eventsData[i].data().images}
+          logoPath={EventsData[0].logoPath}
+          category={eventsData[i].data().category}
+          date={eventsData[i].data().date}
+          heading={eventsData[i].data().heading}
+          description={eventsData[i].data().description}
         />
       </div>
     );
@@ -147,14 +147,16 @@ const Events = () => {
       </div>
 
       <div className={styles.mobileCardDiv}>
-        <EventsCard
-          imagePath={EventsData[0].imagePath}
+        {eventsData && eventsData.length > 0 &&
+          <EventsCard
+          imagePath={eventsData[0].data().images}
           logoPath={EventsData[0].logoPath}
-          category={EventsData[0].category}
-          date={EventsData[0].date}
-          heading={EventsData[0].heading}
-          description={EventsData[0].description}
+          category={eventsData[0].data().category}
+          date={eventsData[0].data().date}
+          heading={eventsData[0].data().heading}
+          description={eventsData[0].data().description}
         />
+        }
         <button className={styles.btn} onClick={() => navigate("/events")}>
           Explore More Events{" "}
           <ArrowIcon color={COLORS.white} height="12" width="18" />

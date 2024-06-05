@@ -23,11 +23,11 @@ const EventsCard = ({
   description,
 }) => {
   const navigate = useNavigate();
-  const milliseconds =
-    date.seconds * 1000 + Math.floor(date.nanoseconds / 1000000);
-  const date1 = new Date(milliseconds);
-  const dateString = date1.toLocaleString();
-
+  // const milliseconds =
+  //   date.seconds * 1000 + Math.floor(date.nanoseconds / 1000000);
+  // const date1 = new Date(milliseconds);
+  // const dateString = date1.toLocaleString();
+  const dateString = date.toLocaleString();
   console.log(imagePath);
 
   const responsive = {
