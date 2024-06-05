@@ -71,10 +71,9 @@ const Compendium = ({ category }) => {
     <div className={styles.container}>
       {/* <h3 className={styles.heading}>Compendium</h3> */}
       <Heading content="Compendium" />
-      <h5 className={styles.subHeading}>Industry Trends</h5>
+      {/* <h5 className={styles.subHeading}>Industry Trends</h5> */}
       <p className={styles.desc}>
-        Delving into your industry, we bring profound insights, implementable
-        suggestions, the dedication and
+        Delving in Industry-specific trends
       </p>
 
       <div className={styles.cardDiv}>

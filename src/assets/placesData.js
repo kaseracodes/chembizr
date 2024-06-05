@@ -11,7 +11,7 @@ export const PlacesData = [
     imagePath: "/images/building.png",
     country: "India",
     address:
-      "#313 Welldone Tech Park, Sector 48, Gurugram, Haryana 122001 India",
+      "ChemBizR, 107/ 108/ 108A, Iris Tech Park, Sector 48, Gurugram, Haryana, 122001, India",
     email: "connect@chembizr.com",
     phone: "+91 124 460 3022",
   },

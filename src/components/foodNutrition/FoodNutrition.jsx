@@ -14,13 +14,13 @@ const FoodNutrition = () => {
       <div className={styles.contentDiv}>
         <div className={styles.descContainer}>
           <p className={styles.desc}>
-          We offer the right strategic fit for finding alternative 
-          ingredients and products to beat the inflation effect in 
-          the food industry via new innovations. Our strategies can help 
-          ingredient manufacturers become market leaders and challenge 
-          competitive threats. From technology landscape analysis to 
-          competitive positioning, we create resilient value chains to 
-          enhance market penetration for ingredients.
+            We offer the right strategic fit for finding alternative 
+            ingredients and products to beat the inflation effect in 
+            the food industry via new innovations. Our strategies 
+            can help ingredient manufacturers become market leaders 
+            and challenge competitive threats. From technology 
+            landscape analysis to vertical integration, we create 
+            resilient value chains to enhance market penetration for ingredients.
           </p>
           <Button
             content="Know More"

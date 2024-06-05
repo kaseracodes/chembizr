@@ -303,9 +303,9 @@ const BlogListingPage = () => {
         </div>
       </div>
 
-      <CallToAction />
+      {/* <CallToAction /> */}
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

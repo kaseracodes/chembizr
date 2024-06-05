@@ -13,15 +13,15 @@ const CallToAction = () => {
         </h3>
 
         <div className={styles.anchorDiv}>
+          <a href={`mailto:connect@chembizr.com`} className={styles.label}>
+            Send us an Email <ArrowIcon color={COLORS.green} />
+          </a>
           <Link to="/about-us" className={styles.anchor}>
             About Us <ArrowIcon color={COLORS.green} />
           </Link>
           <Link to="/careers" className={styles.anchor}>
             Careers <ArrowIcon color={COLORS.green} />
           </Link>
-          <a href={`mailto:connect@chembizr.com`} className={styles.anchor}>
-            Contact Us <ArrowIcon color={COLORS.green} />
-          </a>
         </div>
 
         <div className={styles.bottomDiv}>

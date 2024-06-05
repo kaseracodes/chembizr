@@ -83,7 +83,6 @@ const HomePage = () => {
 
       <div style={{ marginTop: "-120px" }}>
         <Carousel responsive={responsiveHero}>
-          <FirstCarousel bgImage="/images/home_page_hero.png" />
           <FirstCarousel
             bgImage="/images/home_page_hero_2.png"
             textColor={COLORS.blue2}
