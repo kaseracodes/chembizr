@@ -2,7 +2,7 @@ import styles from "./NewsPage.module.css";
 import Banner2 from "../components/banner2/Banner2";
 import Navbar from "../components/navbar/Navbar";
 import { COLORS } from "../assets/constants";
-import BussinessVerticals from "../components/bussinessVerticals/BussinessVerticals";
+// import BussinessVerticals from "../components/bussinessVerticals/BussinessVerticals";
 // import { NewsListingData } from "../assets/newsListingData";
 import NewsListingCard from "../components/newsListingCard/NewsListingCard";
 import CallToAction from "../components/callToAction/CallToAction";
@@ -31,6 +31,20 @@ const NewsPage = () => {
   ];
 
   const [newsData, setNewsData] = useState([]);
+  const [activeButton, setActiveButton] = useState(null);
+  const [buttonColors, setButtonColors] = useState(
+    Array(BussinessVerticalsItems.length).fill(COLORS.gray3)
+  );
+
+  const handleClick = (index) => {
+    setActiveButton(index);
+
+    const newButtonColors = Array(BussinessVerticalsItems.length).fill(
+      COLORS.gray3
+    );
+    newButtonColors[index] = COLORS.green;
+    setButtonColors(newButtonColors);
+  };
 
   useEffect(() => {
     const unsubscribe = onSnapshot(
@@ -82,10 +96,29 @@ const NewsPage = () => {
           />
         </div>
 
-        <BussinessVerticals
+        {/* <BussinessVerticals
           BussinessVerticals={BussinessVerticalsItems}
           buttonColor={COLORS.gray3}
-        />
+        /> */}
+
+        <div className={styles.bvContainer}>
+          <h5 className={styles.divHeading}>Business Verticals</h5>
+          <hr className={styles.hr} />
+          <div className={styles.bvDiv}>
+            {BussinessVerticalsItems.map((item, index) => (
+              <button
+                style={{ backgroundColor: buttonColors[index] }}
+                className={`${styles.bvItem} ${
+                  index === activeButton ? styles.active : ""
+                }`}
+                key={index}
+                onClick={() => handleClick(index)}
+              >
+                {item}
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
 
       <CallToAction />

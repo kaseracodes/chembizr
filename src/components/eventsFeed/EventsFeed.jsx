@@ -5,7 +5,7 @@ import Button from "../button/Button";
 import EventFeedCard from "../eventFeedCard/EventFeedCard";
 import EventTitleCard from "../eventTitleCard/EventTitleCard";
 import styles from "./EventsFeed.module.css";
-import BussinessVerticals from "../bussinessVerticals/BussinessVerticals";
+// import BussinessVerticals from "../bussinessVerticals/BussinessVerticals";
 import React, { useState, useEffect } from "react";
 import { firestore } from "../../firebase/firebase";
 import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
@@ -28,6 +28,20 @@ const BussinessVerticalsItems = [
 
 const EventsFeed = () => {
   const [eventsData, setEventsData] = useState([]);
+  const [activeButton, setActiveButton] = useState(null);
+  const [buttonColors, setButtonColors] = useState(
+    Array(BussinessVerticalsItems.length).fill(COLORS.white)
+  );
+
+  const handleClick = (index) => {
+    setActiveButton(index);
+
+    const newButtonColors = Array(BussinessVerticalsItems.length).fill(
+      COLORS.white
+    );
+    newButtonColors[index] = COLORS.green;
+    setButtonColors(newButtonColors);
+  };
 
   useEffect(() => {
     const unsubscribe = onSnapshot(
@@ -69,7 +83,6 @@ const EventsFeed = () => {
         {eventsData.map((item, index) => (
           <EventFeedCard
             key={index}
-
             category={item.data().category}
             date={item.data().date}
             heading={item.data().heading}
@@ -83,15 +96,33 @@ const EventsFeed = () => {
             // description={item.description}
             // imagePath={item.imagePath}
             // logoPath={item.logoPath}
-
           />
         ))}
       </div>
 
-      <BussinessVerticals
+      {/* <BussinessVerticals
         BussinessVerticals={BussinessVerticalsItems}
         buttonColor={COLORS.white}
-      />
+      /> */}
+
+      <div className={styles.bvContainer}>
+        <h5 className={styles.divHeading}>Business Verticals</h5>
+        <hr className={styles.hr} />
+        <div className={styles.bvDiv}>
+          {BussinessVerticalsItems.map((item, index) => (
+            <button
+              style={{ backgroundColor: buttonColors[index] }}
+              className={`${styles.bvItem} ${
+                index === activeButton ? styles.active : ""
+              }`}
+              key={index}
+              onClick={() => handleClick(index)}
+            >
+              {item}
+            </button>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
