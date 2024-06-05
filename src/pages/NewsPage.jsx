@@ -68,7 +68,7 @@ const NewsPage = () => {
   };
 
   useEffect(() => {
-    buttonColors[0] = COLORS.green;
+    buttonColors[activeButton] = COLORS.green;
 
     const unsubscribe = onSnapshot(
       query(

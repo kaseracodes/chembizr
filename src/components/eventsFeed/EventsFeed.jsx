@@ -63,7 +63,7 @@ const EventsFeed = () => {
   const endIndex = Math.min(startIndex + NEWS_PER_PAGE, eventsData.length);
 
   useEffect(() => {
-    buttonColors[0] = COLORS.green;
+    buttonColors[activeButton] = COLORS.green;
 
     const unsubscribe = onSnapshot(
       query(
