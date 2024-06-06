@@ -121,7 +121,7 @@ const Events = () => {
       <div className={styles.carouselContainer}>
         <Carousel responsive={responsive} arrows={true}>
           {eventsData
-            .slice(0, Math.min(3, eventsData.length))
+            .slice(0, Math.min(8, eventsData.length))
             .map((item, index) => (
               <div key={index} className={styles.innerCardDiv}>
                 <EventsCard

@@ -16,11 +16,8 @@ const DropDownModal = ({ modalContents, width }) => {
               >
                 Food Nutrition & Beverages
               </Link>
-              <Link
-                to="/speciality-polymers"
-                className={styles.innerAnchor}
-              >
-                Speciality Chemicals & Polymers
+              <Link to="/speciality-polymers" className={styles.innerAnchor}>
+                Speciality Polymers
               </Link>
               <Link
                 to="/petro-chemicals-and-downstream"

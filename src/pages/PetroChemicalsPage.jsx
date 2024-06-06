@@ -24,12 +24,12 @@ const PetroChemicalsPage = () => {
       {/* Banner / Hero section */}
       <Banner
         imagePath={"/images/focus_area/petro_chemicals.png"}
-        heading="Petro-Chemicals<br /> And Downstream"
+        heading="Decarbonization: Where are we Headed?"
         para={FocusAreasData[2].description}
         buttonText="Know More"
         textColor={COLORS.white}
-        contentWidth={"600px"}
-        headingMarginTop={"130px"}
+        contentWidth="600px"
+        headingMarginTop="110px"
       />
 
       <FocusDescription

@@ -66,12 +66,12 @@ const CleanEnergyPage = () => {
       {/* Banner / Hero section */}
       <Banner
         imagePath={"/images/focus_area/clean_energy.png"}
-        heading="Clean Energy<br /> And Storage"
+        heading="Can energy storage power the sustainability revolution?"
         para={FocusAreasData[3].description}
         buttonText="Know More"
         textColor={COLORS.white}
-        contentWidth="450px"
-        headingMarginTop={"130px"}
+        contentWidth="800px"
+        headingMarginTop="100px"
       />
 
       <FocusDescription

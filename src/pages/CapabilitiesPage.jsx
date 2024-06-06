@@ -55,13 +55,14 @@ const CapabilitiesPage = () => {
         heading="Capabilities"
       /> */}
 
-      <div style={{ marginTop: "-120px" }}>
-        <Carousel responsive={responsiveHero}>
+      <div style={{ marginTop: "-150px" }}>
+        {/* <Carousel responsive={responsiveHero}>
           <CapabilitiesBanner imagePath="/images/capabilities_page/banner1.png" />
           <CapabilitiesBanner imagePath="/images/capabilities_page/banner2.png" />
           <CapabilitiesBanner imagePath="/images/capabilities_page/banner3.png" />
           <CapabilitiesBanner imagePath="/images/capabilities_page/banner4.png" />
-        </Carousel>
+        </Carousel> */}
+        <CapabilitiesBanner imagePath="/images/capabilities_page/banner5.png" />
       </div>
 
       <div className={styles.mainContainer}>

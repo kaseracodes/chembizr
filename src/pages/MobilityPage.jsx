@@ -24,12 +24,12 @@ const MobilityPage = () => {
       {/* Banner / Hero section */}
       <Banner
         imagePath={"/images/focus_area/focus_area5.png"}
-        heading="Mobility"
+        heading="Opportunities and Challenges for Composites in Electric Vehicles"
         para={FocusAreasData[4].description}
         buttonText="Know More"
         textColor={COLORS.black}
-        contentWidth="450px"
-        headingMarginTop={"130px"}
+        contentWidth="800px"
+        headingMarginTop="100px"
       />
 
       <FocusDescription

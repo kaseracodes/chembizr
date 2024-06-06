@@ -25,12 +25,12 @@ const FoodNutritionPage = () => {
       {/* Banner / Hero section */}
       <Banner
         imagePath={"/images/food_page_hero.png"}
-        heading="Food Nutrition<br /> and Beverages"
+        heading="What’s driving food factory closures – and how to avoid them"
         para={FocusAreasData[0].description}
         buttonText="Know More"
         textColor={COLORS.black}
-        headingMarginTop="130px"
-        contentWidth="600px"
+        headingMarginTop="100px"
+        contentWidth="700px"
       />
 
       <FocusDescription

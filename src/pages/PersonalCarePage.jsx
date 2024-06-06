@@ -24,11 +24,12 @@ const PersonalCarePage = () => {
       {/* Banner / Hero section */}
       <Banner
         imagePath={"/images/focus_area/focus_area6.png"}
-        heading="Personal Care<br /> & Cosmetics"
+        heading="Making sense of the anti-pollution segment"
         para={FocusAreasData[5].description}
         buttonText="Know More"
         textColor={COLORS.black}
-        contentWidth="500px"
+        contentWidth="600px"
+        headingMarginTop="100px"
       />
 
       <FocusDescription

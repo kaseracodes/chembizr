@@ -24,12 +24,12 @@ const ChemicalsPage = () => {
       {/* Banner / Hero section */}
       <Banner
         imagePath={"/images/focus_area/chemicals.png"}
-        heading={FocusAreasData[1].heading}
+        heading="Proposal to Ban Fluoropolymers Has European Industry on Edge"
         para={FocusAreasData[1].description}
         buttonText="Know More"
         textColor={COLORS.white}
-        contentWidth="500px"
-        // headingMarginTop="100px"
+        contentWidth="800px"
+        headingMarginTop="100px"
       />
 
       <FocusDescription

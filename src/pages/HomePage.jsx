@@ -58,11 +58,11 @@ const responsiveCapabilities = {
 };
 
 const HomePage = () => {
-  const [showDots, setShowDots] = useState(window.innerWidth < 550);
+  const [showDots, setShowDots] = useState(window.innerWidth <= 550);
 
   useEffect(() => {
     const handleResize = () => {
-      setShowDots(window.innerWidth < 550);
+      setShowDots(window.innerWidth <= 550);
     };
 
     window.addEventListener("resize", handleResize);

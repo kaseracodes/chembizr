@@ -12,9 +12,7 @@ const Chemicals = () => {
         <img src="/images/chemicals.png" alt="image" />
       </div>
       <div className={styles.chemicalsContentDiv}>
-        <h3 className={styles.chemicalsHeading}>
-          Speciality Chemicals & Polymers
-        </h3>
+        <h3 className={styles.chemicalsHeading}>Speciality Polymers</h3>
         {/* <h5 className={styles.chemicalsSubHeading}>Lorem ipsum dolor</h5> */}
         <p className={styles.desc}>
           Navigate the market complexities of the polymer industry, optimize

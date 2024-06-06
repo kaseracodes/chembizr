@@ -21,10 +21,10 @@
   font-size: 70px;
   font-weight: 700;
   line-height: 125%;
-  color: var(--white);
+  color: var(--black);
   margin-top: 15px;
   margin-bottom: 0;
-  text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  /* text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5); */
 }
 
 .bannerSpecial {
@@ -40,8 +40,8 @@
   font-size: 18px;
   font-weight: 800;
   font-family: "Open Sans", sans-serif;
-  color: var(--white);
-  text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  color: var(--black);
+  /* text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5); */
 }
 
 @media only screen and (max-width: 1250px) {
