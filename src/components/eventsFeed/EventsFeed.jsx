@@ -121,7 +121,7 @@ const EventsFeed = () => {
         <hr className={styles.hr} />
 
         <button className={styles.commentBtn}>Leave a comment!</button>
-        <Button content="Subscribe" bgColor={COLORS.orange} />
+        <Button content="Submit" bgColor={COLORS.orange} />
       </div>
 
       <div className={styles.middleDiv}>

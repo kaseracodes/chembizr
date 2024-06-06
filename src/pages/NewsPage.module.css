@@ -8,6 +8,7 @@
 
 .newsCardDiv {
   /* height: 100%; */
+  width: 100%;
   display: flex;
   flex-direction: column;
   padding: 50px 100px;

@@ -1,5 +1,5 @@
 .container {
-  padding: 50px 80px 50px 100px;
+  padding: 50px 80px 40px 100px;
 }
 
 .heading {
@@ -19,7 +19,7 @@
 }
 
 .contentDiv {
-  margin-bottom: 50px;
+  /* margin-bottom: 50px; */
 }
 
 .innerCardDiv {

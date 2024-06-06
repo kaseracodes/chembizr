@@ -14,7 +14,7 @@ const Button = ({ content, bgColor, onClick, disabled }) => {
   };
 
   const getButtonStyle = () => {
-    if (hovered) {
+    if (hovered || disabled) {
       const darkColor = darkenColor(bgColor, 20);
 
       return {
