@@ -9,6 +9,11 @@ const NewsListingCard = ({ date, heading, description, category }) => {
   //   date.seconds * 1000 + Math.floor(date.nanoseconds / 1000000);
   // const date1 = new Date(milliseconds);
   const dateString = date.toLocaleString();
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const options = { day: "2-digit", month: "short", year: "numeric" };
+    return date.toLocaleDateString("en-GB", options);
+  };
   const [expanded, setExpanded] = useState(false);
   const [desc, setDesc] = useState(description.slice(0, 400) + "...");
 
@@ -23,7 +28,7 @@ const NewsListingCard = ({ date, heading, description, category }) => {
   };
   return (
     <div className={styles.container}>
-      <p className={styles.date}>{dateString}</p>
+      <p className={styles.date}>{formatDate(dateString)}</p>
       <h5 className={styles.heading}>{heading}</h5>
       <p className={styles.desc}>{desc}</p>
       <div className={styles.buttonContainer}>
