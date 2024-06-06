@@ -34,7 +34,7 @@ const NewsPage = () => {
     // "Oil and Gas",
     // "Paints and Coatings",
     // "Personal Care",
-
+    "All",
     "Adhesives and Sealants",
     "Animal Feed and Nutrition",
     "Composites",
@@ -70,13 +70,19 @@ const NewsPage = () => {
   };
 
   useEffect(() => {
-    const unsubscribe = onSnapshot(
-      query(
+    let q;
+
+    if (activeButton === 0) {
+      q = query(collection(firestore, "news"), orderBy("date", "desc"));
+    } else {
+      q = query(
         collection(firestore, "news"),
         where("category", "==", BussinessVerticalsItems[activeButton]),
         orderBy("date", "desc")
-      ),
-      (snapshot) => {
+      );
+    }
+
+    const unsubscribe = onSnapshot(q, (snapshot) => {
         setNewsData(snapshot.docs);
         console.log(snapshot.docs);
       }
