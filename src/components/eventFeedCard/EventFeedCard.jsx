@@ -34,13 +34,14 @@ const EventFeedCard = ({
         <h3 className={styles.heading}>{heading}</h3>
         <div
           className={styles.desc}
-          dangerouslySetInnerHTML={{ __html: description }}
+          dangerouslySetInnerHTML={{
+            __html: description.slice(0, 400) + "...",
+          }}
         ></div>
 
         <div className={styles.imageDiv}>
           <img className={styles.image} src={imagePath[0]} alt="image" />
-          <div className={styles.innerImageDiv}>
-          </div>
+          <div className={styles.innerImageDiv}></div>
         </div>
       </div>
 
