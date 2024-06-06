@@ -20,6 +20,7 @@ import { useSearchParams } from "react-router-dom";
 import Pagination from "../pagination/Pagination";
 
 const BussinessVerticalsItems = [
+  "All",
   "Adhesives and Sealants",
   "Animal Feed and Nutrition",
   "Composites",
@@ -65,13 +66,19 @@ const EventsFeed = () => {
   const endIndex = Math.min(startIndex + NEWS_PER_PAGE, eventsData.length);
 
   useEffect(() => {
-    const unsubscribe = onSnapshot(
-      query(
+    let q;
+
+    if (activeButton === 0) {
+      q = query(collection(firestore, "events"), orderBy("date", "desc"));
+    } else {
+      q = query(
         collection(firestore, "events"),
         where("category", "==", BussinessVerticalsItems[activeButton]),
         orderBy("date", "desc")
-      ),
-      (snapshot) => {
+      );
+    }
+
+    const unsubscribe = onSnapshot(q, (snapshot) => {
         setEventsData(snapshot.docs);
         // console.log(snapshot.docs[0].data());
       }
