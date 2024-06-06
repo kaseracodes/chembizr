@@ -48,10 +48,6 @@ const EventCardModal = ({
         </Carousel>
         {/* <img src={imagePath[0]} alt="image" /> */}
       </div>
-      {/* </div> */}
-      {/* // </Carousel> */}
-      {/* <img src={imagePath[0]} alt="image" /> */}
-      {/* </div> */}
       <div className={styles.contentDiv}>
         <div className={styles.topDiv}>
           <img src={logoPath} alt="logo" />
