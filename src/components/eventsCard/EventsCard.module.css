@@ -16,12 +16,12 @@
   padding: 50px;
   border-right: 1px solid var(--gray3);
   display: inline;
-  height: 80vh;
+  max-height: 75vh;
 }
 
 .imageDiv img {
   width: 400px;
-  max-height: (75vh - 120px);
+  max-height: 65vh;
 }
 
 .image {
@@ -34,7 +34,7 @@
 
 .image img {
   width: 100%;
-  max-height: (75vh - 120px);
+  max-height: 65vh;
   /* height: 90%; */
 }
 
