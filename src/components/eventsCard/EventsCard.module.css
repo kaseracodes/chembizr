@@ -13,12 +13,12 @@
 }
 
 .imageDiv {
-  padding: 50px;
+  padding: 35px 50px;
   border-right: 1px solid var(--gray3);
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 75vh;
+  height: 70vh;
 }
 
 .imageDiv img {
