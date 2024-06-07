@@ -39,6 +39,7 @@ const BlogListingCard = ({
               __html:
                 desc && (desc.length > 200 ? desc.slice(0, 200) + "..." : desc),
             }}
+            className={styles.desc}
           />
 
           {/* parse rich text */}
