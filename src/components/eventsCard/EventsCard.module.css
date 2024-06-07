@@ -16,6 +16,7 @@
   padding: 50px;
   border-right: 1px solid var(--gray3);
   display: inline;
+  height: 80vh;
 }
 
 .imageDiv img {
