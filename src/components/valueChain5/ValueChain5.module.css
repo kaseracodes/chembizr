@@ -52,11 +52,15 @@
   padding: 20px 0 40px 0;
 }
 
-@media only screen and (max-width: 1300px) {
-  .cardContainer {
-    /* justify-content: center; */
-    padding: 0 20px;
+@media only screen and (max-width: 1450px) {
+  .container {
+    padding: 50px 20px 80px 20px;
   }
+
+  /* .cardContainer {
+    justify-content: center;
+    padding: 0 20px;
+  } */
 
   .heading {
     font-size: 60px;

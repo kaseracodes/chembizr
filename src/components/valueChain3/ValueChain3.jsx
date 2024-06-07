@@ -10,11 +10,11 @@ const ValueChain3 = () => {
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 1450 },
+      breakpoint: { max: 4000, min: 1300 },
       items: 4,
     },
     desktop: {
-      breakpoint: { max: 1450, min: 1150 },
+      breakpoint: { max: 1300, min: 1150 },
       items: 3,
     },
     tablet: {
