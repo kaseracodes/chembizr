@@ -1,4 +1,5 @@
 import "./App.css";
+import { useState, useEffect } from "react";
 import HomePage from "./pages/HomePage.jsx";
 import FocusParentPage from "./pages/FocusParentPage.jsx";
 import FoodNutritionPage from "./pages/FoodNutritionPage.jsx";
@@ -21,10 +22,29 @@ import BlogDetailPage from "./pages/BlogDetailPage.jsx";
 import BlogsSection from "./components/blogsSection/BlogsSection.jsx";
 import CapabilitiesPage from "./pages/CapabilitiesPage.jsx";
 import EventDetailPage from "./pages/EventDetailPage.jsx";
+import CountdownPage from "./pages/CountdownPage.jsx";
 import ScrollToTop from "./ScrollToTop.jsx";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
+
+  const [isCountdownComplete, setIsCountdownComplete] = useState(false);
+
+  useEffect(() => {
+    // Calculate target time for 6 PM IST today
+    const now = new Date();
+    const targetTime = new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate(), 8, 12)).getTime();
+    const currentTime = now.getTime();
+
+    if (currentTime >= targetTime) {
+      setIsCountdownComplete(true); // Countdown is already complete
+    }
+  }, []);
+
+  if (!isCountdownComplete) {
+    return <CountdownPage onCountdownComplete={() => setIsCountdownComplete(true)} />;
+  }
+
   return (
     <>
       <ScrollToTop />
@@ -60,6 +80,7 @@ function App() {
         <Route path="/careers" element={<CareersPage />} />
         <Route path="/capabilities" element={<CapabilitiesPage />} />
         <Route path="/test" element={<BlogsSection />} />
+        <Route path="/countdown" element={<CountdownPage/>} />
       </Routes>
     </>
   );
