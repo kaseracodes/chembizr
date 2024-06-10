@@ -67,7 +67,8 @@ const Compendium = ({ category }) => {
   };
 
   return (
-    <div className={styles.container}>
+    <>
+    {compendiumData.length > 0 ? (<div className={styles.container}>
       {/* <h3 className={styles.heading}>Compendium</h3> */}
       <Heading content="Compendium" />
       {/* <h5 className={styles.subHeading}>Industry Trends</h5> */}
@@ -93,9 +94,10 @@ const Compendium = ({ category }) => {
             </a>
             </div>
           ))}
-    </Carousel>
-      </div >
-    </div >
+        </Carousel>
+      </div>
+    </div>) : (null)}
+    </>
   );
 };
 

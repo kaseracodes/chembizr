@@ -28,7 +28,7 @@ const BlogsSection = () => {
       ),
       (snapshot) => {
         setBlogsData(snapshot.docs);
-        // console.log(snapshot.docs[0].data());
+        console.log(snapshot.docs[0].data());
       }
     );
 
@@ -57,7 +57,7 @@ const BlogsSection = () => {
           <div className={styles.contentDiv}>
             <p>{blogsData && formatDate(blogsData[0].data().date)}</p>
             <h5>
-              {blogsData && blogsData[0].data().short.slice(0, 90) + "..."}
+              {blogsData && blogsData[0].data().heading.slice(0, 90) + "..."}
             </h5>
           </div>
         </div>

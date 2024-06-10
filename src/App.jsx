@@ -41,9 +41,9 @@ function App() {
     }
   }, []);
 
-  if (!isCountdownComplete) {
-    return <CountdownPage onCountdownComplete={() => setIsCountdownComplete(true)} />;
-  }
+  // if (!isCountdownComplete) {
+  //   return <CountdownPage onCountdownComplete={() => setIsCountdownComplete(true)} />;
+  // }
 
   return (
     <>

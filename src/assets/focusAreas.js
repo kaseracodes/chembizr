@@ -5,6 +5,8 @@ export const FocusAreasData = [
     imagePath2: "/images/focus_area/fa1.png",
     heading: "Food, Nutrition & Beverages",
     formattedHeading: "Food,<br />Nutrition<br />& Beverages",
+    homedescription: 
+      "Innovations in the food ingredient category, such as plant-based alternatives, functional foods, or pre-and post-natal nutrition, require an understanding of market potential and commercial viability. We can take your innovations from concept to commercialization with our all inclusive go-to-market strategy.",
     description:
       "According to business management and research consultant firm ChemBizR, there are those who have concluded that the market for plant-based products is simply not as large as some industry analysts predicted.",
     longDescription: [
@@ -22,6 +24,8 @@ export const FocusAreasData = [
     imagePath2: "/images/focus_area/fa2.png",
     heading: "Specialty Polymers",
     formattedHeading: "Specialty<br />Polymers",
+    homedescription:
+      "We provide valuable insights into polymer materials and manufacturing processes, enabling informed decision-making and strategic planning for long-term growth. At ChemBizR, we are at the forefront of tracking innovation in the polymer industry through data analytics from techno-commercial perspectives.",
     description:
       "There are more than 12,000 PFAS compounds, and a few of them are already banned in some areas. Scientific evidence to support health concerns associated with each PFAS is still lacking, however, and testing could take years.",
     longDescription: [
@@ -39,6 +43,8 @@ export const FocusAreasData = [
     imagePath2: "/images/focus_area/fa3.png",
     heading: "Petro-chemicals & Downstream",
     formattedHeading: "Petro-<br />chemicals &<br />Downstream",
+    homedescription:
+      "With our strategic guidance and actionable plans, we empower businesses to navigate the path toward decarbonization, capitalize on emerging trends, determine market opportunities, recognize macroeconomic variables, and stay ahead of the competition in the oil and gas sector.",
     description:
       "In the current market scenario, decarbonization can be a great way to achieve collective and individual sustainability goals. Decarbonization strategies must be developed in accordance with geography, regional policies, and other factors.",
     longDescription: [
@@ -56,6 +62,8 @@ export const FocusAreasData = [
     imagePath2: "/images/focus_area/fa4.png",
     heading: "Clean Energy & Storage",
     formattedHeading: "Clean<br />Energy<br />& Storage",
+    homedescription:
+      "Cutting-edge market research and intelligence services can help you navigate energy storage challenges, turn insights into opportunities, and revolutionize the clean energy industry.",
     description:
       "Technology reliability is one of the main factors influencing the overall energy storage segment. Companies are working very hard to address the issues that the market is currently dealing with, such as the high cost of battery storage technologies, the lack of standardisation, etc.",
     longDescription: [
@@ -72,6 +80,8 @@ export const FocusAreasData = [
     imagePath2: "/images/focus_area/fa5.png",
     heading: "Mobility",
     formattedHeading: "Mobility",
+    homedescription:
+      "From ICE to EVs and other advanced technologies, the automotive market is rapidly changing across the globe. With ChemBizR’s automotive consulting and services, you can accurately assess market opportunities by focusing on cutting-edge technologies and new-age practices.",
     description:
       "One key climate action goal enacted by global leaders to mitigate the adverse effects of climate change is the switch from gasoline-powered vehicles to electric vehicles (EVs). With vehicles contributing to almost a third of global emissions, the solution may provide some level of relief. In recent years, growth of Electric vehicles has seen an upward trajectory, and they have received an unequivocal response from customers worldwide.",
     longDescription: [
@@ -89,6 +99,8 @@ export const FocusAreasData = [
     imagePath2: "/images/focus_area/fa6.png",
     heading: "Personal Care & Cosmetics",
     formattedHeading: "Personal<br />Care &<br />Cosmetics",
+    homedescription:
+      "We assist chemical companies/ ingredient manufacturers, and formulators in meeting the diverse needs of end consumers in the personal care and cosmetics industry. By helping them transition from synthetic to natural ingredients, we unlock the market potential of their innovations",
     description:
       "‘Anti-pollution’ is one of the newest buzzwords in the personal care and cosmetics industries, and companies are racing to market masks, sprays, and creams that promise to shield our skin and hair from pollution-related damage.",
     longDescription: [

@@ -72,7 +72,7 @@ const FocusAreaSection = () => {
           <h5 className={styles.itemHeading}>
             {FocusAreasData[itemIndex].heading}
           </h5>
-          <p className={styles.desc}>{FocusAreasData[itemIndex].description}</p>
+          <p className={styles.desc}>{FocusAreasData[itemIndex].homedescription}</p>
         </div>
       </div>
 

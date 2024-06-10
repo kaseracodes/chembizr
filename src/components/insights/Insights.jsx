@@ -87,57 +87,73 @@ const Insights = ({ pagetype }) => {
   };
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.heading}>Our Insights</h1>
-      <div className={styles.contentDiv}>
-        <h3 className={styles.subHeading}>Media Releases</h3>
-        <Carousel
-          responsive={responsive}
-          showDots={showDots}
-          arrows={!showDots}
-        >
-          {publicationsData.map((item, index) => (
-            <div key={index} className={styles.innerCardDiv}>
-              <PublicationCard
-                imagePath={item.data().image}
-                // date={new Date(
-                //   item.date.seconds * 1000 +
-                //     Math.floor(item.date.nanoseconds / 1000000)
-                // ).toLocaleString()}
-                date={item.data().date}
-                heading={item.data().heading}
-                description={item.data().description}
-              />
-            </div>
-          ))}
-        </Carousel>
-      </div>
+    <> 
+    {(publicationsData.length>0 && articlesData.length>0) ? 
+      (
+        <div className={styles.container}>
+          <h1 className={styles.heading}>Our Insights</h1>
 
-      <div className={styles.contentDiv}>
-        <h3 className={styles.subHeading}>Articles</h3>
-        <Carousel
-          responsive={responsive}
-          showDots={showDots}
-          arrows={!showDots}
-        >
-          {articlesData.map((item, index) => (
-            <div key={index} className={styles.innerCardDiv}>
-              <PublicationCard
-                imagePath={item.data().image}
-                // date={new Date(
-                //   item.date.seconds * 1000 +
-                //     Math.floor(item.date.nanoseconds / 1000000)
-                // ).toLocaleString()}
-                date={item.data().date}
-                heading={item.data().heading}
-                description={item.data().description}
-                short={item.data().short}
-              />
-            </div>
-          ))}
-        </Carousel>
-      </div>
-    </div>
+          {publicationsData.length>0 ? 
+            (
+              <div className={styles.contentDiv}>
+                <h3 className={styles.subHeading}>Media Releases</h3>
+                <Carousel
+                  responsive={responsive}
+                  showDots={showDots}
+                  arrows={!showDots}
+                >
+                  {publicationsData.map((item, index) => (
+                    <div key={index} className={styles.innerCardDiv}>
+                      <PublicationCard
+                        imagePath={item.data().image}
+                        // date={new Date(
+                        //   item.date.seconds * 1000 +
+                        //     Math.floor(item.date.nanoseconds / 1000000)
+                        // ).toLocaleString()}
+                        date={item.data().date}
+                        heading={item.data().heading}
+                        description={item.data().description}
+                        short={item.data().short}
+                      />
+                    </div>
+                  ))}
+                </Carousel>
+              </div>
+            ) : (null) 
+          }
+
+          {articlesData.length>0 ? 
+            (
+              <div className={styles.contentDiv}>
+                <h3 className={styles.subHeading}>Articles</h3>
+                <Carousel
+                  responsive={responsive}
+                  showDots={showDots}
+                  arrows={!showDots}
+                >
+                  {articlesData.map((item, index) => (
+                    <div key={index} className={styles.innerCardDiv}>
+                      <PublicationCard
+                        imagePath={item.data().image}
+                        // date={new Date(
+                        //   item.date.seconds * 1000 +
+                        //     Math.floor(item.date.nanoseconds / 1000000)
+                        // ).toLocaleString()}
+                        date={item.data().date}
+                        heading={item.data().heading}
+                        description={item.data().description}
+                        short={item.data().short}
+                      />
+                    </div>
+                  ))}
+                </Carousel>
+              </div>
+            ) : (null) 
+          }
+        </div>
+      ) : (null)} 
+    </>
+    
   );
 };
 
