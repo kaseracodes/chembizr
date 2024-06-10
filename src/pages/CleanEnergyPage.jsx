@@ -10,10 +10,10 @@ import Footer from "../components/footer/Footer";
 import CallToAction from "../components/callToAction/CallToAction";
 import { FocusAreasData } from "../assets/focusAreas";
 import FocusDescription from "../components/focusDescription/FocusDescription";
-import ValueChain2 from "../components/valueChain2/ValueChain2";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useEffect, useState } from "react";
+import ValueChain4 from "../components/valueChain4/ValueChain4";
 
 const CleanEnergyPage = () => {
   const responsive = {
@@ -144,7 +144,7 @@ const CleanEnergyPage = () => {
       </div>
 
       {/* Value chain section */}
-      <ValueChain2 />
+      <ValueChain4 />
 
       {/* Insights */}
       <Insights pagetype="Clean Energy & Storage" />

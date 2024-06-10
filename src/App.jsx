@@ -33,7 +33,7 @@ function App() {
   useEffect(() => {
     // Calculate target time for 6 PM IST today
     const now = new Date();
-    const targetTime = new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate(), 12, 30)).getTime();
+    const targetTime = new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate(), 12, 5)).getTime();
     const currentTime = now.getTime();
 
     if (currentTime >= targetTime) {

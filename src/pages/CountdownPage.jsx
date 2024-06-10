@@ -20,7 +20,7 @@ const CountdownPage = ({ onCountdownComplete }) => {
       const day = now.getDate();
 
       // Create a new date for today at 6 PM IST
-      const dateIST = new Date(Date.UTC(year, month, day, 12, 30)); // 6 PM IST is 12:30 PM UTC
+      const dateIST = new Date(Date.UTC(year, month, day, 12, 5)); // 6 PM IST is 12:30 PM UTC
 
       return dateIST.getTime();
     };

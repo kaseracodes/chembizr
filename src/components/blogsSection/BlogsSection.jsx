@@ -28,7 +28,7 @@ const BlogsSection = () => {
       ),
       (snapshot) => {
         setBlogsData(snapshot.docs);
-        console.log(snapshot.docs[0].data());
+        // console.log(snapshot.docs[0].data());
       }
     );
 
@@ -77,7 +77,7 @@ const BlogsSection = () => {
           <div className={styles.contentDiv}>
             <p>{blogsData && formatDate(blogsData[1].data().date)}</p>
             <h5>
-              {blogsData && blogsData[1].data().short.slice(0, 90) + "..."}
+              {blogsData && blogsData[1].data().heading.slice(0, 90) + "..."}
             </h5>
           </div>
         </div>
@@ -92,7 +92,7 @@ const BlogsSection = () => {
           <div className={styles.contentDiv}>
             <p>{blogsData && formatDate(blogsData[2].data().date)}</p>
             <h5>
-              {blogsData && blogsData[2].data().short.slice(0, 90) + "..."}
+              {blogsData && blogsData[2].data().heading.slice(0, 90) + "..."}
             </h5>
           </div>
         </div>
@@ -107,7 +107,7 @@ const BlogsSection = () => {
           <div className={styles.contentDiv}>
             <p>{blogsData && formatDate(blogsData[3].data().date)}</p>
             <h5>
-              {blogsData && blogsData[3].data().short.slice(0, 90) + "..."}
+              {blogsData && blogsData[3].data().heading.slice(0, 90) + "..."}
             </h5>
           </div>
         </div>
@@ -122,7 +122,7 @@ const BlogsSection = () => {
           <div className={styles.contentDiv}>
             <p>{blogsData && formatDate(blogsData[4].data().date)}</p>
             <h5>
-              {blogsData && blogsData[4].data().short.slice(0, 90) + "..."}
+              {blogsData && blogsData[4].data().heading.slice(0, 90) + "..."}
             </h5>
           </div>
         </div>
@@ -134,7 +134,7 @@ const BlogsSection = () => {
           >
             <p>{blogsData && formatDate(blogsData[5].data().date)}</p>
             <h5>
-              {blogsData && blogsData[5].data().short.slice(0, 90) + "..."}
+              {blogsData && blogsData[5].data().heading.slice(0, 90) + "..."}
             </h5>
           </div>
 

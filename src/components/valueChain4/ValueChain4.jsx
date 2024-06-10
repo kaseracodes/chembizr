@@ -6,7 +6,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useEffect, useState } from "react";
 
-const ValueChain4 = () => {
+const ValueChain = () => {
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -114,4 +114,4 @@ const ValueChain4 = () => {
   );
 };
 
-export default ValueChain4;
+export default ValueChain;
