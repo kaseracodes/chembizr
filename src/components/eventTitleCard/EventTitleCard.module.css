@@ -13,9 +13,15 @@
   font-weight: 400;
   font-family: "Open Sans", sans-serif;
   color: var(--black);
+  cursor: pointer;
+}
+
+.titleCardContainer:hover {
+  transform: scale(1.02);
 }
 
 .titleCardHeading {
+  width: 130px;
   font-size: 13px;
   margin: 0 0 5px 0;
   /* width: 200px; */

@@ -116,12 +116,12 @@ const EventsFeed = () => {
           {alleventsData.map((item, index) => (
             <EventTitleCard
               key={index}
-              heading={item.data().heading}
-              // date={new Date(
-              //   item.date.seconds * 1000 +
-              //     Math.floor(item.date.nanoseconds / 1000000)
-              // ).toLocaleString()}
+              category={item.data().category}
               date={formatDate(item.data().date)}
+              heading={item.data().heading}
+              description={item.data().description}
+              imagePath={item.data().images}
+              logoPath={item.data().images}
             />
           ))}
         </div>
