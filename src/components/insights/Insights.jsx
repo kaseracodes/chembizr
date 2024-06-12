@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import styles from "./Insights.module.css";
@@ -106,14 +107,11 @@ const Insights = ({ pagetype }) => {
                     <div key={index} className={styles.innerCardDiv}>
                       <PublicationCard
                         imagePath={item.data().image}
-                        // date={new Date(
-                        //   item.date.seconds * 1000 +
-                        //     Math.floor(item.date.nanoseconds / 1000000)
-                        // ).toLocaleString()}
                         date={item.data().date}
                         heading={item.data().heading}
                         description={item.data().description}
                         short={item.data().short}
+                        blogId={item.data().id}
                       />
                     </div>
                   ))}
@@ -124,7 +122,7 @@ const Insights = ({ pagetype }) => {
 
           {articlesData.length>0 ? 
             (
-              <div className={styles.contentDiv}>
+              <div className={`${styles.contentDiv} ${styles.contentDiv2}`}>
                 <h3 className={styles.subHeading}>Articles</h3>
                 <Carousel
                   responsive={responsive}
@@ -135,14 +133,11 @@ const Insights = ({ pagetype }) => {
                     <div key={index} className={styles.innerCardDiv}>
                       <PublicationCard
                         imagePath={item.data().image}
-                        // date={new Date(
-                        //   item.date.seconds * 1000 +
-                        //     Math.floor(item.date.nanoseconds / 1000000)
-                        // ).toLocaleString()}
                         date={item.data().date}
                         heading={item.data().heading}
                         description={item.data().description}
                         short={item.data().short}
+                        blogId={item.data().id}
                       />
                     </div>
                   ))}

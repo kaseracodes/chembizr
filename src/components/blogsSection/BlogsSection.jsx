@@ -7,7 +7,6 @@ import styles from "./BlogsSection.module.css";
 import { useEffect, useState } from "react";
 import {
   collection,
-  getDocs,
   limit,
   onSnapshot,
   orderBy,
@@ -24,7 +23,8 @@ const BlogsSection = () => {
       query(
         collection(firestore, "blogs"),
         // where("category", "==", Topics[currTopic]),
-        orderBy("timestamp", "desc")
+        orderBy("timestamp", "desc"),
+        limit(8)
       ),
       (snapshot) => {
         setBlogsData(snapshot.docs);

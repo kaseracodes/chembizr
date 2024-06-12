@@ -14,13 +14,13 @@ import BlogListingCard from "../components/blogListingCard/BlogListingCard";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 // import BlogListingComponent from "../components/BlogListingComponent";
 // import { useParams, useSearchParams } from "react-router-dom";
 import Pagination from "../components/pagination/Pagination";
-import { useSearchParams } from "react-router-dom";
-import CallToAction from "../components/callToAction/CallToAction";
-import Footer from "../components/footer/Footer";
+import { useLocation, useSearchParams } from "react-router-dom";
+// import CallToAction from "../components/callToAction/CallToAction";
+// import Footer from "../components/footer/Footer";
 import {
   collection,
   onSnapshot,
@@ -99,13 +99,13 @@ const BlogListingPage = () => {
     };
   }, []);
 
-  const onClickNext = () => {
-    setCurrTopic((currTopic + 1) % 9);
-  };
+  // const onClickNext = () => {
+  //   setCurrTopic((currTopic + 1) % 9);
+  // };
 
-  const onClickPrev = () => {
-    setCurrTopic((currTopic + 8) % 9);
-  };
+  // const onClickPrev = () => {
+  //   setCurrTopic((currTopic + 8) % 9);
+  // };
 
   const settings = {
     infinite: false,
@@ -139,18 +139,6 @@ const BlogListingPage = () => {
       },
     ],
   };
-
-  // const Topics = [
-  //   "Programming",
-  //   "Data Science",
-  //   "Technology",
-  //   "Self Improvement",
-  //   "Writing",
-  //   "Relationships",
-  //   "Machine Learning",
-  //   "Productivity",
-  //   "Politics",
-  // ];
 
   const Topics = [
     "All",
@@ -192,6 +180,14 @@ const BlogListingPage = () => {
     return () => unsubscribe();
   }, [currTopic]);
 
+  const leftDivRef = useRef(null);
+  const { pathname } = useLocation();
+  const currentPage = new URLSearchParams(window.location.search).get("page");
+
+  useEffect(() => {
+    leftDivRef.current.scrollTo({ top: 0, behavior: "smooth" });
+  }, [pathname, currentPage]);
+
   const [searchParams] = useSearchParams();
   console.log(searchParams);
   const page = searchParams.get("page") || 1;
@@ -231,7 +227,7 @@ const BlogListingPage = () => {
           </div>
         </div>
 
-        <div className={styles.leftDiv}>
+        <div className={styles.leftDiv} ref={leftDivRef}>
           <div className={styles.topicsCarouselOuterDiv}>
             <div className={styles.topicsCarouselDiv}>
               <Slider {...settings}>
@@ -299,6 +295,7 @@ const BlogListingPage = () => {
                       key={index}
                       imagePath={item.data().image}
                       desc={item.data().short}
+                      blogId={item.data().id}
                     />
                   );
                 })}

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import styles from "./CurrentOpenings.module.css";
-import { CurrentOpeningsData } from "../../assets/currentOpeningsData";
+// import { CurrentOpeningsData } from "../../assets/currentOpeningsData";
 import { collection, onSnapshot, query } from "firebase/firestore";
 import { firestore } from "../../firebase/firebase";
 import Modal from "../modal/Modal";
@@ -27,14 +27,17 @@ const CurrentOpenings = () => {
     // Update detailsContent when currentOpeningsData changes
     if (currentOpeningsData.length > 0) {
       setDetailsContent(currentOpeningsData[0].data());
+      console.log(currentOpeningsData[0].data());
     }
   }, [currentOpeningsData]);
 
   const handleClick = (index) => {
     setActiveButton(index);
     // setDetailsContent(currentOpeningsData.length == 0 ? null : currentOpeningsData[index].data());
-    setDetailsContent(CurrentOpeningsData[index]);
-    setOpenModal(true);
+    setDetailsContent(currentOpeningsData[index].data());
+    if (window.innerWidth <= 550) {
+      setOpenModal(true);
+    }
   };
 
   return (
@@ -45,8 +48,8 @@ const CurrentOpenings = () => {
       <div className={styles.contentDiv}>
         <div className={styles.tagDiv}>
           <div className={styles.innerTagDiv}>
-            {CurrentOpeningsData.length > 0 &&
-              CurrentOpeningsData.map((item, index) => (
+            {currentOpeningsData.length > 0 &&
+              currentOpeningsData.map((item, index) => (
                 <button
                   className={`${styles.tagBtn} ${
                     index === activeButton ? styles.active : ""
@@ -54,8 +57,8 @@ const CurrentOpenings = () => {
                   key={index}
                   onClick={() => handleClick(index)}
                 >
-                  {/* {item.data().name} */}
-                  {item.name}
+                  {item.data().name}
+                  {/* {item.name} */}
                 </button>
               ))}
           </div>

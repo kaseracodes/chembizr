@@ -6,7 +6,7 @@ import EventFeedCard from "../eventFeedCard/EventFeedCard";
 import EventTitleCard from "../eventTitleCard/EventTitleCard";
 import styles from "./EventsFeed.module.css";
 // import BussinessVerticals from "../bussinessVerticals/BussinessVerticals";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { firestore } from "../../firebase/firebase";
 import {
   collection,
@@ -16,7 +16,7 @@ import {
   where,
   limit,
 } from "firebase/firestore";
-import { useSearchParams } from "react-router-dom";
+import { useLocation, useSearchParams } from "react-router-dom";
 import Pagination from "../pagination/Pagination";
 
 const BussinessVerticalsItems = [
@@ -56,14 +56,22 @@ const EventsFeed = () => {
     setButtonColors(newButtonColors);
   };
 
+  const middleDivRef = useRef(null);
+  const { pathname } = useLocation();
+  const currentPage = new URLSearchParams(window.location.search).get("page");
+
+  useEffect(() => {
+    middleDivRef.current.scrollTo({ top: 0, behavior: "smooth" });
+  }, [pathname, currentPage]);
+
   const [searchParams] = useSearchParams();
   const page = searchParams.get("page") || 1;
 
-  const NEWS_PER_PAGE = 3;
-  const hasPrev = NEWS_PER_PAGE * (page - 1) > 0;
-  const hasNext = NEWS_PER_PAGE * page < eventsData.length;
-  const startIndex = NEWS_PER_PAGE * (page - 1);
-  const endIndex = Math.min(startIndex + NEWS_PER_PAGE, eventsData.length);
+  const EVENTS_PER_PAGE = 5;
+  const hasPrev = EVENTS_PER_PAGE * (page - 1) > 0;
+  const hasNext = EVENTS_PER_PAGE * page < eventsData.length;
+  const startIndex = EVENTS_PER_PAGE * (page - 1);
+  const endIndex = Math.min(startIndex + EVENTS_PER_PAGE, eventsData.length);
 
   useEffect(() => {
     let q;
@@ -131,7 +139,7 @@ const EventsFeed = () => {
         <Button content="Submit" bgColor={COLORS.orange} />
       </div>
 
-      <div className={styles.middleDiv}>
+      <div className={styles.middleDiv} ref={middleDivRef}>
         {eventsData.slice(startIndex, endIndex).map((item, index) => (
           <EventFeedCard
             key={index}
