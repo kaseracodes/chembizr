@@ -27,7 +27,7 @@ const MobilityPage = () => {
         heading="Opportunities and Challenges for Composites in Electric Vehicles"
         para={FocusAreasData[4].description}
         buttonText="Know More"
-        textColor={COLORS.black}
+        textColor={COLORS.white}
         contentWidth="800px"
         headingMarginTop="100px"
       />
@@ -65,10 +65,14 @@ const MobilityPage = () => {
       <Compendium category="Mobility" />
 
       {/* Events */}
-      <Events />
+      <Events category="Mobility" />
 
       {/* Industry News */}
-      <News bgColor={COLORS.white} textColor={COLORS.black} />
+      <News
+        bgColor={COLORS.white}
+        textColor={COLORS.black}
+        category="Mobility"
+      />
 
       <CallToAction />
 

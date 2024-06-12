@@ -153,10 +153,14 @@ const CleanEnergyPage = () => {
       <Compendium category="Clean Energy & Storage" />
 
       {/* Events */}
-      <Events />
+      <Events category="Clean Energy & Resources" />
 
       {/* Industry News */}
-      <News bgColor={COLORS.white} textColor={COLORS.black} />
+      <News
+        bgColor={COLORS.white}
+        textColor={COLORS.black}
+        category="Clean Energy & Resources"
+      />
 
       <CallToAction />
 

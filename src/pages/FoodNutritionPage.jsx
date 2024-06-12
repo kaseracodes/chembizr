@@ -28,7 +28,7 @@ const FoodNutritionPage = () => {
         heading="What’s driving food factory closures – and how to avoid them"
         para={FocusAreasData[0].description}
         buttonText="Know More"
-        textColor={COLORS.black}
+        textColor={COLORS.white}
         headingMarginTop="100px"
         contentWidth="700px"
       />
@@ -48,10 +48,14 @@ const FoodNutritionPage = () => {
       <Compendium category="Food, Nutrition & Beverages" />
 
       {/* Events */}
-      <Events />
+      <Events category="Food, Nutrition & Beverages" />
 
       {/* Industry News */}
-      <News bgColor={COLORS.white} textColor={COLORS.black} />
+      <News
+        bgColor={COLORS.white}
+        textColor={COLORS.black}
+        category="Food, Nutrition & Beverages"
+      />
 
       <CallToAction />
 

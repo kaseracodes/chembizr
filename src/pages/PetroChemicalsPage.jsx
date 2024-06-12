@@ -47,10 +47,14 @@ const PetroChemicalsPage = () => {
       <Compendium category="Petrochemicals & Downstream" />
 
       {/* Events */}
-      <Events />
+      <Events category="Petrochemicals & Downstream" />
 
       {/* Industry News */}
-      <News bgColor={COLORS.white} textColor={COLORS.black} />
+      <News
+        bgColor={COLORS.white}
+        textColor={COLORS.black}
+        category="Petrochemicals & Downstream"
+      />
 
       <CallToAction />
 

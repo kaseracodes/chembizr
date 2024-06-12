@@ -19,10 +19,16 @@ const PublicationCard = ({
     return date.toLocaleDateString("en-GB", options);
   };
 
+  function replaceSpacesWithHyphens(url) {
+    return url.replace(/ /g, "-");
+  }
+
   return (
     <div
       className={styles.container}
-      onClick={() => navigate(`/blogs/${blogId}`)}
+      onClick={() =>
+        navigate(`/blogs/${replaceSpacesWithHyphens(heading)}/${blogId}`)
+      }
     >
       <img className={styles.image} src={imagePath} alt="image" />
       <h5 className={styles.date}>{formatDate(date)}</h5>

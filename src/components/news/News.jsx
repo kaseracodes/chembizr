@@ -6,7 +6,7 @@ import React, { useState, useEffect } from "react";
 import { firestore } from "../../firebase/firebase";
 import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
 
-const News = ({ bgColor, textColor }) => {
+const News = ({ bgColor, textColor, category }) => {
   const [newsData, setNewsData] = useState([]);
 
   useEffect(() => {

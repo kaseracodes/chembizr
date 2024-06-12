@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import styles from "./Events.module.css";
 import { EventsData } from "../../assets/eventsData";
 import EventsCard from "../eventsCard/EventsCard";
@@ -53,7 +55,7 @@ const InnerCarousel = () => {
   );
 };
 
-const Events = () => {
+const Events = ({ category }) => {
   const navigate = useNavigate();
 
   const responsive = {

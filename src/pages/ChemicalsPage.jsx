@@ -47,10 +47,14 @@ const ChemicalsPage = () => {
       <Compendium category="Speciality Chemicals and Polymers" />
 
       {/* Events */}
-      <Events />
+      <Events category="Specialty Polymers" />
 
       {/* Industry News */}
-      <News bgColor={COLORS.white} textColor={COLORS.black} />
+      <News
+        bgColor={COLORS.white}
+        textColor={COLORS.black}
+        category="Specialty Polymers"
+      />
 
       <CallToAction />
 

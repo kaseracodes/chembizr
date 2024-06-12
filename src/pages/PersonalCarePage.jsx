@@ -27,7 +27,7 @@ const PersonalCarePage = () => {
         heading="Making sense of the anti-pollution segment"
         para={FocusAreasData[5].description}
         buttonText="Know More"
-        textColor={COLORS.black}
+        textColor={COLORS.white}
         contentWidth="600px"
         headingMarginTop="100px"
       />
@@ -47,10 +47,14 @@ const PersonalCarePage = () => {
       <Compendium category="Personal Care & Cosmetics" />
 
       {/* Events */}
-      <Events />
+      <Events category="Personal Care & Cosmetics" />
 
       {/* Industry News */}
-      <News bgColor={COLORS.white} textColor={COLORS.black} />
+      <News
+        bgColor={COLORS.white}
+        textColor={COLORS.black}
+        category="Personal Care & Cosmetics"
+      />
 
       <CallToAction />
 

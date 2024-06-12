@@ -133,9 +133,9 @@ const HomePage = () => {
 
       <UVP />
 
-      <News bgColor={COLORS.white} textColor={COLORS.black} />
+      <News bgColor={COLORS.white} textColor={COLORS.black} category="All" />
 
-      <Events />
+      <Events category="All" />
 
       <CallToAction />
 

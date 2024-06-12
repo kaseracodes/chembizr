@@ -15,6 +15,7 @@ const Banner2 = ({ imagePath, heading }) => {
 
   return (
     <div className={styles.container} style={{ backgroundImage: imageUrl }}>
+      <div className={styles.filter}></div>
       <h1 className={styles.heading}>{heading}</h1>
     </div>
   );
