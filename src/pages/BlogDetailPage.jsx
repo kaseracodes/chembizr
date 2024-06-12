@@ -26,6 +26,7 @@ const BlogDetailPage = () => {
   // const [blog, setBlog] = useState();
 
   const navigate = useNavigate();
+
   const handleClickComment = () => {
     navigate(`/comment/${params.id}`);
   };
