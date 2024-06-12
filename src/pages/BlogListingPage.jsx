@@ -166,7 +166,7 @@ const BlogListingPage = () => {
     "Petrochemicals & Downstream",
     "Paints & Coatings",
     "Personal Care & Cosmetics",
-    "Speciality Polymers",
+    "Specialty Polymers",
     "Surfactants",
   ];
 
