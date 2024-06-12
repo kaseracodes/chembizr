@@ -94,9 +94,9 @@ const FocusParentPage = () => {
 
       {/* Banner */}
       <Banner
-        imagePath={"/images/focus_parent_page_hero.png"}
+        imagePath={"/images/focus_area/focus_area6.png"}
         heading="Personal Care<br />Magazine: Making<br />sense of the anti-<br />pollution segment"
-        para="Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+        para="‘Anti-pollution’ is one of the newest buzzwords in the personal care and cosmetics industries, and companies are racing to market masks, sprays, and creams that promise to shield our skin and hair from pollution-related damage."
         buttonText="Read More"
         headingLineHeight="120%"
       />
