@@ -161,33 +161,28 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 500px;
+    height: fit-content;
   }
 
   .one,
-  .two,
   .four,
-  .five,
-  .six {
-    height: 100%;
-    width: auto;
+  .seven {
+    height: auto;
+    width: 100vw;
   }
 
   .two,
   .three,
   .five,
-  .six {
-    display: none;
-  }
-
+  .six,
   .eight {
     display: none;
   }
 
   .contentDiv {
     padding: 20px;
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+    /* background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.1); */
   }
 
   .contentDiv p {
