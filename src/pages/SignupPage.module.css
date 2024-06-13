@@ -1,7 +1,7 @@
 .container {
   background-image: url("/images/authentication_bg.png");
   background-size: cover;
-  height: 100vh;
+  height: 90vh;
   padding: 0;
   display: flex;
   /* justify-content: space-between; */
@@ -54,7 +54,7 @@
 }
 
 .inputDiv {
-  width: 80%;
+  width: 25vw;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -104,7 +104,7 @@
   background-color: var(--white);
   border: 1px solid var(--orange);
   color: var(--orange);
-  width: 100%;
+  width: 25vw;
   padding: 10px 0;
   border-radius: 8px;
   font-family: "Montserrat", sans-serif;
@@ -165,7 +165,7 @@
 
   .btnContainer,
   .inputDiv {
-    width: 90%;
+    /* width: 25vw; */
   }
 }
 

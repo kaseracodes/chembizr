@@ -68,6 +68,19 @@
   font-size: 30px;
 }
 
+.inputDiv {
+  padding: 50px;
+  display: flex;
+  gap: 20px;
+}
+
+.input {
+  font-family: "Roboto", sans-serif;
+  border-radius: 5px;
+  padding: 5px;
+  width: 250px;
+}
+
 @media only screen and (max-width: 1000px) {
   .container {
     padding: 15px 20px;

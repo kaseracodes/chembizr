@@ -27,12 +27,14 @@
   color: var(--white);
   text-transform: capitalize;
   margin-top: 80px;
+  /* text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5); */
 }
 
 .contentDiv {
   margin-left: 100px;
   width: 800px;
   padding-bottom: 0;
+  position: relative;
 }
 
 .para {

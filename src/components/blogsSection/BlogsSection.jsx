@@ -28,7 +28,7 @@ const BlogsSection = () => {
       ),
       (snapshot) => {
         setBlogsData(snapshot.docs);
-        // console.log(snapshot.docs[0].data());
+        console.log(snapshot.docs[0].data().image);
       }
     );
 
@@ -41,8 +41,6 @@ const BlogsSection = () => {
     return date.toLocaleDateString("en-GB", options);
   };
 
-  // const blogsData = BlogsData.slice(6, 12);
-
   return (
     <div className={styles.container}>
       <Heading content="Our Latest Blogs" />
@@ -50,7 +48,7 @@ const BlogsSection = () => {
         <div
           className={styles.one}
           style={{
-            backgroundImage: `url(${blogsData && blogsData[0].data().image})`,
+            backgroundImage: `url("${blogsData && blogsData[0].data().image}")`,
           }}
           onClick={() => navigate(`/blogs/${blogsData[0].data().id}`)}
         >
@@ -65,7 +63,7 @@ const BlogsSection = () => {
         <div
           className={styles.two}
           style={{
-            backgroundImage: `url(${blogsData && blogsData[1].data().image})`,
+            backgroundImage: `url("${blogsData && blogsData[1].data().image}")`,
           }}
           onClick={() => navigate(`/blogs/${blogsData[1].data().id}`)}
         ></div>
@@ -85,7 +83,7 @@ const BlogsSection = () => {
         <div
           className={styles.four}
           style={{
-            backgroundImage: `url(${blogsData && blogsData[2].data().image})`,
+            backgroundImage: `url("${blogsData && blogsData[2].data().image}")`,
           }}
           onClick={() => navigate(`/blogs/${blogsData[2].data().id}`)}
         >
@@ -100,7 +98,7 @@ const BlogsSection = () => {
         <div
           className={styles.five}
           style={{
-            backgroundImage: `url(${blogsData && blogsData[3].data().image})`,
+            backgroundImage: `url("${blogsData && blogsData[3].data().image}")`,
           }}
           onClick={() => navigate(`/blogs/${blogsData[3].data().id}`)}
         >
@@ -115,7 +113,7 @@ const BlogsSection = () => {
         <div
           className={styles.six}
           style={{
-            backgroundImage: `url(${blogsData && blogsData[4].data().image})`,
+            backgroundImage: `url("${blogsData && blogsData[4].data().image}")`,
           }}
           onClick={() => navigate(`/blogs/${blogsData[4].data().id}`)}
         >
@@ -147,7 +145,7 @@ const BlogsSection = () => {
         <div
           className={styles.eight}
           style={{
-            backgroundImage: `url(${blogsData && blogsData[5].data().image})`,
+            backgroundImage: `url("${blogsData && blogsData[5].data().image}")`,
           }}
           onClick={() => navigate(`/blogs/${blogsData[5].data().id}`)}
         ></div>

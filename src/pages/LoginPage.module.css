@@ -1,7 +1,7 @@
 .container {
   background-image: url("/images/authentication_bg.png");
   background-size: cover;
-  height: 100vh;
+  height: 90vh;
   padding: 0;
   display: flex;
   /* justify-content: space-between; */
@@ -54,7 +54,7 @@
 }
 
 .inputDiv {
-  width: 80%;
+  width: 25vw;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -184,7 +184,7 @@
 
   .btnContainer,
   .inputDiv {
-    width: 90%;
+    /* width: 90%; */
   }
 }
 

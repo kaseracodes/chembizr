@@ -28,7 +28,7 @@ const CallToAction = () => {
           <label className={styles.label}>Have Any Further Queries?</label>
           <div className={styles.inputDiv}>
             <input
-              type="email"
+              type="text"
               placeholder="Feel free to share..."
               className={styles.input}
             />
