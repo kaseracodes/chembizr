@@ -117,21 +117,21 @@ const BlogListingPage = () => {
     variableWidth: true,
     responsive: [
       {
-        breakpoint: 800,
+        breakpoint: 1300,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 480,
+        breakpoint: 1100,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 350,
+        breakpoint: 550,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -189,7 +189,6 @@ const BlogListingPage = () => {
   }, [pathname, currentPage]);
 
   const [searchParams] = useSearchParams();
-  console.log(searchParams);
   const page = searchParams.get("page") || 1;
 
   const BLOG_PER_PAGE = 4;
@@ -198,13 +197,9 @@ const BlogListingPage = () => {
   const startIndex = BLOG_PER_PAGE * (page - 1);
   const endIndex = Math.min(startIndex + BLOG_PER_PAGE, blogsData.length);
 
-  const handleTopicClick = (topic) => {
-    setCurrTopic(topic);
-  };
-
   const formatDate = (dateString) => {
     const date = new Date(dateString);
-    const options = { day: "2-digit", month: "short", year: "numeric" };
+    const options = { day: "2-digit", month: "long", year: "numeric" };
     return date.toLocaleDateString("en-GB", options);
   };
 

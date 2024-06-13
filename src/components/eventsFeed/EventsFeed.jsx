@@ -87,10 +87,9 @@ const EventsFeed = () => {
     }
 
     const unsubscribe = onSnapshot(q, (snapshot) => {
-        setEventsData(snapshot.docs);
-        // console.log(snapshot.docs[0].data());
-      }
-    );
+      setEventsData(snapshot.docs);
+      // console.log(snapshot.docs[0].data());
+    });
 
     return unsubscribe;
   }, [activeButton]);
@@ -111,7 +110,7 @@ const EventsFeed = () => {
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
-    const options = { day: "2-digit", month: "short", year: "numeric" };
+    const options = { day: "2-digit", month: "long", year: "numeric" };
     return date.toLocaleDateString("en-GB", options);
   };
 

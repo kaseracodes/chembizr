@@ -23,12 +23,6 @@ const EventsCard = ({
   description,
 }) => {
   const navigate = useNavigate();
-  // const milliseconds =
-  //   date.seconds * 1000 + Math.floor(date.nanoseconds / 1000000);
-  // const date1 = new Date(milliseconds);
-  // const dateString = date1.toLocaleString();
-  const dateString = date.toLocaleString();
-  console.log(imagePath);
 
   const responsive = {
     superLargeDesktop: {
@@ -58,7 +52,7 @@ const EventsCard = ({
             <img src={logoPath} alt="logo" />
             <div className={styles.innerDiv}>
               <h5 className={styles.category}>{category}</h5>
-              <p className={styles.date}>{dateString}</p>
+              <p className={styles.date}>{date}</p>
             </div>
           </div>
 
@@ -84,7 +78,7 @@ const EventsCard = ({
             <img src={logoPath} alt="logo" />
             <div className={styles.innerDiv}>
               <h5 className={styles.category}>{category}</h5>
-              <p className={styles.date}>{dateString}</p>
+              <p className={styles.date}>{date}</p>
             </div>
           </div>
 

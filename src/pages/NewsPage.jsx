@@ -7,7 +7,7 @@ import { COLORS } from "../assets/constants";
 import NewsListingCard from "../components/newsListingCard/NewsListingCard";
 import CallToAction from "../components/callToAction/CallToAction";
 import Footer from "../components/footer/Footer";
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { firestore } from "../firebase/firebase";
 import {
   collection,
