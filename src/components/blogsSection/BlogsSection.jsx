@@ -41,6 +41,10 @@ const BlogsSection = () => {
     return date.toLocaleDateString("en-GB", options);
   };
 
+  const replaceSpacesWithHyphens = (url) => {
+    return url.replace(/ /g, "-");
+  };
+
   return (
     <div className={styles.container}>
       <Heading content="Our Latest Blogs" />
@@ -50,7 +54,13 @@ const BlogsSection = () => {
           style={{
             backgroundImage: `url("${blogsData && blogsData[0].data().image}")`,
           }}
-          onClick={() => navigate(`/blogs/${blogsData[0].data().id}`)}
+          onClick={() =>
+            navigate(
+              `/blogs/${replaceSpacesWithHyphens(
+                blogsData[0].data().heading
+              )}/${blogsData[0].data().id}`
+            )
+          }
         >
           <div className={styles.contentDiv}>
             <p>{blogsData && formatDate(blogsData[0].data().date)}</p>
@@ -65,12 +75,24 @@ const BlogsSection = () => {
           style={{
             backgroundImage: `url("${blogsData && blogsData[1].data().image}")`,
           }}
-          onClick={() => navigate(`/blogs/${blogsData[1].data().id}`)}
+          onClick={() =>
+            navigate(
+              `/blogs/${replaceSpacesWithHyphens(
+                blogsData[1].data().heading
+              )}/${blogsData[1].data().id}`
+            )
+          }
         ></div>
 
         <div
           className={styles.three}
-          onClick={() => navigate(`/blogs/${blogsData[1].data().id}`)}
+          onClick={() =>
+            navigate(
+              `/blogs/${replaceSpacesWithHyphens(
+                blogsData[1].data().heading
+              )}/${blogsData[1].data().id}`
+            )
+          }
         >
           <div className={styles.contentDiv}>
             <p>{blogsData && formatDate(blogsData[1].data().date)}</p>
@@ -85,7 +107,13 @@ const BlogsSection = () => {
           style={{
             backgroundImage: `url("${blogsData && blogsData[2].data().image}")`,
           }}
-          onClick={() => navigate(`/blogs/${blogsData[2].data().id}`)}
+          onClick={() =>
+            navigate(
+              `/blogs/${replaceSpacesWithHyphens(
+                blogsData[2].data().heading
+              )}/${blogsData[2].data().id}`
+            )
+          }
         >
           <div className={styles.contentDiv}>
             <p>{blogsData && formatDate(blogsData[2].data().date)}</p>
@@ -100,7 +128,13 @@ const BlogsSection = () => {
           style={{
             backgroundImage: `url("${blogsData && blogsData[3].data().image}")`,
           }}
-          onClick={() => navigate(`/blogs/${blogsData[3].data().id}`)}
+          onClick={() =>
+            navigate(
+              `/blogs/${replaceSpacesWithHyphens(
+                blogsData[3].data().heading
+              )}/${blogsData[3].data().id}`
+            )
+          }
         >
           <div className={styles.contentDiv}>
             <p>{blogsData && formatDate(blogsData[3].data().date)}</p>
@@ -115,7 +149,13 @@ const BlogsSection = () => {
           style={{
             backgroundImage: `url("${blogsData && blogsData[4].data().image}")`,
           }}
-          onClick={() => navigate(`/blogs/${blogsData[4].data().id}`)}
+          onClick={() =>
+            navigate(
+              `/blogs/${replaceSpacesWithHyphens(
+                blogsData[4].data().heading
+              )}/${blogsData[4].data().id}`
+            )
+          }
         >
           <div className={styles.contentDiv}>
             <p>{blogsData && formatDate(blogsData[4].data().date)}</p>
@@ -128,7 +168,13 @@ const BlogsSection = () => {
         <div className={styles.seven}>
           <div
             className={styles.contentDiv}
-            onClick={() => navigate(`/blogs/${blogsData[5].data().id}`)}
+            onClick={() =>
+              navigate(
+                `/blogs/${replaceSpacesWithHyphens(
+                  blogsData[5].data().heading
+                )}/${blogsData[5].data().id}`
+              )
+            }
           >
             <p>{blogsData && formatDate(blogsData[5].data().date)}</p>
             <h5>
@@ -147,7 +193,13 @@ const BlogsSection = () => {
           style={{
             backgroundImage: `url("${blogsData && blogsData[5].data().image}")`,
           }}
-          onClick={() => navigate(`/blogs/${blogsData[5].data().id}`)}
+          onClick={() =>
+            navigate(
+              `/blogs/${replaceSpacesWithHyphens(
+                blogsData[5].data().heading
+              )}/${blogsData[5].data().id}`
+            )
+          }
         ></div>
       </div>
     </div>
