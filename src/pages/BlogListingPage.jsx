@@ -27,8 +27,12 @@ import {
   query,
   orderBy,
   where,
+  doc, 
+  setDoc,
+  serverTimestamp 
 } from "firebase/firestore";
-import { firestore } from "../firebase/firebase";
+import { auth, firestore } from "../firebase/firebase";
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 const NextButton = (props) => {
   const { className, style, onClick } = props;
@@ -63,7 +67,11 @@ const PrevButton = (props) => {
 };
 
 const BlogListingPage = () => {
+
   const [currTopic, setCurrTopic] = useState(0);
+  const [question, setQuestion] = useState('');
+  const [user] = useAuthState(auth);
+
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -203,6 +211,35 @@ const BlogListingPage = () => {
     return date.toLocaleDateString("en-GB", options);
   };
 
+  const handleSubmitQuery = async () => {
+    if (!user) {
+      alert("You must be logged in to submit a query.");
+      return;
+    }
+
+    if (!question.trim()) {
+      alert("Query cannot be empty.");
+      return;
+    }
+
+    try {
+      const queryData = {
+        user: user.displayName || user.email,
+        question: question,
+        email: user.email,
+        timestamp: serverTimestamp(),
+      };
+
+      const queryRef = doc(firestore, "queries", `${user.uid}_${Date.now()}`);
+      await setDoc(queryRef, queryData);
+
+      setQuestion('');
+      alert("Query submitted successfully!");
+    } catch (error) {
+      console.error("Error submitting query:", error);
+    }
+  };
+
   return (
     <div className={styles.container}>
       <Navbar
@@ -316,10 +353,14 @@ const BlogListingPage = () => {
           </div>
 
           <div className={styles.newsletterDiv}>
-            <h5>Subscribe to our newsletter!</h5>
+            <h5>Have Any Further Queries?</h5>
             <div className={styles.emailInputContainer}>
-              <input type="email" placeholder="Email address" />
-              <Button content="Submit" bgColor={COLORS.orange} />
+              <input
+                type="text"
+                onChange={(e) => setQuestion(e.target.value)}
+                placeholder="Feel free to share..."
+              />
+              <Button content="Submit" bgColor={COLORS.orange} onClick={handleSubmitQuery}/>
             </div>
           </div>
         </div>

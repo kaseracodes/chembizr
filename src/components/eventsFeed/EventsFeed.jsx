@@ -127,6 +127,11 @@ const EventsFeed = () => {
       return;
     }
 
+    if (!content.trim()) {
+      alert("Comment cannot be empty.");
+      return;
+    }
+
     try {
       const commentData = {
         author: user.displayName || user.email,
