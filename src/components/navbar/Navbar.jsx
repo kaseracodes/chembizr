@@ -20,7 +20,7 @@ const Navbar = ({ textColor, iconColor, bgColor }) => {
   const { userLoggedIn } = useAuth();
   var user = "";
   if (userLoggedIn) user = auth.currentUser.email;
-  console.log(user);
+  // console.log(user);
   const [isScrolled, setIsScrolled] = useState(false);
   const [navbarOpen, setNavbarOpen] = useState(false);
   const [openModal, setOpenModal] = useState(false);

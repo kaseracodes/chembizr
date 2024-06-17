@@ -14,8 +14,43 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useEffect, useState } from "react";
 import ValueChain4 from "../components/valueChain4/ValueChain4";
+import { firestore } from "../firebase/firebase";
+import { collection, query, where, getDocs } from 'firebase/firestore';
 
 const CleanEnergyPage = () => {
+
+  const [banner, setBanner] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const fetchBanner = async () => {
+    setLoading(true);
+    setError(null);
+    setBanner(null);
+    
+    try {
+      const bannersRef = collection(firestore, 'banners');
+      const q = query(bannersRef, where('page', '==', "Clean Energy & Storage"));
+      const querySnapshot = await getDocs(q);
+      
+      if (!querySnapshot.empty) {
+        const bannerDoc = querySnapshot.docs[0].data();
+        setBanner(bannerDoc);
+        console.log(bannerDoc);
+      } else {
+        setError('No banner found for the selected page.');
+      }
+    } catch (err) {
+      setError('Error fetching banner: ' + err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchBanner();
+  }, []);
+
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.

@@ -11,8 +11,44 @@ import CallToAction from "../components/callToAction/CallToAction";
 import { FocusAreasData } from "../assets/focusAreas";
 import FocusDescription from "../components/focusDescription/FocusDescription";
 import ValueChain5 from "../components/valueChain5/ValueChain5";
+import { useEffect, useState } from "react";
+import { firestore } from "../firebase/firebase";
+import { collection, query, where, getDocs } from 'firebase/firestore';
 
 const PersonalCarePage = () => {
+
+  const [banner, setBanner] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const fetchBanner = async () => {
+    setLoading(true);
+    setError(null);
+    setBanner(null);
+    
+    try {
+      const bannersRef = collection(firestore, 'banners');
+      const q = query(bannersRef, where('page', '==', "Personal Care & Cosmetics"));
+      const querySnapshot = await getDocs(q);
+      
+      if (!querySnapshot.empty) {
+        const bannerDoc = querySnapshot.docs[0].data();
+        setBanner(bannerDoc);
+        console.log(bannerDoc);
+      } else {
+        setError('No banner found for the selected page.');
+      }
+    } catch (err) {
+      setError('Error fetching banner: ' + err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchBanner();
+  }, []);
+
   return (
     <div className={styles.container}>
       <Navbar

@@ -18,6 +18,8 @@ import Footer from "../components/footer/Footer";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { useEffect, useState } from "react";
+import { firestore } from "../firebase/firebase";
+import { collection, query, where, getDocs } from 'firebase/firestore';
 
 // const CustomDot = ({ onClick, ...rest }) => {
 //   const { active } = rest;
@@ -67,10 +69,38 @@ const responsive = {
 };
 
 const FocusParentPage = () => {
+
   const [autoPlay, setAutoPlay] = useState(true);
+  const [banner, setBanner] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const handlePlayPause = () => {
     setAutoPlay(!autoPlay);
+  };
+
+  const fetchBanner = async () => {
+    setLoading(true);
+    setError(null);
+    setBanner(null);
+    
+    try {
+      const bannersRef = collection(firestore, 'banners');
+      const q = query(bannersRef, where('page', '==', "Focus Parent"));
+      const querySnapshot = await getDocs(q);
+      
+      if (!querySnapshot.empty) {
+        const bannerDoc = querySnapshot.docs[0].data();
+        setBanner(bannerDoc);
+        // console.log(bannerDoc);
+      } else {
+        setError('No banner found for the selected page.');
+      }
+    } catch (err) {
+      setError('Error fetching banner: ' + err.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -82,6 +112,10 @@ const FocusParentPage = () => {
         window.scrollTo({ top: section.offsetTop, behavior: "smooth" });
       }
     }
+  }, []);
+
+  useEffect(() => {
+    fetchBanner();
   }, []);
 
   return (
