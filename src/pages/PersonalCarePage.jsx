@@ -13,10 +13,10 @@ import FocusDescription from "../components/focusDescription/FocusDescription";
 import ValueChain5 from "../components/valueChain5/ValueChain5";
 import { useEffect, useState } from "react";
 import { firestore } from "../firebase/firebase";
-import { collection, query, where, getDocs } from 'firebase/firestore';
+import { collection, query, where, getDocs } from "firebase/firestore";
+import BannerLoader from "../components/bannerLoader/BannerLoader";
 
 const PersonalCarePage = () => {
-
   const [banner, setBanner] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -25,21 +25,24 @@ const PersonalCarePage = () => {
     setLoading(true);
     setError(null);
     setBanner(null);
-    
+
     try {
-      const bannersRef = collection(firestore, 'banners');
-      const q = query(bannersRef, where('page', '==', "Personal Care & Cosmetics"));
+      const bannersRef = collection(firestore, "banners");
+      const q = query(
+        bannersRef,
+        where("page", "==", "Personal Care & Cosmetics")
+      );
       const querySnapshot = await getDocs(q);
-      
+
       if (!querySnapshot.empty) {
         const bannerDoc = querySnapshot.docs[0].data();
         setBanner(bannerDoc);
         console.log(bannerDoc);
       } else {
-        setError('No banner found for the selected page.');
+        setError("No banner found for the selected page.");
       }
     } catch (err) {
-      setError('Error fetching banner: ' + err.message);
+      setError("Error fetching banner: " + err.message);
     } finally {
       setLoading(false);
     }
@@ -58,15 +61,32 @@ const PersonalCarePage = () => {
       />
 
       {/* Banner / Hero section */}
-      <Banner
-        imagePath={"/images/focus_area/focus_area6.png"}
-        heading="Making sense of the anti-pollution segment"
-        para={FocusAreasData[5].description}
-        buttonText="Know More"
-        textColor={COLORS.white}
-        contentWidth="600px"
-        headingMarginTop="100px"
-      />
+      {loading || !banner ? (
+        <BannerLoader />
+      ) : (
+        <Banner
+          imagePath={
+            banner.image ? banner.image : "/images/focus_area/focus_area6.png"
+          }
+          heading={
+            banner.heading
+              ? banner.heading
+              : "Making sense of the anti-pollution segment"
+          }
+          para={
+            banner.description
+              ? banner.description
+              : FocusAreasData[5].description
+          }
+          buttonText="Know More"
+          textColor={COLORS.white}
+          contentWidth="600px"
+          headingMarginTop="100px"
+          buttonLink={
+            banner.link ? banner.link : "/personal-care-and-cosmetics"
+          }
+        />
+      )}
 
       <FocusDescription
         longDescription={FocusAreasData[5].longDescription}

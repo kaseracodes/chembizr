@@ -13,10 +13,10 @@ import FocusDescription from "../components/focusDescription/FocusDescription";
 import { FocusAreasData } from "../assets/focusAreas";
 import { useEffect, useState } from "react";
 import { firestore } from "../firebase/firebase";
-import { collection, query, where, getDocs } from 'firebase/firestore';
+import { collection, query, where, getDocs } from "firebase/firestore";
+import BannerLoader from "../components/bannerLoader/BannerLoader";
 
 const FoodNutritionPage = () => {
-
   const [banner, setBanner] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -25,21 +25,24 @@ const FoodNutritionPage = () => {
     setLoading(true);
     setError(null);
     setBanner(null);
-    
+
     try {
-      const bannersRef = collection(firestore, 'banners');
-      const q = query(bannersRef, where('page', '==', "Food, Nutrition & Beverages"));
+      const bannersRef = collection(firestore, "banners");
+      const q = query(
+        bannersRef,
+        where("page", "==", "Food, Nutrition & Beverages")
+      );
       const querySnapshot = await getDocs(q);
-      
+
       if (!querySnapshot.empty) {
         const bannerDoc = querySnapshot.docs[0].data();
         setBanner(bannerDoc);
         console.log(bannerDoc);
       } else {
-        setError('No banner found for the selected page.');
+        setError("No banner found for the selected page.");
       }
     } catch (err) {
-      setError('Error fetching banner: ' + err.message);
+      setError("Error fetching banner: " + err.message);
     } finally {
       setLoading(false);
     }
@@ -59,15 +62,30 @@ const FoodNutritionPage = () => {
       />
 
       {/* Banner / Hero section */}
-      <Banner
-        imagePath={"/images/food_page_hero.png"}
-        heading="What’s driving food factory closures – and how to avoid them"
-        para={FocusAreasData[0].description}
-        buttonText="Know More"
-        textColor={COLORS.white}
-        headingMarginTop="100px"
-        contentWidth="700px"
-      />
+      {loading || !banner ? (
+        <BannerLoader />
+      ) : (
+        <Banner
+          imagePath={banner.image ? banner.image : "/images/food_page_hero.png"}
+          heading={
+            banner.heading
+              ? banner.heading
+              : "What’s driving food factory closures – and how to avoid them"
+          }
+          para={
+            banner.description
+              ? banner.description
+              : FocusAreasData[0].description
+          }
+          buttonText="Know More"
+          buttonLink={
+            banner.link ? banner.link : "/food-nutrition-and-beverages"
+          }
+          textColor={COLORS.white}
+          headingMarginTop="100px"
+          contentWidth="700px"
+        />
+      )}
 
       <FocusDescription
         longDescription={FocusAreasData[0].longDescription}

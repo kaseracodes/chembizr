@@ -13,10 +13,10 @@ import { FocusAreasData } from "../assets/focusAreas";
 import FocusDescription from "../components/focusDescription/FocusDescription";
 import { useEffect, useState } from "react";
 import { firestore } from "../firebase/firebase";
-import { collection, query, where, getDocs } from 'firebase/firestore';
+import { collection, query, where, getDocs } from "firebase/firestore";
+import BannerLoader from "../components/bannerLoader/BannerLoader";
 
 const ChemicalsPage = () => {
-
   const [banner, setBanner] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -25,21 +25,21 @@ const ChemicalsPage = () => {
     setLoading(true);
     setError(null);
     setBanner(null);
-    
+
     try {
-      const bannersRef = collection(firestore, 'banners');
-      const q = query(bannersRef, where('page', '==', "Speciality Polymers"));
+      const bannersRef = collection(firestore, "banners");
+      const q = query(bannersRef, where("page", "==", "Speciality Polymers"));
       const querySnapshot = await getDocs(q);
-      
+
       if (!querySnapshot.empty) {
         const bannerDoc = querySnapshot.docs[0].data();
         setBanner(bannerDoc);
         console.log(bannerDoc);
       } else {
-        setError('No banner found for the selected page.');
+        setError("No banner found for the selected page.");
       }
     } catch (err) {
-      setError('Error fetching banner: ' + err.message);
+      setError("Error fetching banner: " + err.message);
     } finally {
       setLoading(false);
     }
@@ -58,15 +58,30 @@ const ChemicalsPage = () => {
       />
 
       {/* Banner / Hero section */}
-      <Banner
-        imagePath={"/images/focus_area/chemicals.png"}
-        heading="Proposal to Ban Fluoropolymers Has European Industry on Edge"
-        para={FocusAreasData[1].description}
-        buttonText="Know More"
-        textColor={COLORS.white}
-        contentWidth="800px"
-        headingMarginTop="100px"
-      />
+      {loading || !banner ? (
+        <BannerLoader />
+      ) : (
+        <Banner
+          imagePath={
+            banner.image ? banner.image : "/images/focus_area/chemicals.png"
+          }
+          heading={
+            banner.heading
+              ? banner.heading
+              : "Proposal to Ban Fluoropolymers Has European Industry on Edge"
+          }
+          para={
+            banner.description
+              ? banner.description
+              : FocusAreasData[1].description
+          }
+          buttonText="Know More"
+          textColor={COLORS.white}
+          contentWidth="800px"
+          headingMarginTop="100px"
+          buttonLink={banner.link ? banner.link : "/speciality-polymers"}
+        />
+      )}
 
       <FocusDescription
         longDescription={FocusAreasData[1].longDescription}

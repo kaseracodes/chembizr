@@ -19,7 +19,8 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { firestore } from "../firebase/firebase";
-import { collection, query, where, getDocs } from 'firebase/firestore';
+import { collection, query, where, getDocs } from "firebase/firestore";
+import BannerLoader from "../components/bannerLoader/BannerLoader";
 
 // const CustomDot = ({ onClick, ...rest }) => {
 //   const { active } = rest;
@@ -69,7 +70,6 @@ const responsive = {
 };
 
 const FocusParentPage = () => {
-
   const [autoPlay, setAutoPlay] = useState(true);
   const [banner, setBanner] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -83,21 +83,21 @@ const FocusParentPage = () => {
     setLoading(true);
     setError(null);
     setBanner(null);
-    
+
     try {
-      const bannersRef = collection(firestore, 'banners');
-      const q = query(bannersRef, where('page', '==', "Focus Parent"));
+      const bannersRef = collection(firestore, "banners");
+      const q = query(bannersRef, where("page", "==", "Focus Parent"));
       const querySnapshot = await getDocs(q);
-      
+
       if (!querySnapshot.empty) {
         const bannerDoc = querySnapshot.docs[0].data();
         setBanner(bannerDoc);
         // console.log(bannerDoc);
       } else {
-        setError('No banner found for the selected page.');
+        setError("No banner found for the selected page.");
       }
     } catch (err) {
-      setError('Error fetching banner: ' + err.message);
+      setError("Error fetching banner: " + err.message);
     } finally {
       setLoading(false);
     }
@@ -127,13 +127,28 @@ const FocusParentPage = () => {
       />
 
       {/* Banner */}
-      <Banner
-        imagePath={"/images/focus_area/focus_area6.png"}
-        heading="Personal Care<br />Magazine: Making<br />sense of the anti-<br />pollution segment"
-        para="‘Anti-pollution’ is one of the newest buzzwords in the personal care and cosmetics industries, and companies are racing to market masks, sprays, and creams that promise to shield our skin and hair from pollution-related damage."
-        buttonText="Read More"
-        headingLineHeight="120%"
-      />
+      {loading || !banner ? (
+        <BannerLoader />
+      ) : (
+        <Banner
+          imagePath={
+            banner.image ? banner.image : "/images/focus_area/focus_area6.png"
+          }
+          heading={
+            banner.heading
+              ? banner.heading
+              : "Personal Care<br />Magazine: Making<br />sense of the anti-<br />pollution segment"
+          }
+          para={
+            banner.description
+              ? banner.description
+              : "‘Anti-pollution’ is one of the newest buzzwords in the personal care and cosmetics industries, and companies are racing to market masks, sprays, and creams that promise to shield our skin and hair from pollution-related damage."
+          }
+          buttonText="Read More"
+          headingLineHeight="120%"
+          buttonLink={banner.link ? banner.link : "/focus"}
+        />
+      )}
 
       {/* Food Nutrition & Beverages */}
       <FoodNutrition />

@@ -15,10 +15,10 @@ import "react-multi-carousel/lib/styles.css";
 import { useEffect, useState } from "react";
 import ValueChain4 from "../components/valueChain4/ValueChain4";
 import { firestore } from "../firebase/firebase";
-import { collection, query, where, getDocs } from 'firebase/firestore';
+import { collection, query, where, getDocs } from "firebase/firestore";
+import BannerLoader from "../components/bannerLoader/BannerLoader";
 
 const CleanEnergyPage = () => {
-
   const [banner, setBanner] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -27,21 +27,24 @@ const CleanEnergyPage = () => {
     setLoading(true);
     setError(null);
     setBanner(null);
-    
+
     try {
-      const bannersRef = collection(firestore, 'banners');
-      const q = query(bannersRef, where('page', '==', "Clean Energy & Storage"));
+      const bannersRef = collection(firestore, "banners");
+      const q = query(
+        bannersRef,
+        where("page", "==", "Clean Energy & Storage")
+      );
       const querySnapshot = await getDocs(q);
-      
+
       if (!querySnapshot.empty) {
         const bannerDoc = querySnapshot.docs[0].data();
         setBanner(bannerDoc);
         console.log(bannerDoc);
       } else {
-        setError('No banner found for the selected page.');
+        setError("No banner found for the selected page.");
       }
     } catch (err) {
-      setError('Error fetching banner: ' + err.message);
+      setError("Error fetching banner: " + err.message);
     } finally {
       setLoading(false);
     }
@@ -99,15 +102,30 @@ const CleanEnergyPage = () => {
       />
 
       {/* Banner / Hero section */}
-      <Banner
-        imagePath={"/images/focus_area/clean_energy.png"}
-        heading="Can energy storage power the sustainability revolution?"
-        para={FocusAreasData[3].description}
-        buttonText="Know More"
-        textColor={COLORS.white}
-        contentWidth="800px"
-        headingMarginTop="100px"
-      />
+      {loading || !banner ? (
+        <BannerLoader />
+      ) : (
+        <Banner
+          imagePath={
+            banner.image ? banner.image : "/images/focus_area/clean_energy.png"
+          }
+          heading={
+            banner.heading
+              ? banner.heading
+              : "Can energy storage power the sustainability revolution?"
+          }
+          para={
+            banner.description
+              ? banner.description
+              : FocusAreasData[3].description
+          }
+          buttonText="Know More"
+          textColor={COLORS.white}
+          contentWidth="800px"
+          headingMarginTop="100px"
+          buttonLink={banner.link ? banner.link : "/clean-energy-and-storage"}
+        />
+      )}
 
       <FocusDescription
         longDescription={FocusAreasData[3].longDescription}
