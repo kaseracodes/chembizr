@@ -7,7 +7,7 @@ import EventTitleCard from "../eventTitleCard/EventTitleCard";
 import styles from "./EventsFeed.module.css";
 // import BussinessVerticals from "../bussinessVerticals/BussinessVerticals";
 import React, { useState, useEffect, useRef } from "react";
-import { firestore } from "../../firebase/firebase";
+import { auth, firestore } from "../../firebase/firebase";
 import {
   collection,
   onSnapshot,
@@ -18,6 +18,8 @@ import {
 } from "firebase/firestore";
 import { useLocation, useSearchParams } from "react-router-dom";
 import Pagination from "../pagination/Pagination";
+import { doc, setDoc, serverTimestamp } from "firebase/firestore";
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 const BussinessVerticalsItems = [
   "All",
@@ -40,6 +42,9 @@ const EventsFeed = () => {
   const [eventsData, setEventsData] = useState([]);
   const [alleventsData, setAllEventsData] = useState([]);
   const [activeButton, setActiveButton] = useState(0);
+  const [content, setContent] = useState('');
+  const [user] = useAuthState(auth);
+
   const initialColors = BussinessVerticalsItems.map((item, index) =>
     index === 0 ? COLORS.green : COLORS.gray3
   );
@@ -114,6 +119,32 @@ const EventsFeed = () => {
     return date.toLocaleDateString("en-GB", options);
   };
 
+  const handleSubmitComment = async (e) => {
+    e.preventDefault();
+
+    if (!user) {
+      alert("You must be logged in to submit a comment.");
+      return;
+    }
+
+    try {
+      const commentData = {
+        author: user.displayName || user.email,
+        content: content,
+        email: user.email,
+        timestamp: serverTimestamp(),
+      };
+
+      const commentRef = doc(firestore, "comments", user.uid + "_" + Date.now());
+      await setDoc(commentRef, commentData);
+
+      setContent('');
+      alert("Comment submitted successfully!");
+    } catch (error) {
+      console.error("Error submitting comment: ", error);
+    }
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.leftDiv}>
@@ -133,6 +164,22 @@ const EventsFeed = () => {
           ))}
         </div>
         <hr className={styles.hr} />
+
+        {/* <div>
+          <textarea
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+            placeholder="Write your comment..."
+            required
+          />
+          <button
+            type="button" // Use type="button" to avoid submitting the form if wrapped in a form tag
+            onClick={handleSubmitComment}
+            disabled={!user}
+          >
+            Submit Comment
+          </button>
+        </div> */}
 
         <button className={styles.commentBtn}>Leave a comment!</button>
         <Button content="Submit" bgColor={COLORS.orange} />
