@@ -36,10 +36,27 @@ const Navbar = ({ textColor, iconColor, bgColor }) => {
   };
 
   const handleSubscribe = async () => {
+
     if (!email.trim()) {
       setStatus("Email cannot be empty.");
       return;
     }
+
+    function validateEmail(email) {
+      // Regex pattern for basic email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
+
+    if (!validateEmail(email)) {
+      setStatus("Please enter a valid email address.");
+      setEmail('');
+      setTimeout(()=>{
+        setStatus('');
+      }, 2500)
+      return;
+    }
+    
 
     try {
       const emailsRef = collection(firestore, "subscribers");
