@@ -13,7 +13,14 @@ import { auth, firestore } from "../../firebase/firebase";
 import { useReducer } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Modal from "../modal/Modal";
-import { collection, query, where, getDocs, addDoc, serverTimestamp } from 'firebase/firestore';
+import {
+  collection,
+  query,
+  where,
+  getDocs,
+  addDoc,
+  serverTimestamp,
+} from "firebase/firestore";
 
 const Navbar = ({ textColor, iconColor, bgColor }) => {
   const navigate = useNavigate();
@@ -24,8 +31,8 @@ const Navbar = ({ textColor, iconColor, bgColor }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [navbarOpen, setNavbarOpen] = useState(false);
   const [openModal, setOpenModal] = useState(false);
-  const [email, setEmail] = useState('');
-  const [status, setStatus] = useState('');
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState("");
 
   const handleClickLogin = () => {
     navigate("/login");
@@ -36,7 +43,6 @@ const Navbar = ({ textColor, iconColor, bgColor }) => {
   };
 
   const handleSubscribe = async () => {
-
     if (!email.trim()) {
       setStatus("Email cannot be empty.");
       return;
@@ -50,13 +56,12 @@ const Navbar = ({ textColor, iconColor, bgColor }) => {
 
     if (!validateEmail(email)) {
       setStatus("Please enter a valid email address.");
-      setEmail('');
-      setTimeout(()=>{
-        setStatus('');
-      }, 2500)
+      setEmail("");
+      setTimeout(() => {
+        setStatus("");
+      }, 2500);
       return;
     }
-    
 
     try {
       const emailsRef = collection(firestore, "subscribers");
@@ -71,7 +76,7 @@ const Navbar = ({ textColor, iconColor, bgColor }) => {
         setStatus("This email is already subscribed.");
       }
 
-      setEmail(''); // Clear the input field
+      setEmail(""); // Clear the input field
     } catch (error) {
       console.error("Error subscribing to newsletter:", error);
       setStatus("An error occurred. Please try again later.");
@@ -171,7 +176,8 @@ const Navbar = ({ textColor, iconColor, bgColor }) => {
               bgColor="#FF9B42"
               onClick={() => {
                 setStatus("");
-                setOpenModal(true)}}
+                setOpenModal(true);
+              }}
             />
           </div>
 
@@ -220,18 +226,29 @@ const Navbar = ({ textColor, iconColor, bgColor }) => {
         onClose={() => setOpenModal(false)}
         width="fit-content"
       >
-        <div className={styles.inputDiv}>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your mail id"
-            className={styles.input}
-          />
-          <div className={styles.btn}>
-            <Button content="Submit" bgColor={COLORS.orange} onClick={handleSubscribe} />
+        <div className={styles.modalContainer}>
+          <h5 className={styles.modalHeading}>Subscribe to ChemBizR</h5>
+          <p className={styles.modalPara}>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry.
+          </p>
+          <div className={styles.inputDiv}>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your mail id"
+              className={styles.input}
+            />
+            <div className={styles.btn}>
+              <Button
+                content="Submit"
+                bgColor={COLORS.orange}
+                onClick={handleSubscribe}
+              />
+            </div>
           </div>
-          {status && <p>{status}</p>}
+          {status && <p className={styles.statusPara}>{status}</p>}
         </div>
       </Modal>
     </>

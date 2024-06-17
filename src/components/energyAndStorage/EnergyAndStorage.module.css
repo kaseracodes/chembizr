@@ -1,5 +1,5 @@
 .container {
-  padding: 100px;
+  padding: 100px 150px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -25,7 +25,7 @@
 }
 
 .descDiv {
-  padding-right: 150px;
+  /* padding-right: 150px; */
   padding-bottom: 20px;
   display: flex;
   flex-direction: column;
@@ -41,7 +41,7 @@
 
 @media only screen and (max-width: 1300px) {
   .container {
-    padding: 50px;
+    padding: 50px 100px;
     gap: 50px;
   }
 
@@ -53,6 +53,7 @@
 @media only screen and (max-width: 1150px) {
   .container {
     gap: 40px;
+    padding: 50px;
   }
 
   .descDiv {

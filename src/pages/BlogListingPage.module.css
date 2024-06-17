@@ -101,7 +101,7 @@
 .inputContainer input,
 .mobileInputContainer input {
   height: 100%;
-  width: 100%;
+  width: 280px;
   display: block;
   border: none;
   padding: 10px;
@@ -237,6 +237,27 @@
   .inputContainer,
   .spotlightDiv {
     width: 70vw;
+  }
+
+  .inputContainer {
+    display: none;
+  }
+
+  .outerInputDiv {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+  }
+
+  .mobileInputContainer {
+    display: flex;
+    width: 80vw;
+    align-items: center;
+  }
+
+  .mobileInputContainer input {
+    width: 60vw;
   }
 }
 

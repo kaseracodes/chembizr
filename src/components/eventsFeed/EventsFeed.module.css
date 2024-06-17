@@ -53,6 +53,7 @@
   font-weight: 400;
   font-family: "Open Sans", sans-serif;
   color: var(--black);
+  /* width: 140px; */
 }
 
 .rightDiv {

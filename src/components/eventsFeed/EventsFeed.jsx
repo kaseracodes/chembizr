@@ -19,7 +19,7 @@ import {
 import { useLocation, useSearchParams } from "react-router-dom";
 import Pagination from "../pagination/Pagination";
 import { doc, setDoc, serverTimestamp } from "firebase/firestore";
-import { useAuthState } from 'react-firebase-hooks/auth';
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const BussinessVerticalsItems = [
   "All",
@@ -42,7 +42,7 @@ const EventsFeed = () => {
   const [eventsData, setEventsData] = useState([]);
   const [alleventsData, setAllEventsData] = useState([]);
   const [activeButton, setActiveButton] = useState(0);
-  const [content, setContent] = useState('');
+  const [content, setContent] = useState("");
   const [user] = useAuthState(auth);
 
   const initialColors = BussinessVerticalsItems.map((item, index) =>
@@ -140,10 +140,14 @@ const EventsFeed = () => {
         timestamp: serverTimestamp(),
       };
 
-      const commentRef = doc(firestore, "comments", user.uid + "_" + Date.now());
+      const commentRef = doc(
+        firestore,
+        "comments",
+        user.uid + "_" + Date.now()
+      );
       await setDoc(commentRef, commentData);
 
-      setContent('');
+      setContent("");
       alert("Comment submitted successfully!");
     } catch (error) {
       console.error("Error submitting comment: ", error);
@@ -186,8 +190,19 @@ const EventsFeed = () => {
           </button>
         </div> */}
 
-        <button className={styles.commentBtn}>Leave a comment!</button>
-        <Button content="Submit" bgColor={COLORS.orange} />
+        <input
+          type="text"
+          placeholder="Write your comment..."
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+          className={styles.commentBtn}
+        />
+        <Button
+          content="Submit"
+          bgColor={COLORS.orange}
+          disabled={!user}
+          onClick={handleSubmitComment}
+        />
       </div>
 
       <div className={styles.middleDiv} ref={middleDivRef}>
