@@ -9,10 +9,11 @@ import { COLORS } from "../../assets/constants";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/authContext";
 import { doSignOut } from "../../firebase/auth";
-import { auth } from "../../firebase/firebase";
+import { auth, firestore } from "../../firebase/firebase";
 import { useReducer } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Modal from "../modal/Modal";
+import { collection, query, where, getDocs, addDoc, serverTimestamp } from 'firebase/firestore';
 
 const Navbar = ({ textColor, iconColor, bgColor }) => {
   const navigate = useNavigate();
@@ -23,6 +24,8 @@ const Navbar = ({ textColor, iconColor, bgColor }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [navbarOpen, setNavbarOpen] = useState(false);
   const [openModal, setOpenModal] = useState(false);
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState('');
 
   const handleClickLogin = () => {
     navigate("/login");
@@ -30,6 +33,32 @@ const Navbar = ({ textColor, iconColor, bgColor }) => {
 
   const handleClickLogout = () => {
     doSignOut();
+  };
+
+  const handleSubscribe = async () => {
+    if (!email.trim()) {
+      setStatus("Email cannot be empty.");
+      return;
+    }
+
+    try {
+      const emailsRef = collection(firestore, "subscribers");
+      const q = query(emailsRef, where("email", "==", email));
+      const querySnapshot = await getDocs(q);
+
+      if (querySnapshot.empty) {
+        // Add new email to the collection
+        await addDoc(emailsRef, { email, timestamp: serverTimestamp() });
+        setStatus("You have successfully subscribed!");
+      } else {
+        setStatus("This email is already subscribed.");
+      }
+
+      setEmail(''); // Clear the input field
+    } catch (error) {
+      console.error("Error subscribing to newsletter:", error);
+      setStatus("An error occurred. Please try again later.");
+    }
   };
 
   const showNavbar = () => {
@@ -123,7 +152,9 @@ const Navbar = ({ textColor, iconColor, bgColor }) => {
             <Button
               content="Subscribe"
               bgColor="#FF9B42"
-              onClick={() => setOpenModal(true)}
+              onClick={() => {
+                setStatus("");
+                setOpenModal(true)}}
             />
           </div>
 
@@ -175,12 +206,15 @@ const Navbar = ({ textColor, iconColor, bgColor }) => {
         <div className={styles.inputDiv}>
           <input
             type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your mail id"
             className={styles.input}
           />
           <div className={styles.btn}>
-            <Button content="Submit" bgColor={COLORS.orange} />
+            <Button content="Submit" bgColor={COLORS.orange} onClick={handleSubscribe} />
           </div>
+          {status && <p>{status}</p>}
         </div>
       </Modal>
     </>
