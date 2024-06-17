@@ -90,8 +90,7 @@ const Footer = () => {
       </div>
       <hr />
       <p className={styles.copyrightText}>
-        Non Copyrighted &copy; {new Date().getFullYear()} Upload by rich
-        technologies
+        Copyrighted &copy; {new Date().getFullYear()} Upload by House of Development.
       </p>
     </div>
   );
