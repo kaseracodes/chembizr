@@ -47,8 +47,10 @@ const BlogsSection = () => {
 
   return (
     <div className={styles.container}>
-      <Heading content="Our Latest Blogs" />
+      <Heading content="Our Latest Insights" />
+
       <div className={styles.blogsContainer}>
+      
         <div
           className={styles.one}
           style={{
@@ -201,6 +203,7 @@ const BlogsSection = () => {
             )
           }
         ></div>
+
       </div>
     </div>
   );
