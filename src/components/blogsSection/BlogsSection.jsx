@@ -23,7 +23,7 @@ const BlogsSection = () => {
       query(
         collection(firestore, "blogs"),
         // where("category", "==", Topics[currTopic]),
-        orderBy("timestamp", "desc"),
+        orderBy("date", "desc"),
         limit(8)
       ),
       (snapshot) => {

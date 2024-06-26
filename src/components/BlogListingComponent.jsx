@@ -7,7 +7,7 @@ const BlogListingComponent = ({ currentTopic }) => {
   const [blogsData, setBlogsData] = useState([]);
 
   useEffect(() => {
-    const unsubscribe = onSnapshot(query(collection(firestore, "blogs"), where("category", "==", currentTopic), orderBy("timestamp", "desc")), (snapshot) => {
+    const unsubscribe = onSnapshot(query(collection(firestore, "blogs"), where("category", "==", currentTopic), orderBy("date", "desc")), (snapshot) => {
       setBlogsData(snapshot.docs);
       // console.log(snapshot.docs[0].data());
     });

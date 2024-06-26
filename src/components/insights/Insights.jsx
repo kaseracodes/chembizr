@@ -26,7 +26,7 @@ const Insights = ({ pagetype }) => {
         collection(firestore, "blogs"),
         where("pagetype", "==", pagetype),
         where("insighttype", "==", "Publication"), // Add this line
-        orderBy("timestamp", "desc")
+        orderBy("date", "desc")
       ),
       (snapshot) => {
         setPublicationsData(snapshot.docs);
@@ -44,7 +44,7 @@ const Insights = ({ pagetype }) => {
         collection(firestore, "blogs"),
         where("pagetype", "==", pagetype),
         where("insighttype", "==", "Article"), // Add this line
-        orderBy("timestamp", "desc")
+        orderBy("date", "desc")
       ),
       (snapshot) => {
         setArticlesData(snapshot.docs);

@@ -172,12 +172,12 @@ const BlogListingPage = () => {
     let q;
 
     if (currTopic === 0) {
-      q = query(collection(firestore, "blogs"), orderBy("timestamp", "desc"));
+      q = query(collection(firestore, "blogs"), orderBy("date", "desc"));
     } else {
       q = query(
         collection(firestore, "blogs"),
         where("category", "==", Topics[currTopic]),
-        orderBy("timestamp", "desc")
+        orderBy("date", "desc")
       );
     }
 
