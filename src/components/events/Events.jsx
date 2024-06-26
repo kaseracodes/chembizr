@@ -7,7 +7,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import React, { useState, useEffect } from "react";
 import { firestore } from "../../firebase/firebase";
-import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
+import { collection, onSnapshot, query, orderBy, where } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import ArrowIcon from "../../svgIcons/ArrowIcon";
 import { COLORS } from "../../assets/constants";
@@ -82,7 +82,10 @@ const Events = ({ category }) => {
 
   useEffect(() => {
     const unsubscribe = onSnapshot(
-      query(collection(firestore, "events"), orderBy("date", "desc")),
+      query(
+        collection(firestore, "events"), 
+        where("category", "==", category),
+        orderBy("date", "desc")),
       (snapshot) => {
         setEventsData(snapshot.docs);
         // console.log(snapshot.docs[0].data());
@@ -114,6 +117,10 @@ const Events = ({ category }) => {
       </div>
     );
     // eventItems.push(<InnerCarousel />);
+  }
+
+  if (!eventsData || eventsData.length === 0) {
+    return null; // Do not render anything if eventsData is empty
   }
 
   return (
