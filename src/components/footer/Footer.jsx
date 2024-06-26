@@ -28,8 +28,8 @@ const Footer = () => {
             <Link to="/events" className={styles.anchor}>
               Events
             </Link>
-            <Link to="/blogs" className={styles.anchor}>
-              Blogs
+            <Link to="/insights" className={styles.anchor}>
+              Insights
             </Link>
             <Link to="/focus" className={styles.anchor}>
               Industries

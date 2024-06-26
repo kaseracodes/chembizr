@@ -250,14 +250,14 @@ const BlogListingPage = () => {
       />
 
       <div className={styles.mainContainer}>
-        <div className={styles.outerInputDiv}>
+        {/* <div className={styles.outerInputDiv}>
           <div className={styles.mobileInputContainer}>
             <input type="text" placeholder="Search Blogs" />
             <button className={styles.icon}>
               <SearchIcon color={COLORS.black} height="20" width="20" />
             </button>
           </div>
-        </div>
+        </div> */}
 
         <div className={styles.leftDiv} ref={leftDivRef}>
           <div className={styles.topicsCarouselOuterDiv}>
@@ -303,17 +303,17 @@ const BlogListingPage = () => {
             page={page}
             hasPrev={hasPrev}
             hasNext={hasNext}
-            parentPage="blogs"
+            parentPage="insights"
           />
         </div>
 
         <div className={styles.rightDiv}>
-          <div className={styles.inputContainer}>
+          {/* <div className={styles.inputContainer}>
             <input type="text" placeholder="Search Blogs" />
             <button className={styles.icon}>
               <SearchIcon color={COLORS.black} height="20" width="20" />
             </button>
-          </div>
+          </div> */}
 
           <div className={styles.spotlightDiv}>
             <h5 className={styles.spotlightHeading}>Spotlight</h5>

@@ -70,8 +70,8 @@ function App() {
         <Route path="/events" element={<EventsPage />} />
         <Route path="/events/:id" element={<EventDetailPage />} />
         <Route path="/news" element={<NewsPage />} />
-        <Route path="/blogs" element={<BlogListingPage />} />
-        <Route path="/blogs/:heading/:id" element={<BlogDetailPage />} />
+        <Route path="/insights" element={<BlogListingPage />} />
+        <Route path="/insights/:heading/:id" element={<BlogDetailPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/forgot-password" element={<ForgotPasswordPage />} />

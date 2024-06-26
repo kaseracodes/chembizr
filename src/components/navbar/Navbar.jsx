@@ -146,9 +146,9 @@ const Navbar = ({ textColor, iconColor, bgColor }) => {
             />
             <DropdownButton
               textColor={isScrolled || navbarOpen ? COLORS.black : textColor}
-              content="Insights"
+              content="Highlights"
               modalContents={[
-                { desc: "Blogs", link: "/blogs" },
+                { desc: "Insights", link: "/insights" },
                 { desc: "News", link: "/news" },
                 { desc: "Events", link: "/events" },
               ]}

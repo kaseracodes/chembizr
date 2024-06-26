@@ -26,7 +26,7 @@ const BlogListingCard = ({
     <div className={styles.container}>
       <div
         className={styles.mainContainer}
-        onClick={() => navigate(`/blogs/${replaceSpacesWithHyphens(heading)}/${blogId}`)}
+        onClick={() => navigate(`/insights/${replaceSpacesWithHyphens(heading)}/${blogId}`)}
       >
         <div className={styles.contentDiv}>
           <h3 className={styles.heading}>{heading}</h3>

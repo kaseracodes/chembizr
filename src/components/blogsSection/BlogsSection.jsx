@@ -58,7 +58,7 @@ const BlogsSection = () => {
           }}
           onClick={() =>
             navigate(
-              `/blogs/${replaceSpacesWithHyphens(
+              `/insights/${replaceSpacesWithHyphens(
                 blogsData[0].data().heading
               )}/${blogsData[0].data().id}`
             )
@@ -79,7 +79,7 @@ const BlogsSection = () => {
           }}
           onClick={() =>
             navigate(
-              `/blogs/${replaceSpacesWithHyphens(
+              `/insights/${replaceSpacesWithHyphens(
                 blogsData[1].data().heading
               )}/${blogsData[1].data().id}`
             )
@@ -90,7 +90,7 @@ const BlogsSection = () => {
           className={styles.three}
           onClick={() =>
             navigate(
-              `/blogs/${replaceSpacesWithHyphens(
+              `/insights/${replaceSpacesWithHyphens(
                 blogsData[1].data().heading
               )}/${blogsData[1].data().id}`
             )
@@ -111,7 +111,7 @@ const BlogsSection = () => {
           }}
           onClick={() =>
             navigate(
-              `/blogs/${replaceSpacesWithHyphens(
+              `/insights/${replaceSpacesWithHyphens(
                 blogsData[2].data().heading
               )}/${blogsData[2].data().id}`
             )
@@ -132,7 +132,7 @@ const BlogsSection = () => {
           }}
           onClick={() =>
             navigate(
-              `/blogs/${replaceSpacesWithHyphens(
+              `/insights/${replaceSpacesWithHyphens(
                 blogsData[3].data().heading
               )}/${blogsData[3].data().id}`
             )
@@ -153,7 +153,7 @@ const BlogsSection = () => {
           }}
           onClick={() =>
             navigate(
-              `/blogs/${replaceSpacesWithHyphens(
+              `/insights/${replaceSpacesWithHyphens(
                 blogsData[4].data().heading
               )}/${blogsData[4].data().id}`
             )
@@ -172,7 +172,7 @@ const BlogsSection = () => {
             className={styles.contentDiv}
             onClick={() =>
               navigate(
-                `/blogs/${replaceSpacesWithHyphens(
+                `/insights/${replaceSpacesWithHyphens(
                   blogsData[5].data().heading
                 )}/${blogsData[5].data().id}`
               )
@@ -184,8 +184,8 @@ const BlogsSection = () => {
             </h5>
           </div>
 
-          <button className={styles.btn} onClick={() => navigate("/blogs")}>
-            Read More On Our Blog{" "}
+          <button className={styles.btn} onClick={() => navigate("/insights")}>
+            Read More On Our Insights{" "}
             <ArrowIcon color={COLORS.white} height="12" width="18" />
           </button>
         </div>
@@ -197,7 +197,7 @@ const BlogsSection = () => {
           }}
           onClick={() =>
             navigate(
-              `/blogs/${replaceSpacesWithHyphens(
+              `/insights/${replaceSpacesWithHyphens(
                 blogsData[5].data().heading
               )}/${blogsData[5].data().id}`
             )
