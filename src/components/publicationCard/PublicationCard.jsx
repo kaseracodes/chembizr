@@ -27,7 +27,7 @@ const PublicationCard = ({
     <div
       className={styles.container}
       onClick={() =>
-        navigate(`/blogs/${replaceSpacesWithHyphens(heading)}/${blogId}`)
+        navigate(`/insights/${replaceSpacesWithHyphens(heading)}/${blogId}`)
       }
     >
       <img className={styles.image} src={imagePath} alt="image" />

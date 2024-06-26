@@ -229,8 +229,7 @@ const Navbar = ({ textColor, iconColor, bgColor }) => {
         <div className={styles.modalContainer}>
           <h5 className={styles.modalHeading}>Subscribe to ChemBizR</h5>
           <p className={styles.modalPara}>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry.
+            Get the latest updates on insights, events and news from ChemBizR.
           </p>
           <div className={styles.inputDiv}>
             <input

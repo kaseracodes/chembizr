@@ -328,6 +328,7 @@ const BlogListingPage = () => {
                       imagePath={item.data().image}
                       desc={item.data().short}
                       blogId={item.data().id}
+                      heading={item.data().heading}
                     />
                   );
                 })}
