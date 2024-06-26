@@ -17,7 +17,7 @@ import { useState, useEffect } from "react";
 
 const Insights = ({ pagetype }) => {
   const [publicationsData, setPublicationsData] = useState([]);
-  const [articlesData, setAticlesData] = useState([]);
+  const [articlesData, setArticlesData] = useState([]);
   const [showDots, setShowDots] = useState(window.innerWidth < 550);
 
   useEffect(() => {
@@ -30,7 +30,8 @@ const Insights = ({ pagetype }) => {
       ),
       (snapshot) => {
         setPublicationsData(snapshot.docs);
-        console.log(snapshot.docs[0].data());
+        console.log("this is my publications data: ", snapshot.docs[0].data());
+        console.log("length of the publications data: ", publicationsData.length, " ", snapshot.docs.length );
       }
     );
 
@@ -46,8 +47,9 @@ const Insights = ({ pagetype }) => {
         orderBy("timestamp", "desc")
       ),
       (snapshot) => {
-        setAticlesData(snapshot.docs);
-        console.log(snapshot.docs[0].data());
+        setArticlesData(snapshot.docs);
+        console.log("this is my articles data: ", snapshot.docs[0].data());
+        console.log("length of the articles data: ", publicationsData.length, " ", snapshot.docs.length );
       }
     );
 
@@ -89,10 +91,11 @@ const Insights = ({ pagetype }) => {
 
   return (
     <> 
-    {(publicationsData.length>0 && articlesData.length>0) ? 
-      (
         <div className={styles.container}>
+
+        {(publicationsData.length>0 || articlesData.length>0) ? 
           <h1 className={styles.heading}>Our Insights</h1>
+          : (null)} 
 
           {publicationsData.length>0 ? 
             (
@@ -146,7 +149,7 @@ const Insights = ({ pagetype }) => {
             ) : (null) 
           }
         </div>
-      ) : (null)} 
+      
     </>
     
   );
