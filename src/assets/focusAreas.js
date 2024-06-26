@@ -34,7 +34,7 @@ export const FocusAreasData = [
       "Navigating the complexities of the polymer industry requires agility, market intelligence, and a deep understanding of supply chain dynamics. Our strategic priorities revolve around optimizing margins, minimizing risk, and identifying lucrative growth opportunities, ensuring that our clients stay ahead of the curve.",
     ],
     buttonText: "Know More",
-    pageLink: "/speciality-polymers",
+    pageLink: "/specialty-polymers",
   },
 
   {
