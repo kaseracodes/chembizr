@@ -22,7 +22,7 @@ const Compendium = ({ category }) => {
   // console.log(category);
 
     useEffect(() => {
-      const unsubscribe = onSnapshot(query(collection(firestore, "compendiums"), where("category", "==", category), orderBy("timestamp", "desc")), (snapshot) => {
+      const unsubscribe = onSnapshot(query(collection(firestore, "compendiums"), where("category", "==", category), orderBy("date", "desc")), (snapshot) => {
         setCompendiumData(snapshot.docs);
         console.log(snapshot.docs[0].data());
       });
