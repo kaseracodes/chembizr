@@ -9,18 +9,41 @@ import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
 const News = ({ bgColor, textColor, category }) => {
   const [newsData, setNewsData] = useState([]);
 
-  useEffect(() => {
-    const unsubscribe = onSnapshot(
-      query(collection(firestore, "news"), orderBy("date", "desc")),
-      (snapshot) => {
-        setNewsData(snapshot.docs);
-        // console.log(newsData.length);
-        // console.log(snapshot.docs[0].data());
-      }
-    );
+  if ( category ){
+    useEffect(() => {
+      const unsubscribe = onSnapshot(
+        query(
+          collection(firestore, "news"), 
+          orderBy("date", "desc")),
+        (snapshot) => {
+          setNewsData(snapshot.docs);
+          // console.log(newsData.length);
+          // console.log(snapshot.docs[0].data());
+        }
+      );
+  
+      return unsubscribe;
+    }, []);
+  }
+  else {
+    useEffect(() => {
+      const unsubscribe = onSnapshot(
+        query(
+          collection(firestore, "news"), 
+          where("category", "==", category), 
+          orderBy("date", "desc")),
+        (snapshot) => {
+          setNewsData(snapshot.docs);
+          // console.log(newsData.length);
+          // console.log(snapshot.docs[0].data());
+        }
+      );
+  
+      return unsubscribe;
+    }, []);
+  }
 
-    return unsubscribe;
-  }, []);
+  
 
   return (
     <div

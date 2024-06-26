@@ -80,21 +80,39 @@ const Events = ({ category }) => {
 
   const [eventsData, setEventsData] = useState([]);
 
-  useEffect(() => {
-    const unsubscribe = onSnapshot(
-      query(
-        collection(firestore, "events"), 
-        where("category", "==", category),
-        orderBy("date", "desc")),
-      (snapshot) => {
-        setEventsData(snapshot.docs);
-        // console.log(snapshot.docs[0].data());
-        // console.log(eventsData.length);
-      }
-    );
-
-    return unsubscribe;
-  }, []);
+  if ( category == "All"  ){
+    useEffect(() => {
+      const unsubscribe = onSnapshot(
+        query(
+          collection(firestore, "events"), 
+          orderBy("date", "desc")),
+        (snapshot) => {
+          setEventsData(snapshot.docs);
+          // console.log(snapshot.docs[0].data());
+          // console.log(eventsData.length);
+        }
+      );
+  
+      return unsubscribe;
+    }, []);
+  }
+  else{
+    useEffect(() => {
+      const unsubscribe = onSnapshot(
+        query(
+          collection(firestore, "events"), 
+          where("category", "==", category),
+          orderBy("date", "desc")),
+        (snapshot) => {
+          setEventsData(snapshot.docs);
+          // console.log(snapshot.docs[0].data());
+          // console.log(eventsData.length);
+        }
+      );
+  
+      return unsubscribe;
+    }, []);
+  }
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);

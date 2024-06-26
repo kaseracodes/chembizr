@@ -108,7 +108,7 @@ const FoodNutritionPage = () => {
       <News
         bgColor={COLORS.white}
         textColor={COLORS.black}
-        category="Food, Nutrition & Beverages"
+        category="Food and Nutrition"
       />
 
       <CallToAction />
