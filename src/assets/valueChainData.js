@@ -142,9 +142,75 @@ export const ValueChainData = [
     ],
   },
 
+  // {
+  //   description: [
+  //     "The right materials are pivotal for success in the polymers industry. At ChemBizR, we offer comprehensive and unique advice across the value chain. Our consulting services help you navigate through varied challenges, market volatility, supply chain complexities, and more to minimize your business risks.",
+  //   ],
+  //   valueChain: [
+  //     {
+  //       heading: "Raw Materials Manufacturers",
+  //       listItems: [
+  //         "Track trends across industries and techno-commercial parameters",
+  //         "Strategic directions for business development, R&D and sales team",
+  //         "Evaluating the competitors' position and building actionable plans",
+  //         "Strengthen business expansion initiatives by backing M&A among other market entry strategies",
+  //         "Pricing and profitability models unfolding industry benchmarks",
+  //         "Nexus across the value chain enhancing market penetration for product offerings by customer assessment and other techniques",
+  //         "Reviewing commercial relevance of new products",
+  //       ],
+  //     },
+  //     {
+  //       heading: "Compounders, Formulators, Modifiers",
+  //       listItems: [
+  //         "Assess requirements of the component manufacturer and OEM",
+  //         "Scrutinizing and sourcing raw materials by the manufacturers",
+  //         "Engineer an ideal purchasing strategy",
+  //       ],
+  //     },
+  //     {
+  //       heading: "Converter, Molder, Tier II",
+  //       listItems: [
+  //         "Develop a relationship with system manufacturer & assemblers",
+  //         "Assess the need of system manufacturers",
+  //         "Selection of appropriate raw material supplier within the approved list",
+  //       ],
+  //     },
+  //     {
+  //       heading: "System & Component Manufacturers, Assemblers",
+  //       listItems: [
+  //         "Strengthen business expansion with the development of new components",
+  //         "Optimizing the cost of component by appropriate selection",
+  //         "Liaising across the stakeholders to be competitive in the market",
+  //       ],
+  //     },
+  //     {
+  //       heading: "Machinery Manufacturers",
+  //       listItems: [
+  //         "Develop new machinery while aligning with the need of component manufacturers/ OEMs along with raw material suppliers",
+  //         "Strategize the reactive, preventive, and need-based maintenance model",
+  //       ],
+  //     },
+  //     {
+  //       heading: "OEMs, Contract Manufacturers",
+  //       listItems: [
+  //         "Devise a customized action plan for market expansion",
+  //         "Develop relationships to optimize the cost of production",
+  //         "Blueprint for strategic procurement of raw materials",
+  //       ],
+  //     },
+  //     {
+  //       heading: "Brand Owner",
+  //       listItems: [
+  //         "Develop relationships with the stakeholders along with a cost model to optimize sales margin",
+  //         "Establish a supply chain to increase the customer reach",
+  //       ],
+  //     },
+  //   ],
+  // },
+
   {
     description: [
-      "The right materials are pivotal for success in the polymers industry. At ChemBizR, we offer comprehensive and unique advice across the value chain. Our consulting services help you navigate through varied challenges, market volatility, supply chain complexities, and more to minimize your business risks.",
+      "Our clean energy consulting services extend across the entire value chain. We help businesses optimize their operations, reduce their carbon footprint, and embrace circular economy principles to achieve net-zero operations.",
     ],
     valueChain: [
       {
@@ -203,75 +269,6 @@ export const ValueChainData = [
         listItems: [
           "Develop relationships with the stakeholders along with a cost model to optimize sales margin",
           "Establish a supply chain to increase the customer reach",
-        ],
-      },
-    ],
-  },
-
-  {
-    description: [
-      "Our clean energy consulting services extend across the entire value chain. We help businesses optimize their operations, reduce their carbon footprint, and embrace circular economy principles to achieve net-zero operations.",
-    ],
-    valueChain: [
-      {
-        heading: "Ingredient Manufacturers",
-        listItems: [
-          "Track trends across various categories and parameters",
-          "Strategic directions for the sales team",
-          "Unravel sourcing patterns of manufacturers, brand owners, etc",
-          "Evaluating competitors and building actionable plans",
-          "Strengthen business expansion initiatives by backing M&A",
-          "Pricing and profitability models unfolding industry benchmarks",
-          "Nexus across value chain enhancing market penetration for ingredients",
-          "Reviewing commercial relevance of new products",
-        ],
-      },
-      {
-        heading: "Blenders",
-        listItems: [
-          "Assess the requirements of the food manufacturers",
-          "Scrutinizing and sourcing ingredients by the manufacturers/distributors",
-          "Engineer an ideal purchasing strategy",
-        ],
-      },
-      {
-        heading: "Distributors",
-        listItems: [
-          "Cultivating relationships with ingredient manufacturers",
-          "Strategic optimization of physical footprint",
-          "Working across the value chain, geographies, and applications",
-        ],
-      },
-      {
-        heading: "Brand Owners",
-        listItems: [
-          "Recognizing consumer needs",
-          "Private label manufactures assisting in product development",
-          "Sourcing patterns and channels to optimize the cost of products",
-        ],
-      },
-      {
-        heading: "Private Label Manufacturers",
-        listItems: [
-          "Determining requirements in terms of production, time, quality, etc",
-          "Installation of support system",
-          "Systematic internal and external benchmarks of regulations, etc",
-        ],
-      },
-      {
-        heading: "Retail And E-Commerce Outlets",
-        listItems: [
-          "Blueprint for strategic procurement and product stocking",
-          "Collaborating with brand owners, private label manufacturers, etc",
-          "Evaluating market pricing of goods and cost optimization",
-        ],
-      },
-      {
-        heading: "Food Service",
-        listItems: [
-          "Explore the interests of operators",
-          "Devise a customized action plan for market expansion",
-          "Harvest relationships to develop customized products at optimum cost",
         ],
       },
     ],

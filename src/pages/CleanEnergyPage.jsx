@@ -13,10 +13,10 @@ import FocusDescription from "../components/focusDescription/FocusDescription";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useEffect, useState } from "react";
-import ValueChain4 from "../components/valueChain4/ValueChain4";
 import { firestore } from "../firebase/firebase";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import BannerLoader from "../components/bannerLoader/BannerLoader";
+import ValueChain3 from "../components/valueChain3/ValueChain3";
 
 const CleanEnergyPage = () => {
   const [banner, setBanner] = useState(null);
@@ -197,7 +197,7 @@ const CleanEnergyPage = () => {
       </div>
 
       {/* Value chain section */}
-      <ValueChain4 />
+      <ValueChain3 />
 
       {/* Insights */}
       <Insights pagetype="Clean Energy & Storage" />

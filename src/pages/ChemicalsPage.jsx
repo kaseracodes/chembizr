@@ -79,7 +79,7 @@ const ChemicalsPage = () => {
           textColor={COLORS.white}
           contentWidth="800px"
           headingMarginTop="100px"
-          buttonLink={banner.link ? banner.link : "/speciality-polymers"}
+          buttonLink={banner.link ? banner.link : "/specialty-polymers"}
         />
       )}
 

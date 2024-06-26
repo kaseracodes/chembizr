@@ -12,7 +12,7 @@ const Chemicals = () => {
         <img src="/images/chemicals.png" alt="image" />
       </div>
       <div className={styles.chemicalsContentDiv}>
-        <h3 className={styles.chemicalsHeading}>Speciality Polymers</h3>
+        <h3 className={styles.chemicalsHeading}>Specialty Polymers</h3>
         {/* <h5 className={styles.chemicalsSubHeading}>Lorem ipsum dolor</h5> */}
         <p className={styles.desc}>
           Navigate the market complexities of the polymer industry, optimize
@@ -25,7 +25,7 @@ const Chemicals = () => {
         <Button
           content="Know More"
           bgColor={COLORS.orange}
-          onClick={() => navigate("/speciality-polymers")}
+          onClick={() => navigate("/specialty-polymers")}
         />
       </div>
     </div>

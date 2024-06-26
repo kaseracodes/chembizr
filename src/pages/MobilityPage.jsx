@@ -10,11 +10,11 @@ import Footer from "../components/footer/Footer";
 import CallToAction from "../components/callToAction/CallToAction";
 import { FocusAreasData } from "../assets/focusAreas";
 import FocusDescription from "../components/focusDescription/FocusDescription";
-import ValueChain4 from "../components/valueChain4/ValueChain4";
 import { useEffect, useState } from "react";
 import { firestore } from "../firebase/firebase";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import BannerLoader from "../components/bannerLoader/BannerLoader";
+import ValueChain4 from "../components/valueChain4/ValueChain4";
 
 const MobilityPage = () => {
   const [banner, setBanner] = useState(null);

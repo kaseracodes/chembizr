@@ -63,7 +63,7 @@ const ValueChain5 = () => {
               heading={ValueChainData[4].valueChain[0].heading}
               listItems={ValueChainData[4].valueChain[0].listItems}
               bgColor={COLORS.white}
-              padding="87px"
+              padding="58px"
             />
           </div>
 
@@ -72,13 +72,13 @@ const ValueChain5 = () => {
               heading={ValueChainData[4].valueChain[1].heading}
               listItems={ValueChainData[4].valueChain[1].listItems}
               bgColor={COLORS.white}
-              padding="32px"
+              padding="41px"
             />
             <ValueChainCard
               heading={ValueChainData[4].valueChain[2].heading}
               listItems={ValueChainData[4].valueChain[2].listItems}
               bgColor={COLORS.white}
-              padding="32px"
+              padding="41px"
             />
           </div>
           <div className={styles.innerCardContainer}>
@@ -98,7 +98,7 @@ const ValueChain5 = () => {
               heading={ValueChainData[4].valueChain[5].heading}
               listItems={ValueChainData[4].valueChain[5].listItems}
               bgColor={COLORS.white}
-              padding="200px"
+              padding="75px"
             />
           </div>
         </Carousel>

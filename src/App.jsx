@@ -55,7 +55,7 @@ function App() {
           path="/food-nutrition-and-beverages"
           element={<FoodNutritionPage />}
         />
-        <Route path="/speciality-polymers" element={<ChemicalsPage />} />
+        <Route path="/specialty-polymers" element={<ChemicalsPage />} />
         <Route
           path="/petro-chemicals-and-downstream"
           element={<PetroChemicalsPage />}
