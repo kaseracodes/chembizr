@@ -18,7 +18,7 @@ export const CapabilitiesData = [
     shortDesc:
       "We help our clients create customized value offerings for individual customers and assess new development requirements by analyzing product portfolios.",
     description:
-      "ChemBizR not only identifies potential customers but also conducts customer perception analysis, thus determining customers’ businesses, needs, challenges, and requirements.  We analyze the existing technology and product portfolio of our clients and, accordingly, propose the best sales strategies.",
+      "ChemBizR identifies potential customers and conducts customer perception analysis, thus determining customers’ businesses, needs, challenges, and requirements.  We analyze the existing technology and product portfolio of our clients and, accordingly, propose the best sales strategies.",
   },
 
   {

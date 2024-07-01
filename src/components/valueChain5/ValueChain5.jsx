@@ -63,7 +63,7 @@ const ValueChain5 = () => {
               heading={ValueChainData[4].valueChain[0].heading}
               listItems={ValueChainData[4].valueChain[0].listItems}
               bgColor={COLORS.white}
-              padding="58px"
+              padding="50px"
             />
           </div>
 
@@ -98,7 +98,7 @@ const ValueChain5 = () => {
               heading={ValueChainData[4].valueChain[5].heading}
               listItems={ValueChainData[4].valueChain[5].listItems}
               bgColor={COLORS.white}
-              padding="75px"
+              padding="77px"
             />
           </div>
         </Carousel>

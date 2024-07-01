@@ -5,14 +5,14 @@ export const FocusAreasData = [
     imagePath2: "/images/focus_area/fa1.png",
     heading: "Food, Nutrition & Beverages",
     formattedHeading: "Food,<br />Nutrition<br />& Beverages",
-    homedescription: 
-      "Innovations in the food ingredient category, such as plant-based alternatives, functional foods, or pre-and post-natal nutrition, require an understanding of market potential and commercial viability. We can take your innovations from concept to commercialization with our all inclusive go-to-market strategy.",
+    homedescription:
+      "Innovations in the food ingredient category, such as plant-based alternatives, functional foods, or specialized nutrition, require an understanding of market potential and commercial viability. We can take your innovations from concept to commercialization with our all inclusive go-to-market strategy.",
     description:
       "According to business management and research consultant firm ChemBizR, there are those who have concluded that the market for plant-based products is simply not as large as some industry analysts predicted.",
     longDescription: [
       "At ChemBizR, we understand the interplay of market dynamics and emerging trends in the food industry. We specialize in identifying clean-label blends and the impact of bans and regulations in the food space. Our consultancy goes beyond traditional solutions, providing different levels of customization based on the requirement.",
       "We identify untapped opportunities by understanding client success stories and finding the gaps that can be leveraged for creating growth plans based on the unique selling points that beat the competition. Be it sugar reduction, eggflation, or a surge in cocoa prices, we are inclined towards identifying the directional wave of trends, doing solution scouting, and creating innovative pipeline development. We are your trusted partners for driving commercial success in this sustainability-focused market that requires high-end transparency.",
-      "Drawing on our deep industry knowledge and extensive experience, ChemBizR is your trusted partner in navigating the complexities of today’s food market. At the heart of our approach lies a commitment to sustainability in processes and ingredients, sustainability, and waste management, via strategic partnership-building.",
+      "Drawing on our deep industry knowledge and extensive experience, ChemBizR is your trusted partner in navigating the complexities of today’s food and beverage market. At the heart of our approach lies a commitment to sustainability when it comes to processes and ingredients, as well as waste management and packaging, via strategic partnership-building.",
     ],
     buttonText: "Know More",
     pageLink: "/food-nutrition-and-beverages",
@@ -25,7 +25,7 @@ export const FocusAreasData = [
     heading: "Specialty Polymers",
     formattedHeading: "Specialty<br />Polymers",
     homedescription:
-      "We provide valuable insights into polymer materials and manufacturing processes, enabling informed decision-making and strategic planning for long-term growth. At ChemBizR, we are at the forefront of tracking innovation in the polymer industry through data analytics from techno-commercial perspectives.",
+      "We provide valuable insights into polymer materials and manufacturing processes, enabling informed decision-making and strategic planning for business expansion. At ChemBizR, we are at the forefront of tracking innovation in the polymer industry through market and techno-commercial analysis.",
     description:
       "There are more than 12,000 PFAS compounds, and a few of them are already banned in some areas. Scientific evidence to support health concerns associated with each PFAS is still lacking, however, and testing could take years.",
     longDescription: [
@@ -63,12 +63,12 @@ export const FocusAreasData = [
     heading: "Clean Energy & Storage",
     formattedHeading: "Clean<br />Energy<br />& Storage",
     homedescription:
-      "Cutting-edge market research and intelligence services can help you navigate energy storage challenges, turn insights into opportunities, and revolutionize the clean energy industry.",
+      "Cutting-edge market research and intelligence services can help businesses navigate material preferences to address energy storage challenges, turn insights into opportunities, and revolutionize the clean energy industry.",
     description:
       "Technology reliability is one of the main factors influencing the overall energy storage segment. Companies are working very hard to address the issues that the market is currently dealing with, such as the high cost of battery storage technologies, the lack of standardisation, etc.",
     longDescription: [
       "As climate change accelerates, businesses face unprecedented challenges and opportunities in the global energy industry. At ChemBizR, we specialize in supporting companies through this transition, offering a comprehensive suite of consulting services tailored to their unique needs.",
-      "From clean energy research and consulting capabilities to market entry advisory services, we provide strategic support to help businesses redefine their market and scale their innovations. Our expertise spans a wide range of areas, including GHG emissions management, renewable technologies, and EV charging infrastructure. Whether you're looking to shape the global energy transition, accelerate towards a net-zero future, or capitalize on the rise of greener fuels, we have the knowledge and experience to guide you every step of the way.",
+      "From clean energy research and consulting capabilities to market entry advisory services, we provide strategic support to help businesses redefine their market and scale their innovations. Our expertise spans a wide range of areas, including GHG emissions management, renewable technologies, and EV charging infrastructure. Whether you're looking to shape the global energy transition, accelerate towards a net-zero future, or capitalize on the rise of greener fuels, we have the knowledge and experience to guide your every step.",
     ],
     buttonText: "Know More",
     pageLink: "/clean-energy-and-storage",
@@ -81,7 +81,7 @@ export const FocusAreasData = [
     heading: "Mobility",
     formattedHeading: "Mobility",
     homedescription:
-      "From ICE to EVs and other advanced technologies, the automotive market is rapidly changing across the globe. With ChemBizR’s automotive consulting and services, you can accurately assess market opportunities by focusing on cutting-edge technologies and new-age practices.",
+      "From ICE to EVs and other advanced technologies, the automotive market is rapidly changing across the globe. With ChemBizR’s automotive consulting and services, businesses can accurately assess market opportunities by focusing on cutting-edge technologies and new-age practices.",
     description:
       "One key climate action goal enacted by global leaders to mitigate the adverse effects of climate change is the switch from gasoline-powered vehicles to electric vehicles (EVs). With vehicles contributing to almost a third of global emissions, the solution may provide some level of relief. In recent years, growth of Electric vehicles has seen an upward trajectory, and they have received an unequivocal response from customers worldwide.",
     longDescription: [
@@ -100,7 +100,7 @@ export const FocusAreasData = [
     heading: "Personal Care & Cosmetics",
     formattedHeading: "Personal<br />Care &<br />Cosmetics",
     homedescription:
-      "We assist chemical companies/ ingredient manufacturers, and formulators in meeting the diverse needs of end consumers in the personal care and cosmetics industry. By helping them transition from synthetic to natural ingredients, we unlock the market potential of their innovations",
+      "We assist chemical/ ingredient manufacturers, and formulators in meeting the diverse needs of end consumers in the personal care and cosmetics industry. By helping them transition from synthetic to high efficacy natural/ biotech ingredients, we unlock the market potential of their innovations.",
     description:
       "‘Anti-pollution’ is one of the newest buzzwords in the personal care and cosmetics industries, and companies are racing to market masks, sprays, and creams that promise to shield our skin and hair from pollution-related damage.",
     longDescription: [

@@ -163,7 +163,8 @@
     flex-direction: column-reverse;
     justify-content: center;
     height: auto;
-    /* width: 100vw; */
+    width: 100vw;
+    overflow: hidden;
   }
 
   .middleDiv {

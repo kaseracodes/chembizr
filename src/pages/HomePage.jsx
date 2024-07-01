@@ -99,8 +99,8 @@ const HomePage = () => {
           Use our extensive suite of market intelligence tools to realize the
           full potential of your business ideas. From uncovering untapped
           opportunities to gaining deep customer insights and staying ahead of
-          the competition, we provide the strategic guidance you need to grow in
-          a rapidly evolving industry landscape.
+          the competition, we provide the strategic guidance to grow in a
+          rapidly evolving industry landscape.
         </p>
 
         <div className={styles.CapabilitiesCardDiv}>

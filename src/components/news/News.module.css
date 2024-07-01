@@ -7,6 +7,12 @@
   font-size: 50px;
   font-weight: 500;
   margin: 50px 0 0 0;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.heading:hover {
+  transform: scale(1.01);
 }
 
 .newsCarouselDiv {

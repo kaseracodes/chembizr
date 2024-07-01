@@ -87,11 +87,13 @@ const ValueChain = () => {
               heading={ValueChainData[1].valueChain[3].heading}
               listItems={ValueChainData[1].valueChain[3].listItems}
               bgColor={COLORS.white}
+              padding="39px"
             />
             <ValueChainCard
               heading={ValueChainData[1].valueChain[4].heading}
               listItems={ValueChainData[1].valueChain[4].listItems}
               bgColor={COLORS.white}
+              padding="39px"
             />
           </div>
           <div className={styles.innerCardContainer}>
@@ -99,13 +101,13 @@ const ValueChain = () => {
               heading={ValueChainData[1].valueChain[5].heading}
               listItems={ValueChainData[1].valueChain[5].listItems}
               bgColor={COLORS.white}
-              padding="58px"
+              padding="66px"
             />
             <ValueChainCard
               heading={ValueChainData[1].valueChain[6].heading}
               listItems={ValueChainData[1].valueChain[6].listItems}
               bgColor={COLORS.white}
-              padding="58px"
+              padding="66px"
             />
           </div>
         </Carousel>

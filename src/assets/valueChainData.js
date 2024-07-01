@@ -68,7 +68,7 @@ export const ValueChainData = [
       {
         heading: "Food Service",
         listItems: [
-          "Explore interest of operators",
+          "Explore interest of operators, QSR’s, and HoReca",
           "Devise customized plan for market expansion",
           "Harvest relationships to develop customized products at optimum costs",
         ],
@@ -78,7 +78,7 @@ export const ValueChainData = [
 
   {
     description: [
-      "The right materials are pivotal for success in the polymers industry. At ChemBizR, we offer comprehensive and unique advice across the value chain. Our consulting services help you navigate through varied challenges, market volatility, supply chain complexities, and more to minimize your business risks.",
+      "The right materials are pivotal for success in the polymers industry. At ChemBizR, we offer comprehensive and unique advice across the value chain. Our consulting services help businesses navigate through varied challenges, market volatility, supply chain complexities, and more to minimize business risks.",
     ],
     valueChain: [
       {

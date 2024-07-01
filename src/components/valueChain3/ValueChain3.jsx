@@ -64,7 +64,7 @@ const ValueChain3 = () => {
               heading={ValueChainData[2].valueChain[0].heading}
               listItems={ValueChainData[2].valueChain[0].listItems}
               bgColor={COLORS.white}
-              padding="86px"
+              padding="85px"
             />
           </div>
 
@@ -73,13 +73,11 @@ const ValueChain3 = () => {
               heading={ValueChainData[2].valueChain[1].heading}
               listItems={ValueChainData[2].valueChain[1].listItems}
               bgColor={COLORS.white}
-              padding="32px"
             />
             <ValueChainCard
               heading={ValueChainData[2].valueChain[2].heading}
               listItems={ValueChainData[2].valueChain[2].listItems}
               bgColor={COLORS.white}
-              padding="32px"
             />
           </div>
           <div className={styles.innerCardContainer}>
@@ -87,11 +85,13 @@ const ValueChain3 = () => {
               heading={ValueChainData[2].valueChain[3].heading}
               listItems={ValueChainData[2].valueChain[3].listItems}
               bgColor={COLORS.white}
+              padding="37px"
             />
             <ValueChainCard
               heading={ValueChainData[2].valueChain[4].heading}
               listItems={ValueChainData[2].valueChain[4].listItems}
               bgColor={COLORS.white}
+              padding="37px"
             />
           </div>
           <div className={styles.innerCardContainer}>
@@ -99,13 +99,13 @@ const ValueChain3 = () => {
               heading={ValueChainData[2].valueChain[5].heading}
               listItems={ValueChainData[2].valueChain[5].listItems}
               bgColor={COLORS.white}
-              padding="58px"
+              padding="65px"
             />
             <ValueChainCard
               heading={ValueChainData[2].valueChain[6].heading}
               listItems={ValueChainData[2].valueChain[6].listItems}
               bgColor={COLORS.white}
-              padding="58px"
+              padding="65px"
             />
           </div>
         </Carousel>

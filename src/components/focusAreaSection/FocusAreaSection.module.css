@@ -31,6 +31,12 @@
   align-items: center;
   gap: 20px;
   cursor: pointer;
+  transition: all 0.3s;
+}
+
+.linkDiv:hover {
+  gap: 25px;
+  transform: scale(1.02);
 }
 
 .linkDiv h5 {
