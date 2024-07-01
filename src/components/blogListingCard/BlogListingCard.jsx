@@ -15,6 +15,10 @@ const BlogListingCard = ({
   function replaceSpacesWithHyphens(url) {
     return url.replace(/ /g, '-');
   }
+  function sanitizeUrl(url) {
+    // Replace spaces and invalid URL characters with hyphens
+    return url.replace(/[\s?]/g, '-');
+  }
   // console.log(date);
   // const milliseconds =
   //   date.seconds * 1000 + Math.floor(date.nanoseconds / 1000000);
@@ -26,7 +30,7 @@ const BlogListingCard = ({
     <div className={styles.container}>
       <div
         className={styles.mainContainer}
-        onClick={() => navigate(`/insights/${replaceSpacesWithHyphens(heading)}/${blogId}`)}
+        onClick={() => navigate(`/insights/${sanitizeUrl(heading)}/${blogId}`)}
       >
         <div className={styles.contentDiv}>
           <h3 className={styles.heading}>{heading}</h3>

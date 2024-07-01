@@ -42,7 +42,7 @@ const BlogsSection = () => {
   };
 
   const replaceSpacesWithHyphens = (url) => {
-    return url.replace(/ /g, "-");
+    return url.replace(/[\s?]/g, '-');
   };
 
   return (

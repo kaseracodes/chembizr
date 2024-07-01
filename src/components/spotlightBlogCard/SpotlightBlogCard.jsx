@@ -9,11 +9,16 @@ const SpotlightBlogCard = ({ imagePath, desc, blogId, heading }) => {
     return url.replace(/ /g, "-");
   }
 
+  function sanitizeUrl(url) {
+    // Replace spaces and invalid URL characters with hyphens
+    return url.replace(/[\s?]/g, '-');
+  }
+
   return (
     <div
       className={styles.container}
       onClick={() =>
-        navigate(`/insights/${replaceSpacesWithHyphens(heading)}/${blogId}`)
+        navigate(`/insights/${sanitizeUrl(heading)}/${blogId}`)
       }
     >
       <img src={imagePath} alt="image" />
