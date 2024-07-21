@@ -69,7 +69,7 @@
   height: 550px;
 }
 
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 1300px), print {
   .container {
     height: auto;
     /* max-width: 100vw; */

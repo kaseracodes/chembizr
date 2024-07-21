@@ -48,7 +48,7 @@
   }
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 900px), print {
   .mainDiv {
     padding: 50px 80px;
   }

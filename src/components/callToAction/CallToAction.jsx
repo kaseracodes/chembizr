@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { COLORS } from "../../assets/constants";
 import ArrowIcon from "../../svgIcons/ArrowIcon";
 import Button from "../button/Button";
 import { auth, firestore } from "../../firebase/firebase";
-import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
-import { useAuthState } from 'react-firebase-hooks/auth';
+import { doc, setDoc, serverTimestamp } from "firebase/firestore";
+import { useAuthState } from "react-firebase-hooks/auth";
 import styles from "./CallToAction.module.css";
 
 const CallToAction = () => {
-
-  const [question, setQuestion] = useState('');
+  const [question, setQuestion] = useState("");
   const [user] = useAuthState(auth);
 
   const handleSubmitQuery = async () => {
@@ -35,7 +34,7 @@ const CallToAction = () => {
       const queryRef = doc(firestore, "queries", `${user.uid}_${Date.now()}`);
       await setDoc(queryRef, queryData);
 
-      setQuestion('');
+      setQuestion("");
       alert("Query submitted successfully!");
     } catch (error) {
       console.error("Error submitting query:", error);
@@ -71,7 +70,11 @@ const CallToAction = () => {
               className={styles.input}
             />
             <div className={styles.btn}>
-              <Button content="Submit" bgColor={COLORS.orange} onClick={handleSubmitQuery}/>
+              <Button
+                content="Submit"
+                bgColor={COLORS.orange}
+                onClick={handleSubmitQuery}
+              />
             </div>
           </div>
         </div>

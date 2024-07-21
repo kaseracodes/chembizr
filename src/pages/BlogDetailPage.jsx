@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 // import { BlogsData } from "../assets/blogsData";
 import styles from "./BlogDetailPage.module.css";
 import Navbar from "../components/navbar/Navbar";
@@ -8,28 +8,61 @@ import Banner2 from "../components/banner2/Banner2";
 import CommentSection from "../components/commentSection/CommentSection";
 import CallToAction from "../components/callToAction/CallToAction";
 import Footer from "../components/footer/Footer";
-import {
-  collection,
-  onSnapshot,
-  orderBy,
-  where,
-  query,
-} from "firebase/firestore";
+import { collection, onSnapshot, where, query } from "firebase/firestore";
 import { firestore } from "../firebase/firebase";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 const BlogDetailPage = () => {
   const params = useParams();
+  const [shareFeedbackText, setShareFeedbackText] = useState("");
 
   // const blog = userBlog.find((item) => item.id === params.id);
   // const [blog, setBlog] = useState();
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const handleClickComment = () => {
-    navigate(`/comment/${params.id}`);
+  // const handleClickComment = () => {
+  //   navigate(`/comment/${params.id}`);
+  // };
+
+  const handleShareButtonClick = () => {
+    const pageUrl = window.location.href; // Get the current page URL
+
+    if (navigator.clipboard && window.isSecureContext) {
+      // Use the modern Clipboard API
+      navigator.clipboard
+        .writeText(pageUrl)
+        .then(() => {
+          setShareFeedbackText("Link copied!");
+          setTimeout(() => setShareFeedbackText(""), 3000); // Clear the message after 3 seconds
+        })
+        .catch((err) => {
+          console.error("Failed to copy the link: ", err);
+        });
+    } else {
+      // Fallback for older browsers
+      const textArea = document.createElement("textarea");
+      textArea.value = pageUrl;
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      try {
+        document.execCommand("copy");
+        setShareFeedbackText("Link copied!");
+        setTimeout(() => setShareFeedbackText(""), 3000); // Clear the message after 3 seconds
+      } catch (err) {
+        console.error("Failed to copy the link: ", err);
+      }
+      document.body.removeChild(textArea);
+    }
   };
+
+  const handlePrintButtonClick = () => {
+    window.scrollTo(0, 0);
+    window.print();
+  };
+
   const [userBlog, setUserBlog] = useState(null);
   useEffect(() => {
     if (params) {
@@ -72,10 +105,11 @@ const BlogDetailPage = () => {
         </div>
 
         <div className={styles.btnDiv}>
-          <button>
-            <img src="/images/share_icon.png" /> Share
+          <button onClick={handleShareButtonClick}>
+            <img src="/images/share_icon.png" />{" "}
+            {shareFeedbackText ? shareFeedbackText : "Share"}
           </button>
-          <button>
+          <button onClick={handlePrintButtonClick}>
             <img src="/images/print_icon.png" /> Print / Save as PDF
           </button>
         </div>

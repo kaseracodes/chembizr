@@ -63,3 +63,9 @@ body {
 ::-webkit-scrollbar-corner {
   background: transparent; /* Color of the corner */
 }
+
+/* Print background images */
+* {
+  -webkit-print-color-adjust: exact !important; /* Chrome, Safari, Edge */
+  print-color-adjust: exact !important; /* Firefox */
+}
