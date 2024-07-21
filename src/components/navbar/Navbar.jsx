@@ -146,7 +146,7 @@ const Navbar = ({ textColor, iconColor, bgColor }) => {
             />
             <DropdownButton
               textColor={isScrolled || navbarOpen ? COLORS.black : textColor}
-              content="Highlights"
+              content="Knowledge Center"
               modalContents={[
                 { desc: "Insights", link: "/insights" },
                 { desc: "News", link: "/news" },
@@ -227,7 +227,7 @@ const Navbar = ({ textColor, iconColor, bgColor }) => {
         width="fit-content"
       >
         <div className={styles.modalContainer}>
-          <h5 className={styles.modalHeading}>Subscribe to ChemBizR</h5>
+          <h5 className={styles.modalHeading}>Subscribe for Updates</h5>
           <p className={styles.modalPara}>
             Get the latest updates on insights, events and news from ChemBizR.
           </p>

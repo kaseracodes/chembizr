@@ -14,12 +14,13 @@ const CapabilitiesBanner = ({ imagePath }) => {
             ChemBizR’s Capabilities:
             <br />
           </span>
-          Your ultimate solution-driven partners
+          Your Ultimate Solution-driven Partner
         </h1>
 
         <p className={styles.bannerPara}>
-        We offer value-driven application-specific knowledge to better evaluate client 
-        challenges and accordingly offer the requisite solutions.
+          We offer value-driven application-specific knowledge to better
+          evaluate client challenges and accordingly offer the requisite
+          solutions.
         </p>
       </div>
     </div>
