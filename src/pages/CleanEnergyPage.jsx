@@ -17,6 +17,7 @@ import { firestore } from "../firebase/firebase";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import BannerLoader from "../components/bannerLoader/BannerLoader";
 import ValueChain3 from "../components/valueChain3/ValueChain3";
+import MetaTag from "../components/metaTag/MetaTag";
 
 const CleanEnergyPage = () => {
   const [banner, setBanner] = useState(null);
@@ -94,132 +95,141 @@ const CleanEnergyPage = () => {
   }, []);
 
   return (
-    <div className={styles.container}>
-      <Navbar
-        textColor={COLORS.black}
-        iconColor={COLORS.black}
-        bgColor={COLORS.white}
+    <>
+      <MetaTag
+        title="Clean Energy & Renewables | Research & Consulting Services"
+        description="We support companies through the green transition, offering a comprehensive suite of consulting services tailored to their unique needs. Learn more."
       />
 
-      {/* Banner / Hero section */}
-      {loading || !banner ? (
-        <BannerLoader />
-      ) : (
-        <Banner
-          imagePath={
-            banner.image ? banner.image : "/images/focus_area/clean_energy.png"
-          }
-          heading={
-            banner.heading
-              ? banner.heading
-              : "Can energy storage power the sustainability revolution?"
-          }
-          para={
-            banner.description
-              ? banner.description
-              : FocusAreasData[3].description
-          }
-          buttonText="Know More"
-          textColor={COLORS.white}
-          contentWidth="800px"
-          headingMarginTop="100px"
-          buttonLink={banner.link ? banner.link : "/clean-energy-and-storage"}
+      <div className={styles.container}>
+        <Navbar
+          textColor={COLORS.black}
+          iconColor={COLORS.black}
+          bgColor={COLORS.white}
         />
-      )}
 
-      <FocusDescription
-        longDescription={FocusAreasData[3].longDescription}
-        imagePath="/images/focus_area/clean_energy2.png"
-      />
-
-      <div className={styles.geContainer}>
-        <h3 className={styles.geHeading}>Green Energy</h3>
-        <p className={styles.geDesc}>
-          Meet the net-zero emissions target by implementing dependable and
-          long-term solutions to transform the material portfolio to a more
-          green and clean version.
-        </p>
-        <div className={styles.geImageContainer}>
-          <Carousel
-            responsive={responsive}
-            showDots={showDots}
-            arrows={!showDots}
-            autoPlay={true}
-            autoPlaySpeed={1000}
-            infinite={showDots}
-          >
-            <div className={styles.geImageDiv}>
-              <img src="/images/focus_area/ge1.webp" alt="image" />
-              <p className={styles.geImageHeading}>Solar</p>
-            </div>
-            <div className={styles.geImageDiv}>
-              <img src="/images/focus_area/ge2.webp" alt="image" />
-              <p className={styles.geImageHeading}>Wind</p>
-            </div>
-            <div className={styles.geImageDiv}>
-              <img src="/images/focus_area/ge3.webp" alt="image" />
-              <p className={styles.geImageHeading}>Hydro</p>
-            </div>
-            <div className={styles.geImageDiv}>
-              <img src="/images/focus_area/ge4.webp" alt="image" />
-              <p className={styles.geImageHeading}>Hydrogen</p>
-            </div>
-            <div className={styles.geImageDiv}>
-              <img src="/images/focus_area/ge5.webp" alt="image" />
-              <p className={styles.geImageHeading}>Geo Thermal</p>
-            </div>
-          </Carousel>
-        </div>
-      </div>
-
-      <div className={styles.esContainer}>
-        {/* <h3 className={styles.esHeading}>Energy Storage</h3> */}
-        <div className={styles.esInnerContainer}>
-          <div className={styles.esContentDiv}>
-            <h5 className={styles.esSubHeading}>
-              Energy Storage:
-              <br />
-              Redoing energy the better way
-            </h5>
-            <p className={styles.esDesc}>
-              Energy storage technology has made it possible to scale up
-              renewable energy. Know the best materials to use, where
-              scalability opportunities exist, and how to dominate the value
-              chain.
-            </p>
-          </div>
-          <img
-            src="/images/focus_area/energy_storage_diagram.png"
-            alt="image"
-            className={styles.esImage}
+        {/* Banner / Hero section */}
+        {loading || !banner ? (
+          <BannerLoader />
+        ) : (
+          <Banner
+            imagePath={
+              banner.image
+                ? banner.image
+                : "/images/focus_area/clean_energy.png"
+            }
+            heading={
+              banner.heading
+                ? banner.heading
+                : "Can energy storage power the sustainability revolution?"
+            }
+            para={
+              banner.description
+                ? banner.description
+                : FocusAreasData[3].description
+            }
+            buttonText="Know More"
+            textColor={COLORS.white}
+            contentWidth="800px"
+            headingMarginTop="100px"
+            buttonLink={banner.link ? banner.link : "/clean-energy-and-storage"}
           />
+        )}
+
+        <FocusDescription
+          longDescription={FocusAreasData[3].longDescription}
+          imagePath="/images/focus_area/clean_energy2.png"
+        />
+
+        <div className={styles.geContainer}>
+          <h3 className={styles.geHeading}>Green Energy</h3>
+          <p className={styles.geDesc}>
+            Meet the net-zero emissions target by implementing dependable and
+            long-term solutions to transform the material portfolio to a more
+            green and clean version.
+          </p>
+          <div className={styles.geImageContainer}>
+            <Carousel
+              responsive={responsive}
+              showDots={showDots}
+              arrows={!showDots}
+              autoPlay={true}
+              autoPlaySpeed={1000}
+              infinite={showDots}
+            >
+              <div className={styles.geImageDiv}>
+                <img src="/images/focus_area/ge1.webp" alt="image" />
+                <p className={styles.geImageHeading}>Solar</p>
+              </div>
+              <div className={styles.geImageDiv}>
+                <img src="/images/focus_area/ge2.webp" alt="image" />
+                <p className={styles.geImageHeading}>Wind</p>
+              </div>
+              <div className={styles.geImageDiv}>
+                <img src="/images/focus_area/ge3.webp" alt="image" />
+                <p className={styles.geImageHeading}>Hydro</p>
+              </div>
+              <div className={styles.geImageDiv}>
+                <img src="/images/focus_area/ge4.webp" alt="image" />
+                <p className={styles.geImageHeading}>Hydrogen</p>
+              </div>
+              <div className={styles.geImageDiv}>
+                <img src="/images/focus_area/ge5.webp" alt="image" />
+                <p className={styles.geImageHeading}>Geo Thermal</p>
+              </div>
+            </Carousel>
+          </div>
         </div>
+
+        <div className={styles.esContainer}>
+          {/* <h3 className={styles.esHeading}>Energy Storage</h3> */}
+          <div className={styles.esInnerContainer}>
+            <div className={styles.esContentDiv}>
+              <h5 className={styles.esSubHeading}>
+                Energy Storage:
+                <br />
+                Redoing energy the better way
+              </h5>
+              <p className={styles.esDesc}>
+                Energy storage technology has made it possible to scale up
+                renewable energy. Know the best materials to use, where
+                scalability opportunities exist, and how to dominate the value
+                chain.
+              </p>
+            </div>
+            <img
+              src="/images/focus_area/energy_storage_diagram.png"
+              alt="image"
+              className={styles.esImage}
+            />
+          </div>
+        </div>
+
+        {/* Value chain section */}
+        <ValueChain3 />
+
+        {/* Insights */}
+        <Insights pagetype="Clean Energy & Storage" />
+
+        {/* Compendium */}
+        <Compendium category="Clean Energy & Storage" />
+
+        {/* Events */}
+        <Events category="Clean Energy & Resources" />
+
+        {/* Industry News */}
+        <News
+          bgColor={COLORS.white}
+          textColor={COLORS.black}
+          category="Clean Energy & Resources"
+        />
+
+        <CallToAction />
+
+        {/* Footer */}
+        <Footer />
       </div>
-
-      {/* Value chain section */}
-      <ValueChain3 />
-
-      {/* Insights */}
-      <Insights pagetype="Clean Energy & Storage" />
-
-      {/* Compendium */}
-      <Compendium category="Clean Energy & Storage" />
-
-      {/* Events */}
-      <Events category="Clean Energy & Resources" />
-
-      {/* Industry News */}
-      <News
-        bgColor={COLORS.white}
-        textColor={COLORS.black}
-        category="Clean Energy & Resources"
-      />
-
-      <CallToAction />
-
-      {/* Footer */}
-      <Footer />
-    </div>
+    </>
   );
 };
 

@@ -27,12 +27,13 @@ import {
   query,
   orderBy,
   where,
-  doc, 
+  doc,
   setDoc,
-  serverTimestamp 
+  serverTimestamp,
 } from "firebase/firestore";
 import { auth, firestore } from "../firebase/firebase";
-import { useAuthState } from 'react-firebase-hooks/auth';
+import { useAuthState } from "react-firebase-hooks/auth";
+import MetaTag from "../components/metaTag/MetaTag";
 
 const NextButton = (props) => {
   const { className, style, onClick } = props;
@@ -67,9 +68,8 @@ const PrevButton = (props) => {
 };
 
 const BlogListingPage = () => {
-
   const [currTopic, setCurrTopic] = useState(0);
-  const [question, setQuestion] = useState('');
+  const [question, setQuestion] = useState("");
   const [user] = useAuthState(auth);
 
   const responsive = {
@@ -233,7 +233,7 @@ const BlogListingPage = () => {
       const queryRef = doc(firestore, "queries", `${user.uid}_${Date.now()}`);
       await setDoc(queryRef, queryData);
 
-      setQuestion('');
+      setQuestion("");
       alert("Query submitted successfully!");
     } catch (error) {
       console.error("Error submitting query:", error);
@@ -241,16 +241,22 @@ const BlogListingPage = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <Navbar
-        textColor={COLORS.black}
-        invertLogo={true}
-        iconColor={COLORS.black}
-        bgColor={COLORS.white}
+    <>
+      <MetaTag
+        title="Market Insights | ChemBizR Blog"
+        description="Check our market insights to read our media releases and unbiased opinions about how the industries and market are shaping the future. Learn more."
       />
 
-      <div className={styles.mainContainer}>
-        {/* <div className={styles.outerInputDiv}>
+      <div className={styles.container}>
+        <Navbar
+          textColor={COLORS.black}
+          invertLogo={true}
+          iconColor={COLORS.black}
+          bgColor={COLORS.white}
+        />
+
+        <div className={styles.mainContainer}>
+          {/* <div className={styles.outerInputDiv}>
           <div className={styles.mobileInputContainer}>
             <input type="text" placeholder="Search Blogs" />
             <button className={styles.icon}>
@@ -259,88 +265,88 @@ const BlogListingPage = () => {
           </div>
         </div> */}
 
-        <div className={styles.leftDiv} ref={leftDivRef}>
-          <div className={styles.topicsCarouselOuterDiv}>
-            <div className={styles.topicsCarouselDiv}>
-              <Slider {...settings}>
-                {Topics.map((item, index) => (
-                  <div key={index} className={styles.carouselItem}>
-                    <p
-                      className={styles.topicHeading}
-                      onClick={() => setCurrTopic(index)}
-                      style={{
-                        color:
-                          currTopic === index ? COLORS.green : COLORS.black,
-                        fontWeight: currTopic === index ? "600" : "400",
-                      }}
-                    >
-                      {item}
-                    </p>
-                  </div>
-                ))}
-              </Slider>
-              <hr />
+          <div className={styles.leftDiv} ref={leftDivRef}>
+            <div className={styles.topicsCarouselOuterDiv}>
+              <div className={styles.topicsCarouselDiv}>
+                <Slider {...settings}>
+                  {Topics.map((item, index) => (
+                    <div key={index} className={styles.carouselItem}>
+                      <p
+                        className={styles.topicHeading}
+                        onClick={() => setCurrTopic(index)}
+                        style={{
+                          color:
+                            currTopic === index ? COLORS.green : COLORS.black,
+                          fontWeight: currTopic === index ? "600" : "400",
+                        }}
+                      >
+                        {item}
+                      </p>
+                    </div>
+                  ))}
+                </Slider>
+                <hr />
+              </div>
             </div>
+
+            <div className={styles.blogsListingDiv}>
+              {blogsData.slice(startIndex, endIndex).map((item, index) => (
+                <BlogListingCard
+                  key={index}
+                  blogId={item.data().id}
+                  heading={item.data().heading}
+                  imagePath={item.data().image}
+                  author={item.data().author}
+                  desc={item.data().short}
+                  category={item.data().category}
+                  date={formatDate(item.data().date)}
+                />
+              ))}
+              {/* <BlogListingComponent currentTopic={Topics[currTopic]} /> */}
+            </div>
+
+            <Pagination
+              page={page}
+              hasPrev={hasPrev}
+              hasNext={hasNext}
+              parentPage="insights"
+            />
           </div>
 
-          <div className={styles.blogsListingDiv}>
-            {blogsData.slice(startIndex, endIndex).map((item, index) => (
-              <BlogListingCard
-                key={index}
-                blogId={item.data().id}
-                heading={item.data().heading}
-                imagePath={item.data().image}
-                author={item.data().author}
-                desc={item.data().short}
-                category={item.data().category}
-                date={formatDate(item.data().date)}
-              />
-            ))}
-            {/* <BlogListingComponent currentTopic={Topics[currTopic]} /> */}
-          </div>
-
-          <Pagination
-            page={page}
-            hasPrev={hasPrev}
-            hasNext={hasNext}
-            parentPage="insights"
-          />
-        </div>
-
-        <div className={styles.rightDiv}>
-          {/* <div className={styles.inputContainer}>
+          <div className={styles.rightDiv}>
+            {/* <div className={styles.inputContainer}>
             <input type="text" placeholder="Search Blogs" />
             <button className={styles.icon}>
               <SearchIcon color={COLORS.black} height="20" width="20" />
             </button>
           </div> */}
 
-          <div className={styles.spotlightDiv}>
-            <h5 className={styles.spotlightHeading}>Spotlight</h5>
-            <Carousel responsive={responsive} showDots arrows={false}>
-              {blogsData
-                .filter((item) => item.data().isspotlight === "true")
-                .map((item, index) => {
-                  // console.log("Short: ", item.data().short);
-                  return (
-                    <SpotlightBlogCard
-                      key={index}
-                      imagePath={item.data().image}
-                      desc={item.data().short}
-                      blogId={item.data().id}
-                      heading={item.data().heading}
-                    />
-                  );
-                })}
-            </Carousel>
-          </div>
+            <div className={styles.spotlightDiv}>
+              <h5 className={styles.spotlightHeading}>Spotlight</h5>
+              <Carousel responsive={responsive} showDots arrows={false}>
+                {blogsData
+                  .filter((item) => item.data().isspotlight === "true")
+                  .map((item, index) => {
+                    // console.log("Short: ", item.data().short);
+                    return (
+                      <SpotlightBlogCard
+                        key={index}
+                        imagePath={item.data().image}
+                        desc={item.data().short}
+                        blogId={item.data().id}
+                        heading={item.data().heading}
+                      />
+                    );
+                  })}
+              </Carousel>
+            </div>
 
-          <div className={styles.topicsDiv}>
-            <h5 className={styles.topicsDivHeading}>
-              Looking for a Specific Topic?
-            </h5>
+            <div className={styles.topicsDiv}>
+              <h5 className={styles.topicsDivHeading}>
+                Looking for a Specific Topic?
+              </h5>
 
-            {/* <div className={styles.topicsContainer}>
+              {/* <div className={styles.topicsContainer}>
               {Topics.map((item, index) => (
                 <div
                   className={styles.topic}
@@ -351,26 +357,31 @@ const BlogListingPage = () => {
                 </div>
               ))}
             </div> */}
-          </div>
+            </div>
 
-          <div className={styles.newsletterDiv}>
-            <h5>Have Any Further Queries?</h5>
-            <div className={styles.emailInputContainer}>
-              <input
-                type="text"
-                onChange={(e) => setQuestion(e.target.value)}
-                placeholder="Feel free to share..."
-              />
-              <Button content="Submit" bgColor={COLORS.orange} onClick={handleSubmitQuery}/>
+            <div className={styles.newsletterDiv}>
+              <h5>Have Any Further Queries?</h5>
+              <div className={styles.emailInputContainer}>
+                <input
+                  type="text"
+                  onChange={(e) => setQuestion(e.target.value)}
+                  placeholder="Feel free to share..."
+                />
+                <Button
+                  content="Submit"
+                  bgColor={COLORS.orange}
+                  onClick={handleSubmitQuery}
+                />
+              </div>
             </div>
           </div>
         </div>
+
+        {/* <CallToAction /> */}
+
+        {/* <Footer /> */}
       </div>
-
-      {/* <CallToAction /> */}
-
-      {/* <Footer /> */}
-    </div>
+    </>
   );
 };
 

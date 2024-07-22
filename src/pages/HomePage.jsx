@@ -16,6 +16,7 @@ import Events from "../components/events/Events.jsx";
 import FocusAreaSection from "../components/focusAreaSection/FocusAreaSection.jsx";
 import { useEffect, useState } from "react";
 import UVP from "../components/uvp/UVP.jsx";
+import MetaTag from "../components/metaTag/MetaTag.jsx";
 
 const responsiveHero = {
   superLargeDesktop: {
@@ -74,73 +75,80 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div className={styles.container}>
-      <Navbar
-        textColor={COLORS.black}
-        iconColor={COLORS.black}
-        bgColor={COLORS.white}
+    <>
+      <MetaTag
+        title="ChemBizR | Global Research and Consulting"
+        description="Remodeling corporate and market strategy for business growth and future transitions via business intelligence solutions for the chemical industry. Learn more."
       />
 
-      <div style={{ marginTop: "-120px" }}>
-        <Carousel responsive={responsiveHero}>
-          <FirstCarousel
-            bgImage="/images/home_page_hero_2.png"
-            textColor={COLORS.blue2}
-          />
-          <SecondCarousel />
-        </Carousel>
-      </div>
+      <div className={styles.container}>
+        <Navbar
+          textColor={COLORS.black}
+          iconColor={COLORS.black}
+          bgColor={COLORS.white}
+        />
 
-      <FocusAreaSection />
-
-      <div className={styles.capabilitesContainer}>
-        <Heading content="Capabilities" />
-        <p className={styles.para}>
-          Use our extensive suite of market intelligence tools to realize the
-          full potential of your business ideas. From uncovering untapped
-          opportunities to gaining deep customer insights and staying ahead of
-          the competition, we provide the strategic guidance to grow in a
-          rapidly evolving industry landscape.
-        </p>
-
-        <div className={styles.CapabilitiesCardDiv}>
-          <Carousel
-            responsive={responsiveCapabilities}
-            showDots={showDots}
-            arrows={!showDots}
-            infinite={true}
-          >
-            {CapabilitiesData.map((item, index) => (
-              <div key={index} className={styles.capabilitesInnerCardDiv}>
-                <CapabilitiesCard
-                  imagePath={item.imagePath}
-                  heading={item.heading}
-                  description={item.shortDesc}
-                  id={index}
-                />
-              </div>
-            ))}
+        <div style={{ marginTop: "-120px" }}>
+          <Carousel responsive={responsiveHero}>
+            <FirstCarousel
+              bgImage="/images/home_page_hero_2.png"
+              textColor={COLORS.blue2}
+            />
+            <SecondCarousel />
           </Carousel>
         </div>
-      </div>
 
-      <BlogsSection />
+        <FocusAreaSection />
 
-      {/* <Heading content="Unique Value Proposition" />
+        <div className={styles.capabilitesContainer}>
+          <Heading content="Capabilities" />
+          <p className={styles.para}>
+            Use our extensive suite of market intelligence tools to realize the
+            full potential of your business ideas. From uncovering untapped
+            opportunities to gaining deep customer insights and staying ahead of
+            the competition, we provide the strategic guidance to grow in a
+            rapidly evolving industry landscape.
+          </p>
+
+          <div className={styles.CapabilitiesCardDiv}>
+            <Carousel
+              responsive={responsiveCapabilities}
+              showDots={showDots}
+              arrows={!showDots}
+              infinite={true}
+            >
+              {CapabilitiesData.map((item, index) => (
+                <div key={index} className={styles.capabilitesInnerCardDiv}>
+                  <CapabilitiesCard
+                    imagePath={item.imagePath}
+                    heading={item.heading}
+                    description={item.shortDesc}
+                    id={index}
+                  />
+                </div>
+              ))}
+            </Carousel>
+          </div>
+        </div>
+
+        <BlogsSection />
+
+        {/* <Heading content="Unique Value Proposition" />
       <div className={styles.uniquePropositionImageDiv}>
         <img src="/images/unique_proposition.png" alt="image" />
       </div> */}
 
-      <UVP />
+        <UVP />
 
-      <News bgColor={COLORS.white} textColor={COLORS.black} category="All" />
+        <News bgColor={COLORS.white} textColor={COLORS.black} category="All" />
 
-      <Events category="All" />
+        <Events category="All" />
 
-      <CallToAction />
+        <CallToAction />
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </>
   );
 };
 

@@ -23,6 +23,8 @@ const EventsCard = ({
   description,
 }) => {
   const navigate = useNavigate();
+  const sanitizedCategory =
+    category === "Speciality Polymers" ? "Specialty Polymers" : category;
 
   const responsive = {
     superLargeDesktop: {
@@ -51,7 +53,7 @@ const EventsCard = ({
           <div className={styles.categoryDiv}>
             <img src={logoPath} alt="logo" />
             <div className={styles.innerDiv}>
-              <h5 className={styles.category}>{category}</h5>
+              <h5 className={styles.category}>{sanitizedCategory}</h5>
               <p className={styles.date}>{date}</p>
             </div>
           </div>
@@ -77,7 +79,7 @@ const EventsCard = ({
           <div className={styles.topDiv}>
             <img src={logoPath} alt="logo" />
             <div className={styles.innerDiv}>
-              <h5 className={styles.category}>{category}</h5>
+              <h5 className={styles.category}>{sanitizedCategory}</h5>
               <p className={styles.date}>{date}</p>
             </div>
           </div>

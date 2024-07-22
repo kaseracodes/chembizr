@@ -15,6 +15,7 @@ import { useEffect, useState } from "react";
 import { firestore } from "../firebase/firebase";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import BannerLoader from "../components/bannerLoader/BannerLoader";
+import MetaTag from "../components/metaTag/MetaTag";
 
 const PersonalCarePage = () => {
   const [banner, setBanner] = useState(null);
@@ -53,70 +54,77 @@ const PersonalCarePage = () => {
   }, []);
 
   return (
-    <div className={styles.container}>
-      <Navbar
-        textColor={COLORS.black}
-        iconColor={COLORS.black}
-        bgColor={COLORS.white}
+    <>
+      <MetaTag
+        title="Beauty and Personal Care | Research & Consulting Services"
+        description="Our consulting services provide access to information related to the prospects of novel active and functional ingredients that align with requisite market needs. Learn more."
       />
 
-      {/* Banner / Hero section */}
-      {loading || !banner ? (
-        <BannerLoader />
-      ) : (
-        <Banner
-          imagePath={
-            banner.image ? banner.image : "/images/focus_area/focus_area6.png"
-          }
-          heading={
-            banner.heading
-              ? banner.heading
-              : "Making sense of the anti-pollution segment"
-          }
-          para={
-            banner.description
-              ? banner.description
-              : FocusAreasData[5].description
-          }
-          buttonText="Know More"
-          textColor={COLORS.white}
-          contentWidth="600px"
-          headingMarginTop="100px"
-          buttonLink={
-            banner.link ? banner.link : "/personal-care-and-cosmetics"
-          }
+      <div className={styles.container}>
+        <Navbar
+          textColor={COLORS.black}
+          iconColor={COLORS.black}
+          bgColor={COLORS.white}
         />
-      )}
 
-      <FocusDescription
-        longDescription={FocusAreasData[5].longDescription}
-        imagePath="/images/focus_area/personal_care.png"
-      />
+        {/* Banner / Hero section */}
+        {loading || !banner ? (
+          <BannerLoader />
+        ) : (
+          <Banner
+            imagePath={
+              banner.image ? banner.image : "/images/focus_area/focus_area6.png"
+            }
+            heading={
+              banner.heading
+                ? banner.heading
+                : "Making sense of the anti-pollution segment"
+            }
+            para={
+              banner.description
+                ? banner.description
+                : FocusAreasData[5].description
+            }
+            buttonText="Know More"
+            textColor={COLORS.white}
+            contentWidth="600px"
+            headingMarginTop="100px"
+            buttonLink={
+              banner.link ? banner.link : "/personal-care-and-cosmetics"
+            }
+          />
+        )}
 
-      {/* Value chain section */}
-      <ValueChain5 />
+        <FocusDescription
+          longDescription={FocusAreasData[5].longDescription}
+          imagePath="/images/focus_area/personal_care.png"
+        />
 
-      {/* Insights */}
-      <Insights pagetype="Personal Care & Cosmetics" />
+        {/* Value chain section */}
+        <ValueChain5 />
 
-      {/* Compendium */}
-      <Compendium category="Personal Care & Cosmetics" />
+        {/* Insights */}
+        <Insights pagetype="Personal Care & Cosmetics" />
 
-      {/* Events */}
-      <Events category="Personal Care & Cosmetics" />
+        {/* Compendium */}
+        <Compendium category="Personal Care & Cosmetics" />
 
-      {/* Industry News */}
-      <News
-        bgColor={COLORS.white}
-        textColor={COLORS.black}
-        category="Personal Care & Cosmetics"
-      />
+        {/* Events */}
+        <Events category="Personal Care & Cosmetics" />
 
-      <CallToAction />
+        {/* Industry News */}
+        <News
+          bgColor={COLORS.white}
+          textColor={COLORS.black}
+          category="Personal Care & Cosmetics"
+        />
 
-      {/* Footer */}
-      <Footer />
-    </div>
+        <CallToAction />
+
+        {/* Footer */}
+        <Footer />
+      </div>
+    </>
   );
 };
 

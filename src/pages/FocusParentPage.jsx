@@ -21,6 +21,7 @@ import { useEffect, useState } from "react";
 import { firestore } from "../firebase/firebase";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import BannerLoader from "../components/bannerLoader/BannerLoader";
+import MetaTag from "../components/metaTag/MetaTag";
 
 // const CustomDot = ({ onClick, ...rest }) => {
 //   const { active } = rest;
@@ -119,92 +120,100 @@ const FocusParentPage = () => {
   }, []);
 
   return (
-    <div className={styles.container}>
-      <Navbar
-        textColor={COLORS.black}
-        iconColor={COLORS.black}
-        bgColor={COLORS.white}
+    <>
+      <MetaTag
+        title="Our Industry Focus | ChemBizR"
+        description="At ChemBizR, our industrial and market focus is extensive. We offer deep insights and consulting services in a variety of domains and verticals. Learn more."
       />
 
-      {/* Banner */}
-      {loading || !banner ? (
-        <BannerLoader />
-      ) : (
-        <Banner
-          imagePath={
-            banner.image ? banner.image : "/images/focus_area/focus_area6.png"
-          }
-          heading={
-            banner.heading
-              ? banner.heading
-              : "Personal Care<br />Magazine: Making<br />sense of the anti-<br />pollution segment"
-          }
-          para={
-            banner.description
-              ? banner.description
-              : "‘Anti-pollution’ is one of the newest buzzwords in the personal care and cosmetics industries, and companies are racing to market masks, sprays, and creams that promise to shield our skin and hair from pollution-related damage."
-          }
-          buttonText="Read More"
-          headingLineHeight="120%"
-          buttonLink={banner.link ? banner.link : "/focus"}
+      <div className={styles.container}>
+        <Navbar
+          textColor={COLORS.black}
+          iconColor={COLORS.black}
+          bgColor={COLORS.white}
         />
-      )}
 
-      {/* Food Nutrition & Beverages */}
-      <FoodNutrition />
+        {/* Banner */}
+        {loading || !banner ? (
+          <BannerLoader />
+        ) : (
+          <Banner
+            imagePath={
+              banner.image ? banner.image : "/images/focus_area/focus_area6.png"
+            }
+            heading={
+              banner.heading
+                ? banner.heading
+                : "Personal Care<br />Magazine: Making<br />sense of the anti-<br />pollution segment"
+            }
+            para={
+              banner.description
+                ? banner.description
+                : "‘Anti-pollution’ is one of the newest buzzwords in the personal care and cosmetics industries, and companies are racing to market masks, sprays, and creams that promise to shield our skin and hair from pollution-related damage."
+            }
+            buttonText="Read More"
+            headingLineHeight="120%"
+            buttonLink={banner.link ? banner.link : "/focus"}
+          />
+        )}
 
-      {/* Speciality Chemicals and Polymers section */}
-      <Chemicals />
+        {/* Food Nutrition & Beverages */}
+        <FoodNutrition />
 
-      {/* Petrochemicals & Downstream */}
-      <PetroChemicals />
+        {/* Speciality Chemicals and Polymers section */}
+        <Chemicals />
 
-      {/* Clean Energy & Storage */}
-      <EnergyAndStorage />
+        {/* Petrochemicals & Downstream */}
+        <PetroChemicals />
 
-      {/* Mobility */}
-      <Mobility />
+        {/* Clean Energy & Storage */}
+        <EnergyAndStorage />
 
-      {/* Personal Care & Cosmetics */}
-      <CareAndCosmetics />
+        {/* Mobility */}
+        <Mobility />
 
-      {/* More Focus Areas */}
-      <div className={styles.carouselContainer} id="more">
-        <h3 className={styles.heading}>More of Our Focus Verticals</h3>
-        <h5 className={styles.subHeading}>
-          Get personalized solutions across a few more of our business verticals
-        </h5>
-        <Carousel
-          responsive={responsive}
-          arrows={false}
-          infinite={true}
-          autoPlay={autoPlay}
-          autoPlaySpeed={3000}
-          customButtonGroup={<CustomButtonGroup />}
-          showDots={true}
-        >
-          {MoreFocusAreasData.map((item, index) => (
-            <div key={index} className={styles.innerCardContainer}>
-              <MoreFocusArea
-                id="more"
-                imagePath={item.imagePath}
-                heading={item.heading}
-                description={item.description}
-              />
-            </div>
-          ))}
-        </Carousel>
+        {/* Personal Care & Cosmetics */}
+        <CareAndCosmetics />
 
-        <button onClick={handlePlayPause} className={styles.playButton}>
-          {autoPlay ? <FaPause /> : <FaPlay />}
-        </button>
+        {/* More Focus Areas */}
+        <div className={styles.carouselContainer} id="more">
+          <h3 className={styles.heading}>More of Our Focus Verticals</h3>
+          <h5 className={styles.subHeading}>
+            Get personalized solutions across a few more of our business
+            verticals
+          </h5>
+          <Carousel
+            responsive={responsive}
+            arrows={false}
+            infinite={true}
+            autoPlay={autoPlay}
+            autoPlaySpeed={3000}
+            customButtonGroup={<CustomButtonGroup />}
+            showDots={true}
+          >
+            {MoreFocusAreasData.map((item, index) => (
+              <div key={index} className={styles.innerCardContainer}>
+                <MoreFocusArea
+                  id="more"
+                  imagePath={item.imagePath}
+                  heading={item.heading}
+                  description={item.description}
+                />
+              </div>
+            ))}
+          </Carousel>
+
+          <button onClick={handlePlayPause} className={styles.playButton}>
+            {autoPlay ? <FaPause /> : <FaPlay />}
+          </button>
+        </div>
+
+        {/* Call to Action */}
+        <CallToAction />
+
+        <Footer />
       </div>
-
-      {/* Call to Action */}
-      <CallToAction />
-
-      <Footer />
-    </div>
+    </>
   );
 };
 

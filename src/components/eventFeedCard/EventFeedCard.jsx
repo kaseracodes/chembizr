@@ -14,6 +14,8 @@ const EventFeedCard = ({
   imagePath,
 }) => {
   const [openModal, setOpenModal] = useState(false);
+  const sanitizedCategory =
+    category === "Speciality Polymers" ? "Specialty Polymers" : category;
 
   return (
     <>
@@ -21,7 +23,7 @@ const EventFeedCard = ({
         <div className={styles.topDiv}>
           <img src={logoPath} alt="logo" />
           <div className={styles.innerDiv}>
-            <h5 className={styles.category}>{category}</h5>
+            <h5 className={styles.category}>{sanitizedCategory}</h5>
             <p className={styles.date}>{date}</p>
           </div>
         </div>
@@ -44,7 +46,7 @@ const EventFeedCard = ({
         <EventCardModal
           imagePath={imagePath}
           logoPath={logoPath}
-          category={category}
+          category={sanitizedCategory}
           date={date}
           heading={heading}
           description={description}
@@ -55,7 +57,7 @@ const EventFeedCard = ({
         <EventsCard
           imagePath={imagePath}
           logoPath={logoPath}
-          category={category}
+          category={sanitizedCategory}
           date={date}
           heading={heading}
           description={description}

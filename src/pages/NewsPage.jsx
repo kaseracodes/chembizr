@@ -18,6 +18,7 @@ import {
 } from "firebase/firestore";
 import Pagination from "../components/pagination/Pagination";
 import { useLocation, useSearchParams } from "react-router-dom";
+import MetaTag from "../components/metaTag/MetaTag";
 
 const NewsPage = () => {
   const BussinessVerticalsItems = [
@@ -95,63 +96,73 @@ const NewsPage = () => {
   const endIndex = Math.min(startIndex + NEWS_PER_PAGE, newsData.length);
 
   return (
-    <div className={styles.container}>
-      <Navbar
-        textColor={COLORS.black}
-        iconColor={COLORS.black}
-        bgColor={COLORS.white}
+    <>
+      <MetaTag
+        title="Industry News | ChemBizR"
+        description="Read the latest happenings in the chemical industry with our extensive news coverage in a variety of sectors, helping readers stay updated. Learn more."
       />
 
-      <Banner2 imagePath="/images/news_page_hero.png" heading="Industry News" />
+      <div className={styles.container}>
+        <Navbar
+          textColor={COLORS.black}
+          iconColor={COLORS.black}
+          bgColor={COLORS.white}
+        />
 
-      <div className={styles.newsListingDiv}>
-        <div className={styles.newsCardDiv} ref={newsCardDivRef}>
-          {newsData.slice(startIndex, endIndex).map((item, index) => (
-            <NewsListingCard
-              key={index}
-              date={item.data().date}
-              heading={item.data().heading}
-              description={item.data().desc}
-              category={item.data().category}
+        <Banner2
+          imagePath="/images/news_page_hero.png"
+          heading="Industry News"
+        />
+
+        <div className={styles.newsListingDiv}>
+          <div className={styles.newsCardDiv} ref={newsCardDivRef}>
+            {newsData.slice(startIndex, endIndex).map((item, index) => (
+              <NewsListingCard
+                key={index}
+                date={item.data().date}
+                heading={item.data().heading}
+                description={item.data().desc}
+                category={item.data().category}
+              />
+            ))}
+            <Pagination
+              page={page}
+              hasPrev={hasPrev}
+              hasNext={hasNext}
+              parentPage="news"
             />
-          ))}
-          <Pagination
-            page={page}
-            hasPrev={hasPrev}
-            hasNext={hasNext}
-            parentPage="news"
-          />
-        </div>
+          </div>
 
-        {/* <BussinessVerticals
+          {/* <BussinessVerticals
           BussinessVerticals={BussinessVerticalsItems}
           buttonColor={COLORS.gray3}
         /> */}
 
-        <div className={styles.bvContainer}>
-          <h5 className={styles.divHeading}>Business Verticals</h5>
-          <hr className={styles.hr} />
-          <div className={styles.bvDiv}>
-            {BussinessVerticalsItems.map((item, index) => (
-              <button
-                style={{ backgroundColor: buttonColors[index] }}
-                className={`${styles.bvItem} ${
-                  index === activeButton ? styles.active : ""
-                }`}
-                key={index}
-                onClick={() => handleClick(index)}
-              >
-                {item}
-              </button>
-            ))}
+          <div className={styles.bvContainer}>
+            <h5 className={styles.divHeading}>Business Verticals</h5>
+            <hr className={styles.hr} />
+            <div className={styles.bvDiv}>
+              {BussinessVerticalsItems.map((item, index) => (
+                <button
+                  style={{ backgroundColor: buttonColors[index] }}
+                  className={`${styles.bvItem} ${
+                    index === activeButton ? styles.active : ""
+                  }`}
+                  key={index}
+                  onClick={() => handleClick(index)}
+                >
+                  {item}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
+
+        <CallToAction />
+
+        <Footer />
       </div>
-
-      <CallToAction />
-
-      <Footer />
-    </div>
+    </>
   );
 };
 

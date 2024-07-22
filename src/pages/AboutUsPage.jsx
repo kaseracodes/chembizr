@@ -10,38 +10,49 @@ import Vision from "../components/vision/Vision";
 import styles from "./AboutUsPage.module.css";
 import { CoreValuesData } from "../assets/coreValuesData";
 import Banner3 from "../components/banner3/Banner3";
+import MetaTag from "../components/metaTag/MetaTag";
 
 const AboutUsPage = () => {
   return (
-    <div className={styles.container}>
-      <Navbar
-        textColor={COLORS.black}
-        invertLogo={true}
-        iconColor={COLORS.black}
-        bgColor={COLORS.white}
+    <>
+      <MetaTag
+        title="About Us | ChemBizR"
+        description="We partner with leaders who are futuristic, trying to adapt sustainability and solutions with unique solutions to gain market dominance. Learn more."
       />
 
-      <Banner3
-        heading="Your Thought-<br />Partner For Being<br />Future Relevant"
-        para="We at ChemBizR, partner with global<br />clients to unleash unique solutions across<br />a variety of business verticals."
-        buttonText="Insights"
-        imagePath="/images/about_us_hero.png"
-      />
+      <div className={styles.container}>
+        <Navbar
+          textColor={COLORS.black}
+          invertLogo={true}
+          iconColor={COLORS.black}
+          bgColor={COLORS.white}
+        />
 
-      <OriginStory />
+        <Banner3
+          heading="Your Thought-<br />Partner For Being<br />Future Relevant"
+          para="We at ChemBizR, partner with global<br />clients to unleash unique solutions across<br />a variety of business verticals."
+          buttonText="Insights"
+          imagePath="/images/about_us_hero.png"
+        />
 
-      <CoreValues heading="Our Teaming Principles" cardData={CoreValuesData} />
+        <OriginStory />
 
-      <Vision />
+        <CoreValues
+          heading="Our Teaming Principles"
+          cardData={CoreValuesData}
+        />
 
-      <FindUs />
+        <Vision />
 
-      <Places />
+        <FindUs />
 
-      <CallToAction />
+        <Places />
 
-      <Footer />
-    </div>
+        <CallToAction />
+
+        <Footer />
+      </div>
+    </>
   );
 };
 

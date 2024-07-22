@@ -15,6 +15,7 @@ import { firestore } from "../firebase/firebase";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import BannerLoader from "../components/bannerLoader/BannerLoader";
 import ValueChain4 from "../components/valueChain4/ValueChain4";
+import MetaTag from "../components/metaTag/MetaTag";
 
 const MobilityPage = () => {
   const [banner, setBanner] = useState(null);
@@ -50,86 +51,93 @@ const MobilityPage = () => {
   }, []);
 
   return (
-    <div className={styles.container}>
-      <Navbar
-        textColor={COLORS.black}
-        iconColor={COLORS.black}
-        bgColor={COLORS.white}
+    <>
+      <MetaTag
+        title="Mobility | Material Research & Consulting Services"
+        description="Our mobility consulting and services help accurately assess market opportunities for the most suitable and strategically fit material solutions. Learn more."
       />
 
-      {/* Banner / Hero section */}
-      {loading || !banner ? (
-        <BannerLoader />
-      ) : (
-        <Banner
-          imagePath={
-            banner.image ? banner.image : "/images/focus_area/focus_area5.png"
-          }
-          heading={
-            banner.heading
-              ? banner.heading
-              : "Opportunities and Challenges for Composites in Electric Vehicles"
-          }
-          para={
-            banner.description
-              ? banner.description
-              : FocusAreasData[4].description
-          }
-          buttonText="Know More"
-          textColor={COLORS.white}
-          contentWidth="800px"
-          headingMarginTop="100px"
-          buttonLink={banner.link ? banner.link : "/mobility"}
+      <div className={styles.container}>
+        <Navbar
+          textColor={COLORS.black}
+          iconColor={COLORS.black}
+          bgColor={COLORS.white}
         />
-      )}
 
-      <FocusDescription
-        longDescription={FocusAreasData[4].longDescription}
-        imagePath="/images/focus_area/mobility.png"
-      />
+        {/* Banner / Hero section */}
+        {loading || !banner ? (
+          <BannerLoader />
+        ) : (
+          <Banner
+            imagePath={
+              banner.image ? banner.image : "/images/focus_area/focus_area5.png"
+            }
+            heading={
+              banner.heading
+                ? banner.heading
+                : "Opportunities and Challenges for Composites in Electric Vehicles"
+            }
+            para={
+              banner.description
+                ? banner.description
+                : FocusAreasData[4].description
+            }
+            buttonText="Know More"
+            textColor={COLORS.white}
+            contentWidth="800px"
+            headingMarginTop="100px"
+            buttonLink={banner.link ? banner.link : "/mobility"}
+          />
+        )}
 
-      <div className={styles.eMobilityContainer}>
-        <h3 className={styles.eMobilityHeading}>
-          E-Mobility:
-          <br />
-          Transitioning the acceleration
-        </h3>
-        <p className={styles.eMobilityDesc}>
-          The EV, HEV, and FCV spectrum are one of the soaring market segments.
-          Acquire the maximum market share by leveraging the right
-          opportunities, uncovering challenges, and assessing recommendations in
-          the e-mobility domain.
-        </p>
+        <FocusDescription
+          longDescription={FocusAreasData[4].longDescription}
+          imagePath="/images/focus_area/mobility.png"
+        />
+
+        <div className={styles.eMobilityContainer}>
+          <h3 className={styles.eMobilityHeading}>
+            E-Mobility:
+            <br />
+            Transitioning the acceleration
+          </h3>
+          <p className={styles.eMobilityDesc}>
+            The EV, HEV, and FCV spectrum are one of the soaring market
+            segments. Acquire the maximum market share by leveraging the right
+            opportunities, uncovering challenges, and assessing recommendations
+            in the e-mobility domain.
+          </p>
+        </div>
+
+        <div className={styles.mobilityDiagram}>
+          <img src="/images/focus_area/mobility_diagram.png" alt="image" />
+        </div>
+
+        {/* Value chain section */}
+        <ValueChain4 />
+
+        {/* Insights */}
+        <Insights pagetype="Mobility" />
+
+        {/* Compendium */}
+        <Compendium category="Mobility" />
+
+        {/* Events */}
+        <Events category="Mobility" />
+
+        {/* Industry News */}
+        <News
+          bgColor={COLORS.white}
+          textColor={COLORS.black}
+          category="Mobility"
+        />
+
+        <CallToAction />
+
+        {/* Footer */}
+        <Footer />
       </div>
-
-      <div className={styles.mobilityDiagram}>
-        <img src="/images/focus_area/mobility_diagram.png" alt="image" />
-      </div>
-
-      {/* Value chain section */}
-      <ValueChain4 />
-
-      {/* Insights */}
-      <Insights pagetype="Mobility" />
-
-      {/* Compendium */}
-      <Compendium category="Mobility" />
-
-      {/* Events */}
-      <Events category="Mobility" />
-
-      {/* Industry News */}
-      <News
-        bgColor={COLORS.white}
-        textColor={COLORS.black}
-        category="Mobility"
-      />
-
-      <CallToAction />
-
-      {/* Footer */}
-      <Footer />
-    </div>
+    </>
   );
 };
 

@@ -15,6 +15,7 @@ import { useEffect, useState } from "react";
 import { firestore } from "../firebase/firebase";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import BannerLoader from "../components/bannerLoader/BannerLoader";
+import MetaTag from "../components/metaTag/MetaTag";
 
 const ChemicalsPage = () => {
   const [banner, setBanner] = useState(null);
@@ -50,68 +51,75 @@ const ChemicalsPage = () => {
   }, []);
 
   return (
-    <div className={styles.container}>
-      <Navbar
-        textColor={COLORS.black}
-        iconColor={COLORS.black}
-        bgColor={COLORS.white}
+    <>
+      <MetaTag
+        title="Specialty Polymers | Research & Consulting Services"
+        description="We help companies find relevant materials, optimize margins, minimize risk, identify lucrative & emerging opportunities to stay ahead of the curve. Learn more."
       />
 
-      {/* Banner / Hero section */}
-      {loading || !banner ? (
-        <BannerLoader />
-      ) : (
-        <Banner
-          imagePath={
-            banner.image ? banner.image : "/images/focus_area/chemicals.png"
-          }
-          heading={
-            banner.heading
-              ? banner.heading
-              : "Proposal to Ban Fluoropolymers Has European Industry on Edge"
-          }
-          para={
-            banner.description
-              ? banner.description
-              : FocusAreasData[1].description
-          }
-          buttonText="Know More"
-          textColor={COLORS.white}
-          contentWidth="800px"
-          headingMarginTop="100px"
-          buttonLink={banner.link ? banner.link : "/specialty-polymers"}
+      <div className={styles.container}>
+        <Navbar
+          textColor={COLORS.black}
+          iconColor={COLORS.black}
+          bgColor={COLORS.white}
         />
-      )}
 
-      <FocusDescription
-        longDescription={FocusAreasData[1].longDescription}
-        imagePath="/images/focus_area/polymers.png"
-      />
+        {/* Banner / Hero section */}
+        {loading || !banner ? (
+          <BannerLoader />
+        ) : (
+          <Banner
+            imagePath={
+              banner.image ? banner.image : "/images/focus_area/chemicals.png"
+            }
+            heading={
+              banner.heading
+                ? banner.heading
+                : "Proposal to Ban Fluoropolymers Has European Industry on Edge"
+            }
+            para={
+              banner.description
+                ? banner.description
+                : FocusAreasData[1].description
+            }
+            buttonText="Know More"
+            textColor={COLORS.white}
+            contentWidth="800px"
+            headingMarginTop="100px"
+            buttonLink={banner.link ? banner.link : "/specialty-polymers"}
+          />
+        )}
 
-      {/* Value chain section */}
-      <ValueChain2 />
+        <FocusDescription
+          longDescription={FocusAreasData[1].longDescription}
+          imagePath="/images/focus_area/polymers.png"
+        />
 
-      {/* Insights */}
-      <Insights pagetype="Speciality Chemicals and Polymers" />
+        {/* Value chain section */}
+        <ValueChain2 />
 
-      {/* Compendium */}
-      <Compendium category="Speciality Chemicals and Polymers" />
+        {/* Insights */}
+        <Insights pagetype="Speciality Chemicals and Polymers" />
 
-      {/* Events */}
-      <Events category="Specialty Polymers" />
+        {/* Compendium */}
+        <Compendium category="Speciality Chemicals and Polymers" />
 
-      {/* Industry News */}
-      <News
-        bgColor={COLORS.white}
-        textColor={COLORS.black}
-        category="Specialty Polymers"
-      />
+        {/* Events */}
+        <Events category="Specialty Polymers" />
 
-      <CallToAction />
+        {/* Industry News */}
+        <News
+          bgColor={COLORS.white}
+          textColor={COLORS.black}
+          category="Specialty Polymers"
+        />
 
-      {/* Footer */}
-      <Footer />
-    </div>
+        <CallToAction />
+
+        {/* Footer */}
+        <Footer />
+      </div>
+    </>
   );
 };
 

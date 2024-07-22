@@ -15,6 +15,7 @@ import { useEffect, useState } from "react";
 import { firestore } from "../firebase/firebase";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import BannerLoader from "../components/bannerLoader/BannerLoader";
+import MetaTag from "../components/metaTag/MetaTag";
 
 const FoodNutritionPage = () => {
   const [banner, setBanner] = useState(null);
@@ -53,69 +54,78 @@ const FoodNutritionPage = () => {
   }, []);
 
   return (
-    <div className={styles.container}>
-      <Navbar
-        textColor={COLORS.black}
-        invertLogo={true}
-        iconColor={COLORS.black}
-        bgColor={COLORS.white}
+    <>
+      <MetaTag
+        title="Food & Nutrition | Research & Consulting Services"
+        description="ChemBizR is a trusted partner in navigating the complexities of today’s food market with a commitment to sustainability in processes & ingredients. Learn more."
       />
 
-      {/* Banner / Hero section */}
-      {loading || !banner ? (
-        <BannerLoader />
-      ) : (
-        <Banner
-          imagePath={banner.image ? banner.image : "/images/food_page_hero.png"}
-          heading={
-            banner.heading
-              ? banner.heading
-              : "What’s driving food factory closures – and how to avoid them"
-          }
-          para={
-            banner.description
-              ? banner.description
-              : FocusAreasData[0].description
-          }
-          buttonText="Know More"
-          buttonLink={
-            banner.link ? banner.link : "/food-nutrition-and-beverages"
-          }
-          textColor={COLORS.white}
-          headingMarginTop="100px"
-          contentWidth="700px"
+      <div className={styles.container}>
+        <Navbar
+          textColor={COLORS.black}
+          invertLogo={true}
+          iconColor={COLORS.black}
+          bgColor={COLORS.white}
         />
-      )}
 
-      <FocusDescription
-        longDescription={FocusAreasData[0].longDescription}
-        imagePath="/images/focus_area/food.png"
-      />
+        {/* Banner / Hero section */}
+        {loading || !banner ? (
+          <BannerLoader />
+        ) : (
+          <Banner
+            imagePath={
+              banner.image ? banner.image : "/images/food_page_hero.png"
+            }
+            heading={
+              banner.heading
+                ? banner.heading
+                : "What’s driving food factory closures – and how to avoid them"
+            }
+            para={
+              banner.description
+                ? banner.description
+                : FocusAreasData[0].description
+            }
+            buttonText="Know More"
+            buttonLink={
+              banner.link ? banner.link : "/food-nutrition-and-beverages"
+            }
+            textColor={COLORS.white}
+            headingMarginTop="100px"
+            contentWidth="700px"
+          />
+        )}
 
-      {/* Value chain section */}
-      <ValueChain />
+        <FocusDescription
+          longDescription={FocusAreasData[0].longDescription}
+          imagePath="/images/focus_area/food.png"
+        />
 
-      {/* Insights */}
-      <Insights pagetype="Food, Nutrition & Beverages" />
+        {/* Value chain section */}
+        <ValueChain />
 
-      {/* Compendium */}
-      <Compendium category="Food, Nutrition & Beverages" />
+        {/* Insights */}
+        <Insights pagetype="Food, Nutrition & Beverages" />
 
-      {/* Events */}
-      <Events category="Food, Nutrition & Beverages" />
+        {/* Compendium */}
+        <Compendium category="Food, Nutrition & Beverages" />
 
-      {/* Industry News */}
-      <News
-        bgColor={COLORS.white}
-        textColor={COLORS.black}
-        category="Food and Nutrition"
-      />
+        {/* Events */}
+        <Events category="Food, Nutrition & Beverages" />
 
-      <CallToAction />
+        {/* Industry News */}
+        <News
+          bgColor={COLORS.white}
+          textColor={COLORS.black}
+          category="Food and Nutrition"
+        />
 
-      {/* Footer */}
-      <Footer />
-    </div>
+        <CallToAction />
+
+        {/* Footer */}
+        <Footer />
+      </div>
+    </>
   );
 };
 

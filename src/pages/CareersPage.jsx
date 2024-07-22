@@ -7,37 +7,45 @@ import CareersCoreValues from "../components/careersCoreValues/CareersCoreValues
 import Footer from "../components/footer/Footer";
 import CurrentOpenings from "../components/currentOpenings/CurrentOpenings";
 import Banner3 from "../components/banner3/Banner3";
+import MetaTag from "../components/metaTag/MetaTag";
 
 const CareersPage = () => {
   return (
-    <div className={styles.container}>
-      <Navbar
-        textColor={COLORS.black}
-        invertLogo={true}
-        iconColor={COLORS.black}
-        bgColor={COLORS.white}
+    <>
+      <MetaTag
+        title="Careers at ChemBizR"
+        description="Fast-track your career growth and get a chance to influence global business leaders to make innovative decisions. Join our team. Learn more."
       />
 
-      <Banner3
-        imagePath="/images/careers_page_hero.png"
-        heading="Level Up your Career<br />at ChemBizR"
-        para="Fast-track your career growth and get a chance to influence global,<br />business leaders to make innovative decisions. Join our team and,<br />be a part of an inclusive work-culture."
-        buttonText="More About Us"
-        buttonLink="/about-us"
-      />
+      <div className={styles.container}>
+        <Navbar
+          textColor={COLORS.black}
+          invertLogo={true}
+          iconColor={COLORS.black}
+          bgColor={COLORS.white}
+        />
 
-      <CoreValues
-        heading="Why Join ChemCons?"
-        cardData={WhyToJoinData}
-        hrColor={COLORS.green}
-      />
+        <Banner3
+          imagePath="/images/careers_page_hero.png"
+          heading="Level Up your Career<br />at ChemBizR"
+          para="Fast-track your career growth and get a chance to influence global,<br />business leaders to make innovative decisions. Join our team and,<br />be a part of an inclusive work-culture."
+          buttonText="More About Us"
+          buttonLink="/about-us"
+        />
 
-      <CareersCoreValues />
+        <CoreValues
+          heading="Why Join ChemCons?"
+          cardData={WhyToJoinData}
+          hrColor={COLORS.green}
+        />
 
-      <CurrentOpenings />
+        <CareersCoreValues />
 
-      <Footer />
-    </div>
+        <CurrentOpenings />
+
+        <Footer />
+      </div>
+    </>
   );
 };
 

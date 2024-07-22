@@ -16,6 +16,9 @@ const EventCardModal = ({
   // const date1 = new Date(milliseconds);
   // const dateString = date1.toLocaleString();
   const dateString = date.toLocaleString();
+  const sanitizedCategory =
+    category === "Speciality Polymers" ? "Specialty Polymers" : category;
+
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -52,7 +55,7 @@ const EventCardModal = ({
         <div className={styles.topDiv}>
           <img src={logoPath} alt="logo" />
           <div className={styles.innerDiv}>
-            <h5 className={styles.category}>{category}</h5>
+            <h5 className={styles.category}>{sanitizedCategory}</h5>
             <p className={styles.date}>{dateString}</p>
           </div>
         </div>

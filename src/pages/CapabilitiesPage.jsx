@@ -8,6 +8,7 @@ import styles from "./CapabilitiesPage.module.css";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import CapabilitiesBanner from "../components/capabilitiesBanner/CapabilitiesBanner";
+import MetaTag from "../components/metaTag/MetaTag";
 
 const responsiveHero = {
   superLargeDesktop: {
@@ -42,53 +43,60 @@ const CapabilitiesPage = () => {
   }, []);
 
   return (
-    <div className={styles.container}>
-      <Navbar
-        textColor={COLORS.black}
-        iconColor={COLORS.black}
-        bgColor={COLORS.white}
+    <>
+      <MetaTag
+        title="Our Capabilities | ChemBizR"
+        description="We offer value-driven application-specific knowledge to gain a granular outlook on client challenges and accordingly offer the requisite solutions."
       />
 
-      {/* Banner */}
-      {/* <Banner2
+      <div className={styles.container}>
+        <Navbar
+          textColor={COLORS.black}
+          iconColor={COLORS.black}
+          bgColor={COLORS.white}
+        />
+
+        {/* Banner */}
+        {/* <Banner2
         imagePath={"/images/focus_parent_page_hero.png"}
         heading="Capabilities"
       /> */}
 
-      <div style={{ marginTop: "-150px" }}>
-        {/* <Carousel responsive={responsiveHero}>
+        <div style={{ marginTop: "-150px" }}>
+          {/* <Carousel responsive={responsiveHero}>
           <CapabilitiesBanner imagePath="/images/capabilities_page/banner1.png" />
           <CapabilitiesBanner imagePath="/images/capabilities_page/banner2.png" />
           <CapabilitiesBanner imagePath="/images/capabilities_page/banner3.png" />
           <CapabilitiesBanner imagePath="/images/capabilities_page/banner4.png" />
         </Carousel> */}
-        <CapabilitiesBanner imagePath="/images/capabilities_page/banner5.png" />
-      </div>
+          <CapabilitiesBanner imagePath="/images/capabilities_page/banner5.png" />
+        </div>
 
-      <div className={styles.mainContainer}>
-        {CapabilitiesData.map((item, index) => (
-          <div
-            key={index}
-            id={index}
-            className={
-              index % 2 === 0 ? styles.evenCapability : styles.oddCapability
-            }
-          >
-            <div className={styles.imageDiv}>
-              <img src={item.imagePath2} alt="image" />
+        <div className={styles.mainContainer}>
+          {CapabilitiesData.map((item, index) => (
+            <div
+              key={index}
+              id={index}
+              className={
+                index % 2 === 0 ? styles.evenCapability : styles.oddCapability
+              }
+            >
+              <div className={styles.imageDiv}>
+                <img src={item.imagePath2} alt="image" />
+              </div>
+              <div>
+                <h5 className={styles.heading}>{item.normalHeading}</h5>
+                <p className={styles.desc}>{item.description}</p>
+              </div>
             </div>
-            <div>
-              <h5 className={styles.heading}>{item.normalHeading}</h5>
-              <p className={styles.desc}>{item.description}</p>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
+
+        <CallToAction />
+
+        <Footer />
       </div>
-
-      <CallToAction />
-
-      <Footer />
-    </div>
+    </>
   );
 };
 

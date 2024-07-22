@@ -15,6 +15,7 @@ import { useEffect, useState } from "react";
 import { firestore } from "../firebase/firebase";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import BannerLoader from "../components/bannerLoader/BannerLoader";
+import MetaTag from "../components/metaTag/MetaTag";
 
 const PetroChemicalsPage = () => {
   const [banner, setBanner] = useState(null);
@@ -53,72 +54,79 @@ const PetroChemicalsPage = () => {
   }, []);
 
   return (
-    <div className={styles.container}>
-      <Navbar
-        textColor={COLORS.black}
-        iconColor={COLORS.black}
-        bgColor={COLORS.white}
+    <>
+      <MetaTag
+        title="Downstream Petrochemicals | Research & Consulting Services"
+        description="We support companies with project feasibility, operation optimization, & driving transformational strategies in downstream and specialty chemicals. Learn more."
       />
 
-      {/* Banner / Hero section */}
-      {loading || !banner ? (
-        <BannerLoader />
-      ) : (
-        <Banner
-          imagePath={
-            banner.image
-              ? banner.image
-              : "/images/focus_area/petro_chemicals.png"
-          }
-          heading={
-            banner.heading
-              ? banner.heading
-              : "Decarbonization: Where are we Headed?"
-          }
-          para={
-            banner.description
-              ? banner.description
-              : FocusAreasData[2].description
-          }
-          buttonText="Know More"
-          textColor={COLORS.white}
-          contentWidth="600px"
-          headingMarginTop="110px"
-          buttonLink={
-            banner.link ? banner.link : "/petro-chemicals-and-downstream"
-          }
+      <div className={styles.container}>
+        <Navbar
+          textColor={COLORS.black}
+          iconColor={COLORS.black}
+          bgColor={COLORS.white}
         />
-      )}
 
-      <FocusDescription
-        longDescription={FocusAreasData[2].longDescription}
-        imagePath="/images/focus_area/petchem.png"
-      />
+        {/* Banner / Hero section */}
+        {loading || !banner ? (
+          <BannerLoader />
+        ) : (
+          <Banner
+            imagePath={
+              banner.image
+                ? banner.image
+                : "/images/focus_area/petro_chemicals.png"
+            }
+            heading={
+              banner.heading
+                ? banner.heading
+                : "Decarbonization: Where are we Headed?"
+            }
+            para={
+              banner.description
+                ? banner.description
+                : FocusAreasData[2].description
+            }
+            buttonText="Know More"
+            textColor={COLORS.white}
+            contentWidth="600px"
+            headingMarginTop="110px"
+            buttonLink={
+              banner.link ? banner.link : "/petro-chemicals-and-downstream"
+            }
+          />
+        )}
 
-      {/* Value chain section */}
-      <ValueChain6 />
+        <FocusDescription
+          longDescription={FocusAreasData[2].longDescription}
+          imagePath="/images/focus_area/petchem.png"
+        />
 
-      {/* Insights */}
-      <Insights pagetype="Petrochemicals & Downstream" />
+        {/* Value chain section */}
+        <ValueChain6 />
 
-      {/* Compendium */}
-      <Compendium category="Petrochemicals & Downstream" />
+        {/* Insights */}
+        <Insights pagetype="Petrochemicals & Downstream" />
 
-      {/* Events */}
-      <Events category="Petrochemicals & Downstream" />
+        {/* Compendium */}
+        <Compendium category="Petrochemicals & Downstream" />
 
-      {/* Industry News */}
-      <News
-        bgColor={COLORS.white}
-        textColor={COLORS.black}
-        category="Petrochemicals & Downstream"
-      />
+        {/* Events */}
+        <Events category="Petrochemicals & Downstream" />
 
-      <CallToAction />
+        {/* Industry News */}
+        <News
+          bgColor={COLORS.white}
+          textColor={COLORS.black}
+          category="Petrochemicals & Downstream"
+        />
 
-      {/* Footer */}
-      <Footer />
-    </div>
+        <CallToAction />
+
+        {/* Footer */}
+        <Footer />
+      </div>
+    </>
   );
 };
 

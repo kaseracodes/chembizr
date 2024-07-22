@@ -251,7 +251,7 @@ const EventsFeed = () => {
               key={index}
               onClick={() => handleClick(index)}
             >
-              {item}
+              {item === "Speciality Polymers" ? "Specialty Polymers" : item}
             </button>
           ))}
         </div>
