@@ -13,7 +13,7 @@ export const PlacesData = [
     address:
       "107/ 108/ 108A, Iris Tech Park, Sector 48, Gurugram, Haryana, 122001, India",
     email: "connect@chembizr.com",
-    phone: "+91 124 460 3022",
+    phone: "+91 124 660 1702",
   },
 
   {
