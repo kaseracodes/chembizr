@@ -16,6 +16,18 @@ import { firestore } from "../firebase/firebase";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import BannerLoader from "../components/bannerLoader/BannerLoader";
 import MetaTag from "../components/metaTag/MetaTag";
+import React from "react";
+
+/* Small helper for injecting JSON-LD */
+const JsonLd = ({ data }) => {
+  if (!data) return null;
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+};
 
 const PersonalCarePage = () => {
   const [banner, setBanner] = useState(null);
@@ -53,12 +65,50 @@ const PersonalCarePage = () => {
     fetchBanner();
   }, []);
 
+  // ---------------- JSON-LD ----------------
+  const origin =
+    typeof window !== "undefined" && window.location && window.location.origin
+      ? window.location.origin
+      : "https://chembizr.com/";
+
+  const focus = FocusAreasData && FocusAreasData[5] ? FocusAreasData[5] : null;
+  const serviceDescription = focus
+    ? focus.longDescription || focus.description || ""
+    : "Consulting services in personal care and cosmetics.";
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${origin}/personal-care-and-cosmetics/#webpage`,
+        url: `${origin}/personal-care-and-cosmetics`,
+        name: "Beauty and Personal Care | Research & Consulting Services",
+        description:
+          "Our consulting services provide access to information related to the prospects of novel active and functional ingredients that align with requisite market needs.",
+        publisher: { "@id": `${origin}/#organization` }
+      },
+      {
+        "@type": "Service",
+        "@id": `${origin}/personal-care-and-cosmetics/#service`,
+        serviceType: "Personal Care & Cosmetics Research & Consulting",
+        provider: { "@id": `${origin}/#organization` },
+        areaServed: { "@type": "Place", name: "Global" },
+        description: serviceDescription
+      }
+    ]
+  };
+  // -----------------------------------------
+
   return (
     <>
       <MetaTag
         title="Beauty and Personal Care | Research & Consulting Services"
         description="Our consulting services provide access to information related to the prospects of novel active and functional ingredients that align with requisite market needs. Learn more."
       />
+
+      {/* Inject JSON-LD */}
+      <JsonLd data={jsonLd} />
 
       <div className={styles.container}>
         <Navbar

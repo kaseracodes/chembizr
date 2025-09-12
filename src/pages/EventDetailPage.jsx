@@ -7,8 +7,19 @@ import { useParams } from "react-router-dom";
 import { EventsData } from "../assets/eventsData";
 import EventTitleCard from "../components/eventTitleCard/EventTitleCard";
 import Button from "../components/button/Button";
-import BussinessVerticals from "../components/bussinessVerticals/BussinessVerticals";
 import { useEffect, useState } from "react";
+import React from "react";
+
+/* Small helper for injecting JSON-LD */
+const JsonLd = ({ data }) => {
+  if (!data) return null;
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+};
 
 const BussinessVerticalsItems = [
   "Adhesives and Sealants",
@@ -38,32 +49,73 @@ const EventDetailPage = () => {
     };
 
     window.addEventListener("resize", handleResize);
-
-    // Clean up the event listener on component unmount
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const responsive = {
-    superLargeDesktop: {
-      // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 3000 },
-      items: 1,
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 1,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 1,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-    },
+    superLargeDesktop: { breakpoint: { max: 4000, min: 3000 }, items: 1 },
+    desktop: { breakpoint: { max: 3000, min: 1024 }, items: 1 },
+    tablet: { breakpoint: { max: 1024, min: 464 }, items: 1 },
+    mobile: { breakpoint: { max: 464, min: 0 }, items: 1 },
   };
+
+  // ---------------- JSON-LD ----------------
+  const origin =
+    typeof window !== "undefined" && window.location && window.location.origin
+      ? window.location.origin
+      : "https://chembizr.com/";
+
+  const eventUrl = event ? `${origin}/events/${event.id}` : undefined;
+  const imageUrls =
+    event && event.imagePath
+      ? event.imagePath.map((img) =>
+          img.startsWith("http") ? img : `${origin}${img}`
+        )
+      : [];
+
+  const eventJsonLd = event
+    ? {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "@id": `${eventUrl}#event`,
+        name: event.heading,
+        description: event.description,
+        startDate: event.date
+          ? new Date(event.date).toISOString()
+          : undefined,
+        eventAttendanceMode: "https://schema.org/OnlineEventAttendanceMode",
+        eventStatus: "https://schema.org/EventScheduled",
+        image: imageUrls,
+        location: {
+          "@type": "Place",
+          name: "Online / Global",
+          address: {
+            "@type": "PostalAddress",
+            addressCountry: "IN",
+          },
+        },
+        organizer: {
+          "@type": "Organization",
+          "@id": `${origin}/#organization`,
+          name: "ChemBizR",
+          url: origin,
+        },
+      }
+    : null;
+
+  const webPageJsonLd = event
+    ? {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": `${eventUrl}#webpage`,
+        url: eventUrl,
+        name: event.heading,
+        description: event.description,
+        about: { "@id": `${eventUrl}#event` },
+        publisher: { "@id": `${origin}/#organization` },
+      }
+    : null;
+  // -----------------------------------------
 
   return (
     <div className={styles.container}>
@@ -72,6 +124,10 @@ const EventDetailPage = () => {
         iconColor={COLORS.black}
         bgColor={COLORS.white}
       />
+
+      {/* Inject JSON-LD for event + webpage */}
+      {eventJsonLd && <JsonLd data={eventJsonLd} />}
+      {webPageJsonLd && <JsonLd data={webPageJsonLd} />}
 
       <div className={styles.mainContainer}>
         <div className={styles.leftDiv}>
@@ -84,7 +140,7 @@ const EventDetailPage = () => {
                 heading={item.heading}
                 date={new Date(
                   item.date.seconds * 1000 +
-                  Math.floor(item.date.nanoseconds / 1000000)
+                    Math.floor(item.date.nanoseconds / 1000000)
                 ).toLocaleString()}
               />
             ))}
@@ -125,22 +181,14 @@ const EventDetailPage = () => {
           </div>
         </div>
 
-        {/* <BussinessVerticals
-          BussinessVerticals={BussinessVerticalsItems}
-          buttonColor={COLORS.white}
-        /> */}
-
         <div className={styles.bvContainer}>
           <h5 className={styles.divHeading}>Business Verticals</h5>
           <hr className={styles.hr} />
           <div className={styles.bvDiv}>
             {BussinessVerticalsItems.map((item, index) => (
               <button
-                style={{ backgroundColor: buttonColors[index] }}
-                className={`${styles.bvItem} ${index === activeButton ? styles.active : ""
-                  }`}
                 key={index}
-                onClick={() => handleClick(index)}
+                className={styles.bvItem}
               >
                 {item}
               </button>

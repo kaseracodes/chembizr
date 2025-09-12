@@ -16,6 +16,18 @@ import { firestore } from "../firebase/firebase";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import BannerLoader from "../components/bannerLoader/BannerLoader";
 import MetaTag from "../components/metaTag/MetaTag";
+import React from "react";
+
+/* Small helper for injecting JSON-LD */
+const JsonLd = ({ data }) => {
+  if (!data) return null;
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+};
 
 const FoodNutritionPage = () => {
   const [banner, setBanner] = useState(null);
@@ -53,12 +65,51 @@ const FoodNutritionPage = () => {
     fetchBanner();
   }, []);
 
+  // ---------------- JSON-LD ----------------
+  const origin =
+    typeof window !== "undefined" && window.location && window.location.origin
+      ? window.location.origin
+      : "https://chembizr.com/";
+
+  // Use FocusAreasData[0] as canonical content for this page's Service description
+  const focus = FocusAreasData && FocusAreasData[0] ? FocusAreasData[0] : null;
+  const serviceDescription = focus
+    ? focus.longDescription || focus.description || ""
+    : "Consulting services in food, nutrition and beverages.";
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${origin}/food-nutrition-and-beverages/#webpage`,
+        url: `${origin}/food-nutrition-and-beverages`,
+        name: "Food & Nutrition | Research & Consulting Services",
+        description:
+          "ChemBizR is a trusted partner in navigating the complexities of today’s food market with a commitment to sustainability in processes & ingredients.",
+        publisher: { "@id": `${origin}/#organization` }
+      },
+      {
+        "@type": "Service",
+        "@id": `${origin}/food-nutrition-and-beverages/#service`,
+        serviceType: "Food, Nutrition & Beverages Research & Consulting",
+        provider: { "@id": `${origin}/#organization` },
+        areaServed: { "@type": "Place", name: "Global" },
+        description: serviceDescription
+      }
+    ]
+  };
+  // -----------------------------------------
+
   return (
     <>
       <MetaTag
         title="Food & Nutrition | Research & Consulting Services"
         description="ChemBizR is a trusted partner in navigating the complexities of today’s food market with a commitment to sustainability in processes & ingredients. Learn more."
       />
+
+      {/* Inject JSON-LD */}
+      <JsonLd data={jsonLd} />
 
       <div className={styles.container}>
         <Navbar
@@ -73,23 +124,15 @@ const FoodNutritionPage = () => {
           <BannerLoader />
         ) : (
           <Banner
-            imagePath={
-              banner.image ? banner.image : "/images/food_page_hero.png"
-            }
+            imagePath={banner.image ? banner.image : "/images/food_page_hero.png"}
             heading={
               banner.heading
                 ? banner.heading
                 : "What’s driving food factory closures – and how to avoid them"
             }
-            para={
-              banner.description
-                ? banner.description
-                : FocusAreasData[0].description
-            }
+            para={banner.description ? banner.description : FocusAreasData[0].description}
             buttonText="Know More"
-            buttonLink={
-              banner.link ? banner.link : "/food-nutrition-and-beverages"
-            }
+            buttonLink={banner.link ? banner.link : "/food-nutrition-and-beverages"}
             textColor={COLORS.white}
             headingMarginTop="100px"
             contentWidth="700px"

@@ -8,14 +8,26 @@ import Events from "../components/events/Events";
 import News from "../components/news/News";
 import Footer from "../components/footer/Footer";
 import CallToAction from "../components/callToAction/CallToAction";
-import { FocusAreasData } from "../assets/focusAreas";
 import FocusDescription from "../components/focusDescription/FocusDescription";
+import { FocusAreasData } from "../assets/focusAreas";
 import ValueChain6 from "../components/valueChain6/ValueChain6";
 import { useEffect, useState } from "react";
 import { firestore } from "../firebase/firebase";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import BannerLoader from "../components/bannerLoader/BannerLoader";
 import MetaTag from "../components/metaTag/MetaTag";
+import React from "react";
+
+/* Small helper for injecting JSON-LD */
+const JsonLd = ({ data }) => {
+  if (!data) return null;
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+};
 
 const PetroChemicalsPage = () => {
   const [banner, setBanner] = useState(null);
@@ -53,12 +65,50 @@ const PetroChemicalsPage = () => {
     fetchBanner();
   }, []);
 
+  // ---------------- JSON-LD ----------------
+  const origin =
+    typeof window !== "undefined" && window.location && window.location.origin
+      ? window.location.origin
+      : "https://chembizr.com/";
+
+  const focus = FocusAreasData && FocusAreasData[2] ? FocusAreasData[2] : null;
+  const serviceDescription = focus
+    ? focus.longDescription || focus.description || ""
+    : "Consulting services in petrochemicals and downstream markets.";
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${origin}/petro-chemicals-and-downstream/#webpage`,
+        url: `${origin}/petro-chemicals-and-downstream`,
+        name: "Downstream Petrochemicals | Research & Consulting Services",
+        description:
+          "We support companies with project feasibility, operation optimization, & driving transformational strategies in downstream and specialty chemicals.",
+        publisher: { "@id": `${origin}/#organization` },
+      },
+      {
+        "@type": "Service",
+        "@id": `${origin}/petro-chemicals-and-downstream/#service`,
+        serviceType: "Petrochemicals & Downstream Research & Consulting",
+        provider: { "@id": `${origin}/#organization` },
+        areaServed: { "@type": "Place", name: "Global" },
+        description: serviceDescription,
+      },
+    ],
+  };
+  // -----------------------------------------
+
   return (
     <>
       <MetaTag
         title="Downstream Petrochemicals | Research & Consulting Services"
         description="We support companies with project feasibility, operation optimization, & driving transformational strategies in downstream and specialty chemicals. Learn more."
       />
+
+      {/* Inject JSON-LD */}
+      <JsonLd data={jsonLd} />
 
       <div className={styles.container}>
         <Navbar
@@ -78,22 +128,14 @@ const PetroChemicalsPage = () => {
                 : "/images/focus_area/petro_chemicals.png"
             }
             heading={
-              banner.heading
-                ? banner.heading
-                : "Decarbonization: Where are we Headed?"
+              banner.heading ? banner.heading : "Decarbonization: Where are we Headed?"
             }
-            para={
-              banner.description
-                ? banner.description
-                : FocusAreasData[2].description
-            }
+            para={banner.description ? banner.description : FocusAreasData[2].description}
             buttonText="Know More"
             textColor={COLORS.white}
             contentWidth="600px"
             headingMarginTop="110px"
-            buttonLink={
-              banner.link ? banner.link : "/petro-chemicals-and-downstream"
-            }
+            buttonLink={banner.link ? banner.link : "/petro-chemicals-and-downstream"}
           />
         )}
 

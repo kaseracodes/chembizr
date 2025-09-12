@@ -13,6 +13,30 @@ import { firestore } from "../firebase/firebase";
 import { useState, useEffect } from "react";
 // import { useNavigate } from "react-router-dom";
 
+/* Small helper that injects JSON-LD */
+const JsonLd = ({ data }) => {
+  if (!data) return null;
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+};
+
+/* Small inline sanitizer for JSON-LD description (used only for schema) */
+const stripHtml = (html = "") => ("" + html).replace(/<[^>]*>?/gm, "").trim();
+
+/* Safe date converter that handles Firestore Timestamp or plain values */
+const toISOStringSafe = (d) => {
+  if (!d) return undefined;
+  // Firestore Timestamp
+  if (typeof d.toDate === "function") return d.toDate().toISOString();
+  // ISO string / number / Date
+  const date = new Date(d);
+  return isNaN(date.getTime()) ? undefined : date.toISOString();
+};
+
 const BlogDetailPage = () => {
   const params = useParams();
   const [shareFeedbackText, setShareFeedbackText] = useState("");
@@ -75,6 +99,8 @@ const BlogDetailPage = () => {
       );
       return unsubscribe;
     }
+    // original had empty deps — keep that behavior
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const formatDate = (dateString) => {
@@ -82,6 +108,90 @@ const BlogDetailPage = () => {
     const options = { day: "2-digit", month: "short", year: "numeric" };
     return date.toLocaleDateString("en-GB", options);
   };
+
+  /* ------------------- Build JSON-LD (only when userBlog exists) ------------------- */
+  const blogData = userBlog ? userBlog.data() : null;
+
+  // origin normalization (no trailing slash)
+  const rawOrigin =
+    typeof window !== "undefined" && window.location && window.location.origin
+      ? window.location.origin
+      : (process.env.REACT_APP_SITE_URL || "https://chembizr.com");
+  const origin = rawOrigin.replace(/\/+$/, "");
+
+  const blogUrl = blogData ? `${origin}/blogs/${blogData.slug || params.id}` : undefined;
+
+  const imageAbsolute =
+    blogData && blogData.image
+      ? blogData.image.startsWith("http")
+        ? blogData.image
+        : new URL(blogData.image, origin).href
+      : `${origin}/images/default-blog-image.png`;
+
+  const cleanDescription = blogData
+    ? stripHtml(blogData.description || "").slice(0, 300)
+    : "";
+
+  const blogJsonLd = blogData
+    ? {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": blogUrl
+        },
+        "headline": blogData.heading || blogData.title || "Blog post",
+        "description": cleanDescription || blogData.excerpt || "",
+        "image": [
+          {
+            "@type": "ImageObject",
+            "url": imageAbsolute
+          }
+        ],
+        "author": {
+          "@type": "Person",
+          "name": blogData.author || "ChemBizR"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "ChemBizR",
+          "logo": {
+            "@type": "ImageObject",
+            "url": `${origin}/images/logo.png`
+          }
+        },
+        "datePublished": toISOStringSafe(blogData.date),
+        "dateModified": toISOStringSafe(blogData.updatedAt || blogData.date)
+      }
+    : null;
+
+  const breadcrumbJsonLd = blogData
+    ? {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": origin
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blogs",
+            "item": `${origin}/blogs`
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": blogData.heading || blogData.title,
+            "item": blogUrl
+          }
+        ]
+      }
+    : null;
+  /* ------------------------------------------------------------------------------- */
 
   return (
     <div className={styles.container}>
@@ -91,6 +201,10 @@ const BlogDetailPage = () => {
         iconColor={COLORS.black}
         bgColor={COLORS.white}
       />
+
+      {/* Inject JSON-LD only when blogData is available */}
+      {blogJsonLd && <JsonLd data={blogJsonLd} />}
+      {breadcrumbJsonLd && <JsonLd data={breadcrumbJsonLd} />}
 
       <Banner2
         imagePath={userBlog && userBlog.data().image}

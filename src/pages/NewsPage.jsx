@@ -19,6 +19,18 @@ import {
 import Pagination from "../components/pagination/Pagination";
 import { useLocation, useSearchParams } from "react-router-dom";
 import MetaTag from "../components/metaTag/MetaTag";
+import React from "react";
+
+/* Small helper to inject JSON-LD */
+const JsonLd = ({ data }) => {
+  if (!data) return null;
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+};
 
 const NewsPage = () => {
   const BussinessVerticalsItems = [
@@ -83,17 +95,69 @@ const NewsPage = () => {
   const currentPage = new URLSearchParams(window.location.search).get("page");
 
   useEffect(() => {
-    newsCardDivRef.current.scrollTo({ top: 0, behavior: "smooth" });
+    newsCardDivRef.current?.scrollTo({ top: 0, behavior: "smooth" });
   }, [pathname, currentPage]);
 
   const [searchParams] = useSearchParams();
-  const page = searchParams.get("page") || 1;
+  const page = parseInt(searchParams.get("page") || "1", 10);
 
   const NEWS_PER_PAGE = 4;
   const hasPrev = NEWS_PER_PAGE * (page - 1) > 0;
   const hasNext = NEWS_PER_PAGE * page < newsData.length;
   const startIndex = NEWS_PER_PAGE * (page - 1);
   const endIndex = Math.min(startIndex + NEWS_PER_PAGE, newsData.length);
+
+  // ---------------- JSON-LD BUILD ----------------
+  const origin =
+    typeof window !== "undefined" && window.location && window.location.origin
+      ? window.location.origin
+      : "https://chembizr.com/";
+
+  // Build itemListElement for the current page slice (so JSON-LD matches visible content)
+  const itemListElements =
+    newsData && newsData.length
+      ? newsData.slice(startIndex, endIndex).map((doc, idx) => {
+          const data = doc.data();
+          const slugOrId = data.slug || data.id || doc.id || `${startIndex + idx}`;
+          const url = `${origin}/news/${slugOrId}`;
+          return {
+            "@type": "ListItem",
+            position: startIndex + idx + 1,
+            name: data.heading || data.title || `News ${startIndex + idx + 1}`,
+            item: url,
+          };
+        })
+      : [];
+
+  const listingJsonLd =
+    itemListElements.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": `${origin}/news/#webpage`,
+              url: `${origin}/news`,
+              name: "Industry News | ChemBizR",
+              description:
+                "Read the latest happenings in the chemical industry with our extensive news coverage in a variety of sectors, helping readers stay updated.",
+              publisher: { "@id": `${origin}/#organization` },
+            },
+            {
+              "@type": "ItemList",
+              "@id": `${origin}/news/#itemlist`,
+              itemListElement: itemListElements,
+            },
+          ],
+        }
+      : null;
+  // -------------- END JSON-LD BUILD ----------------
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const options = { day: "2-digit", month: "long", year: "numeric" };
+    return date.toLocaleDateString("en-GB", options);
+  };
 
   return (
     <>
@@ -109,10 +173,10 @@ const NewsPage = () => {
           bgColor={COLORS.white}
         />
 
-        <Banner2
-          imagePath="/images/news_page_hero.png"
-          heading="Industry News"
-        />
+        <Banner2 imagePath="/images/news_page_hero.png" heading="Industry News" />
+
+        {/* Inject JSON-LD when we have data for this page */}
+        {listingJsonLd && <JsonLd data={listingJsonLd} />}
 
         <div className={styles.newsListingDiv}>
           <div className={styles.newsCardDiv} ref={newsCardDivRef}>

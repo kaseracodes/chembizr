@@ -16,6 +16,18 @@ import { firestore } from "../firebase/firebase";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import BannerLoader from "../components/bannerLoader/BannerLoader";
 import MetaTag from "../components/metaTag/MetaTag";
+import React from "react";
+
+/* Small helper for injecting JSON-LD */
+const JsonLd = ({ data }) => {
+  if (!data) return null;
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+};
 
 const ChemicalsPage = () => {
   const [banner, setBanner] = useState(null);
@@ -50,12 +62,50 @@ const ChemicalsPage = () => {
     fetchBanner();
   }, []);
 
+  // ---------------- JSON-LD ----------------
+  const rawOrigin =
+    typeof window !== "undefined" && window.location && window.location.origin
+      ? window.location.origin
+      : (process.env.REACT_APP_SITE_URL || "https://chembizr.com");
+  const origin = rawOrigin.replace(/\/+$/, "");
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${origin}/specialty-polymers/#webpage`,
+        url: `${origin}/specialty-polymers`,
+        name: "Specialty Polymers | Research & Consulting Services",
+        description:
+          "We help companies find relevant materials, optimize margins, minimize risk, identify lucrative & emerging opportunities to stay ahead of the curve.",
+        publisher: { "@id": `${origin}/#organization` }
+      },
+      {
+        "@type": "Service",
+        "@id": `${origin}/specialty-polymers/#service`,
+        serviceType: "Specialty Polymers Research & Consulting",
+        provider: { "@id": `${origin}/#organization` },
+        areaServed: {
+          "@type": "Place",
+          name: "Global"
+        },
+        description:
+          "ChemBizR provides strategic consulting in specialty polymers — helping companies identify relevant materials, optimize margins, minimize risks, and capture emerging opportunities."
+      }
+    ]
+  };
+  // -----------------------------------------
+
   return (
     <>
       <MetaTag
         title="Specialty Polymers | Research & Consulting Services"
         description="We help companies find relevant materials, optimize margins, minimize risk, identify lucrative & emerging opportunities to stay ahead of the curve. Learn more."
       />
+
+      {/* Inject JSON-LD */}
+      <JsonLd data={jsonLd} />
 
       <div className={styles.container}>
         <Navbar
