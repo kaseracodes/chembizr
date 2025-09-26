@@ -16,6 +16,18 @@ import { collection, query, where, getDocs } from "firebase/firestore";
 import BannerLoader from "../components/bannerLoader/BannerLoader";
 import ValueChain4 from "../components/valueChain4/ValueChain4";
 import MetaTag from "../components/metaTag/MetaTag";
+import React from "react";
+
+/* Small helper for injecting JSON-LD */
+const JsonLd = ({ data }) => {
+  if (!data) return null;
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+};
 
 const MobilityPage = () => {
   const [banner, setBanner] = useState(null);
@@ -50,12 +62,57 @@ const MobilityPage = () => {
     fetchBanner();
   }, []);
 
+  // ---------------- JSON-LD ----------------
+  const origin =
+    typeof window !== "undefined" && window.location && window.location.origin
+      ? window.location.origin
+      : "https://chembizr.com/";
+
+  const focus = FocusAreasData && FocusAreasData[4] ? FocusAreasData[4] : null;
+  const serviceDescription = focus
+    ? focus.longDescription || focus.description || ""
+    : "Consulting services in mobility and materials for transport sectors.";
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${origin}/mobility/#webpage`,
+        url: `${origin}/mobility`,
+        name: "Mobility | Material Research & Consulting Services",
+        description:
+          "Our mobility consulting and services help accurately assess market opportunities for the most suitable and strategically fit material solutions.",
+        publisher: { "@id": `${origin}/#organization` }
+      },
+      {
+        "@type": "Service",
+        "@id": `${origin}/mobility/#service`,
+        serviceType: "Mobility Research & Consulting",
+        provider: { "@id": `${origin}/#organization` },
+        areaServed: { "@type": "Place", name: "Global" },
+        description: serviceDescription
+      }
+    ]
+  };
+  // -----------------------------------------
+
+  const responsive = {
+    superLargeDesktop: { breakpoint: { max: 4000, min: 3000 }, items: 1 },
+    desktop: { breakpoint: { max: 3000, min: 1024 }, items: 1 },
+    tablet: { breakpoint: { max: 1024, min: 464 }, items: 1 },
+    mobile: { breakpoint: { max: 464, min: 0 }, items: 1 }
+  };
+
   return (
     <>
       <MetaTag
         title="Mobility | Material Research & Consulting Services"
         description="Our mobility consulting and services help accurately assess market opportunities for the most suitable and strategically fit material solutions. Learn more."
       />
+
+      {/* Inject JSON-LD */}
+      <JsonLd data={jsonLd} />
 
       <div className={styles.container}>
         <Navbar
@@ -77,11 +134,7 @@ const MobilityPage = () => {
                 ? banner.heading
                 : "Opportunities and Challenges for Composites in Electric Vehicles"
             }
-            para={
-              banner.description
-                ? banner.description
-                : FocusAreasData[4].description
-            }
+            para={banner.description ? banner.description : FocusAreasData[4].description}
             buttonText="Know More"
             textColor={COLORS.white}
             contentWidth="800px"
@@ -126,11 +179,7 @@ const MobilityPage = () => {
         <Events category="Mobility" />
 
         {/* Industry News */}
-        <News
-          bgColor={COLORS.white}
-          textColor={COLORS.black}
-          category="Mobility"
-        />
+        <News bgColor={COLORS.white} textColor={COLORS.black} category="Mobility" />
 
         <CallToAction />
 

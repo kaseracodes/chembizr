@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useEffect } from "react";
 import { CapabilitiesData } from "../assets/capabilitiesData";
 import { COLORS } from "../assets/constants";
@@ -5,42 +6,69 @@ import CallToAction from "../components/callToAction/CallToAction";
 import Footer from "../components/footer/Footer";
 import Navbar from "../components/navbar/Navbar";
 import styles from "./CapabilitiesPage.module.css";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
 import CapabilitiesBanner from "../components/capabilitiesBanner/CapabilitiesBanner";
 import MetaTag from "../components/metaTag/MetaTag";
+import React from "react";
 
-const responsiveHero = {
-  superLargeDesktop: {
-    // the naming can be any, depends on you.
-    breakpoint: { max: 4000, min: 3000 },
-    items: 1,
-  },
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 1,
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 1,
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1,
-  },
+/* Small helper for injecting JSON-LD */
+const JsonLd = ({ data }) => {
+  if (!data) return null;
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
 };
 
 const CapabilitiesPage = () => {
   useEffect(() => {
     const hash = window.location.hash;
     if (hash) {
-      const sectionId = hash.substring(1); // Remove the "#" from the hash
+      const sectionId = hash.substring(1);
       const section = document.getElementById(sectionId);
       if (section) {
         window.scrollTo({ top: section.offsetTop, behavior: "smooth" });
       }
     }
   }, []);
+
+  // Build JSON-LD
+  const rawOrigin =
+  typeof window !== "undefined" && window.location && window.location.origin
+    ? window.location.origin
+    : (process.env.REACT_APP_SITE_URL || "https://chembizr.com");
+const origin = rawOrigin.replace(/\/+$/, "");
+
+  const itemListElements = CapabilitiesData.map((item, index) => {
+    const url = `${origin}/capabilities#${index}`;
+    return {
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.normalHeading,
+      item: url
+    };
+  });
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${origin}/capabilities/#webpage`,
+        url: `${origin}/capabilities`,
+        name: "ChemBizR Capabilities",
+        description:
+          "We offer value-driven application-specific knowledge to gain a granular outlook on client challenges and accordingly offer the requisite solutions.",
+        publisher: { "@id": `${origin}/#organization` }
+      },
+      {
+        "@type": "ItemList",
+        "@id": `${origin}/capabilities/#itemlist`,
+        itemListElement: itemListElements
+      }
+    ]
+  };
 
   return (
     <>
@@ -49,6 +77,9 @@ const CapabilitiesPage = () => {
         description="We offer value-driven application-specific knowledge to gain a granular outlook on client challenges and accordingly offer the requisite solutions."
       />
 
+      {/* Inject JSON-LD */}
+      <JsonLd data={jsonLd} />
+
       <div className={styles.container}>
         <Navbar
           textColor={COLORS.black}
@@ -56,19 +87,7 @@ const CapabilitiesPage = () => {
           bgColor={COLORS.white}
         />
 
-        {/* Banner */}
-        {/* <Banner2
-        imagePath={"/images/focus_parent_page_hero.png"}
-        heading="Capabilities"
-      /> */}
-
         <div style={{ marginTop: "-150px" }}>
-          {/* <Carousel responsive={responsiveHero}>
-          <CapabilitiesBanner imagePath="/images/capabilities_page/banner1.png" />
-          <CapabilitiesBanner imagePath="/images/capabilities_page/banner2.png" />
-          <CapabilitiesBanner imagePath="/images/capabilities_page/banner3.png" />
-          <CapabilitiesBanner imagePath="/images/capabilities_page/banner4.png" />
-        </Carousel> */}
           <CapabilitiesBanner imagePath="/images/capabilities_page/banner5.png" />
         </div>
 
@@ -82,7 +101,7 @@ const CapabilitiesPage = () => {
               }
             >
               <div className={styles.imageDiv}>
-                <img src={item.imagePath2} alt="image" />
+                <img src={item.imagePath2} alt={item.normalHeading} />
               </div>
               <div>
                 <h5 className={styles.heading}>{item.normalHeading}</h5>

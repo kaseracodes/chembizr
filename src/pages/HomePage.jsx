@@ -17,45 +17,31 @@ import FocusAreaSection from "../components/focusAreaSection/FocusAreaSection.js
 import { useEffect, useState } from "react";
 import UVP from "../components/uvp/UVP.jsx";
 import MetaTag from "../components/metaTag/MetaTag.jsx";
+import React from "react";
+
+// Small helper to inject JSON-LD
+const JsonLd = ({ data }) => {
+  if (!data) return null;
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+};
 
 const responsiveHero = {
-  superLargeDesktop: {
-    // the naming can be any, depends on you.
-    breakpoint: { max: 4000, min: 3000 },
-    items: 1,
-  },
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 1,
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 1,
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1,
-  },
+  superLargeDesktop: { breakpoint: { max: 4000, min: 3000 }, items: 1 },
+  desktop: { breakpoint: { max: 3000, min: 1024 }, items: 1 },
+  tablet: { breakpoint: { max: 1024, min: 464 }, items: 1 },
+  mobile: { breakpoint: { max: 464, min: 0 }, items: 1 }
 };
 
 const responsiveCapabilities = {
-  superLargeDesktop: {
-    // the naming can be any, depends on you.
-    breakpoint: { max: 4000, min: 1350 },
-    items: 4,
-  },
-  desktop: {
-    breakpoint: { max: 1350, min: 1024 },
-    items: 3,
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 600 },
-    items: 2,
-  },
-  mobile: {
-    breakpoint: { max: 600, min: 0 },
-    items: 1,
-  },
+  superLargeDesktop: { breakpoint: { max: 4000, min: 1350 }, items: 4 },
+  desktop: { breakpoint: { max: 1350, min: 1024 }, items: 3 },
+  tablet: { breakpoint: { max: 1024, min: 600 }, items: 2 },
+  mobile: { breakpoint: { max: 600, min: 0 }, items: 1 }
 };
 
 const HomePage = () => {
@@ -65,14 +51,58 @@ const HomePage = () => {
     const handleResize = () => {
       setShowDots(window.innerWidth <= 550);
     };
-
     window.addEventListener("resize", handleResize);
-
-    // Clean up the event listener on component unmount
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  // Build JSON-LD
+  const origin =
+    typeof window !== "undefined" && window.location
+      ? window.location.origin
+      : "https://chembizr.com/"; // replace with your domain
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${origin}/#organization`,
+        "name": "ChemBizR",
+        "url": origin,
+        "logo": {
+          "@type": "ImageObject",
+          "url": `${origin}/images/logo.png`,
+          "width": 600,
+          "height": 60
+        },
+        "sameAs": [
+          "https://www.linkedin.com/company/your-company",
+          "https://twitter.com/your-company",
+          "https://www.facebook.com/your-company"
+        ],
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "telephone": "+91-XXXXXXXXXX",
+            "contactType": "customer service",
+            "areaServed": "IN"
+          }
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${origin}/#website`,
+        "url": origin,
+        "name": "ChemBizR",
+        "publisher": { "@id": `${origin}/#organization` },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": `${origin}/search?q={search_term_string}`,
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  };
 
   return (
     <>
@@ -80,6 +110,9 @@ const HomePage = () => {
         title="ChemBizR | Global Research and Consulting"
         description="Remodeling corporate and market strategy for business growth and future transitions via business intelligence solutions for the chemical industry. Learn more."
       />
+
+      {/* Inject JSON-LD */}
+      <JsonLd data={jsonLd} />
 
       <div className={styles.container}>
         <Navbar
@@ -132,11 +165,6 @@ const HomePage = () => {
         </div>
 
         <BlogsSection />
-
-        {/* <Heading content="Unique Value Proposition" />
-      <div className={styles.uniquePropositionImageDiv}>
-        <img src="/images/unique_proposition.png" alt="image" />
-      </div> */}
 
         <UVP />
 

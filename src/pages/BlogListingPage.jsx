@@ -34,6 +34,18 @@ import {
 import { auth, firestore } from "../firebase/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import MetaTag from "../components/metaTag/MetaTag";
+import React from "react";
+
+/* Small JsonLd helper that injects a script tag */
+const JsonLd = ({ data }) => {
+  if (!data) return null;
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+};
 
 const NextButton = (props) => {
   const { className, style, onClick } = props;
@@ -106,14 +118,6 @@ const BlogListingPage = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-
-  // const onClickNext = () => {
-  //   setCurrTopic((currTopic + 1) % 9);
-  // };
-
-  // const onClickPrev = () => {
-  //   setCurrTopic((currTopic + 8) % 9);
-  // };
 
   const settings = {
     infinite: false,
@@ -193,7 +197,7 @@ const BlogListingPage = () => {
   const currentPage = new URLSearchParams(window.location.search).get("page");
 
   useEffect(() => {
-    leftDivRef.current.scrollTo({ top: 0, behavior: "smooth" });
+    leftDivRef.current?.scrollTo({ top: 0, behavior: "smooth" });
   }, [pathname, currentPage]);
 
   const [searchParams] = useSearchParams();
@@ -240,6 +244,53 @@ const BlogListingPage = () => {
     }
   };
 
+  // ------------------ JSON-LD BUILD ------------------
+  const rawOrigin =
+  typeof window !== "undefined" && window.location && window.location.origin
+    ? window.location.origin
+    : (process.env.REACT_APP_SITE_URL || "https://chembizr.com");
+  const origin = rawOrigin.replace(/\/+$/, "");
+
+  // Build ItemList entries from blogsData when available
+  const itemListElements = blogsData.length
+    ? blogsData.map((doc, idx) => {
+        const data = doc.data();
+        const slugOrId = data.slug || data.id || idx;
+        const url = `${origin}/blogs/${slugOrId}`;
+        return {
+          "@type": "ListItem",
+          position: idx + 1,
+          name: data.heading || data.title || `Blog ${idx + 1}`,
+          item: url,
+        };
+      })
+    : [];
+
+  // Page-level WebPage object (references organization by @id if you have it)
+  const listingJsonLd =
+    itemListElements.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": `${origin}/blogs/#webpage`,
+              url: `${origin}/blogs`,
+              name: "ChemBizR Blog - Market Insights",
+              description:
+                "Check our market insights to read our media releases and unbiased opinions about how the industries and market are shaping the future.",
+              publisher: { "@id": `${origin}/#organization` }
+            },
+            {
+              "@type": "ItemList",
+              "@id": `${origin}/blogs/#itemlist`,
+              itemListElement: itemListElements
+            }
+          ]
+        }
+      : null;
+  // ---------------- END JSON-LD BUILD ----------------
+
   return (
     <>
       <MetaTag
@@ -255,16 +306,10 @@ const BlogListingPage = () => {
           bgColor={COLORS.white}
         />
 
-        <div className={styles.mainContainer}>
-          {/* <div className={styles.outerInputDiv}>
-          <div className={styles.mobileInputContainer}>
-            <input type="text" placeholder="Search Blogs" />
-            <button className={styles.icon}>
-              <SearchIcon color={COLORS.black} height="20" width="20" />
-            </button>
-          </div>
-        </div> */}
+        {/* Inject JSON-LD when we have data */}
+        {listingJsonLd && <JsonLd data={listingJsonLd} />}
 
+        <div className={styles.mainContainer}>
           <div className={styles.leftDiv} ref={leftDivRef}>
             <div className={styles.topicsCarouselOuterDiv}>
               <div className={styles.topicsCarouselDiv}>
@@ -302,7 +347,6 @@ const BlogListingPage = () => {
                   date={formatDate(item.data().date)}
                 />
               ))}
-              {/* <BlogListingComponent currentTopic={Topics[currTopic]} /> */}
             </div>
 
             <Pagination
@@ -314,20 +358,12 @@ const BlogListingPage = () => {
           </div>
 
           <div className={styles.rightDiv}>
-            {/* <div className={styles.inputContainer}>
-            <input type="text" placeholder="Search Blogs" />
-            <button className={styles.icon}>
-              <SearchIcon color={COLORS.black} height="20" width="20" />
-            </button>
-          </div> */}
-
             <div className={styles.spotlightDiv}>
               <h5 className={styles.spotlightHeading}>Spotlight</h5>
               <Carousel responsive={responsive} showDots arrows={false}>
                 {blogsData
                   .filter((item) => item.data().isspotlight === "true")
                   .map((item, index) => {
-                    // console.log("Short: ", item.data().short);
                     return (
                       <SpotlightBlogCard
                         key={index}
@@ -345,18 +381,6 @@ const BlogListingPage = () => {
               <h5 className={styles.topicsDivHeading}>
                 Looking for a Specific Topic?
               </h5>
-
-              {/* <div className={styles.topicsContainer}>
-              {Topics.map((item, index) => (
-                <div
-                  className={styles.topic}
-                  key={index}
-                  // onClick={() => handleTopicClick(index)}
-                >
-                  {item}
-                </div>
-              ))}
-            </div> */}
             </div>
 
             <div className={styles.newsletterDiv}>

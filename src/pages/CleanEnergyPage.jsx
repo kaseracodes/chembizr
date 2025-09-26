@@ -18,6 +18,18 @@ import { collection, query, where, getDocs } from "firebase/firestore";
 import BannerLoader from "../components/bannerLoader/BannerLoader";
 import ValueChain3 from "../components/valueChain3/ValueChain3";
 import MetaTag from "../components/metaTag/MetaTag";
+import React from "react";
+
+/* Small helper for injecting JSON-LD */
+const JsonLd = ({ data }) => {
+  if (!data) return null;
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+};
 
 const CleanEnergyPage = () => {
   const [banner, setBanner] = useState(null);
@@ -31,16 +43,12 @@ const CleanEnergyPage = () => {
 
     try {
       const bannersRef = collection(firestore, "banners");
-      const q = query(
-        bannersRef,
-        where("page", "==", "Clean Energy & Storage")
-      );
+      const q = query(bannersRef, where("page", "==", "Clean Energy & Storage"));
       const querySnapshot = await getDocs(q);
 
       if (!querySnapshot.empty) {
         const bannerDoc = querySnapshot.docs[0].data();
         setBanner(bannerDoc);
-        console.log(bannerDoc);
       } else {
         setError("No banner found for the selected page.");
       }
@@ -56,27 +64,11 @@ const CleanEnergyPage = () => {
   }, []);
 
   const responsive = {
-    superLargeDesktop: {
-      // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 1300 },
-      items: 5,
-    },
-    desktop: {
-      breakpoint: { max: 1300, min: 1100 },
-      items: 3,
-    },
-    tablet: {
-      breakpoint: { max: 1100, min: 750 },
-      items: 3,
-    },
-    mobile: {
-      breakpoint: { max: 750, min: 550 },
-      items: 2,
-    },
-    smallMobile: {
-      breakpoint: { max: 550, min: 0 },
-      items: 2,
-    },
+    superLargeDesktop: { breakpoint: { max: 4000, min: 1300 }, items: 5 },
+    desktop: { breakpoint: { max: 1300, min: 1100 }, items: 3 },
+    tablet: { breakpoint: { max: 1100, min: 750 }, items: 3 },
+    mobile: { breakpoint: { max: 750, min: 550 }, items: 2 },
+    smallMobile: { breakpoint: { max: 550, min: 0 }, items: 2 },
   };
 
   const [showDots, setShowDots] = useState(window.innerWidth < 550);
@@ -87,12 +79,39 @@ const CleanEnergyPage = () => {
     };
 
     window.addEventListener("resize", handleResize);
-
-    // Clean up the event listener on component unmount
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  // ---------------- JSON-LD ----------------
+  const origin =
+    typeof window !== "undefined" && window.location && window.location.origin
+      ? window.location.origin
+      : "https://chembizr.com/";
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${origin}/clean-energy-and-storage/#webpage`,
+        url: `${origin}/clean-energy-and-storage`,
+        name: "Clean Energy & Renewables | Research & Consulting Services",
+        description:
+          "We support companies through the green transition, offering a comprehensive suite of consulting services tailored to their unique needs.",
+        publisher: { "@id": `${origin}/#organization` }
+      },
+      {
+        "@type": "Service",
+        "@id": `${origin}/clean-energy-and-storage/#service`,
+        serviceType: "Clean Energy & Renewable Consulting",
+        provider: { "@id": `${origin}/#organization` },
+        areaServed: { "@type": "Place", name: "Global" },
+        description:
+          "ChemBizR provides consulting in clean energy, renewables, and storage solutions — supporting companies with strategies to meet net-zero targets and capture opportunities in the green transition."
+      }
+    ]
+  };
+  // -----------------------------------------
 
   return (
     <>
@@ -100,6 +119,9 @@ const CleanEnergyPage = () => {
         title="Clean Energy & Renewables | Research & Consulting Services"
         description="We support companies through the green transition, offering a comprehensive suite of consulting services tailored to their unique needs. Learn more."
       />
+
+      {/* Inject JSON-LD */}
+      <JsonLd data={jsonLd} />
 
       <div className={styles.container}>
         <Navbar
@@ -158,23 +180,23 @@ const CleanEnergyPage = () => {
               infinite={showDots}
             >
               <div className={styles.geImageDiv}>
-                <img src="/images/focus_area/ge1.webp" alt="image" />
+                <img src="/images/focus_area/ge1.webp" alt="Solar" />
                 <p className={styles.geImageHeading}>Solar</p>
               </div>
               <div className={styles.geImageDiv}>
-                <img src="/images/focus_area/ge2.webp" alt="image" />
+                <img src="/images/focus_area/ge2.webp" alt="Wind" />
                 <p className={styles.geImageHeading}>Wind</p>
               </div>
               <div className={styles.geImageDiv}>
-                <img src="/images/focus_area/ge3.webp" alt="image" />
+                <img src="/images/focus_area/ge3.webp" alt="Hydro" />
                 <p className={styles.geImageHeading}>Hydro</p>
               </div>
               <div className={styles.geImageDiv}>
-                <img src="/images/focus_area/ge4.webp" alt="image" />
+                <img src="/images/focus_area/ge4.webp" alt="Hydrogen" />
                 <p className={styles.geImageHeading}>Hydrogen</p>
               </div>
               <div className={styles.geImageDiv}>
-                <img src="/images/focus_area/ge5.webp" alt="image" />
+                <img src="/images/focus_area/ge5.webp" alt="Geo Thermal" />
                 <p className={styles.geImageHeading}>Geo Thermal</p>
               </div>
             </Carousel>
@@ -182,7 +204,6 @@ const CleanEnergyPage = () => {
         </div>
 
         <div className={styles.esContainer}>
-          {/* <h3 className={styles.esHeading}>Energy Storage</h3> */}
           <div className={styles.esInnerContainer}>
             <div className={styles.esContentDiv}>
               <h5 className={styles.esSubHeading}>
@@ -199,7 +220,7 @@ const CleanEnergyPage = () => {
             </div>
             <img
               src="/images/focus_area/energy_storage_diagram.png"
-              alt="image"
+              alt="Energy Storage Diagram"
               className={styles.esImage}
             />
           </div>

@@ -15,27 +15,23 @@ import MoreFocusArea from "../components/moreFocusArea/MoreFocusArea";
 import Navbar from "../components/navbar/Navbar";
 import { COLORS } from "../assets/constants";
 import Footer from "../components/footer/Footer";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import { FaPlay, FaPause } from "react-icons/fa";
+import { FaArrowLeft, FaArrowRight, FaPlay, FaPause } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { firestore } from "../firebase/firebase";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import BannerLoader from "../components/bannerLoader/BannerLoader";
 import MetaTag from "../components/metaTag/MetaTag";
+import React from "react";
 
-// const CustomDot = ({ onClick, ...rest }) => {
-//   const { active } = rest;
-//   return (
-//     <li>
-//       <button
-//         style={{
-//           background: active ? "black" : "white",
-//         }}
-//         onClick={() => onClick()}
-//       />
-//     </li>
-//   );
-// };
+const JsonLd = ({ data }) => {
+  if (!data) return null;
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+};
 
 const CustomButtonGroup = ({ next, previous }) => {
   return (
@@ -51,73 +47,82 @@ const CustomButtonGroup = ({ next, previous }) => {
 };
 
 const responsive = {
-  superLargeDesktop: {
-    // the naming can be any, depends on you.
-    breakpoint: { max: 4000, min: 3000 },
-    items: 1,
-  },
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 1,
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 1,
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1,
-  },
+  superLargeDesktop: { breakpoint: { max: 4000, min: 3000 }, items: 1 },
+  desktop: { breakpoint: { max: 3000, min: 1024 }, items: 1 },
+  tablet: { breakpoint: { max: 1024, min: 464 }, items: 1 },
+  mobile: { breakpoint: { max: 464, min: 0 }, items: 1 },
 };
 
 const FocusParentPage = () => {
   const [autoPlay, setAutoPlay] = useState(true);
   const [banner, setBanner] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
 
-  const handlePlayPause = () => {
-    setAutoPlay(!autoPlay);
-  };
+  const handlePlayPause = () => setAutoPlay(!autoPlay);
 
   const fetchBanner = async () => {
     setLoading(true);
-    setError(null);
     setBanner(null);
-
     try {
       const bannersRef = collection(firestore, "banners");
       const q = query(bannersRef, where("page", "==", "Focus Parent"));
       const querySnapshot = await getDocs(q);
-
       if (!querySnapshot.empty) {
-        const bannerDoc = querySnapshot.docs[0].data();
-        setBanner(bannerDoc);
-        // console.log(bannerDoc);
-      } else {
-        setError("No banner found for the selected page.");
+        setBanner(querySnapshot.docs[0].data());
       }
     } catch (err) {
-      setError("Error fetching banner: " + err.message);
+      console.error("Error fetching banner:", err);
     } finally {
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    const hash = window.location.hash;
-    if (hash) {
-      const sectionId = hash.substring(1); // Remove the "#" from the hash
-      const section = document.getElementById(sectionId);
-      if (section) {
-        window.scrollTo({ top: section.offsetTop, behavior: "smooth" });
-      }
-    }
-  }, []);
-
-  useEffect(() => {
     fetchBanner();
   }, []);
+
+  // ---------------- JSON-LD ----------------
+  const origin =
+    typeof window !== "undefined" && window.location && window.location.origin
+      ? window.location.origin
+      : "https://chembizr.com/";
+
+  const focusAreas = [
+    { name: "Food, Nutrition & Beverages", slug: "food-nutrition-and-beverages" },
+    { name: "Specialty Chemicals and Polymers", slug: "specialty-polymers" },
+    { name: "Petrochemicals & Downstream", slug: "petrochemicals" },
+    { name: "Clean Energy & Storage", slug: "clean-energy-and-storage" },
+    { name: "Mobility", slug: "mobility" },
+    { name: "Personal Care & Cosmetics", slug: "personal-care-and-cosmetics" },
+  ];
+
+  const itemListElements = focusAreas.map((area, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: area.name,
+    item: `${origin}/${area.slug}`
+  }));
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${origin}/focus/#webpage`,
+        url: `${origin}/focus`,
+        name: "Our Industry Focus | ChemBizR",
+        description:
+          "At ChemBizR, our industrial and market focus is extensive. We offer deep insights and consulting services in a variety of domains and verticals.",
+        publisher: { "@id": `${origin}/#organization` }
+      },
+      {
+        "@type": "ItemList",
+        "@id": `${origin}/focus/#itemlist`,
+        itemListElement: itemListElements
+      }
+    ]
+  };
+  // -----------------------------------------
 
   return (
     <>
@@ -125,6 +130,8 @@ const FocusParentPage = () => {
         title="Our Industry Focus | ChemBizR"
         description="At ChemBizR, our industrial and market focus is extensive. We offer deep insights and consulting services in a variety of domains and verticals. Learn more."
       />
+
+      <JsonLd data={jsonLd} />
 
       <div className={styles.container}>
         <Navbar
@@ -149,7 +156,7 @@ const FocusParentPage = () => {
             para={
               banner.description
                 ? banner.description
-                : "‘Anti-pollution’ is one of the newest buzzwords in the personal care and cosmetics industries, and companies are racing to market masks, sprays, and creams that promise to shield our skin and hair from pollution-related damage."
+                : "‘Anti-pollution’ is one of the newest buzzwords in the personal care and cosmetics industries."
             }
             buttonText="Read More"
             headingLineHeight="120%"
@@ -157,30 +164,17 @@ const FocusParentPage = () => {
           />
         )}
 
-        {/* Food Nutrition & Beverages */}
         <FoodNutrition />
-
-        {/* Speciality Chemicals and Polymers section */}
         <Chemicals />
-
-        {/* Petrochemicals & Downstream */}
         <PetroChemicals />
-
-        {/* Clean Energy & Storage */}
         <EnergyAndStorage />
-
-        {/* Mobility */}
         <Mobility />
-
-        {/* Personal Care & Cosmetics */}
         <CareAndCosmetics />
 
-        {/* More Focus Areas */}
         <div className={styles.carouselContainer} id="more">
           <h3 className={styles.heading}>More of Our Focus Verticals</h3>
           <h5 className={styles.subHeading}>
-            Get personalized solutions across a few more of our business
-            verticals
+            Get personalized solutions across a few more of our business verticals
           </h5>
           <Carousel
             responsive={responsive}
@@ -208,9 +202,7 @@ const FocusParentPage = () => {
           </button>
         </div>
 
-        {/* Call to Action */}
         <CallToAction />
-
         <Footer />
       </div>
     </>

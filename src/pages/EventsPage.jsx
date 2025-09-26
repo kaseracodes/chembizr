@@ -7,9 +7,48 @@ import MetaTag from "../components/metaTag/MetaTag";
 import Navbar from "../components/navbar/Navbar";
 import useDisableZoom from "../useDisableZoom";
 import styles from "./EventsPage.module.css";
+import React from "react";
+
+/* Helper for injecting JSON-LD */
+const JsonLd = ({ data }) => {
+  if (!data) return null;
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+};
 
 const EventsPage = () => {
   useDisableZoom();
+
+  // ---------------- JSON-LD ----------------
+  const origin =
+    typeof window !== "undefined" && window.location && window.location.origin
+      ? window.location.origin
+      : "https://chembizr.com/";
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${origin}/events/#webpage`,
+        url: `${origin}/events`,
+        name: "Participation in Industry Events | ChemBizR",
+        description:
+          "We attend global conferences and tradeshows to access the portfolio & service offerings of multiple stakeholders across the supply and value chain.",
+        publisher: { "@id": `${origin}/#organization` }
+      },
+      {
+        "@type": "ItemList",
+        "@id": `${origin}/events/#itemlist`,
+        itemListElement: [] // ⚠️ Optionally fill this dynamically with events if you pass EventsData here
+      }
+    ]
+  };
+  // -----------------------------------------
 
   return (
     <>
@@ -17,6 +56,9 @@ const EventsPage = () => {
         title="Participation in Industry Events | ChemBizR"
         description="We attend global conferences and tradeshows to access the portfolio & service offerings of multiple stakeholders across the supply and value chain. Learn more."
       />
+
+      {/* Inject JSON-LD */}
+      <JsonLd data={jsonLd} />
 
       <div className={styles.container}>
         <Navbar
@@ -33,8 +75,7 @@ const EventsPage = () => {
         <EventsFeed />
 
         {/* <CallToAction />
-
-      <Footer /> */}
+        <Footer /> */}
       </div>
     </>
   );
