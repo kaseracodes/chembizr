@@ -36,11 +36,19 @@ export default async function handler(req, res) {
     
     // Add static pages
     sitemap.write({ url: '/', changefreq: 'daily', priority: 1.0 });
-    sitemap.write({ url: '/about', changefreq: 'monthly', priority: 0.8 });
-    sitemap.write({ url: '/contact', changefreq: 'monthly', priority: 0.7 });
+    sitemap.write({ url: '/about-us', changefreq: 'monthly', priority: 0.8 });
+    sitemap.write({ url: '/industries', changefreq: 'monthly', priority: 0.8 });
     sitemap.write({ url: '/capabilities', changefreq: 'monthly', priority: 0.8 });
     sitemap.write({ url: '/careers', changefreq: 'weekly', priority: 0.6 });
     sitemap.write({ url: '/insights', changefreq: 'weekly', priority: 0.9 });
+    sitemap.write({ url: '/news', changefreq: 'daily', priority: 0.9 });
+    sitemap.write({ url: '/events', changefreq: 'weekly', priority: 0.9 });
+    sitemap.write({ url: '/food-nutrition-and-beverages', changefreq: 'monthly', priority: 0.6 });
+    sitemap.write({ url: '/specialty-polymers', changefreq: 'monthly', priority: 0.6 });
+    sitemap.write({ url: '/petro-chemicals-and-downstream', changefreq: 'monthly', priority: 0.6 });
+    sitemap.write({ url: '/clean-energy-and-storage', changefreq: 'monthly', priority: 0.6 });
+    sitemap.write({ url: '/mobility', changefreq: 'monthly', priority: 0.6 });
+    sitemap.write({ url: '/personal-care-and-cosmetics', changefreq: 'monthly', priority: 0.6 });
     
     // Get blogs
     const blogsQuery = query(
