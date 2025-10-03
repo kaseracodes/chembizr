@@ -25,6 +25,7 @@ import EventDetailPage from "./pages/EventDetailPage.jsx";
 import CountdownPage from "./pages/CountdownPage.jsx";
 import ScrollToTop from "./ScrollToTop.jsx";
 import { Route, Routes } from "react-router-dom";
+import { HelmetProvider } from 'react-helmet-async';
 
 function App() {
 
@@ -47,6 +48,7 @@ function App() {
 
   return (
     <>
+    <HelmetProvider>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -82,6 +84,7 @@ function App() {
         <Route path="/test" element={<BlogsSection />} />
         <Route path="/countdown" element={<CountdownPage/>} />
       </Routes>
+      </HelmetProvider>
     </>
   );
 }
