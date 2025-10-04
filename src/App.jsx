@@ -25,6 +25,8 @@ import EventDetailPage from "./pages/EventDetailPage.jsx";
 import CountdownPage from "./pages/CountdownPage.jsx";
 import ScrollToTop from "./ScrollToTop.jsx";
 import { Route, Routes } from "react-router-dom";
+import { HelmetProvider } from 'react-helmet-async';
+import DynamicMetaTags from "./components/dynamicMetaTags/DynamicMetaTags.jsx";
 
 function App() {
 
@@ -47,7 +49,9 @@ function App() {
 
   return (
     <>
+    <HelmetProvider>
       <ScrollToTop />
+      <DynamicMetaTags />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/industries" element={<FocusParentPage />} />
@@ -82,6 +86,7 @@ function App() {
         <Route path="/test" element={<BlogsSection />} />
         <Route path="/countdown" element={<CountdownPage/>} />
       </Routes>
+      </HelmetProvider>
     </>
   );
 }

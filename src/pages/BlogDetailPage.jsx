@@ -8,10 +8,14 @@ import Banner2 from "../components/banner2/Banner2";
 import CommentSection from "../components/commentSection/CommentSection";
 import CallToAction from "../components/callToAction/CallToAction";
 import Footer from "../components/footer/Footer";
-import { collection, onSnapshot, where, query } from "firebase/firestore";
+// Updated import to include getDocs for metadata fetching
+import { collection, onSnapshot, where, query, getDocs } from "firebase/firestore";
 import { firestore } from "../firebase/firebase";
 import { useState, useEffect } from "react";
+// New import for React Helmet
+import { Helmet } from 'react-helmet-async';
 // import { useNavigate } from "react-router-dom";
+
 
 /* Small helper that injects JSON-LD */
 const JsonLd = ({ data }) => {
@@ -24,8 +28,10 @@ const JsonLd = ({ data }) => {
   );
 };
 
+
 /* Small inline sanitizer for JSON-LD description (used only for schema) */
 const stripHtml = (html = "") => ("" + html).replace(/<[^>]*>?/gm, "").trim();
+
 
 /* Safe date converter that handles Firestore Timestamp or plain values */
 const toISOStringSafe = (d) => {
@@ -37,21 +43,29 @@ const toISOStringSafe = (d) => {
   return isNaN(date.getTime()) ? undefined : date.toISOString();
 };
 
+
 const BlogDetailPage = () => {
   const params = useParams();
   const [shareFeedbackText, setShareFeedbackText] = useState("");
+  // New state for metadata
+  const [metadata, setMetadata] = useState(null);
+
 
   // const blog = userBlog.find((item) => item.id === params.id);
   // const [blog, setBlog] = useState();
 
+
   // const navigate = useNavigate();
+
 
   // const handleClickComment = () => {
   //   navigate(`/comment/${params.id}`);
   // };
 
+
   const handleShareButtonClick = () => {
     const pageUrl = window.location.href; // Get the current page URL
+
 
     if (navigator.clipboard && window.isSecureContext) {
       // Use the modern Clipboard API
@@ -82,10 +96,12 @@ const BlogDetailPage = () => {
     }
   };
 
+
   const handlePrintButtonClick = () => {
     window.scrollTo(0, 0);
     window.print();
   };
+
 
   const [userBlog, setUserBlog] = useState(null);
   useEffect(() => {
@@ -103,14 +119,41 @@ const BlogDetailPage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // New useEffect for metadata fetching
+  useEffect(() => {
+    const fetchMetadata = async () => {
+      if (params.id) {
+        try {
+          const metadataQuery = query(
+            collection(firestore, 'metadata'),
+            where('blogId', '==', params.id)
+          );
+          const metadataSnapshot = await getDocs(metadataQuery);
+          
+          if (!metadataSnapshot.empty) {
+            setMetadata(metadataSnapshot.docs[0].data());
+            console.log('Metadata loaded:', metadataSnapshot.docs[0].data());
+          }
+        } catch (error) {
+          console.error('Error fetching metadata:', error);
+        }
+      }
+    };
+
+    fetchMetadata();
+  }, [params.id]);
+
+
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     const options = { day: "2-digit", month: "short", year: "numeric" };
     return date.toLocaleDateString("en-GB", options);
   };
 
+
   /* ------------------- Build JSON-LD (only when userBlog exists) ------------------- */
   const blogData = userBlog ? userBlog.data() : null;
+
 
   // origin normalization (no trailing slash)
   const rawOrigin =
@@ -119,7 +162,9 @@ const BlogDetailPage = () => {
       : (process.env.REACT_APP_SITE_URL || "https://chembizr.com");
   const origin = rawOrigin.replace(/\/+$/, "");
 
+
   const blogUrl = blogData ? `${origin}/blogs/${blogData.slug || params.id}` : undefined;
+
 
   const imageAbsolute =
     blogData && blogData.image
@@ -128,9 +173,11 @@ const BlogDetailPage = () => {
         : new URL(blogData.image, origin).href
       : `${origin}/images/default-blog-image.png`;
 
+
   const cleanDescription = blogData
     ? stripHtml(blogData.description || "").slice(0, 300)
     : "";
+
 
   const blogJsonLd = blogData
     ? {
@@ -165,6 +212,7 @@ const BlogDetailPage = () => {
       }
     : null;
 
+
   const breadcrumbJsonLd = blogData
     ? {
         "@context": "https://schema.org",
@@ -193,6 +241,7 @@ const BlogDetailPage = () => {
     : null;
   /* ------------------------------------------------------------------------------- */
 
+
   return (
     <div className={styles.container}>
       <Navbar
@@ -202,9 +251,36 @@ const BlogDetailPage = () => {
         bgColor={COLORS.white}
       />
 
+      {/* New: Dynamic SEO Meta Tags */}
+      {metadata && (
+        <Helmet>
+          <title>{metadata.metaTitle}</title>
+          <meta name="description" content={metadata.metaDescription} />
+          {metadata.metaKeywords && <meta name="keywords" content={metadata.metaKeywords} />}
+          
+          {/* Open Graph Tags */}
+          <meta property="og:title" content={metadata.ogTitle} />
+          <meta property="og:description" content={metadata.ogDescription} />
+          <meta property="og:image" content={metadata.ogImage} />
+          <meta property="og:url" content={metadata.ogUrl} />
+          <meta property="og:type" content="article" />
+          
+          {/* Twitter Card Tags */}
+          <meta name="twitter:card" content={metadata.twitterCard} />
+          <meta name="twitter:title" content={metadata.twitterTitle} />
+          <meta name="twitter:description" content={metadata.twitterDescription} />
+          <meta name="twitter:image" content={metadata.twitterImage} />
+          
+          {/* Article specific tags */}
+          {metadata.author && <meta name="author" content={metadata.author} />}
+          {metadata.publishedDate && <meta property="article:published_time" content={metadata.publishedDate} />}
+        </Helmet>
+      )}
+
       {/* Inject JSON-LD only when blogData is available */}
       {blogJsonLd && <JsonLd data={blogJsonLd} />}
       {breadcrumbJsonLd && <JsonLd data={breadcrumbJsonLd} />}
+
 
       <Banner2
         imagePath={userBlog && userBlog.data().image}
@@ -212,11 +288,13 @@ const BlogDetailPage = () => {
         fontSize="80px"
       />
 
+
       <div className={styles.mainDiv}>
         <div className={styles.path}>
           <a href="/">ChemBizR</a> / <a href="/blogs">Blogs</a> /{" "}
           <a>{userBlog && userBlog.data().category}</a>
         </div>
+
 
         <div className={styles.btnDiv}>
           <button onClick={handleShareButtonClick}>
@@ -227,6 +305,7 @@ const BlogDetailPage = () => {
             <img src="/images/print_icon.png" /> Print / Save as PDF
           </button>
         </div>
+
 
         <div className={styles.contentDiv}>
           <h5>{userBlog && userBlog.data().author}</h5>
@@ -248,6 +327,7 @@ const BlogDetailPage = () => {
         </div>
       </div>
 
+
       <CommentSection
         comments={
           userBlog && userBlog.data().comments ? userBlog.data().comments : []
@@ -255,11 +335,14 @@ const BlogDetailPage = () => {
         userImage="/images/profile_pic.png"
       />
 
+
       <CallToAction />
+
 
       <Footer />
     </div>
   );
 };
+
 
 export default BlogDetailPage;
